@@ -33,23 +33,35 @@ export const CartProvider = ({ children }) => {
     setCartDetails(details);
   };
 
-  const addToCart = (productId, quantity = 1) => {
-    cartAPI.addToCart(productId, quantity);
-    loadCart();
-  };
-
-  const updateQuantity = (productId, quantity) => {
-    if (quantity <= 0) {
-      removeFromCart(productId);
-    } else {
-      cartAPI.updateQuantity(productId, quantity);
+  const addToCart = async (productId, quantity = 1) => {
+    try {
+      await cartAPI.addToCart(productId, quantity);
       loadCart();
+    } catch (error) {
+      throw error; // Re-throw để component có thể xử lý
     }
   };
 
-  const removeFromCart = (productId) => {
-    cartAPI.removeFromCart(productId);
-    loadCart();
+  const updateQuantity = async (productId, quantity) => {
+    try {
+      if (quantity <= 0) {
+        await removeFromCart(productId);
+      } else {
+        await cartAPI.updateQuantity(productId, quantity);
+        loadCart();
+      }
+    } catch (error) {
+      throw error;
+    }
+  };
+
+  const removeFromCart = async (productId) => {
+    try {
+      await cartAPI.removeFromCart(productId);
+      loadCart();
+    } catch (error) {
+      throw error;
+    }
   };
 
   const clearCart = () => {
