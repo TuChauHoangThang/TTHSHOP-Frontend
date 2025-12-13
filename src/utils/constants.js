@@ -15,9 +15,9 @@ export const PRODUCT_CATEGORIES = [
   'Tất cả',
   'Phụ kiện',
   'Túi xách',
-  'Đồ trang trí',
-  'Quần áo',
-  'Khác'
+  'Thời trang',
+  'Trang trí',
+  'Đồ dùng'
 ];
 
 export const ORDER_STATUS = {
