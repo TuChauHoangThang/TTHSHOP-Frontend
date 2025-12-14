@@ -1,41 +1,100 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import { useCart } from '../../context/CartContext';
+import './Header.css';
 
 const Header = () => {
   const { user, logout, isAuthenticated } = useAuth();
   const { getTotalItems } = useCart();
+  const navigate = useNavigate();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const handleLogout = () => {
+    logout();
+    navigate('/');
+  };
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
 
   return (
-    <header style={{ 
-      padding: '1rem', 
-      backgroundColor: '#f8f9fa', 
-      borderBottom: '1px solid #dee2e6',
-      display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'center'
-    }}>
-      <Link to="/" style={{ textDecoration: 'none', color: '#333' }}>
-        <h1>TTH Shop - Handmade</h1>
-      </Link>
-      
-      <nav style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
-        <Link to="/products">Sản Phẩm</Link>
-        
-        <Link to="/cart">
-          Giỏ Hàng ({getTotalItems()})
+    <header className="header">
+      <div className="header-container">
+        {/* Logo */}
+        <Link to="/" className="header-logo">
+          <h1>TTH Shop</h1>
+          <span className="logo-subtitle">Handmade</span>
         </Link>
-        
+
+        {/* Navigation Desktop */}
+        <nav className="header-nav">
+          <Link to="/" className="nav-link">Trang Chủ</Link>
+          <Link to="/products" className="nav-link">Sản Phẩm</Link>
+          
+          {/* Cart with badge */}
+          <Link to="/cart" className="nav-link cart-link">
+            <span>Giỏ Hàng</span>
+            {getTotalItems() > 0 && (
+              <span className="cart-badge">{getTotalItems()}</span>
+            )}
+          </Link>
+
+          {/* User Menu */}
+          {isAuthenticated ? (
+            <div className="user-menu">
+              <Link to="/profile" className="nav-link user-name">
+                Xin chào, {user?.name || user?.email}
+              </Link>
+              <button onClick={handleLogout} className="btn-logout">
+                Đăng Xuất
+              </button>
+            </div>
+          ) : (
+            <div className="auth-links">
+              <Link to="/login" className="nav-link">Đăng Nhập</Link>
+              <Link to="/register" className="btn-register">Đăng Ký</Link>
+            </div>
+          )}
+        </nav>
+
+        {/* Mobile Menu Toggle */}
+        <button className="mobile-menu-toggle" onClick={toggleMenu}>
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+
+      {/* Mobile Navigation */}
+      <nav className={`mobile-nav ${isMenuOpen ? 'mobile-nav-open' : ''}`}>
+        <Link to="/" className="mobile-nav-link" onClick={() => setIsMenuOpen(false)}>
+          Trang Chủ
+        </Link>
+        <Link to="/products" className="mobile-nav-link" onClick={() => setIsMenuOpen(false)}>
+          Sản Phẩm
+        </Link>
+        <Link to="/cart" className="mobile-nav-link" onClick={() => setIsMenuOpen(false)}>
+          Giỏ Hàng {getTotalItems() > 0 && `(${getTotalItems()})`}
+        </Link>
         {isAuthenticated ? (
           <>
-            <Link to="/profile">Xin chào, {user?.name || user?.email}</Link>
-            <button onClick={logout}>Đăng Xuất</button>
+            <Link to="/profile" className="mobile-nav-link" onClick={() => setIsMenuOpen(false)}>
+              Xin chào, {user?.name || user?.email}
+            </Link>
+            <button onClick={handleLogout} className="mobile-nav-link mobile-logout">
+              Đăng Xuất
+            </button>
           </>
         ) : (
           <>
-            <Link to="/login">Đăng Nhập</Link>
-            <Link to="/register">Đăng Ký</Link>
+            <Link to="/login" className="mobile-nav-link" onClick={() => setIsMenuOpen(false)}>
+              Đăng Nhập
+            </Link>
+            <Link to="/register" className="mobile-nav-link" onClick={() => setIsMenuOpen(false)}>
+              Đăng Ký
+            </Link>
           </>
         )}
       </nav>
@@ -44,4 +103,3 @@ const Header = () => {
 };
 
 export default Header;
-
