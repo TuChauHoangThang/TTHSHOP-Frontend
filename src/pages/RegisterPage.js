@@ -1,11 +1,35 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 import './LoginPage.css';
 
 const RegisterPage = () => {
+    const navigate = useNavigate();
+    const { register } = useAuth();
 
-    const handleSubmit = (e) => {
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [acceptTerms, setAcceptTerms] = useState(false);
+    const [error, setError] = useState('');
+    const [loading, setLoading] = useState(false);
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
+        if (!acceptTerms) {
+            setError('Bạn cần đồng ý điều khoản');
+            return;
+        }
+        setError('');
+        setLoading(true);
+        const result = await register({ name, email, password });
+        setLoading(false);
+
+        if (result.success) {
+            navigate('/');
+        } else {
+            setError(result.error || 'Đăng ký thất bại');
+        }
     };
 
     return (
@@ -44,16 +68,46 @@ const RegisterPage = () => {
 
 
                         <div className="form-container">
-                            <input type="text" placeholder="Name" />
-                            <input type="email" placeholder="Email" />
-                            <input type="password" placeholder="Password" />
+                            <input
+                                type="text"
+                                placeholder="Name"
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
+                                required
+                            />
+                            <input
+                                type="email"
+                                placeholder="Email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                required
+                            />
+                            <input
+                                type="password"
+                                placeholder="Password"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                required
+                            />
 
                             <label className="remember">
-                                <input type="checkbox" />
+                                <input
+                                    type="checkbox"
+                                    checked={acceptTerms}
+                                    onChange={(e) => setAcceptTerms(e.target.checked)}
+                                />
                                 <span className="accept-terms">I accept terms</span>
                             </label>
 
-                            <button onClick={handleSubmit}>Register</button>
+                            {error && (
+                                <p style={{ color: 'red', marginTop: '8px' }}>
+                                    {error}
+                                </p>
+                            )}
+
+                            <button onClick={handleSubmit} disabled={loading}>
+                                {loading ? 'Đang đăng ký...' : 'Register'}
+                            </button>
                         </div>
 
                         <p className="switch">
