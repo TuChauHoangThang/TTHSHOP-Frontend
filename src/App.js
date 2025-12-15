@@ -20,6 +20,7 @@ import './styles/App.css';
 function App() {
   return (
     <Router>
+
       <AuthProvider>
         <CartProvider>
           <Layout>

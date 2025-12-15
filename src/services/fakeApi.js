@@ -5,9 +5,37 @@
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
 // Users data (lưu trong localStorage)
+// Users data (lưu trong localStorage)
 const getUsers = () => {
-  const users = localStorage.getItem('users');
-  return users ? JSON.parse(users) : [];
+    const users = localStorage.getItem('users');
+    if (users) return JSON.parse(users);
+
+    // 👉 USER MẪU BAN ĐẦU
+    const sampleUsers = [
+        {
+            id: 1,
+            email: 'admin@gmail.com',
+            password: '123456',
+            name: 'Admin User',
+            phone: '',
+            address: '',
+            role: 'admin',
+            createdAt: new Date().toISOString()
+        },
+        {
+            id: 2,
+            email: 'user@gmail.com',
+            password: '123456',
+            name: 'Normal User',
+            phone: '',
+            address: '',
+            role: 'user',
+            createdAt: new Date().toISOString()
+        }
+    ];
+
+    localStorage.setItem('users', JSON.stringify(sampleUsers));
+    return sampleUsers;
 };
 
 const saveUsers = (users) => {
