@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import { useCart } from '../../context/CartContext';
-import './Header.css';
+import '../../styles/Header.css';
 
 const Header = () => {
   const { user, logout, isAuthenticated } = useAuth();
