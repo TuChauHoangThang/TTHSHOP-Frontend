@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useProducts } from '../hooks/useProducts';
 import { useCart } from '../context/CartContext';
-import { productsAPI, favoritesAPI } from '../services/fakeApi';
+import { productsAPI, favoritesAPI } from '../services/api';
 import { formatPrice } from '../utils/formatPrice';
 import '../styles/HomePage.css';
 
@@ -114,6 +114,21 @@ const HomePage = () => {
                         <img src="/images/len.jpg" alt="Len" />
                         <h3>Chất liệu len</h3>
                         <p>Đặc sắc trong từng đường nét</p>
+                    </div>
+                    <div className="material-card">
+                        <img src="/images/giay.jpg" alt="Giấy" />
+                        <h3>Chất liệu giấy</h3>
+                        <p>Nghệ thuật từ giấy tái chế</p>
+                    </div>
+                    <div className="material-card">
+                        <img src="/images/giay.jpg" alt="Giấy" />
+                        <h3>Chất liệu giấy</h3>
+                        <p>Nghệ thuật từ giấy tái chế</p>
+                    </div>
+                    <div className="material-card">
+                        <img src="/images/giay.jpg" alt="Giấy" />
+                        <h3>Chất liệu giấy</h3>
+                        <p>Nghệ thuật từ giấy tái chế</p>
                     </div>
                     <div className="material-card">
                         <img src="/images/giay.jpg" alt="Giấy" />
