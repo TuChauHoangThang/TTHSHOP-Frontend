@@ -4,7 +4,7 @@ import { useProducts } from '../hooks/useProducts';
 import { useCart } from '../context/CartContext';
 import { productsAPI, favoritesAPI } from '../services/fakeApi';
 import { formatPrice } from '../utils/formatPrice';
-import './ProductsPage.css';
+import '../styles/ProductsPage.css';
 
 const ProductsPage = () => {
   const navigate = useNavigate();

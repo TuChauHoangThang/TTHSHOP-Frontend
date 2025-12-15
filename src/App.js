@@ -15,7 +15,7 @@ import UserProfilePage from './pages/UserProfilePage';
 import CartPage from './pages/CartPage';
 import CheckoutPage from './pages/CheckoutPage';
 
-import './App.css';
+import './styles/App.css';
 
 function App() {
   return (
