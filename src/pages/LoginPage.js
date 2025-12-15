@@ -5,22 +5,24 @@ import './LoginPage.css';
 
 const LoginPage = () => {
     const navigate = useNavigate();
-    const { login } = useAuth(); // ✅ dùng AuthContext
+    const { login } = useAuth();
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
+    const [loading, setLoading] = useState(false);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError('');
-
+        setLoading(true);
         const result = await login(email, password);
+        setLoading(false);
 
         if (result.success) {
-            navigate('/'); // 👉 về trang chủ
+            navigate('/');
         } else {
-            setError(result.error);
+            setError(result.error || 'Đăng nhập thất bại');
         }
     };
 
@@ -54,7 +56,9 @@ const LoginPage = () => {
                                 </p>
                             )}
 
-                            <button type="submit">Log In</button>
+                            <button type="submit" disabled={loading}>
+                                {loading ? 'Đang đăng nhập...' : 'Log In'}
+                            </button>
                         </form>
 
                         <span className="loginwith">Or Connect with</span>
