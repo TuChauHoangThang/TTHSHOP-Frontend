@@ -1,0 +1,483 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "admin@gmail.com",
+      "password": "123456",
+      "name": "Admin User",
+      "phone": "",
+      "address": "",
+      "role": "admin",
+      "createdAt": "2024-01-01T00:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "email": "user@gmail.com",
+      "password": "123456",
+      "name": "Normal User",
+      "phone": "",
+      "address": "",
+      "role": "user",
+      "createdAt": "2024-01-01T00:00:00.000Z"
+    },
+    {
+      "email": "abc123@gmail.com",
+      "password": "113004",
+      "name": "Thang",
+      "phone": "",
+      "address": "",
+      "role": "user",
+      "createdAt": "2025-12-15T11:14:18.027Z",
+      "id": 3
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "Vòng tay handmade từ hạt gỗ tự nhiên",
+      "price": 150000,
+      "image": "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400",
+      "description": "Vòng tay handmade độc đáo được làm từ hạt gỗ tự nhiên, kết hợp với dây da mềm mại. Sản phẩm thân thiện với môi trường, phù hợp cho mọi lứa tuổi.",
+      "category": "Phụ kiện",
+      "stock": 10,
+      "rating": 4.5,
+      "reviews": 23,
+      "tags": [
+        "handmade",
+        "gỗ",
+        "phụ kiện"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400",
+        "https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?w=400"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Túi vải handmade thân thiện môi trường",
+      "price": 250000,
+      "image": "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=400",
+      "description": "Túi vải canvas handmade với thiết kế đơn giản nhưng tinh tế. Kích thước vừa phải, phù hợp cho việc đi chợ, đi học hoặc đi làm. Có thể giặt máy.",
+      "category": "Túi xách",
+      "stock": 5,
+      "rating": 4.8,
+      "reviews": 15,
+      "tags": [
+        "handmade",
+        "vải",
+        "thân thiện môi trường"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=400",
+        "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Khăn choàng len handmade",
+      "price": 320000,
+      "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400",
+      "description": "Khăn choàng len ấm áp được đan tay với chất liệu len mềm mại. Thiết kế hoa văn độc đáo, màu sắc đa dạng. Phù hợp cho mùa đông.",
+      "category": "Thời trang",
+      "stock": 8,
+      "rating": 4.7,
+      "reviews": 31,
+      "tags": [
+        "handmade",
+        "len",
+        "mùa đông"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400",
+        "https://images.unsplash.com/photo-1583394838336-acd977736f90?w=400"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Nến thơm handmade từ sáp ong",
+      "price": 180000,
+      "image": "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=400",
+      "description": "Nến thơm được làm từ sáp ong tự nhiên, có mùi hương dịu nhẹ. Thời gian cháy lâu, an toàn cho sức khỏe. Có nhiều mùi hương để lựa chọn.",
+      "category": "Trang trí",
+      "stock": 12,
+      "rating": 4.6,
+      "reviews": 42,
+      "tags": [
+        "handmade",
+        "nến",
+        "sáp ong",
+        "trang trí"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=400",
+        "https://images.unsplash.com/photo-1603398938373-e54da0bb5e48?w=400"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Tranh thêu tay hoa sen",
+      "price": 450000,
+      "image": "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400",
+      "description": "Tranh thêu tay với hình ảnh hoa sen thanh tao. Được thêu bằng chỉ lụa cao cấp, khung gỗ tự nhiên. Phù hợp trang trí phòng khách hoặc phòng ngủ.",
+      "category": "Trang trí",
+      "stock": 3,
+      "rating": 5,
+      "reviews": 18,
+      "tags": [
+        "handmade",
+        "thêu",
+        "tranh",
+        "trang trí"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400",
+        "https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400"
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Bộ ly sứ vẽ tay",
+      "price": 280000,
+      "image": "https://images.unsplash.com/photo-1579783902614-a53fb8287b1a?w=400",
+      "description": "Bộ 4 ly sứ được vẽ tay với hoa văn độc đáo. Mỗi ly có thiết kế riêng biệt, không chiếc nào giống chiếc nào. An toàn cho sức khỏe, có thể dùng trong lò vi sóng.",
+      "category": "Đồ dùng",
+      "stock": 6,
+      "rating": 4.4,
+      "reviews": 27,
+      "tags": [
+        "handmade",
+        "sứ",
+        "ly",
+        "vẽ tay"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1579783902614-a53fb8287b1a?w=400",
+        "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=400"
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Ví da handmade",
+      "price": 380000,
+      "image": "https://images.unsplash.com/photo-1627123424574-724758594e93?w=400",
+      "description": "Ví da bò thật được làm thủ công, có nhiều ngăn tiện lợi. Chất liệu da mềm, bền đẹp theo thời gian. Thiết kế tối giản, phù hợp cho cả nam và nữ.",
+      "category": "Phụ kiện",
+      "stock": 4,
+      "rating": 4.9,
+      "reviews": 35,
+      "tags": [
+        "handmade",
+        "da",
+        "ví",
+        "phụ kiện"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1627123424574-724758594e93?w=400",
+        "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400"
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Móc khóa đất sét nung",
+      "price": 85000,
+      "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400",
+      "description": "Móc khóa được nặn từ đất sét và nung thủ công. Có nhiều hình dạng đáng yêu như động vật, hoa quả. Màu sắc tươi sáng, bền màu.",
+      "category": "Phụ kiện",
+      "stock": 20,
+      "rating": 4.3,
+      "reviews": 56,
+      "tags": [
+        "handmade",
+        "đất sét",
+        "móc khóa"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400",
+        "https://images.unsplash.com/photo-1583394838336-acd977736f90?w=400"
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Gối tựa lưng thêu hoa",
+      "price": 220000,
+      "image": "https://images.unsplash.com/photo-1584100936595-c0655ba6af63?w=400",
+      "description": "Gối tựa lưng được thêu tay với hoa văn tinh tế. Ruột gối làm từ bông tự nhiên, vỏ gối bằng vải cotton mềm mại. Kích thước 40x40cm.",
+      "category": "Trang trí",
+      "stock": 7,
+      "rating": 4.6,
+      "reviews": 19,
+      "tags": [
+        "handmade",
+        "gối",
+        "thêu",
+        "trang trí"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1584100936595-c0655ba6af63?w=400",
+        "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400"
+      ]
+    },
+    {
+      "id": 10,
+      "name": "Bình hoa gốm sứ handmade",
+      "price": 350000,
+      "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400",
+      "description": "Bình hoa gốm sứ được nung thủ công với hoa văn độc đáo. Kích thước vừa phải, phù hợp để cắm hoa tươi hoặc hoa khô. Màu sắc tự nhiên, sang trọng.",
+      "category": "Trang trí",
+      "stock": 5,
+      "rating": 4.8,
+      "reviews": 24,
+      "tags": [
+        "handmade",
+        "gốm",
+        "bình hoa",
+        "trang trí"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400",
+        "https://images.unsplash.com/photo-1603398938373-e54da0bb5e48?w=400"
+      ]
+    },
+    {
+      "id": 11,
+      "name": "Túi đeo chéo da thật handmade",
+      "price": 420000,
+      "image": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400",
+      "description": "Túi đeo chéo được làm từ da bò thật, thiết kế tối giản và thanh lịch. Có nhiều ngăn tiện lợi, dây đeo có thể điều chỉnh. Phù hợp cho cả nam và nữ.",
+      "category": "Túi xách",
+      "stock": 6,
+      "rating": 4.7,
+      "reviews": 28,
+      "tags": [
+        "handmade",
+        "da",
+        "túi",
+        "phụ kiện"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400",
+        "https://images.unsplash.com/photo-1627123424574-724758594e93?w=400"
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Bộ khăn trải bàn thêu tay",
+      "price": 380000,
+      "image": "https://images.unsplash.com/photo-1583394838336-acd977736f90?w=400",
+      "description": "Bộ khăn trải bàn được thêu tay với hoa văn truyền thống. Chất liệu vải cotton cao cấp, dễ giặt và bền màu. Kích thước 150x150cm.",
+      "category": "Trang trí",
+      "stock": 4,
+      "rating": 4.9,
+      "reviews": 12,
+      "tags": [
+        "handmade",
+        "thêu",
+        "khăn",
+        "trang trí"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1583394838336-acd977736f90?w=400",
+        "https://images.unsplash.com/photo-1584100936595-c0655ba6af63?w=400"
+      ]
+    },
+    {
+      "id": 13,
+      "name": "Đèn ngủ gốm sứ handmade",
+      "price": 280000,
+      "image": "https://images.unsplash.com/photo-1603398938373-e54da0bb5e48?w=400",
+      "description": "Đèn ngủ được làm từ gốm sứ, ánh sáng dịu nhẹ tạo không gian ấm cúng. Thiết kế độc đáo, an toàn khi sử dụng. Có nhiều màu sắc để lựa chọn.",
+      "category": "Trang trí",
+      "stock": 8,
+      "rating": 4.5,
+      "reviews": 33,
+      "tags": [
+        "handmade",
+        "gốm",
+        "đèn",
+        "trang trí"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1603398938373-e54da0bb5e48?w=400",
+        "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=400"
+      ]
+    },
+    {
+      "id": 14,
+      "name": "Bộ bát đĩa gốm handmade",
+      "price": 320000,
+      "image": "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=400",
+      "description": "Bộ 6 bát đĩa gốm được nung thủ công, hoa văn độc đáo. An toàn cho sức khỏe, có thể dùng trong lò vi sóng và máy rửa bát.",
+      "category": "Đồ dùng",
+      "stock": 5,
+      "rating": 4.6,
+      "reviews": 21,
+      "tags": [
+        "handmade",
+        "gốm",
+        "bát đĩa",
+        "đồ dùng"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=400",
+        "https://images.unsplash.com/photo-1579783902614-a53fb8287b1a?w=400"
+      ]
+    },
+    {
+      "id": 15,
+      "name": "Túi xách cói đan tay",
+      "price": 290000,
+      "image": "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=400",
+      "description": "Túi xách được đan từ cói tự nhiên, thiết kế bền chắc và thời trang. Phù hợp cho mùa hè, thân thiện với môi trường. Có thể giặt nhẹ.",
+      "category": "Túi xách",
+      "stock": 7,
+      "rating": 4.4,
+      "reviews": 38,
+      "tags": [
+        "handmade",
+        "cói",
+        "túi",
+        "thân thiện môi trường"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=400",
+        "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400"
+      ]
+    },
+    {
+      "id": 16,
+      "name": "Vòng cổ đá tự nhiên handmade",
+      "price": 200000,
+      "image": "https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?w=400",
+      "description": "Vòng cổ được làm từ đá tự nhiên, mỗi chiếc đều độc đáo. Dây đeo bằng da mềm mại, có thể điều chỉnh độ dài. Phù hợp cho mọi phong cách.",
+      "category": "Phụ kiện",
+      "stock": 9,
+      "rating": 4.8,
+      "reviews": 45,
+      "tags": [
+        "handmade",
+        "đá",
+        "vòng cổ",
+        "phụ kiện"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?w=400",
+        "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400"
+      ]
+    },
+    {
+      "id": 17,
+      "name": "Bộ khăn tắm cotton handmade",
+      "price": 350000,
+      "image": "https://images.unsplash.com/photo-1583394838336-acd977736f90?w=400",
+      "description": "Bộ 2 khăn tắm cotton cao cấp, thấm hút tốt và mềm mại. Kích thước 70x140cm, phù hợp cho cả gia đình. Có thể giặt máy.",
+      "category": "Thời trang",
+      "stock": 6,
+      "rating": 4.7,
+      "reviews": 19,
+      "tags": [
+        "handmade",
+        "cotton",
+        "khăn tắm",
+        "thời trang"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1583394838336-acd977736f90?w=400",
+        "https://images.unsplash.com/photo-1584100936595-c0655ba6af63?w=400"
+      ]
+    },
+    {
+      "id": 18,
+      "name": "Hộp đựng đồ gỗ handmade",
+      "price": 180000,
+      "image": "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400",
+      "description": "Hộp đựng đồ được làm từ gỗ tự nhiên, thiết kế tối giản. Có thể dùng để đựng đồ trang sức, phụ kiện hoặc đồ lưu niệm. Kích thước 20x15x10cm.",
+      "category": "Trang trí",
+      "stock": 10,
+      "rating": 4.5,
+      "reviews": 26,
+      "tags": [
+        "handmade",
+        "gỗ",
+        "hộp",
+        "trang trí"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400",
+        "https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400"
+      ]
+    },
+    {
+      "id": 19,
+      "name": "Bộ chén trà gốm sứ vẽ tay",
+      "price": 240000,
+      "image": "https://images.unsplash.com/photo-1579783902614-a53fb8287b1a?w=400",
+      "description": "Bộ 6 chén trà được vẽ tay với hoa văn tinh tế. Chất liệu gốm sứ cao cấp, giữ nhiệt tốt. Phù hợp cho việc thưởng thức trà.",
+      "category": "Đồ dùng",
+      "stock": 8,
+      "rating": 4.6,
+      "reviews": 30,
+      "tags": [
+        "handmade",
+        "gốm",
+        "chén trà",
+        "vẽ tay"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1579783902614-a53fb8287b1a?w=400",
+        "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=400"
+      ]
+    },
+    {
+      "id": 20,
+      "name": "Tranh vẽ tay trên vải canvas",
+      "price": 550000,
+      "image": "https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400",
+      "description": "Tranh được vẽ tay trên vải canvas, mỗi bức tranh đều độc đáo. Khung gỗ tự nhiên, kích thước 40x50cm. Phù hợp trang trí phòng khách, phòng làm việc.",
+      "category": "Trang trí",
+      "stock": 2,
+      "rating": 5,
+      "reviews": 15,
+      "tags": [
+        "handmade",
+        "tranh",
+        "vẽ tay",
+        "trang trí"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400",
+        "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400"
+      ]
+    }
+  ],
+  "reviews": [
+    {
+      "id": 1,
+      "productId": 1,
+      "userId": 1,
+      "userName": "Nguyễn Văn A",
+      "rating": 5,
+      "comment": "Sản phẩm rất đẹp, chất lượng tốt. Vòng tay mềm mại và bền. Sẽ mua lại!",
+      "createdAt": "2024-03-01T00:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "productId": 1,
+      "userId": 2,
+      "userName": "Trần Thị B",
+      "rating": 4,
+      "comment": "Đẹp nhưng hơi nhỏ so với cổ tay mình. Chất lượng ổn.",
+      "createdAt": "2024-03-05T00:00:00.000Z"
+    },
+    {
+      "id": 3,
+      "productId": 2,
+      "userId": 3,
+      "userName": "Lê Văn C",
+      "rating": 5,
+      "comment": "Túi rất đẹp và bền. Dùng được nhiều lần, dễ giặt. Rất hài lòng!",
+      "createdAt": "2024-02-25T00:00:00.000Z"
+    }
+  ],
+  "orders": [],
+  "favorites": []
+}
