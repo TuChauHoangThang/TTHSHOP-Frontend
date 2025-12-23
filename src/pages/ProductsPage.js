@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useProducts } from '../hooks/useProducts';
 import { useCart } from '../context/CartContext';
 import { productsAPI, favoritesAPI } from '../services/api';
@@ -8,6 +8,7 @@ import '../styles/ProductsPage.css';
 
 const ProductsPage = () => {
   const navigate = useNavigate();
+  const [searchParams, setSearchParams] = useSearchParams();
   const { products, loading, error, loadProducts, searchProducts } = useProducts();
   const { addToCart } = useCart();
   
@@ -22,6 +23,16 @@ const ProductsPage = () => {
     loadCategories();
     loadFavorites();
   }, []);
+
+  useEffect(() => {
+    // Lấy category từ URL query params và cập nhật state
+    const categoryFromUrl = searchParams.get('category');
+    if (categoryFromUrl) {
+      setSelectedCategory(decodeURIComponent(categoryFromUrl));
+    } else {
+      setSelectedCategory('');
+    }
+  }, [searchParams]);
 
   useEffect(() => {
     filterAndSortProducts();
@@ -74,6 +85,12 @@ const ProductsPage = () => {
 
   const handleCategoryChange = (category) => {
     setSelectedCategory(category);
+    // Cập nhật URL khi category thay đổi
+    if (category) {
+      setSearchParams({ category: category });
+    } else {
+      setSearchParams({});
+    }
   };
 
   const handleSortChange = (e) => {
