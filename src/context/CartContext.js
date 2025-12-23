@@ -26,7 +26,7 @@ export const CartProvider = ({ children }) => {
     // Load thông tin chi tiết sản phẩm
     const products = await productsAPI.getAll();
     const details = cart.map(item => {
-      const product = products.find(p => p.id === item.productId);
+      const product = products.find(p => parseInt(p.id) === parseInt(item.productId));
       return product ? { ...item, product } : null;
     }).filter(Boolean);
     

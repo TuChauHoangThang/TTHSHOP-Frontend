@@ -29,21 +29,33 @@ const ProductDetailPage = () => {
     const loadData = async () => {
       try {
         setLoading(true);
+        setError('');
+        const productId = parseInt(id);
+        if (isNaN(productId)) {
+          throw new Error('ID sản phẩm không hợp lệ');
+        }
         const [p, r] = await Promise.all([
-          productsAPI.getById(id),
-          reviewsAPI.getByProductId(id)
+          productsAPI.getById(productId),
+          reviewsAPI.getByProductId(productId)
         ]);
+        if (!p) {
+          throw new Error('Không tìm thấy sản phẩm');
+        }
         setProduct(p);
-        setActiveImage(p.images?.[0] || p.image);
-        setReviews(r);
-        setIsFavorite(favoritesAPI.isFavorite(id));
+        setActiveImage(p.images?.[0] || p.image || '');
+        setReviews(r || []);
+        setIsFavorite(favoritesAPI.isFavorite(productId));
       } catch (err) {
-        setError(err.message || 'Đã xảy ra lỗi');
+        console.error('Lỗi tải sản phẩm:', err);
+        setError(err.message || 'Đã xảy ra lỗi khi tải sản phẩm');
+        setProduct(null);
       } finally {
         setLoading(false);
       }
     };
-    loadData();
+    if (id) {
+      loadData();
+    }
   }, [id]);
 
   const handleAddToCart = async () => {
@@ -108,22 +120,34 @@ const ProductDetailPage = () => {
         <div className="gallery">
           <div className="main-image">
             {product.stock === 0 && <div className="badge out">Hết hàng</div>}
-            <img src={activeImage} alt={product.name} />
+            {activeImage ? (
+              <img src={activeImage} alt={product.name} onError={(e) => {
+                e.target.src = 'https://via.placeholder.com/400x400?text=No+Image';
+              }} />
+            ) : (
+              <div style={{ width: '100%', height: '400px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#f0f0f0' }}>
+                Không có hình ảnh
+              </div>
+            )}
           </div>
-          <div className="thumbs">
-            {[product.image, ...(product.images || [])]
-              .filter(Boolean)
-              .filter((url, idx, arr) => arr.indexOf(url) === idx)
-              .map((url) => (
-                <button
-                  key={url}
-                  className={`thumb ${url === activeImage ? 'active' : ''}`}
-                  onClick={() => setActiveImage(url)}
-                >
-                  <img src={url} alt="thumb" />
-                </button>
-              ))}
-          </div>
+          {product.images && product.images.length > 0 && (
+            <div className="thumbs">
+              {[product.image, ...(product.images || [])]
+                .filter(Boolean)
+                .filter((url, idx, arr) => arr.indexOf(url) === idx)
+                .map((url) => (
+                  <button
+                    key={url}
+                    className={`thumb ${url === activeImage ? 'active' : ''}`}
+                    onClick={() => setActiveImage(url)}
+                  >
+                    <img src={url} alt="thumb" onError={(e) => {
+                      e.target.style.display = 'none';
+                    }} />
+                  </button>
+                ))}
+            </div>
+          )}
         </div>
 
         <div className="info">

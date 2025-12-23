@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import { useCart } from '../../context/CartContext';
@@ -9,6 +9,19 @@ const Header = () => {
   const { getTotalItems } = useCart();
   const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isProductsDropdownOpen, setIsProductsDropdownOpen] = useState(false);
+  const dropdownTimeoutRef = useRef(null);
+
+  const categories = [
+    'búp bê',
+    'hoa handmade',
+    'tranh cuộn',
+    'sản phẩm từ len',
+    'móc chìa khóa',
+    'thú bông',
+    'túi balo',
+    'sản phẩm từ thổ cẩm'
+  ];
 
   const handleLogout = () => {
     logout();
@@ -17,6 +30,36 @@ const Header = () => {
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  const handleProductsMouseEnter = () => {
+    if (dropdownTimeoutRef.current) {
+      clearTimeout(dropdownTimeoutRef.current);
+      dropdownTimeoutRef.current = null;
+    }
+    setIsProductsDropdownOpen(true);
+  };
+
+  const handleProductsMouseLeave = () => {
+    // Delay 300ms trước khi đóng để người dùng có thời gian di chuyển vào dropdown
+    dropdownTimeoutRef.current = setTimeout(() => {
+      setIsProductsDropdownOpen(false);
+    }, 300);
+  };
+
+  const handleDropdownMouseEnter = () => {
+    if (dropdownTimeoutRef.current) {
+      clearTimeout(dropdownTimeoutRef.current);
+      dropdownTimeoutRef.current = null;
+    }
+  };
+
+  const handleDropdownMouseLeave = () => {
+    setIsProductsDropdownOpen(false);
+  };
+
+  const toggleProductsDropdown = () => {
+    setIsProductsDropdownOpen(!isProductsDropdownOpen);
   };
 
   return (
@@ -31,7 +74,36 @@ const Header = () => {
         {/* Navigation Desktop */}
         <nav className="header-nav">
           <Link to="/" className="nav-link">Trang Chủ</Link>
-          <Link to="/products" className="nav-link">Sản Phẩm</Link>
+          <div 
+            className="nav-link products-dropdown"
+            onMouseEnter={handleProductsMouseEnter}
+            onMouseLeave={handleProductsMouseLeave}
+          >
+            <span 
+              onClick={toggleProductsDropdown} 
+              style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '5px' }}
+            >
+              Sản Phẩm {isProductsDropdownOpen ? '▼' : '▶'}
+            </span>
+            {isProductsDropdownOpen && (
+              <div 
+                className="dropdown-menu"
+                onMouseEnter={handleDropdownMouseEnter}
+                onMouseLeave={handleDropdownMouseLeave}
+              >
+                {categories.map(category => (
+                  <Link
+                    key={category}
+                    to={`/products?category=${encodeURIComponent(category)}`}
+                    className="dropdown-item"
+                    onClick={() => setIsProductsDropdownOpen(false)}
+                  >
+                    {category}
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
           
           {/* Cart with badge */}
           <Link to="/cart" className="nav-link cart-link">
@@ -72,9 +144,26 @@ const Header = () => {
         <Link to="/" className="mobile-nav-link" onClick={() => setIsMenuOpen(false)}>
           Trang Chủ
         </Link>
-        <Link to="/products" className="mobile-nav-link" onClick={() => setIsMenuOpen(false)}>
-          Sản Phẩm
-        </Link>
+        <div className="mobile-nav-link mobile-products-header" onClick={() => setIsProductsDropdownOpen(!isProductsDropdownOpen)}>
+          Sản Phẩm {isProductsDropdownOpen ? '▼' : '▶'}
+        </div>
+        {isProductsDropdownOpen && (
+          <div className="mobile-dropdown">
+            {categories.map(category => (
+              <Link
+                key={category}
+                to={`/products?category=${encodeURIComponent(category)}`}
+                className="mobile-dropdown-item"
+                onClick={() => {
+                  setIsProductsDropdownOpen(false);
+                  setIsMenuOpen(false);
+                }}
+              >
+                {category}
+              </Link>
+            ))}
+          </div>
+        )}
         <Link to="/cart" className="mobile-nav-link" onClick={() => setIsMenuOpen(false)}>
           Giỏ Hàng {getTotalItems() > 0 && `(${getTotalItems()})`}
         </Link>
