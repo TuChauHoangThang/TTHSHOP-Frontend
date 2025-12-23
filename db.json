@@ -1,9 +1,9 @@
 {
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "email": "admin@gmail.com",
-      "password": "123456",
+      "password": "hung123",
       "name": "Admin User",
       "phone": "",
       "address": "",
@@ -11,7 +11,7 @@
       "createdAt": "2024-01-01T00:00:00.000Z"
     },
     {
-      "id": 2,
+      "id": "2",
       "email": "user@gmail.com",
       "password": "123456",
       "name": "Normal User",
@@ -28,12 +28,12 @@
       "address": "",
       "role": "user",
       "createdAt": "2025-12-15T11:14:18.027Z",
-      "id": 3
+      "id": "3"
     }
   ],
   "products": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Vòng tay handmade từ hạt gỗ tự nhiên",
       "price": 150000,
       "image": "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400",
@@ -53,7 +53,7 @@
       ]
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Túi vải handmade thân thiện môi trường",
       "price": 250000,
       "image": "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=400",
@@ -73,7 +73,7 @@
       ]
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Khăn choàng len handmade",
       "price": 320000,
       "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400",
@@ -93,7 +93,7 @@
       ]
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Nến thơm handmade từ sáp ong",
       "price": 180000,
       "image": "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=400",
@@ -114,7 +114,7 @@
       ]
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Tranh thêu tay hoa sen",
       "price": 450000,
       "image": "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400",
@@ -135,7 +135,7 @@
       ]
     },
     {
-      "id": 6,
+      "id": "6",
       "name": "Bộ ly sứ vẽ tay",
       "price": 280000,
       "image": "https://images.unsplash.com/photo-1579783902614-a53fb8287b1a?w=400",
@@ -156,7 +156,7 @@
       ]
     },
     {
-      "id": 7,
+      "id": "7",
       "name": "Ví da handmade",
       "price": 380000,
       "image": "https://images.unsplash.com/photo-1627123424574-724758594e93?w=400",
@@ -177,7 +177,7 @@
       ]
     },
     {
-      "id": 8,
+      "id": "8",
       "name": "Móc khóa đất sét nung",
       "price": 85000,
       "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400",
@@ -197,7 +197,7 @@
       ]
     },
     {
-      "id": 9,
+      "id": "9",
       "name": "Gối tựa lưng thêu hoa",
       "price": 220000,
       "image": "https://images.unsplash.com/photo-1584100936595-c0655ba6af63?w=400",
@@ -218,7 +218,7 @@
       ]
     },
     {
-      "id": 10,
+      "id": "10",
       "name": "Bình hoa gốm sứ handmade",
       "price": 350000,
       "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400",
@@ -239,7 +239,7 @@
       ]
     },
     {
-      "id": 11,
+      "id": "11",
       "name": "Túi đeo chéo da thật handmade",
       "price": 420000,
       "image": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400",
@@ -260,7 +260,7 @@
       ]
     },
     {
-      "id": 12,
+      "id": "12",
       "name": "Bộ khăn trải bàn thêu tay",
       "price": 380000,
       "image": "https://images.unsplash.com/photo-1583394838336-acd977736f90?w=400",
@@ -281,7 +281,7 @@
       ]
     },
     {
-      "id": 13,
+      "id": "13",
       "name": "Đèn ngủ gốm sứ handmade",
       "price": 280000,
       "image": "https://images.unsplash.com/photo-1603398938373-e54da0bb5e48?w=400",
@@ -302,7 +302,7 @@
       ]
     },
     {
-      "id": 14,
+      "id": "14",
       "name": "Bộ bát đĩa gốm handmade",
       "price": 320000,
       "image": "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=400",
@@ -323,7 +323,7 @@
       ]
     },
     {
-      "id": 15,
+      "id": "15",
       "name": "Túi xách cói đan tay",
       "price": 290000,
       "image": "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=400",
@@ -344,7 +344,7 @@
       ]
     },
     {
-      "id": 16,
+      "id": "16",
       "name": "Vòng cổ đá tự nhiên handmade",
       "price": 200000,
       "image": "https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?w=400",
@@ -365,7 +365,7 @@
       ]
     },
     {
-      "id": 17,
+      "id": "17",
       "name": "Bộ khăn tắm cotton handmade",
       "price": 350000,
       "image": "https://images.unsplash.com/photo-1583394838336-acd977736f90?w=400",
@@ -386,7 +386,7 @@
       ]
     },
     {
-      "id": 18,
+      "id": "18",
       "name": "Hộp đựng đồ gỗ handmade",
       "price": 180000,
       "image": "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400",
@@ -407,7 +407,7 @@
       ]
     },
     {
-      "id": 19,
+      "id": "19",
       "name": "Bộ chén trà gốm sứ vẽ tay",
       "price": 240000,
       "image": "https://images.unsplash.com/photo-1579783902614-a53fb8287b1a?w=400",
@@ -428,13 +428,13 @@
       ]
     },
     {
-      "id": 20,
+      "id": "20",
       "name": "Tranh vẽ tay trên vải canvas",
       "price": 550000,
       "image": "https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400",
       "description": "Tranh được vẽ tay trên vải canvas, mỗi bức tranh đều độc đáo. Khung gỗ tự nhiên, kích thước 40x50cm. Phù hợp trang trí phòng khách, phòng làm việc.",
       "category": "tranh cuộn",
-      "stock": 2,
+      "stock": 0,
       "rating": 5,
       "reviews": 15,
       "tags": [
@@ -449,7 +449,7 @@
       ]
     },
     {
-      "id": 21,
+      "id": "21",
       "name": "Búp bê vải handmade dễ thương",
       "price": 180000,
       "image": "https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?w=400",
@@ -470,7 +470,7 @@
       ]
     },
     {
-      "id": 22,
+      "id": "22",
       "name": "Búp bê gấu bông handmade",
       "price": 220000,
       "image": "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400",
@@ -491,7 +491,7 @@
       ]
     },
     {
-      "id": 23,
+      "id": "23",
       "name": "Búp bê công chúa handmade",
       "price": 250000,
       "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400",
@@ -512,7 +512,7 @@
       ]
     },
     {
-      "id": 24,
+      "id": "24",
       "name": "Búp bê thú cưng handmade",
       "price": 200000,
       "image": "https://images.unsplash.com/photo-1583394838336-acd977736f90?w=400",
@@ -533,7 +533,7 @@
       ]
     },
     {
-      "id": 25,
+      "id": "25",
       "name": "Búp bê truyền thống handmade",
       "price": 280000,
       "image": "https://images.unsplash.com/photo-1584100936595-c0655ba6af63?w=400",
@@ -554,7 +554,7 @@
       ]
     },
     {
-      "id": 26,
+      "id": "26",
       "name": "Hoa hồng giấy handmade",
       "price": 120000,
       "image": "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400",
@@ -575,7 +575,7 @@
       ]
     },
     {
-      "id": 27,
+      "id": "27",
       "name": "Hoa cúc vải handmade",
       "price": 100000,
       "image": "https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400",
@@ -596,7 +596,7 @@
       ]
     },
     {
-      "id": 28,
+      "id": "28",
       "name": "Hoa sen vải handmade",
       "price": 150000,
       "image": "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=400",
@@ -617,7 +617,7 @@
       ]
     },
     {
-      "id": 29,
+      "id": "29",
       "name": "Bó hoa hướng dương handmade",
       "price": 180000,
       "image": "https://images.unsplash.com/photo-1579783902614-a53fb8287b1a?w=400",
@@ -638,7 +638,7 @@
       ]
     },
     {
-      "id": 30,
+      "id": "30",
       "name": "Hoa đào giấy handmade",
       "price": 140000,
       "image": "https://images.unsplash.com/photo-1627123424574-724758594e93?w=400",
@@ -659,7 +659,7 @@
       ]
     },
     {
-      "id": 31,
+      "id": "31",
       "name": "Tranh cuộn phong cảnh thiên nhiên",
       "price": 480000,
       "image": "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400",
@@ -680,7 +680,7 @@
       ]
     },
     {
-      "id": 32,
+      "id": "32",
       "name": "Tranh cuộn chữ thư pháp",
       "price": 420000,
       "image": "https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400",
@@ -701,7 +701,7 @@
       ]
     },
     {
-      "id": 33,
+      "id": "33",
       "name": "Tranh cuộn hoa sen và cá",
       "price": 450000,
       "image": "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400",
@@ -722,7 +722,7 @@
       ]
     },
     {
-      "id": 34,
+      "id": "34",
       "name": "Tranh cuộn tứ quý",
       "price": 520000,
       "image": "https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400",
@@ -743,7 +743,7 @@
       ]
     },
     {
-      "id": 35,
+      "id": "35",
       "name": "Áo len đan tay",
       "price": 380000,
       "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400",
@@ -764,7 +764,7 @@
       ]
     },
     {
-      "id": 36,
+      "id": "36",
       "name": "Mũ len đan tay",
       "price": 150000,
       "image": "https://images.unsplash.com/photo-1583394838336-acd977736f90?w=400",
@@ -785,7 +785,7 @@
       ]
     },
     {
-      "id": 37,
+      "id": "37",
       "name": "Găng tay len đan tay",
       "price": 120000,
       "image": "https://images.unsplash.com/photo-1584100936595-c0655ba6af63?w=400",
@@ -806,7 +806,7 @@
       ]
     },
     {
-      "id": 38,
+      "id": "38",
       "name": "Túi len đan tay",
       "price": 200000,
       "image": "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400",
@@ -827,13 +827,13 @@
       ]
     },
     {
-      "id": 39,
+      "id": "39",
       "name": "Móc chìa khóa hình gấu",
       "price": 75000,
       "image": "https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?w=400",
       "description": "Móc chìa khóa hình gấu đáng yêu được làm thủ công. Chất liệu vải nỉ mềm mại, màu sắc tươi sáng. Phù hợp làm quà tặng hoặc sử dụng hàng ngày.",
       "category": "móc chìa khóa",
-      "stock": 25,
+      "stock": 24,
       "rating": 4.4,
       "reviews": 50,
       "tags": [
@@ -848,13 +848,13 @@
       ]
     },
     {
-      "id": 40,
+      "id": "40",
       "name": "Móc chìa khóa hình mèo",
       "price": 80000,
       "image": "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400",
       "description": "Móc chìa khóa hình mèo dễ thương được làm thủ công. Thiết kế ngộ nghĩnh, màu sắc đa dạng. Phù hợp cho người yêu thích mèo.",
       "category": "móc chìa khóa",
-      "stock": 22,
+      "stock": 21,
       "rating": 4.6,
       "reviews": 38,
       "tags": [
@@ -869,7 +869,7 @@
       ]
     },
     {
-      "id": 41,
+      "id": "41",
       "name": "Móc chìa khóa hình trái tim",
       "price": 70000,
       "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400",
@@ -890,7 +890,7 @@
       ]
     },
     {
-      "id": 42,
+      "id": "42",
       "name": "Móc chìa khóa thêu tay",
       "price": 95000,
       "image": "https://images.unsplash.com/photo-1583394838336-acd977736f90?w=400",
@@ -911,7 +911,7 @@
       ]
     },
     {
-      "id": 43,
+      "id": "43",
       "name": "Gấu bông handmade",
       "price": 260000,
       "image": "https://images.unsplash.com/photo-1584100936595-c0655ba6af63?w=400",
@@ -932,7 +932,7 @@
       ]
     },
     {
-      "id": 44,
+      "id": "44",
       "name": "Thỏ bông handmade",
       "price": 240000,
       "image": "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400",
@@ -953,7 +953,7 @@
       ]
     },
     {
-      "id": 45,
+      "id": "45",
       "name": "Mèo bông handmade",
       "price": 250000,
       "image": "https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400",
@@ -974,7 +974,7 @@
       ]
     },
     {
-      "id": 46,
+      "id": "46",
       "name": "Chó bông handmade",
       "price": 270000,
       "image": "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400",
@@ -995,7 +995,7 @@
       ]
     },
     {
-      "id": 47,
+      "id": "47",
       "name": "Túi balo vải canvas handmade",
       "price": 320000,
       "image": "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=400",
@@ -1016,7 +1016,7 @@
       ]
     },
     {
-      "id": 48,
+      "id": "48",
       "name": "Túi balo da thật handmade",
       "price": 450000,
       "image": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400",
@@ -1037,7 +1037,7 @@
       ]
     },
     {
-      "id": 49,
+      "id": "49",
       "name": "Túi balo cói đan tay",
       "price": 280000,
       "image": "https://images.unsplash.com/photo-1627123424574-724758594e93?w=400",
@@ -1058,7 +1058,7 @@
       ]
     },
     {
-      "id": 50,
+      "id": "50",
       "name": "Túi balo vải thổ cẩm handmade",
       "price": 380000,
       "image": "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=400",
@@ -1079,7 +1079,7 @@
       ]
     },
     {
-      "id": 51,
+      "id": "51",
       "name": "Ví thổ cẩm handmade",
       "price": 220000,
       "image": "https://images.unsplash.com/photo-1579783902614-a53fb8287b1a?w=400",
@@ -1100,7 +1100,7 @@
       ]
     },
     {
-      "id": 52,
+      "id": "52",
       "name": "Khăn quàng cổ thổ cẩm",
       "price": 180000,
       "image": "https://images.unsplash.com/photo-1603398938373-e54da0bb5e48?w=400",
@@ -1121,7 +1121,7 @@
       ]
     },
     {
-      "id": 53,
+      "id": "53",
       "name": "Túi đựng đồ thổ cẩm",
       "price": 250000,
       "image": "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=400",
@@ -1142,7 +1142,7 @@
       ]
     },
     {
-      "id": 54,
+      "id": "54",
       "name": "Áo thổ cẩm handmade",
       "price": 420000,
       "image": "https://images.unsplash.com/photo-1603398938373-e54da0bb5e48?w=400",
@@ -1163,7 +1163,7 @@
       ]
     },
     {
-      "id": 55,
+      "id": "55",
       "name": "Búp bê vải hoa handmade",
       "price": 190000,
       "image": "https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?w=400",
@@ -1172,11 +1172,19 @@
       "stock": 11,
       "rating": 4.7,
       "reviews": 30,
-      "tags": ["handmade", "búp bê", "vải", "đồ chơi"],
-      "images": ["https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?w=400", "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400"]
+      "tags": [
+        "handmade",
+        "búp bê",
+        "vải",
+        "đồ chơi"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?w=400",
+        "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400"
+      ]
     },
     {
-      "id": 56,
+      "id": "56",
       "name": "Búp bê em bé handmade",
       "price": 170000,
       "image": "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400",
@@ -1185,11 +1193,19 @@
       "stock": 13,
       "rating": 4.6,
       "reviews": 42,
-      "tags": ["handmade", "búp bê", "em bé", "quà tặng"],
-      "images": ["https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400", "https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?w=400"]
+      "tags": [
+        "handmade",
+        "búp bê",
+        "em bé",
+        "quà tặng"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400",
+        "https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?w=400"
+      ]
     },
     {
-      "id": 57,
+      "id": "57",
       "name": "Búp bê nàng tiên handmade",
       "price": 230000,
       "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400",
@@ -1198,11 +1214,19 @@
       "stock": 9,
       "rating": 4.8,
       "reviews": 25,
-      "tags": ["handmade", "búp bê", "nàng tiên", "quà tặng"],
-      "images": ["https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400", "https://images.unsplash.com/photo-1583394838336-acd977736f90?w=400"]
+      "tags": [
+        "handmade",
+        "búp bê",
+        "nàng tiên",
+        "quà tặng"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400",
+        "https://images.unsplash.com/photo-1583394838336-acd977736f90?w=400"
+      ]
     },
     {
-      "id": 58,
+      "id": "58",
       "name": "Búp bê siêu nhân handmade",
       "price": 210000,
       "image": "https://images.unsplash.com/photo-1583394838336-acd977736f90?w=400",
@@ -1211,11 +1235,19 @@
       "stock": 10,
       "rating": 4.5,
       "reviews": 35,
-      "tags": ["handmade", "búp bê", "siêu nhân", "đồ chơi"],
-      "images": ["https://images.unsplash.com/photo-1583394838336-acd977736f90?w=400", "https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?w=400"]
+      "tags": [
+        "handmade",
+        "búp bê",
+        "siêu nhân",
+        "đồ chơi"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1583394838336-acd977736f90?w=400",
+        "https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?w=400"
+      ]
     },
     {
-      "id": 59,
+      "id": "59",
       "name": "Búp bê hoàng tử handmade",
       "price": 240000,
       "image": "https://images.unsplash.com/photo-1584100936595-c0655ba6af63?w=400",
@@ -1224,11 +1256,19 @@
       "stock": 7,
       "rating": 4.9,
       "reviews": 20,
-      "tags": ["handmade", "búp bê", "hoàng tử", "quà tặng"],
-      "images": ["https://images.unsplash.com/photo-1584100936595-c0655ba6af63?w=400", "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400"]
+      "tags": [
+        "handmade",
+        "búp bê",
+        "hoàng tử",
+        "quà tặng"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1584100936595-c0655ba6af63?w=400",
+        "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400"
+      ]
     },
     {
-      "id": 60,
+      "id": "60",
       "name": "Búp bê búp bê nhỏ xinh handmade",
       "price": 160000,
       "image": "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400",
@@ -1237,11 +1277,19 @@
       "stock": 14,
       "rating": 4.6,
       "reviews": 38,
-      "tags": ["handmade", "búp bê", "nhỏ xinh", "quà tặng"],
-      "images": ["https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400", "https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400"]
+      "tags": [
+        "handmade",
+        "búp bê",
+        "nhỏ xinh",
+        "quà tặng"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400",
+        "https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400"
+      ]
     },
     {
-      "id": 61,
+      "id": "61",
       "name": "Búp bê thần tiên handmade",
       "price": 270000,
       "image": "https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400",
@@ -1250,11 +1298,19 @@
       "stock": 6,
       "rating": 4.8,
       "reviews": 22,
-      "tags": ["handmade", "búp bê", "thần tiên", "quà tặng"],
-      "images": ["https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400", "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400"]
+      "tags": [
+        "handmade",
+        "búp bê",
+        "thần tiên",
+        "quà tặng"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400",
+        "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400"
+      ]
     },
     {
-      "id": 62,
+      "id": "62",
       "name": "Hoa tulip vải handmade",
       "price": 130000,
       "image": "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400",
@@ -1263,11 +1319,19 @@
       "stock": 16,
       "rating": 4.7,
       "reviews": 33,
-      "tags": ["handmade", "hoa", "tulip", "trang trí"],
-      "images": ["https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400", "https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400"]
+      "tags": [
+        "handmade",
+        "hoa",
+        "tulip",
+        "trang trí"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400",
+        "https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400"
+      ]
     },
     {
-      "id": 63,
+      "id": "63",
       "name": "Hoa lan vải handmade",
       "price": 160000,
       "image": "https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400",
@@ -1276,11 +1340,19 @@
       "stock": 11,
       "rating": 4.8,
       "reviews": 27,
-      "tags": ["handmade", "hoa", "lan", "trang trí"],
-      "images": ["https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400", "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400"]
+      "tags": [
+        "handmade",
+        "hoa",
+        "lan",
+        "trang trí"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400",
+        "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400"
+      ]
     },
     {
-      "id": 64,
+      "id": "64",
       "name": "Bó hoa cẩm chướng handmade",
       "price": 140000,
       "image": "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=400",
@@ -1289,11 +1361,19 @@
       "stock": 13,
       "rating": 4.6,
       "reviews": 29,
-      "tags": ["handmade", "hoa", "cẩm chướng", "quà tặng"],
-      "images": ["https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=400", "https://images.unsplash.com/photo-1579783902614-a53fb8287b1a?w=400"]
+      "tags": [
+        "handmade",
+        "hoa",
+        "cẩm chướng",
+        "quà tặng"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=400",
+        "https://images.unsplash.com/photo-1579783902614-a53fb8287b1a?w=400"
+      ]
     },
     {
-      "id": 65,
+      "id": "65",
       "name": "Hoa ly giấy handmade",
       "price": 150000,
       "image": "https://images.unsplash.com/photo-1579783902614-a53fb8287b1a?w=400",
@@ -1302,11 +1382,19 @@
       "stock": 12,
       "rating": 4.9,
       "reviews": 36,
-      "tags": ["handmade", "hoa", "ly", "trang trí"],
-      "images": ["https://images.unsplash.com/photo-1579783902614-a53fb8287b1a?w=400", "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=400"]
+      "tags": [
+        "handmade",
+        "hoa",
+        "ly",
+        "trang trí"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1579783902614-a53fb8287b1a?w=400",
+        "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=400"
+      ]
     },
     {
-      "id": 66,
+      "id": "66",
       "name": "Hoa hồng đỏ giấy handmade",
       "price": 125000,
       "image": "https://images.unsplash.com/photo-1627123424574-724758594e93?w=400",
@@ -1315,11 +1403,19 @@
       "stock": 17,
       "rating": 4.7,
       "reviews": 41,
-      "tags": ["handmade", "hoa", "hồng đỏ", "quà tặng"],
-      "images": ["https://images.unsplash.com/photo-1627123424574-724758594e93?w=400", "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400"]
+      "tags": [
+        "handmade",
+        "hoa",
+        "hồng đỏ",
+        "quà tặng"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1627123424574-724758594e93?w=400",
+        "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400"
+      ]
     },
     {
-      "id": 67,
+      "id": "67",
       "name": "Hoa cúc họa mi handmade",
       "price": 110000,
       "image": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400",
@@ -1328,11 +1424,19 @@
       "stock": 19,
       "rating": 4.5,
       "reviews": 37,
-      "tags": ["handmade", "hoa", "cúc họa mi", "trang trí"],
-      "images": ["https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400", "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=400"]
+      "tags": [
+        "handmade",
+        "hoa",
+        "cúc họa mi",
+        "trang trí"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400",
+        "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=400"
+      ]
     },
     {
-      "id": 68,
+      "id": "68",
       "name": "Bó hoa mix màu handmade",
       "price": 170000,
       "image": "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=400",
@@ -1341,11 +1445,19 @@
       "stock": 9,
       "rating": 4.8,
       "reviews": 24,
-      "tags": ["handmade", "hoa", "mix màu", "quà tặng"],
-      "images": ["https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=400", "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400"]
+      "tags": [
+        "handmade",
+        "hoa",
+        "mix màu",
+        "quà tặng"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=400",
+        "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400"
+      ]
     },
     {
-      "id": 69,
+      "id": "69",
       "name": "Tranh cuộn núi non sông nước",
       "price": 500000,
       "image": "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400",
@@ -1354,11 +1466,19 @@
       "stock": 4,
       "rating": 4.9,
       "reviews": 16,
-      "tags": ["handmade", "tranh", "núi non", "trang trí"],
-      "images": ["https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400", "https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400"]
+      "tags": [
+        "handmade",
+        "tranh",
+        "núi non",
+        "trang trí"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400",
+        "https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400"
+      ]
     },
     {
-      "id": 70,
+      "id": "70",
       "name": "Tranh cuộn chim hạc và trúc",
       "price": 460000,
       "image": "https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400",
@@ -1367,11 +1487,19 @@
       "stock": 3,
       "rating": 5,
       "reviews": 11,
-      "tags": ["handmade", "tranh", "chim hạc", "phong thủy"],
-      "images": ["https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400", "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400"]
+      "tags": [
+        "handmade",
+        "tranh",
+        "chim hạc",
+        "phong thủy"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400",
+        "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400"
+      ]
     },
     {
-      "id": 71,
+      "id": "71",
       "name": "Tranh cuộn hoa mai",
       "price": 440000,
       "image": "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400",
@@ -1380,11 +1508,19 @@
       "stock": 4,
       "rating": 4.8,
       "reviews": 19,
-      "tags": ["handmade", "tranh", "hoa mai", "Tết"],
-      "images": ["https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400", "https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400"]
+      "tags": [
+        "handmade",
+        "tranh",
+        "hoa mai",
+        "Tết"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400",
+        "https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400"
+      ]
     },
     {
-      "id": 72,
+      "id": "72",
       "name": "Tranh cuộn long phượng",
       "price": 580000,
       "image": "https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400",
@@ -1393,11 +1529,19 @@
       "stock": 2,
       "rating": 5,
       "reviews": 9,
-      "tags": ["handmade", "tranh", "long phượng", "phong thủy"],
-      "images": ["https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400", "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400"]
+      "tags": [
+        "handmade",
+        "tranh",
+        "long phượng",
+        "phong thủy"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400",
+        "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400"
+      ]
     },
     {
-      "id": 73,
+      "id": "73",
       "name": "Tranh cuộn tùng bách",
       "price": 470000,
       "image": "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400",
@@ -1406,11 +1550,19 @@
       "stock": 3,
       "rating": 4.7,
       "reviews": 14,
-      "tags": ["handmade", "tranh", "tùng bách", "trang trí"],
-      "images": ["https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400", "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400"]
+      "tags": [
+        "handmade",
+        "tranh",
+        "tùng bách",
+        "trang trí"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400",
+        "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400"
+      ]
     },
     {
-      "id": 74,
+      "id": "74",
       "name": "Tranh cuộn làng quê Việt Nam",
       "price": 490000,
       "image": "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400",
@@ -1419,11 +1571,19 @@
       "stock": 3,
       "rating": 4.9,
       "reviews": 17,
-      "tags": ["handmade", "tranh", "làng quê", "văn hóa"],
-      "images": ["https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400", "https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400"]
+      "tags": [
+        "handmade",
+        "tranh",
+        "làng quê",
+        "văn hóa"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400",
+        "https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400"
+      ]
     },
     {
-      "id": 75,
+      "id": "75",
       "name": "Áo khoác len đan tay",
       "price": 420000,
       "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400",
@@ -1432,11 +1592,19 @@
       "stock": 7,
       "rating": 4.8,
       "reviews": 32,
-      "tags": ["handmade", "len", "áo khoác", "thời trang"],
-      "images": ["https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400", "https://images.unsplash.com/photo-1583394838336-acd977736f90?w=400"]
+      "tags": [
+        "handmade",
+        "len",
+        "áo khoác",
+        "thời trang"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400",
+        "https://images.unsplash.com/photo-1583394838336-acd977736f90?w=400"
+      ]
     },
     {
-      "id": 76,
+      "id": "76",
       "name": "Tất len đan tay",
       "price": 100000,
       "image": "https://images.unsplash.com/photo-1583394838336-acd977736f90?w=400",
@@ -1445,11 +1613,19 @@
       "stock": 22,
       "rating": 4.6,
       "reviews": 48,
-      "tags": ["handmade", "len", "tất", "phụ kiện"],
-      "images": ["https://images.unsplash.com/photo-1583394838336-acd977736f90?w=400", "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400"]
+      "tags": [
+        "handmade",
+        "len",
+        "tất",
+        "phụ kiện"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1583394838336-acd977736f90?w=400",
+        "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400"
+      ]
     },
     {
-      "id": 77,
+      "id": "77",
       "name": "Áo len cổ lọ đan tay",
       "price": 360000,
       "image": "https://images.unsplash.com/photo-1584100936595-c0655ba6af63?w=400",
@@ -1458,11 +1634,19 @@
       "stock": 9,
       "rating": 4.7,
       "reviews": 28,
-      "tags": ["handmade", "len", "áo", "thời trang"],
-      "images": ["https://images.unsplash.com/photo-1584100936595-c0655ba6af63?w=400", "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400"]
+      "tags": [
+        "handmade",
+        "len",
+        "áo",
+        "thời trang"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1584100936595-c0655ba6af63?w=400",
+        "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400"
+      ]
     },
     {
-      "id": 78,
+      "id": "78",
       "name": "Khăn len đan tay",
       "price": 180000,
       "image": "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400",
@@ -1471,11 +1655,19 @@
       "stock": 14,
       "rating": 4.8,
       "reviews": 35,
-      "tags": ["handmade", "len", "khăn", "phụ kiện"],
-      "images": ["https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400", "https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400"]
+      "tags": [
+        "handmade",
+        "len",
+        "khăn",
+        "phụ kiện"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400",
+        "https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400"
+      ]
     },
     {
-      "id": 79,
+      "id": "79",
       "name": "Áo len cardigan đan tay",
       "price": 400000,
       "image": "https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400",
@@ -1484,11 +1676,19 @@
       "stock": 6,
       "rating": 4.9,
       "reviews": 26,
-      "tags": ["handmade", "len", "cardigan", "thời trang"],
-      "images": ["https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400", "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400"]
+      "tags": [
+        "handmade",
+        "len",
+        "cardigan",
+        "thời trang"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400",
+        "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400"
+      ]
     },
     {
-      "id": 80,
+      "id": "80",
       "name": "Bộ mũ và khăn len đan tay",
       "price": 280000,
       "image": "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400",
@@ -1497,11 +1697,19 @@
       "stock": 8,
       "rating": 4.7,
       "reviews": 31,
-      "tags": ["handmade", "len", "mũ khăn", "phụ kiện"],
-      "images": ["https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400", "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400"]
+      "tags": [
+        "handmade",
+        "len",
+        "mũ khăn",
+        "phụ kiện"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400",
+        "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400"
+      ]
     },
     {
-      "id": 81,
+      "id": "81",
       "name": "Móc chìa khóa hình chó",
       "price": 78000,
       "image": "https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?w=400",
@@ -1510,11 +1718,19 @@
       "stock": 24,
       "rating": 4.5,
       "reviews": 52,
-      "tags": ["handmade", "móc khóa", "chó", "phụ kiện"],
-      "images": ["https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?w=400", "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400"]
+      "tags": [
+        "handmade",
+        "móc khóa",
+        "chó",
+        "phụ kiện"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?w=400",
+        "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400"
+      ]
     },
     {
-      "id": 82,
+      "id": "82",
       "name": "Móc chìa khóa hình thỏ",
       "price": 72000,
       "image": "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400",
@@ -1523,11 +1739,19 @@
       "stock": 26,
       "rating": 4.6,
       "reviews": 44,
-      "tags": ["handmade", "móc khóa", "thỏ", "phụ kiện"],
-      "images": ["https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400", "https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?w=400"]
+      "tags": [
+        "handmade",
+        "móc khóa",
+        "thỏ",
+        "phụ kiện"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400",
+        "https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?w=400"
+      ]
     },
     {
-      "id": 83,
+      "id": "83",
       "name": "Móc chìa khóa hình sao",
       "price": 68000,
       "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400",
@@ -1536,11 +1760,19 @@
       "stock": 28,
       "rating": 4.4,
       "reviews": 47,
-      "tags": ["handmade", "móc khóa", "sao", "quà tặng"],
-      "images": ["https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400", "https://images.unsplash.com/photo-1583394838336-acd977736f90?w=400"]
+      "tags": [
+        "handmade",
+        "móc khóa",
+        "sao",
+        "quà tặng"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400",
+        "https://images.unsplash.com/photo-1583394838336-acd977736f90?w=400"
+      ]
     },
     {
-      "id": 84,
+      "id": "84",
       "name": "Móc chìa khóa hình bông hoa",
       "price": 88000,
       "image": "https://images.unsplash.com/photo-1583394838336-acd977736f90?w=400",
@@ -1549,11 +1781,19 @@
       "stock": 20,
       "rating": 4.7,
       "reviews": 36,
-      "tags": ["handmade", "móc khóa", "hoa", "phụ kiện"],
-      "images": ["https://images.unsplash.com/photo-1583394838336-acd977736f90?w=400", "https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?w=400"]
+      "tags": [
+        "handmade",
+        "móc khóa",
+        "hoa",
+        "phụ kiện"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1583394838336-acd977736f90?w=400",
+        "https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?w=400"
+      ]
     },
     {
-      "id": 85,
+      "id": "85",
       "name": "Móc chìa khóa hình mặt cười",
       "price": 65000,
       "image": "https://images.unsplash.com/photo-1584100936595-c0655ba6af63?w=400",
@@ -1562,11 +1802,19 @@
       "stock": 32,
       "rating": 4.5,
       "reviews": 55,
-      "tags": ["handmade", "móc khóa", "mặt cười", "quà tặng"],
-      "images": ["https://images.unsplash.com/photo-1584100936595-c0655ba6af63?w=400", "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400"]
+      "tags": [
+        "handmade",
+        "móc khóa",
+        "mặt cười",
+        "quà tặng"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1584100936595-c0655ba6af63?w=400",
+        "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400"
+      ]
     },
     {
-      "id": 86,
+      "id": "86",
       "name": "Móc chìa khóa hình trái cây",
       "price": 82000,
       "image": "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400",
@@ -1575,11 +1823,19 @@
       "stock": 21,
       "rating": 4.6,
       "reviews": 40,
-      "tags": ["handmade", "móc khóa", "trái cây", "phụ kiện"],
-      "images": ["https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400", "https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400"]
+      "tags": [
+        "handmade",
+        "móc khóa",
+        "trái cây",
+        "phụ kiện"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400",
+        "https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400"
+      ]
     },
     {
-      "id": 87,
+      "id": "87",
       "name": "Gấu bông lớn handmade",
       "price": 320000,
       "image": "https://images.unsplash.com/photo-1584100936595-c0655ba6af63?w=400",
@@ -1588,11 +1844,19 @@
       "stock": 8,
       "rating": 4.9,
       "reviews": 43,
-      "tags": ["handmade", "gấu bông", "lớn", "quà tặng"],
-      "images": ["https://images.unsplash.com/photo-1584100936595-c0655ba6af63?w=400", "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400"]
+      "tags": [
+        "handmade",
+        "gấu bông",
+        "lớn",
+        "quà tặng"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1584100936595-c0655ba6af63?w=400",
+        "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400"
+      ]
     },
     {
-      "id": 88,
+      "id": "88",
       "name": "Heo bông handmade",
       "price": 220000,
       "image": "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400",
@@ -1601,11 +1865,19 @@
       "stock": 11,
       "rating": 4.7,
       "reviews": 37,
-      "tags": ["handmade", "heo bông", "đồ chơi", "quà tặng"],
-      "images": ["https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400", "https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400"]
+      "tags": [
+        "handmade",
+        "heo bông",
+        "đồ chơi",
+        "quà tặng"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400",
+        "https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400"
+      ]
     },
     {
-      "id": 89,
+      "id": "89",
       "name": "Voi bông handmade",
       "price": 280000,
       "image": "https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400",
@@ -1614,11 +1886,19 @@
       "stock": 9,
       "rating": 4.8,
       "reviews": 30,
-      "tags": ["handmade", "voi bông", "đồ chơi", "quà tặng"],
-      "images": ["https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400", "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400"]
+      "tags": [
+        "handmade",
+        "voi bông",
+        "đồ chơi",
+        "quà tặng"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400",
+        "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400"
+      ]
     },
     {
-      "id": 90,
+      "id": "90",
       "name": "Khỉ bông handmade",
       "price": 250000,
       "image": "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400",
@@ -1627,11 +1907,19 @@
       "stock": 10,
       "rating": 4.6,
       "reviews": 34,
-      "tags": ["handmade", "khỉ bông", "đồ chơi", "quà tặng"],
-      "images": ["https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400", "https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400"]
+      "tags": [
+        "handmade",
+        "khỉ bông",
+        "đồ chơi",
+        "quà tặng"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400",
+        "https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400"
+      ]
     },
     {
-      "id": 91,
+      "id": "91",
       "name": "Cá heo bông handmade",
       "price": 240000,
       "image": "https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400",
@@ -1640,11 +1928,19 @@
       "stock": 12,
       "rating": 4.7,
       "reviews": 32,
-      "tags": ["handmade", "cá heo bông", "đồ chơi", "quà tặng"],
-      "images": ["https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400", "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400"]
+      "tags": [
+        "handmade",
+        "cá heo bông",
+        "đồ chơi",
+        "quà tặng"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400",
+        "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400"
+      ]
     },
     {
-      "id": 92,
+      "id": "92",
       "name": "Hổ bông handmade",
       "price": 290000,
       "image": "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400",
@@ -1653,11 +1949,19 @@
       "stock": 7,
       "rating": 4.8,
       "reviews": 26,
-      "tags": ["handmade", "hổ bông", "đồ chơi", "quà tặng"],
-      "images": ["https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400", "https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400"]
+      "tags": [
+        "handmade",
+        "hổ bông",
+        "đồ chơi",
+        "quà tặng"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400",
+        "https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400"
+      ]
     },
     {
-      "id": 93,
+      "id": "93",
       "name": "Túi balo thể thao handmade",
       "price": 350000,
       "image": "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=400",
@@ -1666,11 +1970,19 @@
       "stock": 9,
       "rating": 4.7,
       "reviews": 44,
-      "tags": ["handmade", "balo", "thể thao", "túi xách"],
-      "images": ["https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=400", "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400"]
+      "tags": [
+        "handmade",
+        "balo",
+        "thể thao",
+        "túi xách"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=400",
+        "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400"
+      ]
     },
     {
-      "id": 94,
+      "id": "94",
       "name": "Túi balo du lịch handmade",
       "price": 380000,
       "image": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400",
@@ -1679,11 +1991,19 @@
       "stock": 7,
       "rating": 4.8,
       "reviews": 27,
-      "tags": ["handmade", "balo", "du lịch", "túi xách"],
-      "images": ["https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400", "https://images.unsplash.com/photo-1627123424574-724758594e93?w=400"]
+      "tags": [
+        "handmade",
+        "balo",
+        "du lịch",
+        "túi xách"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400",
+        "https://images.unsplash.com/photo-1627123424574-724758594e93?w=400"
+      ]
     },
     {
-      "id": 95,
+      "id": "95",
       "name": "Túi balo học sinh handmade",
       "price": 300000,
       "image": "https://images.unsplash.com/photo-1627123424574-724758594e93?w=400",
@@ -1692,11 +2012,19 @@
       "stock": 11,
       "rating": 4.6,
       "reviews": 38,
-      "tags": ["handmade", "balo", "học sinh", "túi xách"],
-      "images": ["https://images.unsplash.com/photo-1627123424574-724758594e93?w=400", "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400"]
+      "tags": [
+        "handmade",
+        "balo",
+        "học sinh",
+        "túi xách"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1627123424574-724758594e93?w=400",
+        "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400"
+      ]
     },
     {
-      "id": 96,
+      "id": "96",
       "name": "Túi balo vải bố handmade",
       "price": 290000,
       "image": "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=400",
@@ -1705,11 +2033,19 @@
       "stock": 10,
       "rating": 4.5,
       "reviews": 33,
-      "tags": ["handmade", "balo", "vải bố", "thân thiện môi trường"],
-      "images": ["https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=400", "https://images.unsplash.com/photo-1579783902614-a53fb8287b1a?w=400"]
+      "tags": [
+        "handmade",
+        "balo",
+        "vải bố",
+        "thân thiện môi trường"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=400",
+        "https://images.unsplash.com/photo-1579783902614-a53fb8287b1a?w=400"
+      ]
     },
     {
-      "id": 97,
+      "id": "97",
       "name": "Túi balo mini handmade",
       "price": 250000,
       "image": "https://images.unsplash.com/photo-1579783902614-a53fb8287b1a?w=400",
@@ -1718,11 +2054,19 @@
       "stock": 13,
       "rating": 4.7,
       "reviews": 29,
-      "tags": ["handmade", "balo", "mini", "túi xách"],
-      "images": ["https://images.unsplash.com/photo-1579783902614-a53fb8287b1a?w=400", "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=400"]
+      "tags": [
+        "handmade",
+        "balo",
+        "mini",
+        "túi xách"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1579783902614-a53fb8287b1a?w=400",
+        "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=400"
+      ]
     },
     {
-      "id": 98,
+      "id": "98",
       "name": "Túi balo laptop handmade",
       "price": 400000,
       "image": "https://images.unsplash.com/photo-1603398938373-e54da0bb5e48?w=400",
@@ -1731,11 +2075,19 @@
       "stock": 6,
       "rating": 4.9,
       "reviews": 23,
-      "tags": ["handmade", "balo", "laptop", "túi xách"],
-      "images": ["https://images.unsplash.com/photo-1603398938373-e54da0bb5e48?w=400", "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=400"]
+      "tags": [
+        "handmade",
+        "balo",
+        "laptop",
+        "túi xách"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1603398938373-e54da0bb5e48?w=400",
+        "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=400"
+      ]
     },
     {
-      "id": 99,
+      "id": "99",
       "name": "Túi thổ cẩm handmade",
       "price": 300000,
       "image": "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=400",
@@ -1744,11 +2096,19 @@
       "stock": 11,
       "rating": 4.7,
       "reviews": 36,
-      "tags": ["handmade", "túi", "thổ cẩm", "văn hóa"],
-      "images": ["https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=400", "https://images.unsplash.com/photo-1603398938373-e54da0bb5e48?w=400"]
+      "tags": [
+        "handmade",
+        "túi",
+        "thổ cẩm",
+        "văn hóa"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=400",
+        "https://images.unsplash.com/photo-1603398938373-e54da0bb5e48?w=400"
+      ]
     },
     {
-      "id": 100,
+      "id": "100",
       "name": "Váy thổ cẩm handmade",
       "price": 450000,
       "image": "https://images.unsplash.com/photo-1603398938373-e54da0bb5e48?w=400",
@@ -1757,11 +2117,19 @@
       "stock": 8,
       "rating": 4.8,
       "reviews": 24,
-      "tags": ["handmade", "váy", "thổ cẩm", "thời trang"],
-      "images": ["https://images.unsplash.com/photo-1603398938373-e54da0bb5e48?w=400", "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=400"]
+      "tags": [
+        "handmade",
+        "váy",
+        "thổ cẩm",
+        "thời trang"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1603398938373-e54da0bb5e48?w=400",
+        "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=400"
+      ]
     },
     {
-      "id": 101,
+      "id": "101",
       "name": "Khăn trải bàn thổ cẩm handmade",
       "price": 350000,
       "image": "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=400",
@@ -1770,11 +2138,19 @@
       "stock": 9,
       "rating": 4.6,
       "reviews": 31,
-      "tags": ["handmade", "khăn", "thổ cẩm", "trang trí"],
-      "images": ["https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=400", "https://images.unsplash.com/photo-1603398938373-e54da0bb5e48?w=400"]
+      "tags": [
+        "handmade",
+        "khăn",
+        "thổ cẩm",
+        "trang trí"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=400",
+        "https://images.unsplash.com/photo-1603398938373-e54da0bb5e48?w=400"
+      ]
     },
     {
-      "id": 102,
+      "id": "102",
       "name": "Gối thổ cẩm handmade",
       "price": 280000,
       "image": "https://images.unsplash.com/photo-1603398938373-e54da0bb5e48?w=400",
@@ -1783,11 +2159,19 @@
       "stock": 10,
       "rating": 4.7,
       "reviews": 28,
-      "tags": ["handmade", "gối", "thổ cẩm", "trang trí"],
-      "images": ["https://images.unsplash.com/photo-1603398938373-e54da0bb5e48?w=400", "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=400"]
+      "tags": [
+        "handmade",
+        "gối",
+        "thổ cẩm",
+        "trang trí"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1603398938373-e54da0bb5e48?w=400",
+        "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=400"
+      ]
     },
     {
-      "id": 103,
+      "id": "103",
       "name": "Áo dài thổ cẩm handmade",
       "price": 550000,
       "image": "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=400",
@@ -1796,11 +2180,19 @@
       "stock": 5,
       "rating": 5,
       "reviews": 19,
-      "tags": ["handmade", "áo dài", "thổ cẩm", "thời trang"],
-      "images": ["https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=400", "https://images.unsplash.com/photo-1603398938373-e54da0bb5e48?w=400"]
+      "tags": [
+        "handmade",
+        "áo dài",
+        "thổ cẩm",
+        "thời trang"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=400",
+        "https://images.unsplash.com/photo-1603398938373-e54da0bb5e48?w=400"
+      ]
     },
     {
-      "id": 104,
+      "id": "104",
       "name": "Túi xách thổ cẩm handmade",
       "price": 320000,
       "image": "https://images.unsplash.com/photo-1603398938373-e54da0bb5e48?w=400",
@@ -1809,11 +2201,19 @@
       "stock": 9,
       "rating": 4.8,
       "reviews": 26,
-      "tags": ["handmade", "túi xách", "thổ cẩm", "văn hóa"],
-      "images": ["https://images.unsplash.com/photo-1603398938373-e54da0bb5e48?w=400", "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=400"]
+      "tags": [
+        "handmade",
+        "túi xách",
+        "thổ cẩm",
+        "văn hóa"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1603398938373-e54da0bb5e48?w=400",
+        "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=400"
+      ]
     },
     {
-      "id": 105,
+      "id": "105",
       "name": "Búp bê nàng tiên cá handmade",
       "price": 260000,
       "image": "https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?w=400",
@@ -1822,11 +2222,19 @@
       "stock": 8,
       "rating": 4.8,
       "reviews": 27,
-      "tags": ["handmade", "búp bê", "tiên cá", "quà tặng"],
-      "images": ["https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?w=400", "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400"]
+      "tags": [
+        "handmade",
+        "búp bê",
+        "tiên cá",
+        "quà tặng"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?w=400",
+        "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400"
+      ]
     },
     {
-      "id": 106,
+      "id": "106",
       "name": "Búp bê công chúa bạch tuyết handmade",
       "price": 250000,
       "image": "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400",
@@ -1835,11 +2243,19 @@
       "stock": 9,
       "rating": 4.7,
       "reviews": 31,
-      "tags": ["handmade", "búp bê", "công chúa", "quà tặng"],
-      "images": ["https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400", "https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?w=400"]
+      "tags": [
+        "handmade",
+        "búp bê",
+        "công chúa",
+        "quà tặng"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400",
+        "https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?w=400"
+      ]
     },
     {
-      "id": 107,
+      "id": "107",
       "name": "Búp bê robot handmade",
       "price": 220000,
       "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400",
@@ -1848,11 +2264,19 @@
       "stock": 11,
       "rating": 4.6,
       "reviews": 39,
-      "tags": ["handmade", "búp bê", "robot", "đồ chơi"],
-      "images": ["https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400", "https://images.unsplash.com/photo-1583394838336-acd977736f90?w=400"]
+      "tags": [
+        "handmade",
+        "búp bê",
+        "robot",
+        "đồ chơi"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400",
+        "https://images.unsplash.com/photo-1583394838336-acd977736f90?w=400"
+      ]
     },
     {
-      "id": 108,
+      "id": "108",
       "name": "Búp bê nông dân handmade",
       "price": 200000,
       "image": "https://images.unsplash.com/photo-1583394838336-acd977736f90?w=400",
@@ -1861,11 +2285,19 @@
       "stock": 10,
       "rating": 4.8,
       "reviews": 23,
-      "tags": ["handmade", "búp bê", "nông dân", "văn hóa"],
-      "images": ["https://images.unsplash.com/photo-1583394838336-acd977736f90?w=400", "https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?w=400"]
+      "tags": [
+        "handmade",
+        "búp bê",
+        "nông dân",
+        "văn hóa"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1583394838336-acd977736f90?w=400",
+        "https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?w=400"
+      ]
     },
     {
-      "id": 109,
+      "id": "109",
       "name": "Búp bê múa ba lê handmade",
       "price": 280000,
       "image": "https://images.unsplash.com/photo-1584100936595-c0655ba6af63?w=400",
@@ -1874,11 +2306,19 @@
       "stock": 7,
       "rating": 4.9,
       "reviews": 21,
-      "tags": ["handmade", "búp bê", "ba lê", "quà tặng"],
-      "images": ["https://images.unsplash.com/photo-1584100936595-c0655ba6af63?w=400", "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400"]
+      "tags": [
+        "handmade",
+        "búp bê",
+        "ba lê",
+        "quà tặng"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1584100936595-c0655ba6af63?w=400",
+        "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400"
+      ]
     },
     {
-      "id": 110,
+      "id": "110",
       "name": "Búp bê cưới handmade",
       "price": 300000,
       "image": "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400",
@@ -1887,11 +2327,19 @@
       "stock": 6,
       "rating": 5,
       "reviews": 18,
-      "tags": ["handmade", "búp bê", "cưới", "quà tặng"],
-      "images": ["https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400", "https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400"]
+      "tags": [
+        "handmade",
+        "búp bê",
+        "cưới",
+        "quà tặng"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400",
+        "https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400"
+      ]
     },
     {
-      "id": 111,
+      "id": "111",
       "name": "Búp bê áo dài handmade",
       "price": 290000,
       "image": "https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400",
@@ -1900,11 +2348,19 @@
       "stock": 8,
       "rating": 4.8,
       "reviews": 26,
-      "tags": ["handmade", "búp bê", "áo dài", "văn hóa"],
-      "images": ["https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400", "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400"]
+      "tags": [
+        "handmade",
+        "búp bê",
+        "áo dài",
+        "văn hóa"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400",
+        "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400"
+      ]
     },
     {
-      "id": 112,
+      "id": "112",
       "name": "Hoa cẩm tú cầu handmade",
       "price": 145000,
       "image": "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400",
@@ -1913,11 +2369,19 @@
       "stock": 14,
       "rating": 4.7,
       "reviews": 34,
-      "tags": ["handmade", "hoa", "cẩm tú cầu", "trang trí"],
-      "images": ["https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400", "https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400"]
+      "tags": [
+        "handmade",
+        "hoa",
+        "cẩm tú cầu",
+        "trang trí"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400",
+        "https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400"
+      ]
     },
     {
-      "id": 113,
+      "id": "113",
       "name": "Hoa đồng tiền vải handmade",
       "price": 135000,
       "image": "https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400",
@@ -1926,11 +2390,19 @@
       "stock": 15,
       "rating": 4.6,
       "reviews": 30,
-      "tags": ["handmade", "hoa", "đồng tiền", "trang trí"],
-      "images": ["https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400", "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400"]
+      "tags": [
+        "handmade",
+        "hoa",
+        "đồng tiền",
+        "trang trí"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400",
+        "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400"
+      ]
     },
     {
-      "id": 114,
+      "id": "114",
       "name": "Hoa hướng dương giấy handmade",
       "price": 155000,
       "image": "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=400",
@@ -1939,11 +2411,19 @@
       "stock": 12,
       "rating": 4.8,
       "reviews": 28,
-      "tags": ["handmade", "hoa", "hướng dương", "quà tặng"],
-      "images": ["https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=400", "https://images.unsplash.com/photo-1579783902614-a53fb8287b1a?w=400"]
+      "tags": [
+        "handmade",
+        "hoa",
+        "hướng dương",
+        "quà tặng"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=400",
+        "https://images.unsplash.com/photo-1579783902614-a53fb8287b1a?w=400"
+      ]
     },
     {
-      "id": 115,
+      "id": "115",
       "name": "Hoa oải hương vải handmade",
       "price": 140000,
       "image": "https://images.unsplash.com/photo-1579783902614-a53fb8287b1a?w=400",
@@ -1952,11 +2432,19 @@
       "stock": 13,
       "rating": 4.7,
       "reviews": 32,
-      "tags": ["handmade", "hoa", "oải hương", "trang trí"],
-      "images": ["https://images.unsplash.com/photo-1579783902614-a53fb8287b1a?w=400", "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=400"]
+      "tags": [
+        "handmade",
+        "hoa",
+        "oải hương",
+        "trang trí"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1579783902614-a53fb8287b1a?w=400",
+        "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=400"
+      ]
     },
     {
-      "id": 116,
+      "id": "116",
       "name": "Hoa cúc dại handmade",
       "price": 120000,
       "image": "https://images.unsplash.com/photo-1627123424574-724758594e93?w=400",
@@ -1965,11 +2453,19 @@
       "stock": 18,
       "rating": 4.5,
       "reviews": 39,
-      "tags": ["handmade", "hoa", "cúc dại", "trang trí"],
-      "images": ["https://images.unsplash.com/photo-1627123424574-724758594e93?w=400", "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400"]
+      "tags": [
+        "handmade",
+        "hoa",
+        "cúc dại",
+        "trang trí"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1627123424574-724758594e93?w=400",
+        "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400"
+      ]
     },
     {
-      "id": 117,
+      "id": "117",
       "name": "Hoa phong lan vải handmade",
       "price": 165000,
       "image": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400",
@@ -1978,11 +2474,19 @@
       "stock": 10,
       "rating": 4.9,
       "reviews": 25,
-      "tags": ["handmade", "hoa", "phong lan", "trang trí"],
-      "images": ["https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400", "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=400"]
+      "tags": [
+        "handmade",
+        "hoa",
+        "phong lan",
+        "trang trí"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400",
+        "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=400"
+      ]
     },
     {
-      "id": 118,
+      "id": "118",
       "name": "Bó hoa baby handmade",
       "price": 160000,
       "image": "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=400",
@@ -1991,11 +2495,19 @@
       "stock": 11,
       "rating": 4.8,
       "reviews": 27,
-      "tags": ["handmade", "hoa", "baby", "quà tặng"],
-      "images": ["https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=400", "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400"]
+      "tags": [
+        "handmade",
+        "hoa",
+        "baby",
+        "quà tặng"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=400",
+        "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400"
+      ]
     },
     {
-      "id": 119,
+      "id": "119",
       "name": "Tranh cuộn hoa đào và chim",
       "price": 480000,
       "image": "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400",
@@ -2004,11 +2516,19 @@
       "stock": 4,
       "rating": 4.8,
       "reviews": 18,
-      "tags": ["handmade", "tranh", "hoa đào", "Tết"],
-      "images": ["https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400", "https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400"]
+      "tags": [
+        "handmade",
+        "tranh",
+        "hoa đào",
+        "Tết"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400",
+        "https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400"
+      ]
     },
     {
-      "id": 120,
+      "id": "120",
       "name": "Tranh cuộn sơn thủy hữu tình",
       "price": 510000,
       "image": "https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400",
@@ -2017,11 +2537,19 @@
       "stock": 3,
       "rating": 4.9,
       "reviews": 15,
-      "tags": ["handmade", "tranh", "sơn thủy", "trang trí"],
-      "images": ["https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400", "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400"]
+      "tags": [
+        "handmade",
+        "tranh",
+        "sơn thủy",
+        "trang trí"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400",
+        "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400"
+      ]
     },
     {
-      "id": 121,
+      "id": "121",
       "name": "Tranh cuộn hoa mẫu đơn",
       "price": 450000,
       "image": "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400",
@@ -2030,11 +2558,19 @@
       "stock": 4,
       "rating": 4.7,
       "reviews": 20,
-      "tags": ["handmade", "tranh", "mẫu đơn", "phong thủy"],
-      "images": ["https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400", "https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400"]
+      "tags": [
+        "handmade",
+        "tranh",
+        "mẫu đơn",
+        "phong thủy"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400",
+        "https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400"
+      ]
     },
     {
-      "id": 122,
+      "id": "122",
       "name": "Tranh cuộn ngư tiều canh mục",
       "price": 540000,
       "image": "https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400",
@@ -2043,11 +2579,19 @@
       "stock": 2,
       "rating": 5,
       "reviews": 10,
-      "tags": ["handmade", "tranh", "ngư tiều", "văn hóa"],
-      "images": ["https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400", "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400"]
+      "tags": [
+        "handmade",
+        "tranh",
+        "ngư tiều",
+        "văn hóa"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400",
+        "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400"
+      ]
     },
     {
-      "id": 123,
+      "id": "123",
       "name": "Tranh cuộn hoa cúc và chim",
       "price": 460000,
       "image": "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400",
@@ -2056,11 +2600,19 @@
       "stock": 3,
       "rating": 4.8,
       "reviews": 16,
-      "tags": ["handmade", "tranh", "hoa cúc", "phong thủy"],
-      "images": ["https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400", "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400"]
+      "tags": [
+        "handmade",
+        "tranh",
+        "hoa cúc",
+        "phong thủy"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400",
+        "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400"
+      ]
     },
     {
-      "id": 124,
+      "id": "124",
       "name": "Tranh cuộn cảnh chùa chiền",
       "price": 500000,
       "image": "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400",
@@ -2069,11 +2621,19 @@
       "stock": 3,
       "rating": 4.9,
       "reviews": 13,
-      "tags": ["handmade", "tranh", "chùa chiền", "văn hóa"],
-      "images": ["https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400", "https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400"]
+      "tags": [
+        "handmade",
+        "tranh",
+        "chùa chiền",
+        "văn hóa"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400",
+        "https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400"
+      ]
     },
     {
-      "id": 125,
+      "id": "125",
       "name": "Áo len cổ tim đan tay",
       "price": 370000,
       "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400",
@@ -2082,11 +2642,19 @@
       "stock": 8,
       "rating": 4.7,
       "reviews": 29,
-      "tags": ["handmade", "len", "áo", "thời trang"],
-      "images": ["https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400", "https://images.unsplash.com/photo-1583394838336-acd977736f90?w=400"]
+      "tags": [
+        "handmade",
+        "len",
+        "áo",
+        "thời trang"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400",
+        "https://images.unsplash.com/photo-1583394838336-acd977736f90?w=400"
+      ]
     },
     {
-      "id": 126,
+      "id": "126",
       "name": "Áo len tay dài đan tay",
       "price": 390000,
       "image": "https://images.unsplash.com/photo-1583394838336-acd977736f90?w=400",
@@ -2095,11 +2663,19 @@
       "stock": 7,
       "rating": 4.8,
       "reviews": 33,
-      "tags": ["handmade", "len", "áo", "thời trang"],
-      "images": ["https://images.unsplash.com/photo-1583394838336-acd977736f90?w=400", "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400"]
+      "tags": [
+        "handmade",
+        "len",
+        "áo",
+        "thời trang"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1583394838336-acd977736f90?w=400",
+        "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400"
+      ]
     },
     {
-      "id": 127,
+      "id": "127",
       "name": "Áo len tay ngắn đan tay",
       "price": 340000,
       "image": "https://images.unsplash.com/photo-1584100936595-c0655ba6af63?w=400",
@@ -2108,11 +2684,19 @@
       "stock": 10,
       "rating": 4.6,
       "reviews": 27,
-      "tags": ["handmade", "len", "áo", "thời trang"],
-      "images": ["https://images.unsplash.com/photo-1584100936595-c0655ba6af63?w=400", "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400"]
+      "tags": [
+        "handmade",
+        "len",
+        "áo",
+        "thời trang"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1584100936595-c0655ba6af63?w=400",
+        "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400"
+      ]
     },
     {
-      "id": 128,
+      "id": "128",
       "name": "Áo len không tay đan tay",
       "price": 320000,
       "image": "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400",
@@ -2121,11 +2705,19 @@
       "stock": 11,
       "rating": 4.7,
       "reviews": 30,
-      "tags": ["handmade", "len", "áo", "thời trang"],
-      "images": ["https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400", "https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400"]
+      "tags": [
+        "handmade",
+        "len",
+        "áo",
+        "thời trang"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400",
+        "https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400"
+      ]
     },
     {
-      "id": 129,
+      "id": "129",
       "name": "Áo len họa tiết đan tay",
       "price": 410000,
       "image": "https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400",
@@ -2134,11 +2726,19 @@
       "stock": 6,
       "rating": 4.9,
       "reviews": 24,
-      "tags": ["handmade", "len", "áo", "thời trang"],
-      "images": ["https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400", "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400"]
+      "tags": [
+        "handmade",
+        "len",
+        "áo",
+        "thời trang"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400",
+        "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400"
+      ]
     },
     {
-      "id": 130,
+      "id": "130",
       "name": "Áo len cổ tròn đan tay",
       "price": 350000,
       "image": "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400",
@@ -2147,11 +2747,19 @@
       "stock": 9,
       "rating": 4.8,
       "reviews": 34,
-      "tags": ["handmade", "len", "áo", "thời trang"],
-      "images": ["https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400", "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400"]
+      "tags": [
+        "handmade",
+        "len",
+        "áo",
+        "thời trang"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400",
+        "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400"
+      ]
     },
     {
-      "id": 131,
+      "id": "131",
       "name": "Móc chìa khóa hình ngôi sao",
       "price": 70000,
       "image": "https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?w=400",
@@ -2160,11 +2768,19 @@
       "stock": 29,
       "rating": 4.5,
       "reviews": 49,
-      "tags": ["handmade", "móc khóa", "ngôi sao", "quà tặng"],
-      "images": ["https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?w=400", "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400"]
+      "tags": [
+        "handmade",
+        "móc khóa",
+        "ngôi sao",
+        "quà tặng"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?w=400",
+        "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400"
+      ]
     },
     {
-      "id": 132,
+      "id": "132",
       "name": "Móc chìa khóa hình mặt trăng",
       "price": 75000,
       "image": "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400",
@@ -2173,11 +2789,19 @@
       "stock": 27,
       "rating": 4.6,
       "reviews": 41,
-      "tags": ["handmade", "móc khóa", "mặt trăng", "phụ kiện"],
-      "images": ["https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400", "https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?w=400"]
+      "tags": [
+        "handmade",
+        "móc khóa",
+        "mặt trăng",
+        "phụ kiện"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400",
+        "https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?w=400"
+      ]
     },
     {
-      "id": 133,
+      "id": "133",
       "name": "Móc chìa khóa hình bánh mì",
       "price": 80000,
       "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400",
@@ -2186,11 +2810,19 @@
       "stock": 25,
       "rating": 4.7,
       "reviews": 38,
-      "tags": ["handmade", "móc khóa", "bánh mì", "phụ kiện"],
-      "images": ["https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400", "https://images.unsplash.com/photo-1583394838336-acd977736f90?w=400"]
+      "tags": [
+        "handmade",
+        "móc khóa",
+        "bánh mì",
+        "phụ kiện"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400",
+        "https://images.unsplash.com/photo-1583394838336-acd977736f90?w=400"
+      ]
     },
     {
-      "id": 134,
+      "id": "134",
       "name": "Móc chìa khóa hình kem",
       "price": 77000,
       "image": "https://images.unsplash.com/photo-1583394838336-acd977736f90?w=400",
@@ -2199,11 +2831,19 @@
       "stock": 23,
       "rating": 4.6,
       "reviews": 43,
-      "tags": ["handmade", "móc khóa", "kem", "phụ kiện"],
-      "images": ["https://images.unsplash.com/photo-1583394838336-acd977736f90?w=400", "https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?w=400"]
+      "tags": [
+        "handmade",
+        "móc khóa",
+        "kem",
+        "phụ kiện"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1583394838336-acd977736f90?w=400",
+        "https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?w=400"
+      ]
     },
     {
-      "id": 135,
+      "id": "135",
       "name": "Móc chìa khóa hình bánh ngọt",
       "price": 85000,
       "image": "https://images.unsplash.com/photo-1584100936595-c0655ba6af63?w=400",
@@ -2212,11 +2852,19 @@
       "stock": 22,
       "rating": 4.8,
       "reviews": 35,
-      "tags": ["handmade", "móc khóa", "bánh ngọt", "quà tặng"],
-      "images": ["https://images.unsplash.com/photo-1584100936595-c0655ba6af63?w=400", "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400"]
+      "tags": [
+        "handmade",
+        "móc khóa",
+        "bánh ngọt",
+        "quà tặng"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1584100936595-c0655ba6af63?w=400",
+        "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400"
+      ]
     },
     {
-      "id": 136,
+      "id": "136",
       "name": "Móc chìa khóa hình pizza",
       "price": 90000,
       "image": "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400",
@@ -2225,11 +2873,19 @@
       "stock": 20,
       "rating": 4.7,
       "reviews": 37,
-      "tags": ["handmade", "móc khóa", "pizza", "phụ kiện"],
-      "images": ["https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400", "https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400"]
+      "tags": [
+        "handmade",
+        "móc khóa",
+        "pizza",
+        "phụ kiện"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400",
+        "https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400"
+      ]
     },
     {
-      "id": 137,
+      "id": "137",
       "name": "Gấu bông nhỏ handmade",
       "price": 180000,
       "image": "https://images.unsplash.com/photo-1584100936595-c0655ba6af63?w=400",
@@ -2238,11 +2894,19 @@
       "stock": 15,
       "rating": 4.7,
       "reviews": 41,
-      "tags": ["handmade", "gấu bông", "nhỏ", "quà tặng"],
-      "images": ["https://images.unsplash.com/photo-1584100936595-c0655ba6af63?w=400", "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400"]
+      "tags": [
+        "handmade",
+        "gấu bông",
+        "nhỏ",
+        "quà tặng"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1584100936595-c0655ba6af63?w=400",
+        "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400"
+      ]
     },
     {
-      "id": 138,
+      "id": "138",
       "name": "Bò bông handmade",
       "price": 260000,
       "image": "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400",
@@ -2251,11 +2915,19 @@
       "stock": 9,
       "rating": 4.8,
       "reviews": 28,
-      "tags": ["handmade", "bò bông", "đồ chơi", "quà tặng"],
-      "images": ["https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400", "https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400"]
+      "tags": [
+        "handmade",
+        "bò bông",
+        "đồ chơi",
+        "quà tặng"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400",
+        "https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400"
+      ]
     },
     {
-      "id": 139,
+      "id": "139",
       "name": "Ngựa bông handmade",
       "price": 270000,
       "image": "https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400",
@@ -2264,11 +2936,19 @@
       "stock": 8,
       "rating": 4.7,
       "reviews": 31,
-      "tags": ["handmade", "ngựa bông", "đồ chơi", "quà tặng"],
-      "images": ["https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400", "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400"]
+      "tags": [
+        "handmade",
+        "ngựa bông",
+        "đồ chơi",
+        "quà tặng"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400",
+        "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400"
+      ]
     },
     {
-      "id": 140,
+      "id": "140",
       "name": "Sư tử bông handmade",
       "price": 300000,
       "image": "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400",
@@ -2277,11 +2957,19 @@
       "stock": 7,
       "rating": 4.9,
       "reviews": 24,
-      "tags": ["handmade", "sư tử bông", "đồ chơi", "quà tặng"],
-      "images": ["https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400", "https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400"]
+      "tags": [
+        "handmade",
+        "sư tử bông",
+        "đồ chơi",
+        "quà tặng"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400",
+        "https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400"
+      ]
     },
     {
-      "id": 141,
+      "id": "141",
       "name": "Cá sấu bông handmade",
       "price": 250000,
       "image": "https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400",
@@ -2290,11 +2978,19 @@
       "stock": 11,
       "rating": 4.6,
       "reviews": 36,
-      "tags": ["handmade", "cá sấu bông", "đồ chơi", "quà tặng"],
-      "images": ["https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400", "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400"]
+      "tags": [
+        "handmade",
+        "cá sấu bông",
+        "đồ chơi",
+        "quà tặng"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400",
+        "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400"
+      ]
     },
     {
-      "id": 142,
+      "id": "142",
       "name": "Chim cánh cụt bông handmade",
       "price": 230000,
       "image": "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400",
@@ -2303,11 +2999,19 @@
       "stock": 10,
       "rating": 4.8,
       "reviews": 29,
-      "tags": ["handmade", "chim cánh cụt", "đồ chơi", "quà tặng"],
-      "images": ["https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400", "https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400"]
+      "tags": [
+        "handmade",
+        "chim cánh cụt",
+        "đồ chơi",
+        "quà tặng"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400",
+        "https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400"
+      ]
     },
     {
-      "id": 143,
+      "id": "143",
       "name": "Túi balo nam handmade",
       "price": 360000,
       "image": "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=400",
@@ -2316,11 +3020,19 @@
       "stock": 8,
       "rating": 4.7,
       "reviews": 45,
-      "tags": ["handmade", "balo", "nam", "túi xách"],
-      "images": ["https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=400", "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400"]
+      "tags": [
+        "handmade",
+        "balo",
+        "nam",
+        "túi xách"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=400",
+        "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400"
+      ]
     },
     {
-      "id": 144,
+      "id": "144",
       "name": "Túi balo nữ handmade",
       "price": 340000,
       "image": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400",
@@ -2329,11 +3041,19 @@
       "stock": 9,
       "rating": 4.8,
       "reviews": 32,
-      "tags": ["handmade", "balo", "nữ", "túi xách"],
-      "images": ["https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400", "https://images.unsplash.com/photo-1627123424574-724758594e93?w=400"]
+      "tags": [
+        "handmade",
+        "balo",
+        "nữ",
+        "túi xách"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400",
+        "https://images.unsplash.com/photo-1627123424574-724758594e93?w=400"
+      ]
     },
     {
-      "id": 145,
+      "id": "145",
       "name": "Túi balo công sở handmade",
       "price": 370000,
       "image": "https://images.unsplash.com/photo-1627123424574-724758594e93?w=400",
@@ -2342,11 +3062,19 @@
       "stock": 7,
       "rating": 4.9,
       "reviews": 26,
-      "tags": ["handmade", "balo", "công sở", "túi xách"],
-      "images": ["https://images.unsplash.com/photo-1627123424574-724758594e93?w=400", "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400"]
+      "tags": [
+        "handmade",
+        "balo",
+        "công sở",
+        "túi xách"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1627123424574-724758594e93?w=400",
+        "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400"
+      ]
     },
     {
-      "id": 146,
+      "id": "146",
       "name": "Túi balo đeo ngực handmade",
       "price": 280000,
       "image": "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=400",
@@ -2355,11 +3083,19 @@
       "stock": 12,
       "rating": 4.6,
       "reviews": 35,
-      "tags": ["handmade", "balo", "đeo ngực", "thể thao"],
-      "images": ["https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=400", "https://images.unsplash.com/photo-1579783902614-a53fb8287b1a?w=400"]
+      "tags": [
+        "handmade",
+        "balo",
+        "đeo ngực",
+        "thể thao"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=400",
+        "https://images.unsplash.com/photo-1579783902614-a53fb8287b1a?w=400"
+      ]
     },
     {
-      "id": 147,
+      "id": "147",
       "name": "Túi balo chống nước handmade",
       "price": 420000,
       "image": "https://images.unsplash.com/photo-1579783902614-a53fb8287b1a?w=400",
@@ -2368,11 +3104,19 @@
       "stock": 5,
       "rating": 4.8,
       "reviews": 21,
-      "tags": ["handmade", "balo", "chống nước", "túi xách"],
-      "images": ["https://images.unsplash.com/photo-1579783902614-a53fb8287b1a?w=400", "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=400"]
+      "tags": [
+        "handmade",
+        "balo",
+        "chống nước",
+        "túi xách"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1579783902614-a53fb8287b1a?w=400",
+        "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=400"
+      ]
     },
     {
-      "id": 148,
+      "id": "148",
       "name": "Túi balo trẻ em handmade",
       "price": 260000,
       "image": "https://images.unsplash.com/photo-1603398938373-e54da0bb5e48?w=400",
@@ -2381,11 +3125,19 @@
       "stock": 14,
       "rating": 4.7,
       "reviews": 40,
-      "tags": ["handmade", "balo", "trẻ em", "túi xách"],
-      "images": ["https://images.unsplash.com/photo-1603398938373-e54da0bb5e48?w=400", "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=400"]
+      "tags": [
+        "handmade",
+        "balo",
+        "trẻ em",
+        "túi xách"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1603398938373-e54da0bb5e48?w=400",
+        "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=400"
+      ]
     },
     {
-      "id": 149,
+      "id": "149",
       "name": "Quần thổ cẩm handmade",
       "price": 380000,
       "image": "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=400",
@@ -2394,11 +3146,19 @@
       "stock": 9,
       "rating": 4.7,
       "reviews": 33,
-      "tags": ["handmade", "quần", "thổ cẩm", "thời trang"],
-      "images": ["https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=400", "https://images.unsplash.com/photo-1603398938373-e54da0bb5e48?w=400"]
+      "tags": [
+        "handmade",
+        "quần",
+        "thổ cẩm",
+        "thời trang"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=400",
+        "https://images.unsplash.com/photo-1603398938373-e54da0bb5e48?w=400"
+      ]
     },
     {
-      "id": 150,
+      "id": "150",
       "name": "Áo sơ mi thổ cẩm handmade",
       "price": 400000,
       "image": "https://images.unsplash.com/photo-1603398938373-e54da0bb5e48?w=400",
@@ -2407,11 +3167,19 @@
       "stock": 8,
       "rating": 4.8,
       "reviews": 27,
-      "tags": ["handmade", "áo sơ mi", "thổ cẩm", "thời trang"],
-      "images": ["https://images.unsplash.com/photo-1603398938373-e54da0bb5e48?w=400", "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=400"]
+      "tags": [
+        "handmade",
+        "áo sơ mi",
+        "thổ cẩm",
+        "thời trang"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1603398938373-e54da0bb5e48?w=400",
+        "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=400"
+      ]
     },
     {
-      "id": 151,
+      "id": "151",
       "name": "Khăn tay thổ cẩm handmade",
       "price": 150000,
       "image": "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=400",
@@ -2420,11 +3188,19 @@
       "stock": 16,
       "rating": 4.6,
       "reviews": 42,
-      "tags": ["handmade", "khăn tay", "thổ cẩm", "phụ kiện"],
-      "images": ["https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=400", "https://images.unsplash.com/photo-1603398938373-e54da0bb5e48?w=400"]
+      "tags": [
+        "handmade",
+        "khăn tay",
+        "thổ cẩm",
+        "phụ kiện"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=400",
+        "https://images.unsplash.com/photo-1603398938373-e54da0bb5e48?w=400"
+      ]
     },
     {
-      "id": 152,
+      "id": "152",
       "name": "Túi đựng điện thoại thổ cẩm handmade",
       "price": 180000,
       "image": "https://images.unsplash.com/photo-1603398938373-e54da0bb5e48?w=400",
@@ -2433,11 +3209,19 @@
       "stock": 13,
       "rating": 4.7,
       "reviews": 29,
-      "tags": ["handmade", "túi", "thổ cẩm", "phụ kiện"],
-      "images": ["https://images.unsplash.com/photo-1603398938373-e54da0bb5e48?w=400", "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=400"]
+      "tags": [
+        "handmade",
+        "túi",
+        "thổ cẩm",
+        "phụ kiện"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1603398938373-e54da0bb5e48?w=400",
+        "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=400"
+      ]
     },
     {
-      "id": 153,
+      "id": "153",
       "name": "Mũ thổ cẩm handmade",
       "price": 240000,
       "image": "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=400",
@@ -2446,11 +3230,19 @@
       "stock": 10,
       "rating": 4.8,
       "reviews": 25,
-      "tags": ["handmade", "mũ", "thổ cẩm", "phụ kiện"],
-      "images": ["https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=400", "https://images.unsplash.com/photo-1603398938373-e54da0bb5e48?w=400"]
+      "tags": [
+        "handmade",
+        "mũ",
+        "thổ cẩm",
+        "phụ kiện"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=400",
+        "https://images.unsplash.com/photo-1603398938373-e54da0bb5e48?w=400"
+      ]
     },
     {
-      "id": 154,
+      "id": "154",
       "name": "Túi đựng giày thổ cẩm handmade",
       "price": 220000,
       "image": "https://images.unsplash.com/photo-1603398938373-e54da0bb5e48?w=400",
@@ -2459,13 +3251,21 @@
       "stock": 11,
       "rating": 4.6,
       "reviews": 34,
-      "tags": ["handmade", "túi", "thổ cẩm", "phụ kiện"],
-      "images": ["https://images.unsplash.com/photo-1603398938373-e54da0bb5e48?w=400", "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=400"]
+      "tags": [
+        "handmade",
+        "túi",
+        "thổ cẩm",
+        "phụ kiện"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1603398938373-e54da0bb5e48?w=400",
+        "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=400"
+      ]
     }
   ],
   "reviews": [
     {
-      "id": 1,
+      "id": "1",
       "productId": 1,
       "userId": 1,
       "userName": "Nguyễn Văn A",
@@ -2474,7 +3274,7 @@
       "createdAt": "2024-03-01T00:00:00.000Z"
     },
     {
-      "id": 2,
+      "id": "2",
       "productId": 1,
       "userId": 2,
       "userName": "Trần Thị B",
@@ -2483,7 +3283,7 @@
       "createdAt": "2024-03-05T00:00:00.000Z"
     },
     {
-      "id": 3,
+      "id": "3",
       "productId": 2,
       "userId": 3,
       "userName": "Lê Văn C",
@@ -2492,6 +3292,78 @@
       "createdAt": "2024-02-25T00:00:00.000Z"
     }
   ],
-  "orders": [],
+  "orders": [
+    {
+      "id": "8759",
+      "userId": "1",
+      "items": [
+        {
+          "productId": 20,
+          "quantity": 2,
+          "price": 550000,
+          "productName": "Tranh vẽ tay trên vải canvas",
+          "productImage": "https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400"
+        }
+      ],
+      "totals": {
+        "subtotal": 1100000,
+        "shippingFee": 0,
+        "grandTotal": 1100000
+      },
+      "shippingAddress": {
+        "fullName": "Admin User",
+        "phone": "0921432352",
+        "email": "admin@gmail.com",
+        "address": "aDa",
+        "ward": "ád",
+        "district": "ád",
+        "city": "ád",
+        "note": ""
+      },
+      "paymentMethod": "cod",
+      "status": "pending",
+      "createdAt": "2025-12-23T07:02:05.520Z",
+      "updatedAt": "2025-12-23T07:02:05.521Z"
+    },
+    {
+      "id": "ef48",
+      "userId": "1",
+      "items": [
+        {
+          "productId": 39,
+          "quantity": 1,
+          "price": 75000,
+          "productName": "Móc chìa khóa hình gấu",
+          "productImage": "https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?w=400"
+        },
+        {
+          "productId": 40,
+          "quantity": 1,
+          "price": 80000,
+          "productName": "Móc chìa khóa hình mèo",
+          "productImage": "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400"
+        }
+      ],
+      "totals": {
+        "subtotal": 155000,
+        "shippingFee": 30000,
+        "grandTotal": 185000
+      },
+      "shippingAddress": {
+        "fullName": "Admin User",
+        "phone": "0921432352",
+        "email": "admin@gmail.com",
+        "address": "biên hòa đồng nai",
+        "ward": "ád",
+        "district": "ád",
+        "city": "biên hòa",
+        "note": ""
+      },
+      "paymentMethod": "cod",
+      "status": "pending",
+      "createdAt": "2025-12-23T07:13:13.130Z",
+      "updatedAt": "2025-12-23T07:13:13.130Z"
+    }
+  ],
   "favorites": []
 }
