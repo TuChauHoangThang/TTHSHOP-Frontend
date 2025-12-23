@@ -236,39 +236,38 @@ export const authAPI = {
     },
 };
 
-// Orders stored in localStorage (demo)
-const getOrders = () => JSON.parse(localStorage.getItem('orders') || '[]');
-const setOrders = (orders) => localStorage.setItem('orders', JSON.stringify(orders));
-
+// Orders stored in json-server (db.json)
 export const ordersAPI = {
     getAll: async (userId = null) => {
-        await delay(200);
-        const orders = getOrders();
-        if (userId) return orders.filter((o) => o.userId === userId);
-        return orders;
+        await delay(150);
+        const query = userId
+            ? `/orders?userId=${encodeURIComponent(userId)}&_sort=createdAt&_order=desc`
+            : '/orders?_sort=createdAt&_order=desc';
+        return fetchJson(query);
     },
 
     getById: async (orderId) => {
-        await delay(200);
-        const orders = getOrders();
-        const order = orders.find((o) => o.id === parseInt(orderId));
-        if (!order) throw new Error('Không tìm thấy đơn hàng');
-        return order;
+        await delay(150);
+        return fetchJson(`/orders/${orderId}`);
     },
 
     create: async (orderData) => {
         await delay(300);
-        const orders = getOrders();
         const products = await productsAPI.getAll();
 
-        let totalAmount = 0;
+        let subtotal = 0;
+        const stockUpdates = [];
         const orderItems = orderData.items.map((item) => {
-            const product = products.find((p) => p.id === item.productId);
+            const product = products.find((p) => parseInt(p.id) === parseInt(item.productId));
             if (!product) throw new Error(`Sản phẩm ID ${item.productId} không tồn tại`);
             if (product.stock < item.quantity) {
                 throw new Error(`Sản phẩm "${product.name}" chỉ còn ${product.stock} sản phẩm`);
             }
-            totalAmount += product.price * item.quantity;
+            subtotal += product.price * item.quantity;
+            stockUpdates.push({
+                id: product.id,
+                stock: product.stock - item.quantity,
+            });
             return {
                 productId: item.productId,
                 quantity: item.quantity,
@@ -278,11 +277,17 @@ export const ordersAPI = {
             };
         });
 
-        const newOrder = {
-            id: Date.now(),
-            userId: orderData.userId,
+        const shippingFee = subtotal === 0 || subtotal > 500000 ? 0 : 30000;
+        const grandTotal = subtotal + shippingFee;
+
+        const payload = {
+            userId: orderData.userId || null,
             items: orderItems,
-            totalAmount,
+            totals: {
+                subtotal,
+                shippingFee,
+                grandTotal,
+            },
             shippingAddress: orderData.shippingAddress || {},
             paymentMethod: orderData.paymentMethod || 'cod',
             status: 'pending',
@@ -290,31 +295,47 @@ export const ordersAPI = {
             updatedAt: new Date().toISOString(),
         };
 
-        orders.push(newOrder);
-        setOrders(orders);
+        const createdOrder = await fetchJson('/orders', {
+            method: 'POST',
+            body: JSON.stringify(payload),
+        });
+
+        // Giảm tồn kho sau khi đặt hàng
+        try {
+            await Promise.all(
+                stockUpdates.map((item) =>
+                    fetchJson(`/products/${item.id}`, {
+                        method: 'PATCH',
+                        body: JSON.stringify({ stock: item.stock }),
+                    })
+                )
+            );
+        } catch (error) {
+            console.warn('Không thể cập nhật tồn kho:', error);
+        }
 
         if (orderData.clearCart) {
             cartAPI.clearCart();
         }
 
-        return newOrder;
+        return createdOrder;
     },
 
     updateStatus: async (orderId, status) => {
-        await delay(200);
-        const orders = getOrders();
-        const idx = orders.findIndex((o) => o.id === parseInt(orderId));
-        if (idx === -1) throw new Error('Không tìm thấy đơn hàng');
+        await delay(150);
         const valid = ['pending', 'confirmed', 'shipping', 'delivered', 'cancelled'];
         if (!valid.includes(status)) throw new Error('Trạng thái không hợp lệ');
-        orders[idx].status = status;
-        orders[idx].updatedAt = new Date().toISOString();
-        setOrders(orders);
-        return orders[idx];
+        return fetchJson(`/orders/${orderId}`, {
+            method: 'PATCH',
+            body: JSON.stringify({
+                status,
+                updatedAt: new Date().toISOString(),
+            }),
+        });
     },
 
     cancel: async (orderId) => {
-        await delay(200);
+        await delay(150);
         const order = await ordersAPI.getById(orderId);
         if (order.status === 'delivered') throw new Error('Không thể hủy đơn hàng đã giao');
         return ordersAPI.updateStatus(orderId, 'cancelled');
