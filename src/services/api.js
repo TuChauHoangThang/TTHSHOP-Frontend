@@ -105,11 +105,14 @@ export const cartAPI = {
         await delay(200);
         const cart = getCartStorage();
         const products = await productsAPI.getAll();
-        const product = products.find((p) => p.id === parseInt(productId));
+
+        // Dữ liệu từ json-server đôi khi trả id là string, nên ép kiểu cả hai
+        const productIdNum = parseInt(productId);
+        const product = products.find((p) => parseInt(p.id) === productIdNum);
         if (!product) throw new Error('Sản phẩm không tồn tại');
         if (product.stock < quantity) throw new Error(`Chỉ còn ${product.stock} sản phẩm trong kho`);
 
-        const existing = cart.find((i) => i.productId === parseInt(productId));
+        const existing = cart.find((i) => parseInt(i.productId) === productIdNum);
         if (existing) {
             const newQty = existing.quantity + quantity;
             if (newQty > product.stock) {
@@ -117,7 +120,7 @@ export const cartAPI = {
             }
             existing.quantity = newQty;
         } else {
-            cart.push({ productId: parseInt(productId), quantity });
+            cart.push({ productId: productIdNum, quantity });
         }
         setCartStorage(cart);
         return cart;
@@ -126,12 +129,14 @@ export const cartAPI = {
         await delay(200);
         const cart = getCartStorage();
         const products = await productsAPI.getAll();
-        const product = products.find((p) => p.id === parseInt(productId));
+
+        const productIdNum = parseInt(productId);
+        const product = products.find((p) => parseInt(p.id) === productIdNum);
         if (!product) throw new Error('Sản phẩm không tồn tại');
         if (quantity > product.stock) {
             throw new Error(`Số lượng vượt quá tồn kho (còn ${product.stock} sản phẩm)`);
         }
-        const item = cart.find((i) => i.productId === parseInt(productId));
+        const item = cart.find((i) => parseInt(i.productId) === productIdNum);
         if (item) {
             if (quantity <= 0) {
                 return cartAPI.removeFromCart(productId);
@@ -144,7 +149,8 @@ export const cartAPI = {
     removeFromCart: async (productId) => {
         await delay(200);
         const cart = getCartStorage();
-        const newCart = cart.filter((i) => i.productId !== parseInt(productId));
+        const productIdNum = parseInt(productId);
+        const newCart = cart.filter((i) => parseInt(i.productId) !== productIdNum);
         setCartStorage(newCart);
         return newCart;
     },
@@ -227,5 +233,90 @@ export const authAPI = {
     },
     logout: () => {
         localStorage.removeItem('currentUser');
+    },
+};
+
+// Orders stored in localStorage (demo)
+const getOrders = () => JSON.parse(localStorage.getItem('orders') || '[]');
+const setOrders = (orders) => localStorage.setItem('orders', JSON.stringify(orders));
+
+export const ordersAPI = {
+    getAll: async (userId = null) => {
+        await delay(200);
+        const orders = getOrders();
+        if (userId) return orders.filter((o) => o.userId === userId);
+        return orders;
+    },
+
+    getById: async (orderId) => {
+        await delay(200);
+        const orders = getOrders();
+        const order = orders.find((o) => o.id === parseInt(orderId));
+        if (!order) throw new Error('Không tìm thấy đơn hàng');
+        return order;
+    },
+
+    create: async (orderData) => {
+        await delay(300);
+        const orders = getOrders();
+        const products = await productsAPI.getAll();
+
+        let totalAmount = 0;
+        const orderItems = orderData.items.map((item) => {
+            const product = products.find((p) => p.id === item.productId);
+            if (!product) throw new Error(`Sản phẩm ID ${item.productId} không tồn tại`);
+            if (product.stock < item.quantity) {
+                throw new Error(`Sản phẩm "${product.name}" chỉ còn ${product.stock} sản phẩm`);
+            }
+            totalAmount += product.price * item.quantity;
+            return {
+                productId: item.productId,
+                quantity: item.quantity,
+                price: product.price,
+                productName: product.name,
+                productImage: product.image,
+            };
+        });
+
+        const newOrder = {
+            id: Date.now(),
+            userId: orderData.userId,
+            items: orderItems,
+            totalAmount,
+            shippingAddress: orderData.shippingAddress || {},
+            paymentMethod: orderData.paymentMethod || 'cod',
+            status: 'pending',
+            createdAt: new Date().toISOString(),
+            updatedAt: new Date().toISOString(),
+        };
+
+        orders.push(newOrder);
+        setOrders(orders);
+
+        if (orderData.clearCart) {
+            cartAPI.clearCart();
+        }
+
+        return newOrder;
+    },
+
+    updateStatus: async (orderId, status) => {
+        await delay(200);
+        const orders = getOrders();
+        const idx = orders.findIndex((o) => o.id === parseInt(orderId));
+        if (idx === -1) throw new Error('Không tìm thấy đơn hàng');
+        const valid = ['pending', 'confirmed', 'shipping', 'delivered', 'cancelled'];
+        if (!valid.includes(status)) throw new Error('Trạng thái không hợp lệ');
+        orders[idx].status = status;
+        orders[idx].updatedAt = new Date().toISOString();
+        setOrders(orders);
+        return orders[idx];
+    },
+
+    cancel: async (orderId) => {
+        await delay(200);
+        const order = await ordersAPI.getById(orderId);
+        if (order.status === 'delivered') throw new Error('Không thể hủy đơn hàng đã giao');
+        return ordersAPI.updateStatus(orderId, 'cancelled');
     },
 };
