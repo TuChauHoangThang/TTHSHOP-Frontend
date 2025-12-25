@@ -95,15 +95,18 @@ export const reviewsAPI = {
     },
 };
 
-// Cart & Favorites: vẫn lưu localStorage, nhưng kiểm tra tồn kho qua API.
-const getCartStorage = () => JSON.parse(localStorage.getItem('cart') || '[]');
-const setCartStorage = (cart) => localStorage.setItem('cart', JSON.stringify(cart));
+// Cart & Favorites: lưu theo từng user (hoặc khách) trong localStorage.
+const getCartKey = (userId = null) => `cart_${userId || 'guest'}`;
+const getCartStorage = (userId = null) =>
+    JSON.parse(localStorage.getItem(getCartKey(userId)) || '[]');
+const setCartStorage = (cart, userId = null) =>
+    localStorage.setItem(getCartKey(userId), JSON.stringify(cart));
 
 export const cartAPI = {
-    getCart: () => getCartStorage(),
-    addToCart: async (productId, quantity = 1) => {
+    getCart: (userId = null) => getCartStorage(userId),
+    addToCart: async (productId, quantity = 1, userId = null) => {
         await delay(200);
-        const cart = getCartStorage();
+        const cart = getCartStorage(userId);
         const products = await productsAPI.getAll();
 
         // Dữ liệu từ json-server đôi khi trả id là string, nên ép kiểu cả hai
@@ -122,12 +125,12 @@ export const cartAPI = {
         } else {
             cart.push({ productId: productIdNum, quantity });
         }
-        setCartStorage(cart);
+        setCartStorage(cart, userId);
         return cart;
     },
-    updateQuantity: async (productId, quantity) => {
+    updateQuantity: async (productId, quantity, userId = null) => {
         await delay(200);
-        const cart = getCartStorage();
+        const cart = getCartStorage(userId);
         const products = await productsAPI.getAll();
 
         const productIdNum = parseInt(productId);
@@ -139,23 +142,28 @@ export const cartAPI = {
         const item = cart.find((i) => parseInt(i.productId) === productIdNum);
         if (item) {
             if (quantity <= 0) {
-                return cartAPI.removeFromCart(productId);
+                return cartAPI.removeFromCart(productId, userId);
             }
             item.quantity = quantity;
-            setCartStorage(cart);
+            setCartStorage(cart, userId);
         }
         return cart;
     },
-    removeFromCart: async (productId) => {
+    removeFromCart: async (productId, userId = null) => {
         await delay(200);
-        const cart = getCartStorage();
+        const cart = getCartStorage(userId);
         const productIdNum = parseInt(productId);
         const newCart = cart.filter((i) => parseInt(i.productId) !== productIdNum);
-        setCartStorage(newCart);
+        setCartStorage(newCart, userId);
         return newCart;
     },
-    clearCart: () => {
-        localStorage.removeItem('cart');
+    clearCart: (userId = null) => {
+        localStorage.removeItem(getCartKey(userId));
+    },
+    copyCart: (fromUserId = null, toUserId = null) => {
+        const sourceCart = getCartStorage(fromUserId);
+        setCartStorage(sourceCart, toUserId);
+        return sourceCart;
     },
 };
 
@@ -315,7 +323,7 @@ export const ordersAPI = {
         }
 
         if (orderData.clearCart) {
-            cartAPI.clearCart();
+            cartAPI.clearCart(orderData.userId || null);
         }
 
         return createdOrder;

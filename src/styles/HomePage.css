@@ -60,6 +60,9 @@
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .hero-content button:hover {
@@ -84,8 +87,15 @@
     animation: fadeIn 1s ease-out;
 }
 
+.stat-icon {
+    font-size: 2.5rem;
+    color: #667eea;
+    margin-bottom: 15px;
+    display: block;
+}
+
 .stat-item h2 {
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: 700;
     color: #667eea;
     margin-bottom: 10px;
@@ -96,16 +106,16 @@
 }
 
 .stat-item p {
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: #666;
     font-weight: 500;
 }
 
 /* MATERIALS SECTION */
 .materials {
-    max-width: 1200px;
+    max-width: 1600px;
     margin: 80px auto;
-    padding: 0 20px;
+    padding: 0 40px;
 }
 
 .materials h2 {
@@ -179,7 +189,7 @@
 /* PRODUCTS SECTION */
 .products {
     background: #f8f9fa;
-    padding: 80px 20px;
+    padding: 80px 40px;
 }
 
 .products h2 {
@@ -205,7 +215,7 @@
 }
 
 .products-grid {
-    max-width: 1200px;
+    max-width: 1600px;
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -315,8 +325,19 @@
 }
 
 .stars {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+.stars .star-filled {
     color: #ffc107;
-    font-size: 1rem;
+    font-size: 0.9rem;
+}
+
+.stars .star-empty {
+    color: #e0e0e0;
+    font-size: 0.9rem;
 }
 
 .rating-value {
@@ -372,6 +393,10 @@
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
 }
 
 .add-to-cart-btn:hover:not(:disabled) {
@@ -394,7 +419,7 @@
 
 /* FEEDBACK SECTION */
 .feedback {
-    max-width: 800px;
+    max-width: 1200px;
     margin: 80px auto;
     padding: 60px 40px;
     text-align: center;
@@ -471,8 +496,26 @@
 
 /* RESPONSIVE DESIGN */
 @media (max-width: 768px) {
+    /* Tìm và thay thế đoạn .hero cũ bằng đoạn này */
     .hero {
-        height: 500px;
+        position: relative;
+        width: 100%;
+        height: 600px;
+        /* Thay url thành ảnh bạn muốn làm ảnh nền chính */
+        background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: white;
+        overflow: hidden;
+    }
+
+    /* Xóa bỏ đoạn .hero::before nếu bạn không muốn dùng lưới caro đè lên ảnh */
+    .hero::before {
+        display: none;
     }
 
     .hero-content h1 {

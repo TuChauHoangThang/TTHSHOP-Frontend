@@ -8,9 +8,9 @@
 }
 
 .header-container {
-  max-width: 1200px;
+  max-width: 1600px;
   margin: 0 auto;
-  padding: 1rem 2rem;
+  padding: 1rem 2.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -52,6 +52,9 @@
 }
 
 .nav-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
   color: white;
   text-decoration: none;
   font-weight: 500;
@@ -59,6 +62,20 @@
   transition: all 0.3s ease;
   position: relative;
   padding: 0.5rem 0;
+}
+
+.nav-link svg {
+  font-size: 0.9rem;
+}
+
+.mobile-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mobile-nav-link svg {
+  font-size: 1rem;
 }
 
 .nav-link::after {
@@ -141,7 +158,6 @@
   color: #667eea;
   padding-left: 2rem;
 }
-
 /* Mobile Dropdown */
 .mobile-products-header {
   cursor: pointer;

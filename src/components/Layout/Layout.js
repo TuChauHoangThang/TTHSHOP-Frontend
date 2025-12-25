@@ -10,7 +10,7 @@ const Layout = ({ children }) => {
       minHeight: '100vh' 
     }}>
       <Header />
-      <main style={{ flex: 1, padding: '2rem' }}>
+      <main style={{ flex: 1 }}>
         {children}
       </main>
       <Footer />
