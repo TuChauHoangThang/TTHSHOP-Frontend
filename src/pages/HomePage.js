@@ -4,6 +4,7 @@ import { useProducts } from '../hooks/useProducts';
 import { useCart } from '../context/CartContext';
 import { productsAPI, favoritesAPI } from '../services/api';
 import { formatPrice } from '../utils/formatPrice';
+import { FontAwesomeIcon, icons } from '../utils/icons';
 import '../styles/HomePage.css';
 
 const HomePage = () => {
@@ -77,25 +78,31 @@ const HomePage = () => {
                 <div className="hero-content">
                     <h1>Túi – Ví Thổ Cẩm</h1>
                     <p>Sắc màu truyền thống – 100% Handmade</p>
-                    <button onClick={handleViewProducts}>Xem sản phẩm</button>
+                    <button onClick={handleViewProducts}>
+                        <FontAwesomeIcon icon={icons.products} /> Xem sản phẩm
+                    </button>
                 </div>
             </section>
 
             {/* THỐNG KÊ */}
             <section className="stats">
                 <div className="stat-item">
+                    <FontAwesomeIcon icon={icons.shoppingBag} className="stat-icon" />
                     <h2>100+</h2>
                     <p>Sản phẩm</p>
                 </div>
                 <div className="stat-item">
+                    <FontAwesomeIcon icon={icons.tag} className="stat-icon" />
                     <h2>10+</h2>
                     <p>Danh mục</p>
                 </div>
                 <div className="stat-item">
+                    <FontAwesomeIcon icon={icons.gift} className="stat-icon" />
                     <h2>100%</h2>
                     <p>Handmade</p>
                 </div>
                 <div className="stat-item">
+                    <FontAwesomeIcon icon={icons.user} className="stat-icon" />
                     <h2>500+</h2>
                     <p>Khách hàng</p>
                 </div>
@@ -104,36 +111,25 @@ const HomePage = () => {
             {/* CHẤT LIỆU */}
             <section className="materials">
                 <h2>Chất liệu nổi bật</h2>
+
                 <div className="material-list">
                     <div className="material-card">
-                        <img src="/images/thocam.jpg" alt="Thổ cẩm" />
-                        <h3>Chất liệu thổ cẩm</h3>
-                        <p>Sắc màu dân tộc Việt Nam</p>
+                        {/* Ảnh 1: Nghệ nhân */}
+                        <img src="/image/banner1.jpg" alt="Thủ công" />
+                        <h3>Quy trình chế tác</h3>
+                        <p>Tỉ mỉ trong từng đường kim mũi chỉ</p>
                     </div>
                     <div className="material-card">
-                        <img src="/images/len.jpg" alt="Len" />
-                        <h3>Chất liệu len</h3>
-                        <p>Đặc sắc trong từng đường nét</p>
+                        {/* Ảnh 2: Túi vải */}
+                        <img src="/image/banner2.jpg" alt="Túi vải" />
+                        <h3>Túi vải Canvas</h3>
+                        <p>Phong cách trẻ trung, hiện đại</p>
                     </div>
                     <div className="material-card">
-                        <img src="/images/giay.jpg" alt="Giấy" />
-                        <h3>Chất liệu giấy</h3>
-                        <p>Nghệ thuật từ giấy tái chế</p>
-                    </div>
-                    <div className="material-card">
-                        <img src="/images/giay.jpg" alt="Giấy" />
-                        <h3>Chất liệu giấy</h3>
-                        <p>Nghệ thuật từ giấy tái chế</p>
-                    </div>
-                    <div className="material-card">
-                        <img src="/images/giay.jpg" alt="Giấy" />
-                        <h3>Chất liệu giấy</h3>
-                        <p>Nghệ thuật từ giấy tái chế</p>
-                    </div>
-                    <div className="material-card">
-                        <img src="/images/giay.jpg" alt="Giấy" />
-                        <h3>Chất liệu giấy</h3>
-                        <p>Nghệ thuật từ giấy tái chế</p>
+                        {/* Ảnh 3: Đồ da */}
+                        <img src="/image/banner3.jpg" alt="Đồ da" />
+                        <h3>Phụ kiện đồ da</h3>
+                        <p>Sang trọng và bền bỉ theo thời gian</p>
                     </div>
                 </div>
             </section>
@@ -169,7 +165,7 @@ const HomePage = () => {
                                             }}
                                             title={isFavorite ? 'Bỏ yêu thích' : 'Thêm yêu thích'}
                                         >
-                                            {isFavorite ? '❤️' : '🤍'}
+                                            <FontAwesomeIcon icon={isFavorite ? icons.heart : icons.heartRegular} />
                                         </button>
                                     </div>
                                     
@@ -183,8 +179,13 @@ const HomePage = () => {
                                         
                                         <div className="product-rating">
                                             <span className="stars">
-                                                {'★'.repeat(Math.floor(product.rating))}
-                                                {'☆'.repeat(5 - Math.floor(product.rating))}
+                                                {[...Array(5)].map((_, i) => (
+                                                    <FontAwesomeIcon 
+                                                        key={i} 
+                                                        icon={icons.star} 
+                                                        className={i < Math.floor(product.rating) ? 'star-filled' : 'star-empty'} 
+                                                    />
+                                                ))}
                                             </span>
                                             <span className="rating-value">({product.rating})</span>
                                             <span className="reviews-count">({product.reviews} đánh giá)</span>
@@ -207,7 +208,7 @@ const HomePage = () => {
                                             onClick={() => handleAddToCart(product.id)}
                                             disabled={product.stock === 0}
                                         >
-                                            {product.stock > 0 ? 'Thêm vào giỏ' : 'Hết hàng'}
+                                            <FontAwesomeIcon icon={icons.cart} /> {product.stock > 0 ? 'Thêm vào giỏ' : 'Hết hàng'}
                                         </button>
                                     </div>
                                 </div>

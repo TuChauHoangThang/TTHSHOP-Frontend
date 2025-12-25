@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import {
-    User, Mail, Camera, Edit2, Save, X, Lock
-} from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
+import { FontAwesomeIcon, icons } from '../utils/icons';
 import '../styles/UserProfilePage.css';
 
 const API_URL = 'http://localhost:3001';
@@ -102,10 +100,10 @@ const UserProfilePage = () => {
                     <div className="avatar">
                         {userData.avatar
                             ? <img src={userData.avatar} alt="avatar" />
-                            : <User size={48} />}
+                            : <FontAwesomeIcon icon={icons.user} size="3x" />}
                         {isEditing && (
                             <label className="camera">
-                                <Camera size={16} />
+                                <FontAwesomeIcon icon={icons.edit} />
                                 <input type="file" hidden />
                             </label>
                         )}
@@ -113,21 +111,21 @@ const UserProfilePage = () => {
 
                     <div className="info">
                         <h1>{userData.name}</h1>
-                        <p><Mail size={14} /> {userData.email}</p>
+                        <p><FontAwesomeIcon icon={icons.email} /> {userData.email}</p>
                         <span className="role">{userData.role}</span>
                     </div>
 
                     {!isEditing ? (
                         <button className="btn edit" onClick={() => setIsEditing(true)}>
-                            <Edit2 size={16} /> Chỉnh sửa
+                            <FontAwesomeIcon icon={icons.edit} /> Chỉnh sửa
                         </button>
                     ) : (
                         <div className="actions">
                             <button className="btn save" onClick={handleSave}>
-                                <Save size={16} /> Lưu
+                                <FontAwesomeIcon icon={icons.check} /> Lưu
                             </button>
                             <button className="btn cancel" onClick={() => setIsEditing(false)}>
-                                <X size={16} /> Hủy
+                                <FontAwesomeIcon icon={icons.times} /> Hủy
                             </button>
                         </div>
                     )}
@@ -136,13 +134,13 @@ const UserProfilePage = () => {
                 {/* TABS */}
                 <div className="tabs">
                     <button className={activeTab === 'profile' ? 'active' : ''} onClick={() => setActiveTab('profile')}>
-                        👤 Cá nhân
+                        <FontAwesomeIcon icon={icons.user} /> Cá nhân
                     </button>
                     <button className={activeTab === 'orders' ? 'active' : ''} onClick={() => setActiveTab('orders')}>
-                        📦 Đơn hàng
+                        <FontAwesomeIcon icon={icons.shoppingBag} /> Đơn hàng
                     </button>
                     <button className={activeTab === 'security' ? 'active' : ''} onClick={() => setActiveTab('security')}>
-                        🔒 Bảo mật
+                        <FontAwesomeIcon icon={icons.shield} /> Bảo mật
                     </button>
                 </div>
 
@@ -288,7 +286,7 @@ const UserProfilePage = () => {
                         />
 
                         <button className="btn save" onClick={handleChangePassword}>
-                            <Lock size={16} /> Đổi mật khẩu
+                            <FontAwesomeIcon icon={icons.shield} /> Đổi mật khẩu
                         </button>
 
                         {passwordMessage && <p style={{ marginTop: 10 }}>{passwordMessage}</p>}

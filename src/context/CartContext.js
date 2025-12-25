@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { cartAPI, productsAPI } from '../services/api';
+import { useAuth } from './AuthContext';
 
 const CartContext = createContext();
 
@@ -14,13 +15,15 @@ export const useCart = () => {
 export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
   const [cartDetails, setCartDetails] = useState([]); // Cart items với thông tin sản phẩm đầy đủ
+  const { user } = useAuth();
+  const currentUserId = user?.id || null;
 
   useEffect(() => {
     loadCart();
-  }, []);
+  }, [currentUserId]);
 
   const loadCart = async () => {
-    const cart = cartAPI.getCart();
+    const cart = cartAPI.getCart(currentUserId);
     setCartItems(cart);
     
     // Load thông tin chi tiết sản phẩm
@@ -35,7 +38,7 @@ export const CartProvider = ({ children }) => {
 
   const addToCart = async (productId, quantity = 1) => {
     try {
-      await cartAPI.addToCart(productId, quantity);
+      await cartAPI.addToCart(productId, quantity, currentUserId);
       loadCart();
     } catch (error) {
       throw error; // Re-throw để component có thể xử lý
@@ -47,7 +50,7 @@ export const CartProvider = ({ children }) => {
       if (quantity <= 0) {
         await removeFromCart(productId);
       } else {
-        await cartAPI.updateQuantity(productId, quantity);
+        await cartAPI.updateQuantity(productId, quantity, currentUserId);
         loadCart();
       }
     } catch (error) {
@@ -57,7 +60,7 @@ export const CartProvider = ({ children }) => {
 
   const removeFromCart = async (productId) => {
     try {
-      await cartAPI.removeFromCart(productId);
+      await cartAPI.removeFromCart(productId, currentUserId);
       loadCart();
     } catch (error) {
       throw error;
@@ -65,7 +68,7 @@ export const CartProvider = ({ children }) => {
   };
 
   const clearCart = () => {
-    cartAPI.clearCart();
+    cartAPI.clearCart(currentUserId);
     setCartItems([]);
     setCartDetails([]);
   };

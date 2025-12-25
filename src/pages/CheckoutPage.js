@@ -204,7 +204,7 @@ const CheckoutPage = () => {
           <p>Hoàn tất thông tin giao hàng và lựa chọn phương thức thanh toán.</p>
         </div>
         <div className="checkout-meta">
-          <span>{totalItems} sản phẩm</span>
+          <span>{totalItems} sản phẩm   </span>
           <span>Giá trị đơn: {formatPrice(grandTotal)}</span>
         </div>
       </div>
