@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
+import { useAuth } from '../context/AuthContext';
 import { productsAPI, favoritesAPI, reviewsAPI } from '../services/api';
 import { formatPrice } from '../utils/formatPrice';
 import '../styles/ProductDetailPage.css';
@@ -9,6 +10,7 @@ const ProductDetailPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const { addToCart } = useCart();
+  const { user } = useAuth();
 
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -44,7 +46,7 @@ const ProductDetailPage = () => {
         setProduct(p);
         setActiveImage(p.images?.[0] || p.image || '');
         setReviews(r || []);
-        setIsFavorite(favoritesAPI.isFavorite(productId));
+        setIsFavorite(user ? favoritesAPI.isFavorite(productId, user.id) : false);
       } catch (err) {
         console.error('Lỗi tải sản phẩm:', err);
         setError(err.message || 'Đã xảy ra lỗi khi tải sản phẩm');
@@ -56,7 +58,7 @@ const ProductDetailPage = () => {
     if (id) {
       loadData();
     }
-  }, [id]);
+  }, [id, user]);
 
   const handleAddToCart = async () => {
     if (!product) return;
@@ -73,11 +75,22 @@ const ProductDetailPage = () => {
 
   const handleToggleFavorite = async () => {
     if (!product) return;
+    
+    if (!user) {
+      const confirmLogin = window.confirm('Vui lòng đăng nhập để thêm sản phẩm vào yêu thích. Bạn có muốn đăng nhập ngay bây giờ?');
+      if (confirmLogin) {
+        navigate('/login');
+      }
+      return;
+    }
+
     try {
       if (isFavorite) {
-        await favoritesAPI.removeFromFavorites(product.id);
+        await favoritesAPI.removeFromFavorites(product.id, user.id);
+        alert('Đã xóa khỏi yêu thích');
       } else {
-        await favoritesAPI.addToFavorites(product.id);
+        await favoritesAPI.addToFavorites(product.id, user.id);
+        alert('Đã thêm vào yêu thích');
       }
       setIsFavorite(!isFavorite);
     } catch (err) {

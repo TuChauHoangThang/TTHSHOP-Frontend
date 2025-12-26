@@ -2,22 +2,29 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useProducts } from '../hooks/useProducts';
 import { useCart } from '../context/CartContext';
+import { useAuth } from '../context/AuthContext';
 import { productsAPI, favoritesAPI } from '../services/api';
 import { formatPrice } from '../utils/formatPrice';
 import { FontAwesomeIcon, icons } from '../utils/icons';
 import '../styles/HomePage.css';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 
 const HomePage = () => {
     const navigate = useNavigate();
     const { products, loading } = useProducts();
     const { addToCart } = useCart();
+    const { user } = useAuth();
     
     const [favorites, setFavorites] = useState([]);
     const [bestSellingProducts, setBestSellingProducts] = useState([]);
 
     useEffect(() => {
         loadFavorites();
-    }, []);
+    }, [user]);
 
     useEffect(() => {
         if (products.length > 0) {
@@ -35,9 +42,18 @@ const HomePage = () => {
         }
     }, [products]);
 
-    const loadFavorites = () => {
-        const favs = JSON.parse(localStorage.getItem('favorites') || '[]');
-        setFavorites(favs);
+    const loadFavorites = async () => {
+        if (user) {
+            try {
+                const favoriteProducts = await favoritesAPI.getAll(user.id);
+                setFavorites(favoriteProducts.map(p => p.id));
+            } catch (err) {
+                console.error('Lỗi tải yêu thích:', err);
+                setFavorites([]);
+            }
+        } else {
+            setFavorites([]);
+        }
     };
 
     const handleAddToCart = async (productId) => {
@@ -50,12 +66,22 @@ const HomePage = () => {
     };
 
     const handleToggleFavorite = async (productId) => {
+        if (!user) {
+            const confirmLogin = window.confirm('Vui lòng đăng nhập để thêm sản phẩm vào yêu thích. Bạn có muốn đăng nhập ngay bây giờ?');
+            if (confirmLogin) {
+                navigate('/login');
+            }
+            return;
+        }
+
         try {
-            const isFavorite = favoritesAPI.isFavorite(productId);
+            const isFavorite = favoritesAPI.isFavorite(productId, user.id);
             if (isFavorite) {
-                await favoritesAPI.removeFromFavorites(productId);
+                await favoritesAPI.removeFromFavorites(productId, user.id);
+                alert('Đã xóa khỏi yêu thích');
             } else {
-                await favoritesAPI.addToFavorites(productId);
+                await favoritesAPI.addToFavorites(productId, user.id);
+                alert('Đã thêm vào yêu thích');
             }
             loadFavorites();
         } catch (err) {
@@ -71,17 +97,54 @@ const HomePage = () => {
         navigate('/products');
     };
 
+    const bannerData = [
+        {
+            image: "/image/banner1.jpg",
+            title: "Quy trình chế tác",
+            description: "Tỉ mỉ trong từng đường kim mũi chỉ"
+        },
+        {
+            image: "/image/banner2.jpg",
+            title: "Túi vải Canvas",
+            description: "Phong cách trẻ trung, hiện đại"
+        },
+        {
+            image: "/image/banner3.jpg",
+            title: "Phụ kiện đồ da",
+            description: "Sang trọng và bền bỉ theo thời gian"
+        }
+    ];
+
     return (
         <div className="home">
-            {/* HERO / BANNER */}
-            <section className="hero">
-                <div className="hero-content">
-                    <h1>Túi – Ví Thổ Cẩm</h1>
-                    <p>Sắc màu truyền thống – 100% Handmade</p>
-                    <button onClick={handleViewProducts}>
-                        <FontAwesomeIcon icon={icons.products} /> Xem sản phẩm
-                    </button>
-                </div>
+            {/* BANNER CHẠY NGANG (Thay thế Hero Section cũ) */}
+            <section className="hero-slider">
+                <Swiper
+                    spaceBetween={0}
+                    centeredSlides={true}
+                    autoplay={{
+                        delay: 3000, // 3 giây chuyển 1 lần
+                        disableOnInteraction: false,
+                    }}
+                    pagination={{ clickable: true }}
+                    navigation={true}
+                    modules={[Autoplay, Pagination, Navigation]}
+                    className="mySwiper"
+                >
+                    {bannerData.map((banner, index) => (
+                        <SwiperSlide key={index}>
+                            <div className="hero-slide-item" style={{ backgroundImage: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(${banner.image})` }}>
+                                <div className="hero-content">
+                                    <h1>{banner.title}</h1>
+                                    <p>{banner.description}</p>
+                                    <button onClick={handleViewProducts}>
+                                        <FontAwesomeIcon icon={icons.products} /> Xem sản phẩm
+                                    </button>
+                                </div>
+                            </div>
+                        </SwiperSlide>
+                    ))}
+                </Swiper>
             </section>
 
             {/* THỐNG KÊ */}
