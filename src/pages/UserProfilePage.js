@@ -12,6 +12,8 @@ const UserProfilePage = () => {
     const [isEditing, setIsEditing] = useState(false);
     const [activeTab, setActiveTab] = useState('profile');
     const [expandedOrderId, setExpandedOrderId] = useState(null);
+    const [currentPage, setCurrentPage] = useState(1);
+    const ordersPerPage = 4;
 
     const [userData, setUserData] = useState(null);
     const [tempData, setTempData] = useState(null);
@@ -33,9 +35,12 @@ const UserProfilePage = () => {
             fetch(`${API_URL}/orders?userId=${userId}`).then(r => r.json())
         ])
             .then(([u, o]) => {
+                const sortedOrders = [...o].sort(
+                    (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+                );
                 setUserData(u);
                 setTempData(u);
-                setOrders(o);
+                setOrders(sortedOrders);
             })
             .finally(() => setLoading(false));
     }, [user]);
@@ -82,7 +87,6 @@ const UserProfilePage = () => {
         setUserData(updatedUser);
         setPasswordMessage('✅ Đổi mật khẩu thành công – vui lòng đăng nhập lại');
 
-        // 🔐 đổi mật khẩu xong → logout
         setTimeout(() => {
             logout();
         }, 1500);
@@ -95,7 +99,6 @@ const UserProfilePage = () => {
         <div className="profile-page">
             <div className="profile-card">
 
-                {/* HEADER */}
                 <div className="profile-header">
                     <div className="avatar">
                         {userData.avatar
@@ -131,7 +134,6 @@ const UserProfilePage = () => {
                     )}
                 </div>
 
-                {/* TABS */}
                 <div className="tabs">
                     <button className={activeTab === 'profile' ? 'active' : ''} onClick={() => setActiveTab('profile')}>
                         <FontAwesomeIcon icon={icons.user} /> Cá nhân
@@ -144,7 +146,6 @@ const UserProfilePage = () => {
                     </button>
                 </div>
 
-                {/* PROFILE */}
                 {activeTab === 'profile' && (
                     <div className="tab-content">
                         <label>Tên</label>
@@ -175,96 +176,117 @@ const UserProfilePage = () => {
                         {orders.length === 0 ? (
                             <p>Chưa có đơn hàng</p>
                         ) : (
-                            orders.map(order => {
-                                const isOpen = expandedOrderId === order.id;
+                            <>
+                                {orders
+                                    .slice((currentPage - 1) * ordersPerPage, currentPage * ordersPerPage)
+                                    .map(order => {
+                                        const isOpen = expandedOrderId === order.id;
 
-                                return (
-                                    <div key={order.id} className="order-card compact">
+                                        return (
+                                            <div key={order.id} className="order-card compact">
 
-                                        {/* ===== HEADER GỌN ===== */}
-                                        <div
-                                            className="order-compact-header"
-                                            onClick={() =>
-                                                setExpandedOrderId(isOpen ? null : order.id)
-                                            }
-                                        >
-                                            <div>
-                                                <strong>Đơn #{order.id}</strong>
-                                                <span className="order-date">
-                  {new Date(order.createdAt).toLocaleString()}
-                </span>
-                                            </div>
-
-                                            <div className="order-right">
-                <span className={`status ${order.status}`}>
-                  {order.status}
-                </span>
-
-                                                <span className="total">
-                  {order.totals.grandTotal.toLocaleString()} đ
-                </span>
-
-                                                <span className="toggle">
-                  {isOpen ? '▲' : '▼'}
-                </span>
-                                            </div>
-                                        </div>
-
-                                        {/* ===== CHI TIẾT ===== */}
-                                        {isOpen && (
-                                            <div className="order-details">
-
-                                                {order.items.map(item => (
-                                                    <div key={item.productId} className="order-item">
-                                                        <img
-                                                            src={item.productImage}
-                                                            alt={item.productName}
-                                                        />
-
-                                                        <div className="item-info">
-                                                            <h4>{item.productName}</h4>
-                                                            <p>Số lượng: {item.quantity}</p>
-                                                            <p>Giá: {item.price.toLocaleString()} đ</p>
-                                                        </div>
-                                                    </div>
-                                                ))}
-
-                                                <div className="order-footer">
+                                                <div
+                                                    className="order-compact-header"
+                                                    onClick={() =>
+                                                        setExpandedOrderId(isOpen ? null : order.id)
+                                                    }
+                                                >
                                                     <div>
-                                                        <strong>Giao tới:</strong>
-                                                        <p>{order.shippingAddress.fullName}</p>
-                                                        <p>{order.shippingAddress.phone}</p>
-                                                        <p>{order.shippingAddress.address}</p>
+                                                        <strong>Đơn #{order.id}</strong>
+                                                        <span className="order-date">
+                                                            {new Date(order.createdAt).toLocaleString()}
+                                                        </span>
                                                     </div>
 
-                                                    <div className="summary">
-                                                        <p>
-                                                            Tạm tính: {order.totals.subtotal.toLocaleString()} đ
-                                                        </p>
-                                                        <p>
-                                                            Phí ship: {order.totals.shippingFee.toLocaleString()} đ
-                                                        </p>
-                                                        <p className="total">
-                                                            Tổng: {order.totals.grandTotal.toLocaleString()} đ
-                                                        </p>
-                                                        <p>
-                                                            Thanh toán: {order.paymentMethod.toUpperCase()}
-                                                        </p>
+                                                    <div className="order-right">
+                                                        <span className={`status ${order.status}`}>
+                                                            {order.status}
+                                                        </span>
+
+                                                        <span className="total">
+                                                            {order.totals.grandTotal.toLocaleString()} đ
+                                                        </span>
+
+                                                        <span className="toggle">
+                                                            {isOpen ? '▲' : '▼'}
+                                                        </span>
                                                     </div>
                                                 </div>
 
+                                                {isOpen && (
+                                                    <div className="order-details">
+
+                                                        {order.items.map(item => (
+                                                            <div key={item.productId} className="order-item">
+                                                                <img
+                                                                    src={item.productImage}
+                                                                    alt={item.productName}
+                                                                />
+
+                                                                <div className="item-info">
+                                                                    <h4>{item.productName}</h4>
+                                                                    <p>Số lượng: {item.quantity}</p>
+                                                                    <p>Giá: {item.price.toLocaleString()} đ</p>
+                                                                </div>
+                                                            </div>
+                                                        ))}
+
+                                                        <div className="order-footer">
+                                                            <div>
+                                                                <strong>Giao tới:</strong>
+                                                                <p>{order.shippingAddress.fullName}</p>
+                                                                <p>{order.shippingAddress.phone}</p>
+                                                                <p>{order.shippingAddress.address}</p>
+                                                            </div>
+
+                                                            <div className="summary">
+                                                                <p>
+                                                                    Tạm tính: {order.totals.subtotal.toLocaleString()} đ
+                                                                </p>
+                                                                <p>
+                                                                    Phí ship: {order.totals.shippingFee.toLocaleString()} đ
+                                                                </p>
+                                                                <p className="total">
+                                                                    Tổng: {order.totals.grandTotal.toLocaleString()} đ
+                                                                </p>
+                                                                <p>
+                                                                    Thanh toán: {order.paymentMethod.toUpperCase()}
+                                                                </p>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                )}
                                             </div>
-                                        )}
+                                        );
+                                    })}
+
+                                {orders.length > ordersPerPage && (
+                                    <div className="pagination">
+                                        <button
+                                            disabled={currentPage === 1}
+                                            onClick={() => setCurrentPage(currentPage - 1)}
+                                        >
+                                            <FontAwesomeIcon icon={icons.chevronLeft} /> Trước
+                                        </button>
+
+                                        <span>
+                                            Trang {currentPage} / {Math.ceil(orders.length / ordersPerPage)}
+                                        </span>
+
+                                        <button
+                                            disabled={currentPage === Math.ceil(orders.length / ordersPerPage)}
+                                            onClick={() => setCurrentPage(currentPage + 1)}
+                                        >
+                                            Sau <FontAwesomeIcon icon={icons.chevronRight} />
+                                        </button>
                                     </div>
-                                );
-                            })
+                                )}
+                            </>
                         )}
                     </div>
                 )}
 
-
-
-                {/* SECURITY */}
                 {activeTab === 'security' && (
                     <div className="tab-content">
                         <label>Mật khẩu hiện tại</label>
@@ -285,7 +307,7 @@ const UserProfilePage = () => {
                             onChange={e => setPasswordData({ ...passwordData, confirmPassword: e.target.value })}
                         />
 
-                        <button className="btn save" onClick={handleChangePassword}>
+                        <button className="btn save" onClick={handleChangePassword} style={{ width: "20%" }}>
                             <FontAwesomeIcon icon={icons.shield} /> Đổi mật khẩu
                         </button>
 
