@@ -14,6 +14,7 @@ import RegisterPage from './pages/RegisterPage';
 import UserProfilePage from './pages/UserProfilePage';
 import CartPage from './pages/CartPage';
 import CheckoutPage from './pages/CheckoutPage';
+import FavoritePage from './pages/FavoritePage';
 
 import './styles/App.css';
 
@@ -44,6 +45,14 @@ function App() {
                 element={
                   <ProtectedRoute>
                     <CheckoutPage />
+                  </ProtectedRoute>
+                } 
+              />
+              <Route 
+                path="/favorites" 
+                element={
+                  <ProtectedRoute>
+                    <FavoritePage />
                   </ProtectedRoute>
                 } 
               />

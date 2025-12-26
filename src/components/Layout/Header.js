@@ -1,7 +1,8 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Link, useNavigate} from 'react-router-dom';
 import {useAuth} from '../../context/AuthContext';
 import {useCart} from '../../context/CartContext';
+import {favoritesAPI} from '../../services/api';
 import {FontAwesomeIcon, icons} from '../../utils/icons';
 import '../../styles/Header.css';
 
@@ -10,6 +11,15 @@ const Header = () => {
     const {getTotalItems} = useCart();
     const navigate = useNavigate();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [favoritesCount, setFavoritesCount] = useState(0);
+
+    useEffect(() => {
+        if (user) {
+            setFavoritesCount(favoritesAPI.getCount(user.id));
+        } else {
+            setFavoritesCount(0);
+        }
+    }, [user]);
 
     const handleLogout = () => {
         logout();
@@ -45,6 +55,16 @@ const Header = () => {
                             <span className="cart-badge">{getTotalItems()}</span>
                         )}
                     </Link>
+
+                    {/* Favorites - chỉ hiển thị khi đã đăng nhập */}
+                    {isAuthenticated && (
+                        <Link to="/favorites" className="nav-link favorites-link">
+                            <FontAwesomeIcon icon={icons.heart} /> <span>Yêu Thích</span>
+                            {favoritesCount > 0 && (
+                                <span className="cart-badge">{favoritesCount}</span>
+                            )}
+                        </Link>
+                    )}
 
                     {/* User Menu */}
                     {isAuthenticated ? (
@@ -87,6 +107,11 @@ const Header = () => {
                 <Link to="/cart" className="mobile-nav-link" onClick={() => setIsMenuOpen(false)}>
                     <FontAwesomeIcon icon={icons.cart} /> Giỏ Hàng {getTotalItems() > 0 && `(${getTotalItems()})`}
                 </Link>
+                {isAuthenticated && (
+                    <Link to="/favorites" className="mobile-nav-link" onClick={() => setIsMenuOpen(false)}>
+                        <FontAwesomeIcon icon={icons.heart} /> Yêu Thích {favoritesCount > 0 && `(${favoritesCount})`}
+                    </Link>
+                )}
                 {isAuthenticated ? (
                     <>
                         <Link to="/profile" className="mobile-nav-link" onClick={() => setIsMenuOpen(false)}>

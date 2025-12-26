@@ -167,35 +167,67 @@ export const cartAPI = {
     },
 };
 
-const getFavorites = () => JSON.parse(localStorage.getItem('favorites') || '[]');
-const setFavorites = (favorites) => localStorage.setItem('favorites', JSON.stringify(favorites));
+// Favorites: lưu theo từng user trong localStorage (yêu cầu đăng nhập)
+const getFavoritesKey = (userId) => `favorites_${userId}`;
+const getFavoritesStorage = (userId) => {
+    if (!userId) return [];
+    return JSON.parse(localStorage.getItem(getFavoritesKey(userId)) || '[]');
+};
+const setFavoritesStorage = (favorites, userId) => {
+    if (!userId) throw new Error('Vui lòng đăng nhập để thêm sản phẩm vào yêu thích');
+    localStorage.setItem(getFavoritesKey(userId), JSON.stringify(favorites));
+};
 
 export const favoritesAPI = {
-    getAll: async () => {
+    getAll: async (userId) => {
+        if (!userId) return [];
         await delay(200);
-        const favorites = getFavorites();
+        const favorites = getFavoritesStorage(userId);
         const products = await productsAPI.getAll();
-        return products.filter((p) => favorites.includes(p.id));
+        return products.filter((p) => favorites.includes(parseInt(p.id)));
     },
-    isFavorite: (productId) => getFavorites().includes(parseInt(productId)),
-    addToFavorites: async (productId) => {
+    isFavorite: (productId, userId) => {
+        if (!userId) return false;
+        return getFavoritesStorage(userId).includes(parseInt(productId));
+    },
+    addToFavorites: async (productId, userId) => {
+        if (!userId) {
+            throw new Error('Vui lòng đăng nhập để thêm sản phẩm vào yêu thích');
+        }
         await delay(200);
-        const favorites = getFavorites();
+        const favorites = getFavoritesStorage(userId);
         const idNum = parseInt(productId);
-        if (favorites.includes(idNum)) throw new Error('Sản phẩm đã có trong danh sách yêu thích');
+        if (favorites.includes(idNum)) {
+            throw new Error('Sản phẩm đã có trong danh sách yêu thích');
+        }
         favorites.push(idNum);
-        setFavorites(favorites);
+        setFavoritesStorage(favorites, userId);
         return favorites;
     },
-    removeFromFavorites: async (productId) => {
+    removeFromFavorites: async (productId, userId) => {
+        if (!userId) {
+            throw new Error('Vui lòng đăng nhập để xóa sản phẩm khỏi yêu thích');
+        }
         await delay(200);
         const idNum = parseInt(productId);
-        const newFav = getFavorites().filter((id) => id !== idNum);
-        setFavorites(newFav);
+        const newFav = getFavoritesStorage(userId).filter((id) => id !== idNum);
+        setFavoritesStorage(newFav, userId);
         return newFav;
     },
-    clearFavorites: () => setFavorites([]),
-    getCount: () => getFavorites().length,
+    clearFavorites: (userId) => {
+        if (!userId) return;
+        localStorage.removeItem(getFavoritesKey(userId));
+    },
+    getCount: (userId) => {
+        if (!userId) return 0;
+        return getFavoritesStorage(userId).length;
+    },
+    copyFavorites: (fromUserId, toUserId) => {
+        if (!fromUserId || !toUserId) return;
+        const sourceFavorites = getFavoritesStorage(fromUserId);
+        setFavoritesStorage(sourceFavorites, toUserId);
+        return sourceFavorites;
+    },
 };
 
 export const authAPI = {

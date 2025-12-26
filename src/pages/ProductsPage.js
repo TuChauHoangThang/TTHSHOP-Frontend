@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useProducts } from '../hooks/useProducts';
 import { useCart } from '../context/CartContext';
+import { useAuth } from '../context/AuthContext';
 import { productsAPI, favoritesAPI } from '../services/api';
 import { formatPrice } from '../utils/formatPrice';
 import { FontAwesomeIcon, icons } from '../utils/icons';
@@ -12,6 +13,7 @@ const ProductsPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const { products, loading, error, loadProducts, searchProducts } = useProducts();
   const { addToCart } = useCart();
+  const { user } = useAuth();
   
   const [searchKeyword, setSearchKeyword] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('');
@@ -26,7 +28,7 @@ const ProductsPage = () => {
   useEffect(() => {
     loadCategories();
     loadFavorites();
-  }, []);
+  }, [user]);
 
   useEffect(() => {
     // Lấy category từ URL query params và cập nhật state
@@ -51,9 +53,18 @@ const ProductsPage = () => {
     }
   };
 
-  const loadFavorites = () => {
-    const favs = JSON.parse(localStorage.getItem('favorites') || '[]');
-    setFavorites(favs);
+  const loadFavorites = async () => {
+    if (user) {
+      try {
+        const favoriteProducts = await favoritesAPI.getAll(user.id);
+        setFavorites(favoriteProducts.map(p => p.id));
+      } catch (err) {
+        console.error('Lỗi tải yêu thích:', err);
+        setFavorites([]);
+      }
+    } else {
+      setFavorites([]);
+    }
   };
 
   const filterAndSortProducts = async () => {
@@ -133,12 +144,22 @@ const ProductsPage = () => {
   };
 
   const handleToggleFavorite = async (productId) => {
+    if (!user) {
+      const confirmLogin = window.confirm('Vui lòng đăng nhập để thêm sản phẩm vào yêu thích. Bạn có muốn đăng nhập ngay bây giờ?');
+      if (confirmLogin) {
+        navigate('/login');
+      }
+      return;
+    }
+
     try {
-      const isFavorite = favoritesAPI.isFavorite(productId);
+      const isFavorite = favoritesAPI.isFavorite(productId, user.id);
       if (isFavorite) {
-        await favoritesAPI.removeFromFavorites(productId);
+        await favoritesAPI.removeFromFavorites(productId, user.id);
+        alert('Đã xóa khỏi yêu thích');
       } else {
-        await favoritesAPI.addToFavorites(productId);
+        await favoritesAPI.addToFavorites(productId, user.id);
+        alert('Đã thêm vào yêu thích');
       }
       loadFavorites();
     } catch (err) {
