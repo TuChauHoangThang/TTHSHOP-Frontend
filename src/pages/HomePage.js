@@ -6,6 +6,11 @@ import { productsAPI, favoritesAPI } from '../services/api';
 import { formatPrice } from '../utils/formatPrice';
 import { FontAwesomeIcon, icons } from '../utils/icons';
 import '../styles/HomePage.css';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 
 const HomePage = () => {
     const navigate = useNavigate();
@@ -71,17 +76,54 @@ const HomePage = () => {
         navigate('/products');
     };
 
+    const bannerData = [
+        {
+            image: "/image/banner1.jpg",
+            title: "Quy trình chế tác",
+            description: "Tỉ mỉ trong từng đường kim mũi chỉ"
+        },
+        {
+            image: "/image/banner2.jpg",
+            title: "Túi vải Canvas",
+            description: "Phong cách trẻ trung, hiện đại"
+        },
+        {
+            image: "/image/banner3.jpg",
+            title: "Phụ kiện đồ da",
+            description: "Sang trọng và bền bỉ theo thời gian"
+        }
+    ];
+
     return (
         <div className="home">
-            {/* HERO / BANNER */}
-            <section className="hero">
-                <div className="hero-content">
-                    <h1>Túi – Ví Thổ Cẩm</h1>
-                    <p>Sắc màu truyền thống – 100% Handmade</p>
-                    <button onClick={handleViewProducts}>
-                        <FontAwesomeIcon icon={icons.products} /> Xem sản phẩm
-                    </button>
-                </div>
+            {/* BANNER CHẠY NGANG (Thay thế Hero Section cũ) */}
+            <section className="hero-slider">
+                <Swiper
+                    spaceBetween={0}
+                    centeredSlides={true}
+                    autoplay={{
+                        delay: 3000, // 3 giây chuyển 1 lần
+                        disableOnInteraction: false,
+                    }}
+                    pagination={{ clickable: true }}
+                    navigation={true}
+                    modules={[Autoplay, Pagination, Navigation]}
+                    className="mySwiper"
+                >
+                    {bannerData.map((banner, index) => (
+                        <SwiperSlide key={index}>
+                            <div className="hero-slide-item" style={{ backgroundImage: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(${banner.image})` }}>
+                                <div className="hero-content">
+                                    <h1>{banner.title}</h1>
+                                    <p>{banner.description}</p>
+                                    <button onClick={handleViewProducts}>
+                                        <FontAwesomeIcon icon={icons.products} /> Xem sản phẩm
+                                    </button>
+                                </div>
+                            </div>
+                        </SwiperSlide>
+                    ))}
+                </Swiper>
             </section>
 
             {/* THỐNG KÊ */}
