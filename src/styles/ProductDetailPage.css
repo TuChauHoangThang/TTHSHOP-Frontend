@@ -133,19 +133,29 @@
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  font-size: 1.2rem;
   cursor: pointer;
   transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  flex-shrink: 0;
 }
 
 .favorite-toggle:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  color: #e74c3c;
 }
 
 .favorite-toggle.active {
   background: rgba(255, 192, 203, 0.9);
   border-color: rgba(255, 192, 203, 0.9);
+  color: #e74c3c;
+}
+
+.favorite-toggle svg {
+  font-size: 1.2rem;
 }
 
 .meta {

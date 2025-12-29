@@ -3,9 +3,12 @@ import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useProducts } from '../hooks/useProducts';
 import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
-import { productsAPI, favoritesAPI } from '../services/api';
+import { usePagination } from '../hooks/usePagination';
+import { useFavorites } from '../hooks/useFavorites';
+import { productsAPI } from '../services/api';
 import { formatPrice } from '../utils/formatPrice';
 import { FontAwesomeIcon, icons } from '../utils/icons';
+import Pagination from '../components/Pagination';
 import '../styles/ProductsPage.css';
 
 const ProductsPage = () => {
@@ -14,21 +17,28 @@ const ProductsPage = () => {
   const { products, loading, error, loadProducts, searchProducts } = useProducts();
   const { addToCart } = useCart();
   const { user } = useAuth();
+  const { favorites, isFavorite, toggleFavorite } = useFavorites();
   
   const [searchKeyword, setSearchKeyword] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('');
   const [sortBy, setSortBy] = useState('default');
   const [categories, setCategories] = useState([]);
-  const [favorites, setFavorites] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [minPrice, setMinPrice] = useState('');
   const [maxPrice, setMaxPrice] = useState('');
   const [isSidebarOpen, setIsSidebarOpen] = useState(window.innerWidth > 768);
 
+  // Sử dụng usePagination hook
+  const { 
+    currentPage, 
+    totalPages, 
+    paginatedItems: paginatedProducts, 
+    handlePageChange 
+  } = usePagination(filteredProducts, 12, true);
+
   useEffect(() => {
     loadCategories();
-    loadFavorites();
-  }, [user]);
+  }, []);
 
   useEffect(() => {
     // Lấy category từ URL query params và cập nhật state
@@ -53,19 +63,6 @@ const ProductsPage = () => {
     }
   };
 
-  const loadFavorites = async () => {
-    if (user) {
-      try {
-        const favoriteProducts = await favoritesAPI.getAll(user.id);
-        setFavorites(favoriteProducts.map(p => p.id));
-      } catch (err) {
-        console.error('Lỗi tải yêu thích:', err);
-        setFavorites([]);
-      }
-    } else {
-      setFavorites([]);
-    }
-  };
 
   const filterAndSortProducts = async () => {
     let filtered = [...products];
@@ -152,18 +149,11 @@ const ProductsPage = () => {
       return;
     }
 
-    try {
-      const isFavorite = favoritesAPI.isFavorite(productId, user.id);
-      if (isFavorite) {
-        await favoritesAPI.removeFromFavorites(productId, user.id);
-        alert('Đã xóa khỏi yêu thích');
-      } else {
-        await favoritesAPI.addToFavorites(productId, user.id);
-        alert('Đã thêm vào yêu thích');
-      }
-      loadFavorites();
-    } catch (err) {
-      alert(err.message);
+    const result = await toggleFavorite(productId);
+    if (result.success) {
+      alert(result.message);
+    } else {
+      alert(result.message);
     }
   };
 
@@ -201,6 +191,7 @@ const ProductsPage = () => {
           <h1>Danh Sách Sản Phẩm Handmade</h1>
           <p className="products-count">
             Tìm thấy <strong>{filteredProducts.length}</strong> sản phẩm
+            {totalPages > 1 && ` - Trang ${currentPage}/${totalPages}`}
           </p>
         </div>
 
@@ -346,9 +337,10 @@ const ProductsPage = () => {
               )}
             </div>
           ) : (
-            <div className="products-grid">
-              {filteredProducts.map(product => {
-                const isFavorite = favorites.includes(product.id);
+            <>
+              <div className="products-grid">
+                {paginatedProducts.map(product => {
+                  const productIsFavorite = isFavorite(product.id);
                 return (
                   <div key={product.id} className="product-card">
                     <div 
@@ -364,14 +356,14 @@ const ProductsPage = () => {
                         <div className="out-of-stock">Hết hàng</div>
                       )}
                       <button
-                        className={`favorite-btn ${isFavorite ? 'active' : ''}`}
+                        className={`favorite-btn ${productIsFavorite ? 'active' : ''}`}
                         onClick={(e) => {
                           e.stopPropagation();
                           handleToggleFavorite(product.id);
                         }}
-                        title={isFavorite ? 'Bỏ yêu thích' : 'Thêm yêu thích'}
+                        title={productIsFavorite ? 'Bỏ yêu thích' : 'Thêm yêu thích'}
                       >
-                        <FontAwesomeIcon icon={isFavorite ? icons.heart : icons.heartRegular} />
+                        <FontAwesomeIcon icon={productIsFavorite ? icons.heart : icons.heartRegular} />
                       </button>
                     </div>
                     
@@ -419,8 +411,19 @@ const ProductsPage = () => {
                     </div>
                   </div>
                 );
-              })}
-            </div>
+                })}
+              </div>
+              
+              {totalPages > 1 && (
+                <Pagination
+                  currentPage={currentPage}
+                  totalPages={totalPages}
+                  onPageChange={handlePageChange}
+                  itemsPerPage={12}
+                  showPageInfo={true}
+                />
+              )}
+            </>
           )}
         </main>
       </div>
