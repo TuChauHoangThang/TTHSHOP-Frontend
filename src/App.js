@@ -4,6 +4,7 @@ import { AuthProvider } from './context/AuthContext';
 import { CartProvider } from './context/CartContext';
 import Layout from './components/Layout/Layout';
 import ProtectedRoute from './components/ProtectedRoute';
+import ScrollToTop from './components/ScrollToTop';
 
 // Pages
 import HomePage from './pages/HomePage';
@@ -15,6 +16,7 @@ import UserProfilePage from './pages/UserProfilePage';
 import CartPage from './pages/CartPage';
 import CheckoutPage from './pages/CheckoutPage';
 import FavoritePage from './pages/FavoritePage';
+import ContactPage from './pages/ContactPage';
 
 import './styles/App.css';
 
@@ -32,6 +34,7 @@ function App() {
               <Route path="/login" element={<LoginPage />} />
               <Route path="/register" element={<RegisterPage />} />
               <Route path="/cart" element={<CartPage />} />
+              <Route path="/contact" element={<ContactPage />} />
               <Route 
                 path="/profile" 
                 element={
@@ -57,6 +60,7 @@ function App() {
                 } 
               />
             </Routes>
+            <ScrollToTop />
           </Layout>
         </CartProvider>
       </AuthProvider>
