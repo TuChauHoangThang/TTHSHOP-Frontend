@@ -16,6 +16,7 @@ import UserProfilePage from './pages/UserProfilePage';
 import CartPage from './pages/CartPage';
 import CheckoutPage from './pages/CheckoutPage';
 import FavoritePage from './pages/FavoritePage';
+import ContactPage from './pages/ContactPage';
 
 import './styles/App.css';
 
@@ -33,6 +34,7 @@ function App() {
               <Route path="/login" element={<LoginPage />} />
               <Route path="/register" element={<RegisterPage />} />
               <Route path="/cart" element={<CartPage />} />
+              <Route path="/contact" element={<ContactPage />} />
               <Route 
                 path="/profile" 
                 element={

@@ -47,7 +47,9 @@ const Header = () => {
                     <Link to="/products" className="nav-link">
                         <FontAwesomeIcon icon={icons.products} /> Sản Phẩm
                     </Link>
-
+                    <Link to="/contact" className="nav-link" onClick={() => setIsMenuOpen(false)}>
+                        <FontAwesomeIcon icon={icons.contact} /> Liên Hệ
+                    </Link>
                     {/* Cart with badge */}
                     <Link to="/cart" className="nav-link cart-link">
                         <FontAwesomeIcon icon={icons.cart} /> <span>Giỏ Hàng</span>
@@ -103,6 +105,9 @@ const Header = () => {
                 </Link>
                 <Link to="/products" className="mobile-nav-link" onClick={() => setIsMenuOpen(false)}>
                     <FontAwesomeIcon icon={icons.products} /> Sản Phẩm
+                </Link>
+                <Link to="/contact" className="mobile-nav-link" onClick={() => setIsMenuOpen(false)}>
+                    <FontAwesomeIcon icon={icons.contact} /> Liên Hệ
                 </Link>
                 <Link to="/cart" className="mobile-nav-link" onClick={() => setIsMenuOpen(false)}>
                     <FontAwesomeIcon icon={icons.cart} /> Giỏ Hàng {getTotalItems() > 0 && `(${getTotalItems()})`}
