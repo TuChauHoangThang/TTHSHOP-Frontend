@@ -4,7 +4,6 @@ import { AuthProvider } from './context/AuthContext';
 import { CartProvider } from './context/CartContext';
 import Layout from './components/Layout/Layout';
 import ProtectedRoute from './components/ProtectedRoute';
-import ScrollToTop from './components/ScrollToTop';
 
 // Pages
 import HomePage from './pages/HomePage';
@@ -60,7 +59,6 @@ function App() {
                 } 
               />
             </Routes>
-            <ScrollToTop />
           </Layout>
         </CartProvider>
       </AuthProvider>
