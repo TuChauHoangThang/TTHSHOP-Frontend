@@ -44,6 +44,12 @@ const Header = () => {
                     <Link to="/" className="nav-link">
                         <FontAwesomeIcon icon={icons.home} /> Trang Chủ
                     </Link>
+
+                    {/* Thêm Tin Tức vào đây */}
+                    <Link to="/blog" className="nav-link">
+                        <FontAwesomeIcon icon={icons.blog || icons.edit} /> Tin Tức
+                    </Link>
+
                     <Link to="/products" className="nav-link">
                         <FontAwesomeIcon icon={icons.products} /> Sản Phẩm
                     </Link>
@@ -103,6 +109,12 @@ const Header = () => {
                 <Link to="/" className="mobile-nav-link" onClick={() => setIsMenuOpen(false)}>
                     <FontAwesomeIcon icon={icons.home} /> Trang Chủ
                 </Link>
+
+                {/* Thêm Tin Tức cho Mobile */}
+                <Link to="/blog" className="mobile-nav-link" onClick={() => setIsMenuOpen(false)}>
+                    <FontAwesomeIcon icon={icons.blog || icons.edit} /> Tin Tức
+                </Link>
+
                 <Link to="/products" className="mobile-nav-link" onClick={() => setIsMenuOpen(false)}>
                     <FontAwesomeIcon icon={icons.products} /> Sản Phẩm
                 </Link>

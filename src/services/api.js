@@ -380,4 +380,16 @@ export const ordersAPI = {
         if (order.status === 'delivered') throw new Error('Không thể hủy đơn hàng đã giao');
         return ordersAPI.updateStatus(orderId, 'cancelled');
     },
+
+};
+// Thêm vào services/api.js
+export const blogsAPI = {
+    getAll: async () => {
+        const response = await fetch(`${API_URL}/blogs`);
+        return await response.json();
+    },
+    getById: async (id) => {
+        const response = await fetch(`${API_URL}/blogs/${id}`);
+        return await response.json();
+    }
 };
