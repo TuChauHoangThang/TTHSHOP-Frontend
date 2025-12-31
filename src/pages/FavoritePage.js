@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { useCart } from '../context/CartContext';
-import { productsAPI, favoritesAPI } from '../services/api';
+import { usePagination } from '../hooks/usePagination';
+import { favoritesAPI } from '../services/api';
 import { formatPrice } from '../utils/formatPrice';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { icons } from '../utils/icons';
+import Pagination from '../components/Pagination';
 import '../styles/FavoritePage.css';
 
 const FavoritePage = () => {
@@ -16,6 +18,14 @@ const FavoritePage = () => {
   const [favoriteProducts, setFavoriteProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+
+  // Sử dụng usePagination hook
+  const { 
+    currentPage, 
+    totalPages, 
+    paginatedItems: paginatedProducts, 
+    handlePageChange 
+  } = usePagination(favoriteProducts, 12, true);
 
   useEffect(() => {
     if (user) {
@@ -97,6 +107,7 @@ const FavoritePage = () => {
         <h1>Sản Phẩm Yêu Thích</h1>
         <p className="favorite-count">
           Bạn có {favoriteProducts.length} sản phẩm yêu thích
+          {totalPages > 1 && ` - Trang ${currentPage}/${totalPages}`}
         </p>
       </div>
 
@@ -110,8 +121,9 @@ const FavoritePage = () => {
           </button>
         </div>
       ) : (
-        <div className="favorite-grid">
-          {favoriteProducts.map(product => (
+        <>
+          <div className="favorite-grid">
+            {paginatedProducts.map(product => (
             <div key={product.id} className="favorite-card">
               <div 
                 className="favorite-image-container"
@@ -185,8 +197,19 @@ const FavoritePage = () => {
                 </div>
               </div>
             </div>
-          ))}
-        </div>
+            ))}
+          </div>
+          
+          {totalPages > 1 && (
+            <Pagination
+              currentPage={currentPage}
+              totalPages={totalPages}
+              onPageChange={handlePageChange}
+              itemsPerPage={12}
+              showPageInfo={true}
+            />
+          )}
+        </>
       )}
     </div>
   );

@@ -4,6 +4,7 @@ import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
 import { productsAPI, favoritesAPI, reviewsAPI } from '../services/api';
 import { formatPrice } from '../utils/formatPrice';
+import { FontAwesomeIcon, icons } from '../utils/icons';
 import '../styles/ProductDetailPage.css';
 
 const ProductDetailPage = () => {
@@ -171,7 +172,7 @@ const ProductDetailPage = () => {
               onClick={handleToggleFavorite}
               title={isFavorite ? 'Bỏ yêu thích' : 'Thêm yêu thích'}
             >
-              {isFavorite ? '❤️' : '🤍'}
+              <FontAwesomeIcon icon={isFavorite ? icons.heart : icons.heartRegular} />
             </button>
           </div>
 
