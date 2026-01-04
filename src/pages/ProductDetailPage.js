@@ -7,6 +7,28 @@ import { formatPrice } from '../utils/formatPrice';
 import { FontAwesomeIcon, icons } from '../utils/icons';
 import '../styles/ProductDetailPage.css';
 
+// Helper function to convert color names to hex values
+const getColorHex = (colorName) => {
+  const colorMap = {
+    'Đỏ': '#dc3545',
+    'Xanh dương': '#007bff',
+    'Xanh lá': '#28a745',
+    'Vàng': '#ffc107',
+    'Cam': '#fd7e14',
+    'Tím': '#6f42c1',
+    'Hồng': '#e83e8c',
+    'Đen': '#000000',
+    'Trắng': '#ffffff',
+    'Xám': '#6c757d',
+    'Nâu': '#8b4513',
+    'Be': '#f5f5dc',
+    'Kem': '#fffdd0',
+    'Xanh nhạt': '#87ceeb',
+    'Hồng nhạt': '#ffb6c1',
+  };
+  return colorMap[colorName] || '#667eea';
+};
+
 const ProductDetailPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -20,6 +42,10 @@ const ProductDetailPage = () => {
   const [reviews, setReviews] = useState([]);
   const [activeImage, setActiveImage] = useState('');
   const [adding, setAdding] = useState(false);
+  const [selectedColor, setSelectedColor] = useState(null);
+  const [selectedType, setSelectedType] = useState(null);
+  const [quantity, setQuantity] = useState(1);
+  const [isTypeDropdownOpen, setIsTypeDropdownOpen] = useState(false);
 
   const stockBadge = useMemo(() => {
     if (!product) return '';
@@ -48,6 +74,14 @@ const ProductDetailPage = () => {
         setActiveImage(p.images?.[0] || p.image || '');
         setReviews(r || []);
         setIsFavorite(user ? favoritesAPI.isFavorite(productId, user.id) : false);
+        // Initialize selections
+        if (p.colors && p.colors.length > 0) {
+          setSelectedColor(p.colors[0]);
+        }
+        if (p.types && p.types.length > 0) {
+          setSelectedType(p.types[0]);
+        }
+        setQuantity(1);
       } catch (err) {
         console.error('Lỗi tải sản phẩm:', err);
         setError(err.message || 'Đã xảy ra lỗi khi tải sản phẩm');
@@ -61,16 +95,73 @@ const ProductDetailPage = () => {
     }
   }, [id, user]);
 
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (isTypeDropdownOpen && !event.target.closest('.custom-dropdown')) {
+        setIsTypeDropdownOpen(false);
+      }
+    };
+
+    if (isTypeDropdownOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+      return () => {
+        document.removeEventListener('mousedown', handleClickOutside);
+      };
+    }
+  }, [isTypeDropdownOpen]);
+
   const handleAddToCart = async () => {
     if (!product) return;
+    
+    // Validate selections
+    if (product.colors && product.colors.length > 0 && !selectedColor) {
+      alert('Vui lòng chọn màu sắc');
+      return;
+    }
+    if (product.types && product.types.length > 0 && !selectedType) {
+      alert('Vui lòng chọn loại sản phẩm');
+      return;
+    }
+    if (quantity <= 0) {
+      alert('Số lượng phải lớn hơn 0');
+      return;
+    }
+    if (quantity > product.stock) {
+      alert(`Chỉ còn ${product.stock} sản phẩm trong kho`);
+      return;
+    }
+
     try {
       setAdding(true);
-      await addToCart(product.id, 1);
-      alert('Đã thêm vào giỏ hàng!');
+      await addToCart(product.id, quantity);
+      alert(`Đã thêm ${quantity} sản phẩm vào giỏ hàng!`);
+      // Reset quantity after adding
+      setQuantity(1);
     } catch (err) {
       alert(err.message);
     } finally {
       setAdding(false);
+    }
+  };
+
+  const handleQuantityChange = (delta) => {
+    setQuantity(prev => {
+      const newQty = prev + delta;
+      if (newQty < 1) return 1;
+      if (product && newQty > product.stock) return product.stock;
+      return newQty;
+    });
+  };
+
+  const handleQuantityInput = (e) => {
+    const value = parseInt(e.target.value) || 1;
+    if (value < 1) {
+      setQuantity(1);
+    } else if (product && value > product.stock) {
+      setQuantity(product.stock);
+    } else {
+      setQuantity(value);
     }
   };
 
@@ -122,13 +213,10 @@ const ProductDetailPage = () => {
 
   return (
     <div className="product-detail-page">
-      <div className="breadcrumb">
-        <button onClick={() => navigate(-1)} className="link-btn">← Quay lại</button>
-        <span>/</span>
-        <button onClick={() => navigate('/products')} className="link-btn">Sản phẩm</button>
-        <span>/</span>
-        <span className="current">{product.name}</span>
-      </div>
+      <button onClick={() => navigate(-1)} className="back-button">
+        <FontAwesomeIcon icon={icons.chevronLeft} />
+        <span>Quay lại</span>
+      </button>
 
       <div className="detail-card">
         <div className="gallery">
@@ -191,22 +279,142 @@ const ProductDetailPage = () => {
 
           <div className="price">{formatPrice(product.price)}</div>
 
-          <p className="description">{product.description}</p>
+          {/* Options Box - Contains all selections and actions */}
+          <div className="options-box">
+            {/* Color Selection */}
+            {product.colors && product.colors.length > 0 && (
+              <div className="selection-group">
+                <label className="selection-label">
+                  <span>Màu sắc:</span>
+                  {selectedColor && <span className="selected-value">{selectedColor}</span>}
+                </label>
+                <div className="color-options">
+                  {product.colors.map((color) => (
+                    <button
+                      key={color}
+                      className={`color-option ${selectedColor === color ? 'active' : ''} ${getColorHex(color) === '#ffffff' ? 'white-color' : ''}`}
+                      onClick={() => setSelectedColor(color)}
+                      style={{
+                        backgroundColor: getColorHex(color),
+                        borderColor: selectedColor === color ? '#667eea' : (getColorHex(color) === '#ffffff' ? '#ccc' : '#ddd')
+                      }}
+                      title={color}
+                    >
+                      {selectedColor === color && (
+                        <FontAwesomeIcon 
+                          icon={icons.check} 
+                          style={{ 
+                            color: getColorHex(color) === '#ffffff' ? '#333' : '#fff', 
+                            fontSize: '0.85rem' 
+                          }} 
+                        />
+                      )}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
 
-          <div className="actions">
-            <button
-              className="btn-primary"
-              onClick={handleAddToCart}
-              disabled={product.stock === 0 || adding}
-            >
-              {product.stock === 0 ? 'Hết hàng' : adding ? 'Đang thêm...' : 'Thêm vào giỏ'}
-            </button>
-            <button
-              className="btn-secondary"
-              onClick={() => navigate('/cart')}
-            >
-              Xem giỏ hàng
-            </button>
+            {/* Type Selection - Dropdown */}
+            {product.types && product.types.length > 0 && (
+              <div className="selection-group">
+                <label className="selection-label">
+                  <span>Loại sản phẩm:</span>
+                </label>
+                <div className="custom-dropdown">
+                  <button
+                    className="dropdown-toggle"
+                    onClick={() => setIsTypeDropdownOpen(!isTypeDropdownOpen)}
+                    type="button"
+                  >
+                    <span>{selectedType || 'Chọn loại sản phẩm'}</span>
+                    <FontAwesomeIcon 
+                      icon={icons.chevronDown} 
+                      className={`dropdown-arrow ${isTypeDropdownOpen ? 'open' : ''}`}
+                    />
+                  </button>
+                  {isTypeDropdownOpen && (
+                    <div className="dropdown-menu">
+                      {product.types.map((type) => (
+                        <div
+                          key={type}
+                          className={`dropdown-item ${selectedType === type ? 'selected' : ''}`}
+                          onClick={() => {
+                            setSelectedType(type);
+                            setIsTypeDropdownOpen(false);
+                          }}
+                        >
+                          {type}
+                          {selectedType === type && (
+                            <FontAwesomeIcon icon={icons.check} className="check-icon" />
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </div>
+            )}
+
+            {/* Quantity Selector */}
+            <div className="selection-group">
+              <label className="selection-label">
+                <span>Số lượng:</span>
+                <span className="stock-info">
+                  {product.stock > 0 ? `(Còn ${product.stock} sản phẩm)` : '(Hết hàng)'}
+                </span>
+              </label>
+              <div className="quantity-selector">
+                <button
+                  className="quantity-btn"
+                  onClick={() => handleQuantityChange(-1)}
+                  disabled={quantity <= 1}
+                  type="button"
+                >
+                  <FontAwesomeIcon icon={icons.minus} />
+                </button>
+                <input
+                  type="number"
+                  className="quantity-input"
+                  value={quantity}
+                  onChange={handleQuantityInput}
+                  min="1"
+                  max={product.stock}
+                />
+                <button
+                  className="quantity-btn"
+                  onClick={() => handleQuantityChange(1)}
+                  disabled={quantity >= product.stock}
+                  type="button"
+                >
+                  <FontAwesomeIcon icon={icons.plus} />
+                </button>
+              </div>
+            </div>
+
+            {/* Action Buttons */}
+            <div className="actions">
+              <button
+                className="btn-primary"
+                onClick={handleAddToCart}
+                disabled={product.stock === 0 || adding}
+              >
+                <FontAwesomeIcon icon={icons.cart} />
+                {product.stock === 0 ? 'Hết hàng' : adding ? 'Đang thêm...' : 'Thêm vào giỏ hàng'}
+              </button>
+              <button
+                className="btn-secondary"
+                onClick={() => navigate('/cart')}
+              >
+                Xem giỏ hàng
+              </button>
+            </div>
+          </div>
+
+          {/* Description Section - Moved to bottom */}
+          <div className="description-section">
+            <h3>Mô tả sản phẩm</h3>
+            <p className="description">{product.description}</p>
           </div>
         </div>
       </div>
