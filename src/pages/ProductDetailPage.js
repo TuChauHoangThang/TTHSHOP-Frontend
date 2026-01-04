@@ -2,7 +2,8 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
-import { productsAPI, favoritesAPI, reviewsAPI } from '../services/api';
+import { productsAPI, favoritesAPI } from '../services/api';
+import { useReviews } from '../hooks/useReviews';
 import { formatPrice } from '../utils/formatPrice';
 import { FontAwesomeIcon, icons } from '../utils/icons';
 import '../styles/ProductDetailPage.css';
@@ -39,13 +40,30 @@ const ProductDetailPage = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [isFavorite, setIsFavorite] = useState(false);
-  const [reviews, setReviews] = useState([]);
   const [activeImage, setActiveImage] = useState('');
   const [adding, setAdding] = useState(false);
   const [selectedColor, setSelectedColor] = useState(null);
   const [selectedType, setSelectedType] = useState(null);
   const [quantity, setQuantity] = useState(1);
   const [isTypeDropdownOpen, setIsTypeDropdownOpen] = useState(false);
+
+  // Custom hook cho reviews
+  const productId = id ? parseInt(id) : null;
+  const {
+    reviews,
+    loading: reviewsLoading,
+    error: reviewsError,
+    canReview,
+    hasReviewed,
+    submitReview
+  } = useReviews(productId);
+
+  // State cho form đánh giá
+  const [showReviewForm, setShowReviewForm] = useState(false);
+  const [reviewRating, setReviewRating] = useState(5);
+  const [reviewComment, setReviewComment] = useState('');
+  const [submittingReview, setSubmittingReview] = useState(false);
+  const [reviewError, setReviewError] = useState('');
 
   const stockBadge = useMemo(() => {
     if (!product) return '';
@@ -63,16 +81,12 @@ const ProductDetailPage = () => {
         if (isNaN(productId)) {
           throw new Error('ID sản phẩm không hợp lệ');
         }
-        const [p, r] = await Promise.all([
-          productsAPI.getById(productId),
-          reviewsAPI.getByProductId(productId)
-        ]);
+        const p = await productsAPI.getById(productId);
         if (!p) {
           throw new Error('Không tìm thấy sản phẩm');
         }
         setProduct(p);
         setActiveImage(p.images?.[0] || p.image || '');
-        setReviews(r || []);
         setIsFavorite(user ? favoritesAPI.isFavorite(productId, user.id) : false);
         // Initialize selections
         if (p.colors && p.colors.length > 0) {
@@ -187,6 +201,31 @@ const ProductDetailPage = () => {
       setIsFavorite(!isFavorite);
     } catch (err) {
       alert(err.message);
+    }
+  };
+
+  const handleSubmitReview = async (e) => {
+    e.preventDefault();
+    if (!productId) return;
+
+    if (!reviewComment.trim() || reviewComment.trim().length < 10) {
+      setReviewError('Bình luận phải có ít nhất 10 ký tự');
+      return;
+    }
+
+    setReviewError('');
+    setSubmittingReview(true);
+
+    try {
+      await submitReview(reviewRating, reviewComment);
+      alert('Cảm ơn bạn đã đánh giá sản phẩm!');
+      setReviewComment('');
+      setReviewRating(5);
+      setShowReviewForm(false);
+    } catch (err) {
+      setReviewError(err.message || 'Có lỗi xảy ra khi gửi đánh giá');
+    } finally {
+      setSubmittingReview(false);
     }
   };
 
@@ -421,7 +460,122 @@ const ProductDetailPage = () => {
 
       <div className="section">
         <h2>Đánh giá sản phẩm</h2>
-        {reviews.length === 0 ? (
+        
+        {/* Form đánh giá - chỉ hiển thị khi user đã mua và chưa đánh giá */}
+        {canReview && !showReviewForm && (
+          <div className="review-prompt">
+            <p>Bạn đã mua sản phẩm này. Hãy chia sẻ đánh giá của bạn!</p>
+            <button 
+              className="btn-review"
+              onClick={() => setShowReviewForm(true)}
+            >
+              Viết đánh giá
+            </button>
+          </div>
+        )}
+
+        {canReview && showReviewForm && (
+          <form className="review-form" onSubmit={handleSubmitReview}>
+            <div className="review-form-header">
+              <h3>Viết đánh giá của bạn</h3>
+              <button 
+                type="button" 
+                className="review-form-close"
+                onClick={() => {
+                  setShowReviewForm(false);
+                  setReviewError('');
+                }}
+              >
+                ✕
+              </button>
+            </div>
+            
+            <div className="form-group">
+              <label>Đánh giá của bạn:</label>
+              <div className="rating-selector">
+                {[1, 2, 3, 4, 5].map((star) => (
+                  <button
+                    key={star}
+                    type="button"
+                    className={`star-btn ${reviewRating >= star ? 'active' : ''}`}
+                    onClick={() => setReviewRating(star)}
+                  >
+                    ★
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="review-comment">Bình luận:</label>
+              <textarea
+                id="review-comment"
+                className="review-textarea"
+                value={reviewComment}
+                onChange={(e) => {
+                  setReviewComment(e.target.value);
+                  setReviewError('');
+                }}
+                placeholder="Chia sẻ trải nghiệm của bạn về sản phẩm này..."
+                rows="4"
+                required
+                minLength="10"
+              />
+              <div className="char-count">
+                {reviewComment.length}/10 ký tự (tối thiểu)
+              </div>
+            </div>
+
+            {reviewError && (
+              <div className="review-error">{reviewError}</div>
+            )}
+
+            <div className="review-form-actions">
+              <button 
+                type="button" 
+                className="btn-cancel"
+                onClick={() => {
+                  setShowReviewForm(false);
+                  setReviewComment('');
+                  setReviewError('');
+                }}
+                disabled={submittingReview}
+              >
+                Hủy
+              </button>
+              <button 
+                type="submit" 
+                className="btn-submit-review"
+                disabled={submittingReview || reviewComment.trim().length < 10}
+              >
+                {submittingReview ? 'Đang gửi...' : 'Gửi đánh giá'}
+              </button>
+            </div>
+          </form>
+        )}
+
+        {!user && (
+          <div className="review-prompt">
+            <p>Đăng nhập và mua sản phẩm để có thể đánh giá.</p>
+          </div>
+        )}
+
+        {user && !canReview && hasReviewed && (
+          <div className="review-prompt">
+            <p>Bạn đã đánh giá sản phẩm này rồi. Cảm ơn bạn!</p>
+          </div>
+        )}
+
+        {user && !canReview && !hasReviewed && (
+          <div className="review-prompt">
+            <p>Bạn cần mua sản phẩm trước khi có thể đánh giá.</p>
+          </div>
+        )}
+
+        {/* Danh sách reviews */}
+        {reviewsLoading ? (
+          <p className="muted">Đang tải đánh giá...</p>
+        ) : reviews.length === 0 ? (
           <p className="muted">Chưa có đánh giá nào.</p>
         ) : (
           <div className="reviews">
