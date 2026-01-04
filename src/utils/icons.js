@@ -16,6 +16,7 @@ import {
     faFilter,
     faChevronRight,
     faChevronLeft,
+    faChevronDown,
     faCheck,
     faTimes,
     faEdit,
@@ -70,6 +71,7 @@ export const icons = {
   // Navigation arrows
   chevronRight: faChevronRight,
   chevronLeft: faChevronLeft,
+  chevronDown: faChevronDown,
   
   // Contact
   phone: faPhone,
