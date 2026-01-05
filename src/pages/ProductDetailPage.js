@@ -2,7 +2,8 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
-import { productsAPI, favoritesAPI, reviewsAPI } from '../services/api';
+import { productsAPI, favoritesAPI } from '../services/api';
+import { useReviews } from '../hooks/useReviews';
 import { formatPrice } from '../utils/formatPrice';
 import { FontAwesomeIcon, icons } from '../utils/icons';
 import '../styles/ProductDetailPage.css';
@@ -39,13 +40,48 @@ const ProductDetailPage = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [isFavorite, setIsFavorite] = useState(false);
-  const [reviews, setReviews] = useState([]);
   const [activeImage, setActiveImage] = useState('');
   const [adding, setAdding] = useState(false);
   const [selectedColor, setSelectedColor] = useState(null);
   const [selectedType, setSelectedType] = useState(null);
   const [quantity, setQuantity] = useState(1);
   const [isTypeDropdownOpen, setIsTypeDropdownOpen] = useState(false);
+
+  // Custom hook cho reviews
+  const productId = id ? parseInt(id) : null;
+  const {
+    reviews,
+    loading: reviewsLoading,
+    error: reviewsError,
+    hasPurchased,
+    canReview,
+    hasReviewed,
+    getUserReview,
+    submitReview,
+    deleteReview
+  } = useReviews(productId);
+
+  // State cho form đánh giá
+  const [showReviewForm, setShowReviewForm] = useState(false);
+  const [reviewRating, setReviewRating] = useState(5);
+  const [reviewComment, setReviewComment] = useState('');
+  const [submittingReview, setSubmittingReview] = useState(false);
+  const [reviewError, setReviewError] = useState('');
+  const [editingReviewId, setEditingReviewId] = useState(null);
+
+  // Khởi tạo form với dữ liệu review nếu đang chỉnh sửa
+  useEffect(() => {
+    if (getUserReview && editingReviewId) {
+      if (getUserReview.id === editingReviewId) {
+        setReviewRating(getUserReview.rating);
+        setReviewComment(getUserReview.comment);
+        setShowReviewForm(true);
+      }
+    } else if (!editingReviewId && !showReviewForm) {
+      setReviewRating(5);
+      setReviewComment('');
+    }
+  }, [getUserReview, editingReviewId, showReviewForm]);
 
   const stockBadge = useMemo(() => {
     if (!product) return '';
@@ -63,16 +99,12 @@ const ProductDetailPage = () => {
         if (isNaN(productId)) {
           throw new Error('ID sản phẩm không hợp lệ');
         }
-        const [p, r] = await Promise.all([
-          productsAPI.getById(productId),
-          reviewsAPI.getByProductId(productId)
-        ]);
+        const p = await productsAPI.getById(productId);
         if (!p) {
           throw new Error('Không tìm thấy sản phẩm');
         }
         setProduct(p);
         setActiveImage(p.images?.[0] || p.image || '');
-        setReviews(r || []);
         setIsFavorite(user ? favoritesAPI.isFavorite(productId, user.id) : false);
         // Initialize selections
         if (p.colors && p.colors.length > 0) {
@@ -187,6 +219,55 @@ const ProductDetailPage = () => {
       setIsFavorite(!isFavorite);
     } catch (err) {
       alert(err.message);
+    }
+  };
+
+  const handleSubmitReview = async (e) => {
+    e.preventDefault();
+    if (!productId) return;
+
+    if (!reviewComment.trim() || reviewComment.trim().length < 10) {
+      setReviewError('Bình luận phải có ít nhất 10 ký tự');
+      return;
+    }
+
+    setReviewError('');
+    setSubmittingReview(true);
+
+    try {
+      await submitReview(reviewRating, reviewComment, editingReviewId);
+      alert(editingReviewId ? 'Đã cập nhật đánh giá!' : 'Cảm ơn bạn đã đánh giá sản phẩm!');
+      setReviewComment('');
+      setReviewRating(5);
+      setShowReviewForm(false);
+      setEditingReviewId(null);
+    } catch (err) {
+      setReviewError(err.message || 'Có lỗi xảy ra khi gửi đánh giá');
+    } finally {
+      setSubmittingReview(false);
+    }
+  };
+
+  const handleEditReview = (review) => {
+    setEditingReviewId(review.id);
+    setReviewRating(review.rating);
+    setReviewComment(review.comment);
+    setShowReviewForm(true);
+    setReviewError('');
+  };
+
+  const handleDeleteReview = async (reviewId) => {
+    if (!window.confirm('Bạn có chắc chắn muốn xóa đánh giá này?')) {
+      return;
+    }
+
+    try {
+      await deleteReview(reviewId);
+      alert('Đã xóa đánh giá!');
+      setShowReviewForm(false);
+      setEditingReviewId(null);
+    } catch (err) {
+      alert(err.message || 'Có lỗi xảy ra khi xóa đánh giá');
     }
   };
 
@@ -421,24 +502,190 @@ const ProductDetailPage = () => {
 
       <div className="section">
         <h2>Đánh giá sản phẩm</h2>
-        {reviews.length === 0 ? (
+        
+        {/* Form đánh giá - chỉ hiển thị khi user đã mua */}
+        {hasPurchased && user && !showReviewForm && !hasReviewed && (
+          <div className="review-prompt">
+            <p>Bạn đã mua sản phẩm này. Hãy chia sẻ đánh giá của bạn!</p>
+            <button 
+              className="btn-review"
+              onClick={() => {
+                setEditingReviewId(null);
+                setReviewRating(5);
+                setReviewComment('');
+                setShowReviewForm(true);
+              }}
+            >
+              Viết đánh giá
+            </button>
+          </div>
+        )}
+
+        {/* Hiển thị nút chỉnh sửa nếu đã có review */}
+        {hasPurchased && user && hasReviewed && getUserReview && !showReviewForm && (
+          <div className="review-prompt">
+            <p>Bạn đã đánh giá sản phẩm này. Bạn có thể chỉnh sửa hoặc xóa đánh giá của mình.</p>
+            <div style={{ display: 'flex', gap: '10px' }}>
+              <button 
+                className="btn-review"
+                onClick={() => handleEditReview(getUserReview)}
+              >
+                Chỉnh sửa đánh giá
+              </button>
+              <button 
+                className="btn-review"
+                style={{ background: '#dc3545' }}
+                onClick={() => handleDeleteReview(getUserReview.id)}
+              >
+                Xóa đánh giá
+              </button>
+            </div>
+          </div>
+        )}
+
+        {(canReview || (hasReviewed && editingReviewId)) && showReviewForm && (
+          <form className="review-form" onSubmit={handleSubmitReview}>
+            <div className="review-form-header">
+              <h3>{editingReviewId ? 'Chỉnh sửa đánh giá' : 'Viết đánh giá của bạn'}</h3>
+              <button 
+                type="button" 
+                className="review-form-close"
+                onClick={() => {
+                  setShowReviewForm(false);
+                  setReviewError('');
+                  setEditingReviewId(null);
+                  setReviewRating(5);
+                  setReviewComment('');
+                }}
+              >
+                ✕
+              </button>
+            </div>
+            
+            <div className="form-group">
+              <label>Đánh giá của bạn:</label>
+              <div className="rating-selector">
+                {[1, 2, 3, 4, 5].map((star) => (
+                  <button
+                    key={star}
+                    type="button"
+                    className={`star-btn ${reviewRating >= star ? 'active' : ''}`}
+                    onClick={() => setReviewRating(star)}
+                  >
+                    ★
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="review-comment">Bình luận:</label>
+              <textarea
+                id="review-comment"
+                className="review-textarea"
+                value={reviewComment}
+                onChange={(e) => {
+                  setReviewComment(e.target.value);
+                  setReviewError('');
+                }}
+                placeholder="Chia sẻ trải nghiệm của bạn về sản phẩm này..."
+                rows="4"
+                required
+                minLength="10"
+              />
+              <div className="char-count">
+                {reviewComment.length}/10 ký tự (tối thiểu)
+              </div>
+            </div>
+
+            {reviewError && (
+              <div className="review-error">{reviewError}</div>
+            )}
+
+            <div className="review-form-actions">
+              <button 
+                type="button" 
+                className="btn-cancel"
+                onClick={() => {
+                  setShowReviewForm(false);
+                  setReviewComment('');
+                  setReviewError('');
+                  setEditingReviewId(null);
+                  setReviewRating(5);
+                }}
+                disabled={submittingReview}
+              >
+                Hủy
+              </button>
+              <button 
+                type="submit" 
+                className="btn-submit-review"
+                disabled={submittingReview || reviewComment.trim().length < 10}
+              >
+                {submittingReview ? 'Đang gửi...' : (editingReviewId ? 'Cập nhật đánh giá' : 'Gửi đánh giá')}
+              </button>
+            </div>
+          </form>
+        )}
+
+        {!user && (
+          <div className="review-prompt">
+            <p>Đăng nhập và mua sản phẩm để có thể đánh giá.</p>
+          </div>
+        )}
+
+
+        {user && !canReview && !hasReviewed && (
+          <div className="review-prompt">
+            <p>Bạn cần mua sản phẩm trước khi có thể đánh giá.</p>
+          </div>
+        )}
+
+        {/* Danh sách reviews */}
+        {reviewsLoading ? (
+          <p className="muted">Đang tải đánh giá...</p>
+        ) : reviews.length === 0 ? (
           <p className="muted">Chưa có đánh giá nào.</p>
         ) : (
           <div className="reviews">
-            {reviews.map((r) => (
-              <div key={r.id} className="review-card">
-                <div className="review-header">
-                  <div className="reviewer">{r.userName || 'Khách hàng'}</div>
-                  <div className="review-rating">
-                    {'★'.repeat(r.rating)}{'☆'.repeat(5 - r.rating)}
+            {reviews.map((r) => {
+              const isOwnReview = user && String(r.userId) === String(user.id);
+              return (
+                <div key={r.id} className={`review-card ${isOwnReview ? 'own-review' : ''}`}>
+                  <div className="review-header">
+                    <div className="reviewer">
+                      {r.userName || 'Khách hàng'}
+                      {isOwnReview && <span className="review-badge">(Bạn)</span>}
+                    </div>
+                    <div className="review-rating">
+                      {'★'.repeat(r.rating)}{'☆'.repeat(5 - r.rating)}
+                    </div>
+                  </div>
+                  <p className="review-comment">{r.comment}</p>
+                  <div className="review-footer">
+                    <div className="review-date">
+                      {new Date(r.createdAt).toLocaleDateString('vi-VN')}
+                    </div>
+                    {isOwnReview && !showReviewForm && (
+                      <div className="review-actions">
+                        <button 
+                          className="btn-edit-review"
+                          onClick={() => handleEditReview(r)}
+                        >
+                          Chỉnh sửa
+                        </button>
+                        <button 
+                          className="btn-delete-review"
+                          onClick={() => handleDeleteReview(r.id)}
+                        >
+                          Xóa
+                        </button>
+                      </div>
+                    )}
                   </div>
                 </div>
-                <p className="review-comment">{r.comment}</p>
-                <div className="review-date">
-                  {new Date(r.createdAt).toLocaleDateString('vi-VN')}
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         )}
       </div>

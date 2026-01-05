@@ -381,6 +381,26 @@ export const ordersAPI = {
         return ordersAPI.updateStatus(orderId, 'cancelled');
     },
 
+    // Kiểm tra user đã mua sản phẩm (đơn hàng không bị hủy)
+    hasPurchasedProduct: async (userId, productId) => {
+        if (!userId || !productId) return false;
+        await delay(150);
+        const userIdStr = String(userId);
+        const orders = await ordersAPI.getAll(userIdStr);
+        const productIdNum = parseInt(productId);
+        
+        // Kiểm tra xem có đơn hàng nào (không bị hủy) chứa sản phẩm này không
+        const hasPurchased = orders.some(order => {
+            // Chỉ kiểm tra đơn hàng không bị hủy (pending, confirmed, shipping, delivered)
+            if (order.status === 'cancelled') return false;
+            return order.items && order.items.some(item => 
+                parseInt(item.productId) === productIdNum
+            );
+        });
+        
+        return hasPurchased;
+    },
+
 };
 // Thêm vào services/api.js
 export const blogsAPI = {
