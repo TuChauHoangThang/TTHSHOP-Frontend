@@ -25,66 +25,24 @@ import './styles/App.css';
 function App() {
     return (
         <Router>
-
-      <AuthProvider>
-        <CartProvider>
-          <Layout>
-            <Routes>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/products" element={<ProductsPage />} />
-              <Route path="/products/:id" element={<ProductDetailPage />} />
-              <Route path="/login" element={<LoginPage />} />
-              <Route path="/register" element={<RegisterPage />} />
-              <Route path="/cart" element={<CartPage />} />
-              <Route path="/contact" element={<ContactPage />} />
-              <Route 
-                path="/profile" 
-                element={
-                  <ProtectedRoute>
-                    <UserProfilePage />
-                  </ProtectedRoute>
-                } 
-              />
-              <Route 
-                path="/checkout" 
-                element={
-                  <ProtectedRoute>
-                    <CheckoutPage />
-                  </ProtectedRoute>
-                } 
-              />
-              <Route 
-                path="/favorites" 
-                element={
-                  <ProtectedRoute>
-                    <FavoritePage />
-                  </ProtectedRoute>
-                } 
-              />
-            </Routes>
-          </Layout>
-        </CartProvider>
-      </AuthProvider>
-    </Router>
-  );
             <AuthProvider>
                 <CartProvider>
                     <Layout>
                         <Routes>
-                            <Route path="/" element={<HomePage/>}/>
-                            <Route path="/products" element={<ProductsPage/>}/>
-                            <Route path="/products/:id" element={<ProductDetailPage/>}/>
-                            <Route path="/login" element={<LoginPage/>}/>
-                            <Route path="/register" element={<RegisterPage/>}/>
-                            <Route path="/cart" element={<CartPage/>}/>
-                            <Route path="/contact" element={<ContactPage/>}/>
+                            <Route path="/" element={<HomePage />} />
+                            <Route path="/products" element={<ProductsPage />} />
+                            <Route path="/products/:id" element={<ProductDetailPage />} />
+                            <Route path="/login" element={<LoginPage />} />
+                            <Route path="/register" element={<RegisterPage />} />
+                            <Route path="/cart" element={<CartPage />} />
+                            <Route path="/contact" element={<ContactPage />} />
                             <Route path="/blog" element={<BlogPage />} />
                             <Route path="/blog/:id" element={<BlogDetailPage />} />
                             <Route
                                 path="/profile"
                                 element={
                                     <ProtectedRoute>
-                                        <UserProfilePage/>
+                                        <UserProfilePage />
                                     </ProtectedRoute>
                                 }
                             />
@@ -92,7 +50,7 @@ function App() {
                                 path="/checkout"
                                 element={
                                     <ProtectedRoute>
-                                        <CheckoutPage/>
+                                        <CheckoutPage />
                                     </ProtectedRoute>
                                 }
                             />
@@ -100,12 +58,12 @@ function App() {
                                 path="/favorites"
                                 element={
                                     <ProtectedRoute>
-                                        <FavoritePage/>
+                                        <FavoritePage />
                                     </ProtectedRoute>
                                 }
                             />
                         </Routes>
-                        <ScrollToTop/>
+                        <ScrollToTop />
                     </Layout>
                 </CartProvider>
             </AuthProvider>

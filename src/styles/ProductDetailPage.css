@@ -630,6 +630,62 @@
   font-size: 0.9rem;
 }
 
+.review-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.review-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-edit-review,
+.btn-delete-review {
+  padding: 4px 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+.btn-edit-review {
+  background: #667eea;
+  color: #fff;
+}
+
+.btn-edit-review:hover {
+  background: #5568d3;
+}
+
+.btn-delete-review {
+  background: #dc3545;
+  color: #fff;
+}
+
+.btn-delete-review:hover {
+  background: #c82333;
+}
+
+.review-card.own-review {
+  border: 2px solid #667eea;
+  background: #f8f9ff;
+}
+
+.review-badge {
+  margin-left: 6px;
+  padding: 2px 6px;
+  background: #667eea;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
 /* Review Form Styles */
 .review-prompt {
   background: #f8f9fa;

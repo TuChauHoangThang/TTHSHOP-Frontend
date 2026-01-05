@@ -53,9 +53,12 @@ const ProductDetailPage = () => {
     reviews,
     loading: reviewsLoading,
     error: reviewsError,
+    hasPurchased,
     canReview,
     hasReviewed,
-    submitReview
+    getUserReview,
+    submitReview,
+    deleteReview
   } = useReviews(productId);
 
   // State cho form đánh giá
@@ -64,6 +67,21 @@ const ProductDetailPage = () => {
   const [reviewComment, setReviewComment] = useState('');
   const [submittingReview, setSubmittingReview] = useState(false);
   const [reviewError, setReviewError] = useState('');
+  const [editingReviewId, setEditingReviewId] = useState(null);
+
+  // Khởi tạo form với dữ liệu review nếu đang chỉnh sửa
+  useEffect(() => {
+    if (getUserReview && editingReviewId) {
+      if (getUserReview.id === editingReviewId) {
+        setReviewRating(getUserReview.rating);
+        setReviewComment(getUserReview.comment);
+        setShowReviewForm(true);
+      }
+    } else if (!editingReviewId && !showReviewForm) {
+      setReviewRating(5);
+      setReviewComment('');
+    }
+  }, [getUserReview, editingReviewId, showReviewForm]);
 
   const stockBadge = useMemo(() => {
     if (!product) return '';
@@ -217,15 +235,39 @@ const ProductDetailPage = () => {
     setSubmittingReview(true);
 
     try {
-      await submitReview(reviewRating, reviewComment);
-      alert('Cảm ơn bạn đã đánh giá sản phẩm!');
+      await submitReview(reviewRating, reviewComment, editingReviewId);
+      alert(editingReviewId ? 'Đã cập nhật đánh giá!' : 'Cảm ơn bạn đã đánh giá sản phẩm!');
       setReviewComment('');
       setReviewRating(5);
       setShowReviewForm(false);
+      setEditingReviewId(null);
     } catch (err) {
       setReviewError(err.message || 'Có lỗi xảy ra khi gửi đánh giá');
     } finally {
       setSubmittingReview(false);
+    }
+  };
+
+  const handleEditReview = (review) => {
+    setEditingReviewId(review.id);
+    setReviewRating(review.rating);
+    setReviewComment(review.comment);
+    setShowReviewForm(true);
+    setReviewError('');
+  };
+
+  const handleDeleteReview = async (reviewId) => {
+    if (!window.confirm('Bạn có chắc chắn muốn xóa đánh giá này?')) {
+      return;
+    }
+
+    try {
+      await deleteReview(reviewId);
+      alert('Đã xóa đánh giá!');
+      setShowReviewForm(false);
+      setEditingReviewId(null);
+    } catch (err) {
+      alert(err.message || 'Có lỗi xảy ra khi xóa đánh giá');
     }
   };
 
@@ -461,29 +503,59 @@ const ProductDetailPage = () => {
       <div className="section">
         <h2>Đánh giá sản phẩm</h2>
         
-        {/* Form đánh giá - chỉ hiển thị khi user đã mua và chưa đánh giá */}
-        {canReview && !showReviewForm && (
+        {/* Form đánh giá - chỉ hiển thị khi user đã mua */}
+        {hasPurchased && user && !showReviewForm && !hasReviewed && (
           <div className="review-prompt">
             <p>Bạn đã mua sản phẩm này. Hãy chia sẻ đánh giá của bạn!</p>
             <button 
               className="btn-review"
-              onClick={() => setShowReviewForm(true)}
+              onClick={() => {
+                setEditingReviewId(null);
+                setReviewRating(5);
+                setReviewComment('');
+                setShowReviewForm(true);
+              }}
             >
               Viết đánh giá
             </button>
           </div>
         )}
 
-        {canReview && showReviewForm && (
+        {/* Hiển thị nút chỉnh sửa nếu đã có review */}
+        {hasPurchased && user && hasReviewed && getUserReview && !showReviewForm && (
+          <div className="review-prompt">
+            <p>Bạn đã đánh giá sản phẩm này. Bạn có thể chỉnh sửa hoặc xóa đánh giá của mình.</p>
+            <div style={{ display: 'flex', gap: '10px' }}>
+              <button 
+                className="btn-review"
+                onClick={() => handleEditReview(getUserReview)}
+              >
+                Chỉnh sửa đánh giá
+              </button>
+              <button 
+                className="btn-review"
+                style={{ background: '#dc3545' }}
+                onClick={() => handleDeleteReview(getUserReview.id)}
+              >
+                Xóa đánh giá
+              </button>
+            </div>
+          </div>
+        )}
+
+        {(canReview || (hasReviewed && editingReviewId)) && showReviewForm && (
           <form className="review-form" onSubmit={handleSubmitReview}>
             <div className="review-form-header">
-              <h3>Viết đánh giá của bạn</h3>
+              <h3>{editingReviewId ? 'Chỉnh sửa đánh giá' : 'Viết đánh giá của bạn'}</h3>
               <button 
                 type="button" 
                 className="review-form-close"
                 onClick={() => {
                   setShowReviewForm(false);
                   setReviewError('');
+                  setEditingReviewId(null);
+                  setReviewRating(5);
+                  setReviewComment('');
                 }}
               >
                 ✕
@@ -538,6 +610,8 @@ const ProductDetailPage = () => {
                   setShowReviewForm(false);
                   setReviewComment('');
                   setReviewError('');
+                  setEditingReviewId(null);
+                  setReviewRating(5);
                 }}
                 disabled={submittingReview}
               >
@@ -548,7 +622,7 @@ const ProductDetailPage = () => {
                 className="btn-submit-review"
                 disabled={submittingReview || reviewComment.trim().length < 10}
               >
-                {submittingReview ? 'Đang gửi...' : 'Gửi đánh giá'}
+                {submittingReview ? 'Đang gửi...' : (editingReviewId ? 'Cập nhật đánh giá' : 'Gửi đánh giá')}
               </button>
             </div>
           </form>
@@ -560,11 +634,6 @@ const ProductDetailPage = () => {
           </div>
         )}
 
-        {user && !canReview && hasReviewed && (
-          <div className="review-prompt">
-            <p>Bạn đã đánh giá sản phẩm này rồi. Cảm ơn bạn!</p>
-          </div>
-        )}
 
         {user && !canReview && !hasReviewed && (
           <div className="review-prompt">
@@ -579,20 +648,44 @@ const ProductDetailPage = () => {
           <p className="muted">Chưa có đánh giá nào.</p>
         ) : (
           <div className="reviews">
-            {reviews.map((r) => (
-              <div key={r.id} className="review-card">
-                <div className="review-header">
-                  <div className="reviewer">{r.userName || 'Khách hàng'}</div>
-                  <div className="review-rating">
-                    {'★'.repeat(r.rating)}{'☆'.repeat(5 - r.rating)}
+            {reviews.map((r) => {
+              const isOwnReview = user && String(r.userId) === String(user.id);
+              return (
+                <div key={r.id} className={`review-card ${isOwnReview ? 'own-review' : ''}`}>
+                  <div className="review-header">
+                    <div className="reviewer">
+                      {r.userName || 'Khách hàng'}
+                      {isOwnReview && <span className="review-badge">(Bạn)</span>}
+                    </div>
+                    <div className="review-rating">
+                      {'★'.repeat(r.rating)}{'☆'.repeat(5 - r.rating)}
+                    </div>
+                  </div>
+                  <p className="review-comment">{r.comment}</p>
+                  <div className="review-footer">
+                    <div className="review-date">
+                      {new Date(r.createdAt).toLocaleDateString('vi-VN')}
+                    </div>
+                    {isOwnReview && !showReviewForm && (
+                      <div className="review-actions">
+                        <button 
+                          className="btn-edit-review"
+                          onClick={() => handleEditReview(r)}
+                        >
+                          Chỉnh sửa
+                        </button>
+                        <button 
+                          className="btn-delete-review"
+                          onClick={() => handleDeleteReview(r.id)}
+                        >
+                          Xóa
+                        </button>
+                      </div>
+                    )}
                   </div>
                 </div>
-                <p className="review-comment">{r.comment}</p>
-                <div className="review-date">
-                  {new Date(r.createdAt).toLocaleDateString('vi-VN')}
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         )}
       </div>
