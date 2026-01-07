@@ -68,6 +68,7 @@ const ProductDetailPage = () => {
   const [submittingReview, setSubmittingReview] = useState(false);
   const [reviewError, setReviewError] = useState('');
   const [editingReviewId, setEditingReviewId] = useState(null);
+  const [isDescExpanded, setIsDescExpanded] = useState(false);
 
   // Khởi tạo form với dữ liệu review nếu đang chỉnh sửa
   useEffect(() => {
@@ -300,40 +301,7 @@ const ProductDetailPage = () => {
       </button>
 
       <div className="detail-card">
-        <div className="gallery">
-          <div className="main-image">
-            {product.stock === 0 && <div className="badge out">Hết hàng</div>}
-            {activeImage ? (
-              <img src={activeImage} alt={product.name} onError={(e) => {
-                e.target.src = 'https://via.placeholder.com/400x400?text=No+Image';
-              }} />
-            ) : (
-              <div style={{ width: '100%', height: '400px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#f0f0f0' }}>
-                Không có hình ảnh
-              </div>
-            )}
-          </div>
-          {product.images && product.images.length > 0 && (
-            <div className="thumbs">
-              {[product.image, ...(product.images || [])]
-                .filter(Boolean)
-                .filter((url, idx, arr) => arr.indexOf(url) === idx)
-                .map((url) => (
-                  <button
-                    key={url}
-                    className={`thumb ${url === activeImage ? 'active' : ''}`}
-                    onClick={() => setActiveImage(url)}
-                  >
-                    <img src={url} alt="thumb" onError={(e) => {
-                      e.target.style.display = 'none';
-                    }} />
-                  </button>
-                ))}
-            </div>
-          )}
-        </div>
-
-        <div className="info">
+        <div className="detail-left">
           <div className="title-row">
             <h1>{product.name}</h1>
             <button
@@ -358,9 +326,42 @@ const ProductDetailPage = () => {
             <div className={`stock ${product.stock === 0 ? 'out' : ''}`}>{stockBadge}</div>
           </div>
 
-          <div className="price">{formatPrice(product.price)}</div>
+          <div className="gallery">
+            <div className="main-image">
+              {product.stock === 0 && <div className="badge out">Hết hàng</div>}
+              {activeImage ? (
+                <img src={activeImage} alt={product.name} onError={(e) => {
+                  e.target.src = 'https://via.placeholder.com/400x400?text=No+Image';
+                }} />
+              ) : (
+                <div style={{ width: '100%', height: '400px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#f0f0f0' }}>
+                  Không có hình ảnh
+                </div>
+              )}
+            </div>
+            {product.images && product.images.length > 0 && (
+              <div className="thumbs">
+                {[product.image, ...(product.images || [])]
+                  .filter(Boolean)
+                  .filter((url, idx, arr) => arr.indexOf(url) === idx)
+                  .map((url) => (
+                    <button
+                      key={url}
+                      className={`thumb ${url === activeImage ? 'active' : ''}`}
+                      onClick={() => setActiveImage(url)}
+                    >
+                      <img src={url} alt="thumb" onError={(e) => {
+                        e.target.style.display = 'none';
+                      }} />
+                    </button>
+                  ))}
+              </div>
+            )}
+          </div>
+        </div>
 
-          {/* Options Box - Contains all selections and actions */}
+        <div className="detail-right">
+          <div className="price price-right">{formatPrice(product.price)}</div>
           <div className="options-box">
             {/* Color Selection */}
             {product.colors && product.colors.length > 0 && (
@@ -492,13 +493,28 @@ const ProductDetailPage = () => {
             </div>
           </div>
 
-          {/* Description Section - Moved to bottom */}
-          <div className="description-section">
-            <h3>Mô tả sản phẩm</h3>
-            <p className="description">{product.description}</p>
-          </div>
         </div>
       </div>
+
+      <section className="description-section">
+        <div className="description-header">
+          <h3>Mô tả sản phẩm</h3>
+          {product.description && product.description.length > 220 && (
+            <button
+              className="toggle-desc-btn"
+              onClick={() => setIsDescExpanded(prev => !prev)}
+            >
+              {isDescExpanded ? 'Thu gọn' : 'Xem thêm'}
+            </button>
+          )}
+        </div>
+        <div className={`description ${isDescExpanded ? 'expanded' : 'clamped'}`}>
+          {product.description}
+        </div>
+        {!isDescExpanded && product.description && product.description.length > 220 && (
+          <div className="fade-overlay" aria-hidden="true" />
+        )}
+      </section>
 
       <div className="section">
         <h2>Đánh giá sản phẩm</h2>
