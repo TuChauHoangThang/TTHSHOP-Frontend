@@ -1,4 +1,5 @@
-const API_URL = 'http://localhost:3001';
+const API_URL =
+    process.env.REACT_APP_API_URL || 'https://tthshop-backend-6ihw.onrender.com';
 
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
