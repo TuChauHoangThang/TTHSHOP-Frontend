@@ -2,11 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { reviewsAPI, ordersAPI } from '../services/api';
 import { useAuth } from '../context/AuthContext';
 
-/**
- * Custom hook để quản lý reviews và kiểm tra quyền đánh giá
- * @param {number} productId - ID của sản phẩm
- * @returns {Object} - { reviews, loading, error, hasPurchased, canReview, submitReview, refreshReviews }
- */
+
 export const useReviews = (productId) => {
   const { user } = useAuth();
   const [reviews, setReviews] = useState([]);

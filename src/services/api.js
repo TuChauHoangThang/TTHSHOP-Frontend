@@ -1,4 +1,9 @@
-const API_URL = 'http://localhost:3001';
+// Base URL cho fake API (json-server)
+// - Production (Vercel): cấu hình REACT_APP_API_URL nếu cần override
+// - Mặc định trỏ tới backend đã deploy trên Render
+//   Docs/json viewer: https://tthshop-backend-6ihw.onrender.com/ 
+const API_URL =
+    process.env.REACT_APP_API_URL || 'https://tthshop-backend-6ihw.onrender.com';
 
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
