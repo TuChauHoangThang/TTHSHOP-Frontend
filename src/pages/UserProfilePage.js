@@ -13,7 +13,9 @@ const UserProfilePage = () => {
     const [activeTab, setActiveTab] = useState('profile');
     const [expandedOrderId, setExpandedOrderId] = useState(null);
     const [currentPage, setCurrentPage] = useState(1);
+    const [voucherCurrentPage, setVoucherCurrentPage] = useState(1);
     const ordersPerPage = 4;
+    const vouchersPerPage = 4;
 
     const [userData, setUserData] = useState(null);
     const [tempData, setTempData] = useState(null);
@@ -36,7 +38,6 @@ const UserProfilePage = () => {
     const [vouchers, setVouchers] = useState([]);
     const [loyaltyPoints, setLoyaltyPoints] = useState(0);
 
-
     // Toast notification
     const [toast, setToast] = useState({ show: false, message: '', type: '' });
 
@@ -55,28 +56,28 @@ const UserProfilePage = () => {
         Promise.all([
             fetch(`${API_URL}/users/${userId}`).then(r => r.json()),
             fetch(`${API_URL}/orders?userId=${userId}`).then(r => r.json()),
-            // Mock data for new features
+            // Mock data for notifications
             Promise.resolve([
                 { id: 1, type: 'order', message: 'Đơn hàng #123 đã được giao thành công', time: '2 giờ trước', read: false },
                 { id: 2, type: 'promotion', message: 'Giảm giá 50% cho đơn hàng tiếp theo', time: '1 ngày trước', read: false },
                 { id: 3, type: 'system', message: 'Cập nhật điều khoản sử dụng', time: '3 ngày trước', read: true }
             ]),
-            Promise.resolve([
-                { id: 1, code: 'SAVE20', discount: '20%', minOrder: 500000, expiry: '2026-02-01', used: false },
-                { id: 2, code: 'FREESHIP', discount: 'Miễn phí vận chuyển', minOrder: 200000, expiry: '2026-01-20', used: false },
-                { id: 3, code: 'VIP50', discount: '50%', minOrder: 1000000, expiry: '2026-01-15', used: true }
-            ]),
+            // Fetch vouchers from API
+            fetch(`${API_URL}/userVouchers?userId=${userId}`).then(r => r.json()),
             Promise.resolve(1250) // loyalty points
         ])
             .then(([u, o, n, v, points]) => {
                 const sortedOrders = [...o].sort(
                     (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
                 );
+                const sortedVouchers = [...v].sort(
+                    (a, b) => new Date(b.receivedAt) - new Date(a.receivedAt)
+                );
                 setUserData(u);
                 setTempData(u);
                 setOrders(sortedOrders);
                 setNotifications(n);
-                setVouchers(v);
+                setVouchers(sortedVouchers);
                 setLoyaltyPoints(points);
 
                 // Load notification settings from user data
@@ -526,31 +527,57 @@ const UserProfilePage = () => {
                         {vouchers.length === 0 ? (
                             <p>Bạn chưa có voucher nào</p>
                         ) : (
-                            <div className="voucher-list">
-                                {vouchers.map(voucher => (
-                                    <div key={voucher.id} className={`voucher-card ${voucher.used ? 'used' : ''}`}>
-                                        <div className="voucher-left">
-                                            <div className="voucher-discount">{voucher.discount}</div>
-                                            <div className="voucher-code">
-                                                Mã: <strong>{voucher.code}</strong>
+                            <>
+                                <div className="voucher-list">
+                                    {vouchers
+                                        .slice((voucherCurrentPage - 1) * vouchersPerPage, voucherCurrentPage * vouchersPerPage)
+                                        .map(voucher => (
+                                            <div key={voucher.id} className={`voucher-card ${voucher.isUsed ? 'used' : ''}`}>
+                                                <div className="voucher-left">
+                                                    <div className="voucher-discount">{voucher.code}</div>
+                                                    <div className="voucher-code">
+                                                        Mã: <strong>{voucher.code}</strong>
+                                                    </div>
+                                                </div>
+                                                <div className="voucher-right">
+                                                    <p className="voucher-condition">
+                                                        {voucher.description}
+                                                    </p>
+                                                    <p className="voucher-expiry">
+                                                        Nhận lúc: {new Date(voucher.receivedAt).toLocaleDateString('vi-VN')}
+                                                    </p>
+                                                    {voucher.isUsed ? (
+                                                        <span className="voucher-status used">Đã sử dụng</span>
+                                                    ) : (
+                                                        <button className="btn-use-voucher">Sử dụng ngay</button>
+                                                    )}
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div className="voucher-right">
-                                            <p className="voucher-condition">
-                                                Đơn tối thiểu: {voucher.minOrder.toLocaleString()}đ
-                                            </p>
-                                            <p className="voucher-expiry">
-                                                HSD: {new Date(voucher.expiry).toLocaleDateString('vi-VN')}
-                                            </p>
-                                            {voucher.used ? (
-                                                <span className="voucher-status used">Đã sử dụng</span>
-                                            ) : (
-                                                <button className="btn-use-voucher">Sử dụng ngay</button>
-                                            )}
-                                        </div>
+                                        ))}
+                                </div>
+
+                                {vouchers.length > vouchersPerPage && (
+                                    <div className="pagination">
+                                        <button
+                                            disabled={voucherCurrentPage === 1}
+                                            onClick={() => setVoucherCurrentPage(voucherCurrentPage - 1)}
+                                        >
+                                            <FontAwesomeIcon icon={icons.chevronLeft} /> Trước
+                                        </button>
+
+                                        <span>
+                                            Trang {voucherCurrentPage} / {Math.ceil(vouchers.length / vouchersPerPage)}
+                                        </span>
+
+                                        <button
+                                            disabled={voucherCurrentPage === Math.ceil(vouchers.length / vouchersPerPage)}
+                                            onClick={() => setVoucherCurrentPage(voucherCurrentPage + 1)}
+                                        >
+                                            Sau <FontAwesomeIcon icon={icons.chevronRight} />
+                                        </button>
                                     </div>
-                                ))}
-                            </div>
+                                )}
+                            </>
                         )}
                     </div>
                 )}
@@ -628,7 +655,6 @@ const UserProfilePage = () => {
                     </div>
                 </div>
             )}
-
         </div>
     );
 };

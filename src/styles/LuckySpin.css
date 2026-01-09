@@ -1,0 +1,305 @@
+/* --- Floating Button --- */
+.lucky-spin-container {
+    position: fixed;
+    bottom: 120px; /* Nằm trên nút chat (chat ở bottom: 40px + height: 60px + khoảng cách: 20px) */
+    right: 40px;
+    z-index: 1000;
+    transition: bottom 0.3s ease;
+}
+
+.lucky-spin-container.scrolled {
+    bottom: 200px; /* Khi scroll, đẩy lên cao hơn */
+}
+
+.lucky-float-btn {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #FF4757 0%, #e84053 100%);
+    color: white;
+    border-radius: 50%;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    box-shadow: 0 8px 24px rgba(255, 71, 87, 0.4);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.lucky-float-btn::before {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    background: linear-gradient(135deg, #FF4757 0%, #e84053 100%);
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+    filter: blur(10px);
+}
+
+.lucky-float-btn:hover {
+    transform: scale(1.1) translateY(-2px);
+    box-shadow: 0 12px 32px rgba(255, 71, 87, 0.5);
+}
+
+.lucky-float-btn:hover::before {
+    opacity: 0.6;
+}
+
+.lucky-float-btn:active {
+    transform: scale(1.05);
+}
+
+/* Animation bounce cho icon */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+/* --- Modal --- */
+.lucky-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.lucky-modal {
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+    width: 380px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border: none;
+    background: #f1f1f1;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.close-btn:hover {
+    background: #e0e0e0;
+    transform: rotate(90deg);
+}
+
+.modal-title {
+    color: #FF4757;
+    text-transform: uppercase;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+/* --- THE WHEEL (QUAN TRỌNG) --- */
+.wheel-wrapper {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    margin: 0 auto 20px;
+}
+
+.wheel {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 8px solid white;
+    box-shadow: 0 0 0 4px #FF4757, 0 5px 15px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    position: relative;
+}
+
+/* Mũi tên chỉ (Tam giác đỏ) */
+.wheel-arrow {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-top: 40px solid #FF4757;
+    z-index: 10;
+    filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.3));
+}
+
+/* --- LOGIC CĂN CHỈNH CHỮ (ZERO WIDTH) --- */
+.wheel-label {
+    position: absolute;
+    /* Đặt vị trí bắt đầu từ đỉnh 12h */
+    top: 0;
+    left: 50%;
+
+    /* Chiều cao BẮT BUỘC bằng 50% để đáy trùng tâm vòng tròn */
+    height: 50%;
+
+    /* Độ rộng bằng 0 để đảm bảo căn giữa tuyệt đối */
+    width: 0;
+
+    /* Điểm xoay nằm ở đáy của thẻ (tức là tâm vòng tròn) */
+    transform-origin: bottom center;
+
+    z-index: 5;
+
+    /* Dùng Flexbox để căn chỉnh thẻ con bên trong */
+    display: flex;
+    justify-content: center; /* Căn giữa theo trục ngang (của label) */
+    align-items: flex-start; /* Căn lên trên cùng (rìa vòng quay) */
+
+    /* QUAN TRỌNG: Không được có padding/margin ở thẻ cha này */
+}
+
+/* --- TEXT: NỘI DUNG CHỮ (Chỉnh khoảng cách ở đây) --- */
+.label-text {
+    /* Đẩy chữ xuống dưới một chút để không chạm mép vòng quay */
+    margin-top: 25px;
+
+    /* Style chữ */
+    color: white;
+    font-weight: 700;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    white-space: nowrap;
+
+    /* Bóng chữ */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+
+    /* Xoay dọc chữ */
+    writing-mode: vertical-rl;
+    transform: rotate(180deg); /* Xoay để đỉnh chữ hướng ra ngoài */
+}
+
+/* --- TÂM VÒNG QUAY --- */
+.wheel-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    background: white;
+    border-radius: 50%;
+    border: 4px solid #f1f1f1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #FF4757;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 20;
+    user-select: none;
+}
+
+.wheel-center:active {
+    transform: translate(-50%, -50%) scale(0.95);
+}
+
+/* --- BUTTON & RESULT --- */
+.spin-btn-large {
+    background: #2ED573;
+    color: white;
+    border: none;
+    padding: 12px 40px;
+    border-radius: 30px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 5px 0 #26af61;
+    transition: 0.1s;
+}
+
+.spin-btn-large:active {
+    box-shadow: 0 2px 0 #26af61;
+    transform: translateY(3px);
+}
+
+.spin-btn-large:disabled {
+    background: #ccc;
+    box-shadow: none;
+    cursor: not-allowed;
+}
+
+.result-box {
+    margin-bottom: 15px;
+    background: #fff0f1;
+    border: 1px dashed #FF4757;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.voucher-ticket {
+    font-size: 24px;
+    font-weight: bold;
+    color: #FF4757;
+    margin-top: 5px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .lucky-spin-container {
+        bottom: 100px;
+        right: 20px;
+    }
+
+    .lucky-spin-container.scrolled {
+        bottom: 160px;
+    }
+
+    .lucky-float-btn {
+        width: 55px;
+        height: 55px;
+        font-size: 26px;
+    }
+
+    .lucky-modal {
+        width: 340px;
+        padding: 15px;
+    }
+
+    .wheel-wrapper {
+        width: 280px;
+        height: 280px;
+    }
+}
