@@ -18,7 +18,7 @@ const ProductsPage = () => {
   const { addToCart } = useCart();
   const { user } = useAuth();
   const { favorites, isFavorite, toggleFavorite } = useFavorites();
-  
+
   const [searchKeyword, setSearchKeyword] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('');
   const [sortBy, setSortBy] = useState('default');
@@ -29,11 +29,11 @@ const ProductsPage = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(window.innerWidth > 768);
 
   // Sử dụng usePagination hook
-  const { 
-    currentPage, 
-    totalPages, 
-    paginatedItems: paginatedProducts, 
-    handlePageChange 
+  const {
+    currentPage,
+    totalPages,
+    paginatedItems: paginatedProducts,
+    handlePageChange
   } = usePagination(filteredProducts, 12, true);
 
   useEffect(() => {
@@ -48,6 +48,13 @@ const ProductsPage = () => {
     } else {
       setSelectedCategory('');
     }
+
+    // --- THÊM MỚI: Lấy search từ URL và cập nhật vào searchKeyword ---
+    const searchFromUrl = searchParams.get('search');
+    if (searchFromUrl) {
+      setSearchKeyword(decodeURIComponent(searchFromUrl));
+    }
+    // -----------------------------------------------------------
   }, [searchParams]);
 
   useEffect(() => {
@@ -74,10 +81,10 @@ const ProductsPage = () => {
 
     // Tìm kiếm
     if (searchKeyword) {
-      filtered = filtered.filter(p => 
-        p.name.toLowerCase().includes(searchKeyword.toLowerCase()) ||
-        p.description.toLowerCase().includes(searchKeyword.toLowerCase()) ||
-        p.tags.some(tag => tag.toLowerCase().includes(searchKeyword.toLowerCase()))
+      filtered = filtered.filter(p =>
+          p.name.toLowerCase().includes(searchKeyword.toLowerCase()) ||
+          (p.description && p.description.toLowerCase().includes(searchKeyword.toLowerCase())) ||
+          (p.tags && p.tags.some(tag => tag.toLowerCase().includes(searchKeyword.toLowerCase())))
       );
     }
 
@@ -111,9 +118,13 @@ const ProductsPage = () => {
   const handleSearch = (e) => {
     e.preventDefault();
     if (searchKeyword.trim()) {
+      // --- THÊM MỚI: Đồng bộ từ khóa lên URL khi nhấn tìm kiếm tại trang này ---
+      setSearchParams({ search: searchKeyword.trim() });
+      // ---------------------------------------------------------------------
       searchProducts(searchKeyword);
     } else {
       loadProducts();
+      setSearchParams({}); // Thêm: Xóa param trên URL nếu rỗng
     }
   };
 
@@ -163,17 +174,17 @@ const ProductsPage = () => {
 
   if (loading) {
     return (
-      <div className="products-page">
-        <div className="loading">Đang tải sản phẩm...</div>
-      </div>
+        <div className="products-page">
+          <div className="loading">Đang tải sản phẩm...</div>
+        </div>
     );
   }
 
   if (error) {
     return (
-      <div className="products-page">
-        <div className="error">Lỗi: {error}</div>
-      </div>
+        <div className="products-page">
+          <div className="error">Lỗi: {error}</div>
+        </div>
     );
   }
 
@@ -184,252 +195,251 @@ const ProductsPage = () => {
   } : { min: 0, max: 1000000 };
 
   return (
-    <div className="products-page">
-      {/* Header với search và sort */}
-      <div className="products-top-bar">
-        <div className="products-header">
-          <h1>Danh Sách Sản Phẩm Handmade</h1>
-          <p className="products-count">
-            Tìm thấy <strong>{filteredProducts.length}</strong> sản phẩm
-            {totalPages > 1 && ` - Trang ${currentPage}/${totalPages}`}
-          </p>
-        </div>
-
-        <div className="top-controls">
-          {/* Search */}
-          <form onSubmit={handleSearch} className="search-form">
-            <FontAwesomeIcon icon={icons.search} className="search-icon" />
-            <input
-              type="text"
-              placeholder="Tìm kiếm sản phẩm..."
-              value={searchKeyword}
-              onChange={(e) => setSearchKeyword(e.target.value)}
-              className="search-input"
-            />
-            {searchKeyword && (
-              <button 
-                type="button" 
-                onClick={() => {
-                  setSearchKeyword('');
-                  loadProducts();
-                }}
-                className="clear-search-btn"
-                title="Xóa tìm kiếm"
-              >
-                <FontAwesomeIcon icon={icons.times} />
-              </button>
-            )}
-          </form>
-
-          {/* Sort */}
-          <div className="sort-control">
-            <label>
-              <FontAwesomeIcon icon={icons.filter} /> Sắp xếp:
-            </label>
-            <select
-              value={sortBy}
-              onChange={handleSortChange}
-              className="sort-select"
-            >
-              <option value="default">Mặc định</option>
-              <option value="price-asc">Giá: Thấp → Cao</option>
-              <option value="price-desc">Giá: Cao → Thấp</option>
-              <option value="rating">Đánh giá cao nhất</option>
-              <option value="name">Tên A-Z</option>
-            </select>
-          </div>
-        </div>
-      </div>
-
-      <div className="products-layout">
-        {/* Sidebar Filters */}
-        <aside className={`products-sidebar ${isSidebarOpen ? 'open' : 'closed'}`}>
-          <div className="sidebar-header">
-            <h2>
-              <FontAwesomeIcon icon={icons.filter} /> Bộ lọc
-            </h2>
-            <button 
-              className="toggle-sidebar-btn"
-              onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-              title={isSidebarOpen ? 'Ẩn bộ lọc' : 'Hiện bộ lọc'}
-            >
-              <FontAwesomeIcon icon={isSidebarOpen ? icons.chevronLeft : icons.chevronRight} />
-            </button>
+      <div className="products-page">
+        {/* Header với search và sort */}
+        <div className="products-top-bar">
+          <div className="products-header">
+            <h1>Danh Sách Sản Phẩm Handmade</h1>
+            <p className="products-count">
+              {/* --- THÊM MỚI: Hiển thị từ khóa đang tìm kiếm --- */}
+              {searchKeyword && <span>Kết quả cho: "<strong>{searchKeyword}</strong>" - </span>}
+              {/* --------------------------------------------- */}
+              Tìm thấy <strong>{filteredProducts.length}</strong> sản phẩm
+              {totalPages > 1 && ` - Trang ${currentPage}/${totalPages}`}
+            </p>
           </div>
 
-          <div className="sidebar-content">
-            {/* Categories */}
-            <div className="filter-section">
-              <h3>
-                <FontAwesomeIcon icon={icons.tag} /> Danh mục
-              </h3>
-              <div className="category-list">
-                <button
-                  className={`category-item ${!selectedCategory ? 'active' : ''}`}
-                  onClick={() => handleCategoryChange('')}
-                >
-                  Tất cả
-                </button>
-                {categories.map(cat => (
+          <div className="top-controls">
+            {/* Search */}
+            <form onSubmit={handleSearch} className="search-form">
+              <FontAwesomeIcon icon={icons.search} className="search-icon" />
+              <input
+                  type="text"
+                  placeholder="Tìm kiếm sản phẩm..."
+                  value={searchKeyword}
+                  onChange={(e) => setSearchKeyword(e.target.value)}
+                  className="search-input"
+              />
+              {searchKeyword && (
                   <button
-                    key={cat}
-                    className={`category-item ${selectedCategory === cat ? 'active' : ''}`}
-                    onClick={() => handleCategoryChange(cat)}
+                      type="button"
+                      onClick={handleClearFilters} // Sửa nhẹ: dùng hàm clear chung
+                      className="clear-search-btn"
+                      title="Xóa tìm kiếm"
                   >
-                    {cat}
+                    <FontAwesomeIcon icon={icons.times} />
                   </button>
-                ))}
-              </div>
-            </div>
+              )}
+            </form>
 
-            {/* Price Filter */}
-            <div className="filter-section">
-              <h3>
-                <FontAwesomeIcon icon={icons.creditCard} /> Khoảng giá
-              </h3>
-              <div className="price-filter">
-                <div className="price-inputs">
-                  <input
-                    type="number"
-                    placeholder="Từ"
-                    value={minPrice}
-                    onChange={(e) => setMinPrice(e.target.value)}
-                    className="price-input"
-                    min="0"
-                  />
-                  <span className="price-separator">-</span>
-                  <input
-                    type="number"
-                    placeholder="Đến"
-                    value={maxPrice}
-                    onChange={(e) => setMaxPrice(e.target.value)}
-                    className="price-input"
-                    min="0"
-                  />
-                </div>
-                <div className="price-range-info">
-                  <small>
-                    {formatPrice(priceRange.min)} - {formatPrice(priceRange.max)}
-                  </small>
-                </div>
-              </div>
+            {/* Sort */}
+            <div className="sort-control">
+              <label>
+                <FontAwesomeIcon icon={icons.filter} /> Sắp xếp:
+              </label>
+              <select
+                  value={sortBy}
+                  onChange={handleSortChange}
+                  className="sort-select"
+              >
+                <option value="default">Mặc định</option>
+                <option value="price-asc">Giá: Thấp → Cao</option>
+                <option value="price-desc">Giá: Cao → Thấp</option>
+                <option value="rating">Đánh giá cao nhất</option>
+                <option value="name">Tên A-Z</option>
+              </select>
             </div>
-
-            {/* Clear Filters */}
-            {(selectedCategory || minPrice || maxPrice || searchKeyword) && (
-              <button className="clear-filters-btn" onClick={handleClearFilters}>
-                <FontAwesomeIcon icon={icons.times} /> Xóa tất cả bộ lọc
-              </button>
-            )}
           </div>
-        </aside>
+        </div>
 
-        {/* Main Content */}
-        <main className="products-main">
-          {filteredProducts.length === 0 ? (
-            <div className="no-products">
-              <FontAwesomeIcon icon={icons.products} size="3x" />
-              <p>Không tìm thấy sản phẩm nào.</p>
+        <div className="products-layout">
+          {/* Sidebar Filters */}
+          <aside className={`products-sidebar ${isSidebarOpen ? 'open' : 'closed'}`}>
+            <div className="sidebar-header">
+              <h2>
+                <FontAwesomeIcon icon={icons.filter} /> Bộ lọc
+              </h2>
+              <button
+                  className="toggle-sidebar-btn"
+                  onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+                  title={isSidebarOpen ? 'Ẩn bộ lọc' : 'Hiện bộ lọc'}
+              >
+                <FontAwesomeIcon icon={isSidebarOpen ? icons.chevronLeft : icons.chevronRight} />
+              </button>
+            </div>
+
+            <div className="sidebar-content">
+              {/* Categories */}
+              <div className="filter-section">
+                <h3>
+                  <FontAwesomeIcon icon={icons.tag} /> Danh mục
+                </h3>
+                <div className="category-list">
+                  <button
+                      className={`category-item ${!selectedCategory ? 'active' : ''}`}
+                      onClick={() => handleCategoryChange('')}
+                  >
+                    Tất cả
+                  </button>
+                  {categories.map(cat => (
+                      <button
+                          key={cat}
+                          className={`category-item ${selectedCategory === cat ? 'active' : ''}`}
+                          onClick={() => handleCategoryChange(cat)}
+                      >
+                        {cat}
+                      </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Price Filter */}
+              <div className="filter-section">
+                <h3>
+                  <FontAwesomeIcon icon={icons.creditCard} /> Khoảng giá
+                </h3>
+                <div className="price-filter">
+                  <div className="price-inputs">
+                    <input
+                        type="number"
+                        placeholder="Từ"
+                        value={minPrice}
+                        onChange={(e) => setMinPrice(e.target.value)}
+                        className="price-input"
+                        min="0"
+                    />
+                    <span className="price-separator">-</span>
+                    <input
+                        type="number"
+                        placeholder="Đến"
+                        value={maxPrice}
+                        onChange={(e) => setMaxPrice(e.target.value)}
+                        className="price-input"
+                        min="0"
+                    />
+                  </div>
+                  <div className="price-range-info">
+                    <small>
+                      {formatPrice(priceRange.min)} - {formatPrice(priceRange.max)}
+                    </small>
+                  </div>
+                </div>
+              </div>
+
+              {/* Clear Filters */}
               {(selectedCategory || minPrice || maxPrice || searchKeyword) && (
-                <button className="clear-filters-btn" onClick={handleClearFilters}>
-                  <FontAwesomeIcon icon={icons.times} /> Xóa bộ lọc
-                </button>
+                  <button className="clear-filters-btn" onClick={handleClearFilters}>
+                    <FontAwesomeIcon icon={icons.times} /> Xóa tất cả bộ lọc
+                  </button>
               )}
             </div>
-          ) : (
-            <>
-              <div className="products-grid">
-                {paginatedProducts.map(product => {
-                  const productIsFavorite = isFavorite(product.id);
-                return (
-                  <div key={product.id} className="product-card">
-                    <div 
-                      className="product-image-container"
-                      onClick={() => handleProductClick(product.id)}
-                    >
-                      <img 
-                        src={product.image} 
-                        alt={product.name}
-                        className="product-image"
-                      />
-                      {product.stock === 0 && (
-                        <div className="out-of-stock">Hết hàng</div>
-                      )}
-                      <button
-                        className={`favorite-btn ${productIsFavorite ? 'active' : ''}`}
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          handleToggleFavorite(product.id);
-                        }}
-                        title={productIsFavorite ? 'Bỏ yêu thích' : 'Thêm yêu thích'}
-                      >
-                        <FontAwesomeIcon icon={productIsFavorite ? icons.heart : icons.heartRegular} />
+          </aside>
+
+          {/* Main Content */}
+          <main className="products-main">
+            {filteredProducts.length === 0 ? (
+                <div className="no-products">
+                  <FontAwesomeIcon icon={icons.products} size="3x" />
+                  <p>Không tìm thấy sản phẩm nào.</p>
+                  {(selectedCategory || minPrice || maxPrice || searchKeyword) && (
+                      <button className="clear-filters-btn" onClick={handleClearFilters}>
+                        <FontAwesomeIcon icon={icons.times} /> Xóa bộ lọc
                       </button>
-                    </div>
-                    
-                    <div className="product-info">
-                      <h3 
-                        className="product-name"
-                        onClick={() => handleProductClick(product.id)}
-                      >
-                        {product.name}
-                      </h3>
-                      
-                      <div className="product-rating">
+                  )}
+                </div>
+            ) : (
+                <>
+                  <div className="products-grid">
+                    {paginatedProducts.map(product => {
+                      const productIsFavorite = isFavorite(product.id);
+                      return (
+                          <div key={product.id} className="product-card">
+                            <div
+                                className="product-image-container"
+                                onClick={() => handleProductClick(product.id)}
+                            >
+                              <img
+                                  src={product.image}
+                                  alt={product.name}
+                                  className="product-image"
+                              />
+                              {product.stock === 0 && (
+                                  <div className="out-of-stock">Hết hàng</div>
+                              )}
+                              <button
+                                  className={`favorite-btn ${productIsFavorite ? 'active' : ''}`}
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    handleToggleFavorite(product.id);
+                                  }}
+                                  title={productIsFavorite ? 'Bỏ yêu thích' : 'Thêm yêu thích'}
+                              >
+                                <FontAwesomeIcon icon={productIsFavorite ? icons.heart : icons.heartRegular} />
+                              </button>
+                            </div>
+
+                            <div className="product-info">
+                              <h3
+                                  className="product-name"
+                                  onClick={() => handleProductClick(product.id)}
+                              >
+                                {product.name}
+                              </h3>
+
+                              <div className="product-rating">
                         <span className="stars">
                           {[...Array(5)].map((_, i) => (
-                            <FontAwesomeIcon 
-                              key={i} 
-                              icon={icons.star} 
-                              className={i < Math.floor(product.rating) ? 'star-filled' : 'star-empty'} 
-                            />
+                              <FontAwesomeIcon
+                                  key={i}
+                                  icon={icons.star}
+                                  className={i < Math.floor(product.rating) ? 'star-filled' : 'star-empty'}
+                              />
                           ))}
                         </span>
-                        <span className="rating-value">({product.rating})</span>
-                        <span className="reviews-count">({product.reviews} đánh giá)</span>
-                      </div>
-                      
-                      <div className="product-category">{product.category}</div>
-                      
-                      <div className="product-price">{formatPrice(product.price)}</div>
-                      
-                      <div className="product-stock">
-                        {product.stock > 0 ? (
-                          <span className="in-stock">Còn {product.stock} sản phẩm</span>
-                        ) : (
-                          <span className="out-of-stock-text">Hết hàng</span>
-                        )}
-                      </div>
-                      
-                      <button
-                        className="add-to-cart-btn"
-                        onClick={() => handleAddToCart(product.id)}
-                        disabled={product.stock === 0}
-                      >
-                        <FontAwesomeIcon icon={icons.cart} /> {product.stock > 0 ? 'Thêm vào giỏ' : 'Hết hàng'}
-                      </button>
-                    </div>
+                                <span className="rating-value">({product.rating})</span>
+                                <span className="reviews-count">({product.reviews} đánh giá)</span>
+                              </div>
+
+                              <div className="product-category">{product.category}</div>
+
+                              <div className="product-price">{formatPrice(product.price)}</div>
+
+                              <div className="product-stock">
+                                {product.stock > 0 ? (
+                                    <span className="in-stock">Còn {product.stock} sản phẩm</span>
+                                ) : (
+                                    <span className="out-of-stock-text">Hết hàng</span>
+                                )}
+                              </div>
+
+                              <button
+                                  className="add-to-cart-btn"
+                                  onClick={() => handleAddToCart(product.id)}
+                                  disabled={product.stock === 0}
+                              >
+                                <FontAwesomeIcon icon={icons.cart} /> {product.stock > 0 ? 'Thêm vào giỏ' : 'Hết hàng'}
+                              </button>
+                            </div>
+                          </div>
+                      );
+                    })}
                   </div>
-                );
-                })}
-              </div>
-              
-              {totalPages > 1 && (
-                <Pagination
-                  currentPage={currentPage}
-                  totalPages={totalPages}
-                  onPageChange={handlePageChange}
-                  itemsPerPage={12}
-                  showPageInfo={true}
-                />
-              )}
-            </>
-          )}
-        </main>
+
+                  {totalPages > 1 && (
+                      <Pagination
+                          currentPage={currentPage}
+                          totalPages={totalPages}
+                          onPageChange={handlePageChange}
+                          itemsPerPage={12}
+                          showPageInfo={true}
+                      />
+                  )}
+                </>
+            )}
+          </main>
+        </div>
       </div>
-    </div>
   );
 };
 
 export default ProductsPage;
-
