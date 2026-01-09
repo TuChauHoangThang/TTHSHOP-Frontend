@@ -146,7 +146,7 @@ const ProductDetailPage = () => {
 
   const handleAddToCart = async () => {
     if (!product) return;
-    
+
     // Validate selections
     if (product.colors && product.colors.length > 0 && !selectedColor) {
       alert('Vui lòng chọn màu sắc');
@@ -167,7 +167,11 @@ const ProductDetailPage = () => {
 
     try {
       setAdding(true);
-      await addToCart(product.id, quantity);
+      const options = {
+        color: selectedColor,
+        type: selectedType
+      };
+      await addToCart(product.id, quantity, options);
       alert(`Đã thêm ${quantity} sản phẩm vào giỏ hàng!`);
       // Reset quantity after adding
       setQuantity(1);
@@ -200,7 +204,7 @@ const ProductDetailPage = () => {
 
   const handleToggleFavorite = async () => {
     if (!product) return;
-    
+
     if (!user) {
       const confirmLogin = window.confirm('Vui lòng đăng nhập để thêm sản phẩm vào yêu thích. Bạn có muốn đăng nhập ngay bây giờ?');
       if (confirmLogin) {
@@ -383,12 +387,12 @@ const ProductDetailPage = () => {
                       title={color}
                     >
                       {selectedColor === color && (
-                        <FontAwesomeIcon 
-                          icon={icons.check} 
-                          style={{ 
-                            color: getColorHex(color) === '#ffffff' ? '#333' : '#fff', 
-                            fontSize: '0.85rem' 
-                          }} 
+                        <FontAwesomeIcon
+                          icon={icons.check}
+                          style={{
+                            color: getColorHex(color) === '#ffffff' ? '#333' : '#fff',
+                            fontSize: '0.85rem'
+                          }}
                         />
                       )}
                     </button>
@@ -410,8 +414,8 @@ const ProductDetailPage = () => {
                     type="button"
                   >
                     <span>{selectedType || 'Chọn loại sản phẩm'}</span>
-                    <FontAwesomeIcon 
-                      icon={icons.chevronDown} 
+                    <FontAwesomeIcon
+                      icon={icons.chevronDown}
                       className={`dropdown-arrow ${isTypeDropdownOpen ? 'open' : ''}`}
                     />
                   </button>
@@ -518,12 +522,12 @@ const ProductDetailPage = () => {
 
       <div className="section">
         <h2>Đánh giá sản phẩm</h2>
-        
+
         {/* Form đánh giá - chỉ hiển thị khi user đã mua */}
         {hasPurchased && user && !showReviewForm && !hasReviewed && (
           <div className="review-prompt">
             <p>Bạn đã mua sản phẩm này. Hãy chia sẻ đánh giá của bạn!</p>
-            <button 
+            <button
               className="btn-review"
               onClick={() => {
                 setEditingReviewId(null);
@@ -542,13 +546,13 @@ const ProductDetailPage = () => {
           <div className="review-prompt">
             <p>Bạn đã đánh giá sản phẩm này. Bạn có thể chỉnh sửa hoặc xóa đánh giá của mình.</p>
             <div style={{ display: 'flex', gap: '10px' }}>
-              <button 
+              <button
                 className="btn-review"
                 onClick={() => handleEditReview(getUserReview)}
               >
                 Chỉnh sửa đánh giá
               </button>
-              <button 
+              <button
                 className="btn-review"
                 style={{ background: '#dc3545' }}
                 onClick={() => handleDeleteReview(getUserReview.id)}
@@ -563,8 +567,8 @@ const ProductDetailPage = () => {
           <form className="review-form" onSubmit={handleSubmitReview}>
             <div className="review-form-header">
               <h3>{editingReviewId ? 'Chỉnh sửa đánh giá' : 'Viết đánh giá của bạn'}</h3>
-              <button 
-                type="button" 
+              <button
+                type="button"
                 className="review-form-close"
                 onClick={() => {
                   setShowReviewForm(false);
@@ -577,7 +581,7 @@ const ProductDetailPage = () => {
                 ✕
               </button>
             </div>
-            
+
             <div className="form-group">
               <label>Đánh giá của bạn:</label>
               <div className="rating-selector">
@@ -619,8 +623,8 @@ const ProductDetailPage = () => {
             )}
 
             <div className="review-form-actions">
-              <button 
-                type="button" 
+              <button
+                type="button"
                 className="btn-cancel"
                 onClick={() => {
                   setShowReviewForm(false);
@@ -633,8 +637,8 @@ const ProductDetailPage = () => {
               >
                 Hủy
               </button>
-              <button 
-                type="submit" 
+              <button
+                type="submit"
                 className="btn-submit-review"
                 disabled={submittingReview || reviewComment.trim().length < 10}
               >
@@ -684,13 +688,13 @@ const ProductDetailPage = () => {
                     </div>
                     {isOwnReview && !showReviewForm && (
                       <div className="review-actions">
-                        <button 
+                        <button
                           className="btn-edit-review"
                           onClick={() => handleEditReview(r)}
                         >
                           Chỉnh sửa
                         </button>
-                        <button 
+                        <button
                           className="btn-delete-review"
                           onClick={() => handleDeleteReview(r.id)}
                         >
