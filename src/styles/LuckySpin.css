@@ -1,14 +1,14 @@
 /* --- Floating Button --- */
 .lucky-spin-container {
     position: fixed;
-    bottom: 120px; /* Nằm trên nút chat (chat ở bottom: 40px + height: 60px + khoảng cách: 20px) */
+    bottom: 120px;
     right: 40px;
     z-index: 1000;
     transition: bottom 0.3s ease;
 }
 
 .lucky-spin-container.scrolled {
-    bottom: 200px; /* Khi scroll, đẩy lên cao hơn */
+    bottom: 200px;
 }
 
 .lucky-float-btn {
@@ -87,6 +87,7 @@
 .lucky-modal {
     background: white;
     padding: 20px;
+    margin-top: 80px;
     border-radius: 20px;
     width: 380px;
     text-align: center;
@@ -111,24 +112,53 @@
     top: 10px;
     right: 10px;
     border: none;
-    background: #f1f1f1;
+    background: #9f9191;
     width: 30px;
     height: 30px;
     border-radius: 50%;
     cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.close-btn:hover {
-    background: #e0e0e0;
-    transform: rotate(90deg);
 }
 
 .modal-title {
     color: #FF4757;
     text-transform: uppercase;
     font-weight: 800;
+    margin-bottom: 10px;
+}
+
+/* --- Spin Info --- */
+.spin-info {
     margin-bottom: 20px;
+    text-align: center;
+    padding: 10px;
+    border-radius: 8px;
+    background: #f8f9fa;
+}
+
+.already-spun {
+    color: #666;
+}
+
+.can-spin {
+    color: #28a745;
+}
+
+.last-spin-time {
+    font-size: 0.9em;
+    color: #6c757d;
+    margin-top: 5px;
+}
+
+.comeback-msg {
+    color: #ff6b6b;
+    font-weight: bold;
+    margin-top: 8px;
+}
+
+.hint {
+    font-size: 0.9em;
+    color: #495057;
+    margin-top: 5px;
 }
 
 /* --- THE WHEEL (QUAN TRỌNG) --- */
@@ -167,47 +197,28 @@
 /* --- LOGIC CĂN CHỈNH CHỮ (ZERO WIDTH) --- */
 .wheel-label {
     position: absolute;
-    /* Đặt vị trí bắt đầu từ đỉnh 12h */
     top: 0;
     left: 50%;
-
-    /* Chiều cao BẮT BUỘC bằng 50% để đáy trùng tâm vòng tròn */
     height: 50%;
-
-    /* Độ rộng bằng 0 để đảm bảo căn giữa tuyệt đối */
     width: 0;
-
-    /* Điểm xoay nằm ở đáy của thẻ (tức là tâm vòng tròn) */
     transform-origin: bottom center;
-
     z-index: 5;
-
-    /* Dùng Flexbox để căn chỉnh thẻ con bên trong */
     display: flex;
-    justify-content: center; /* Căn giữa theo trục ngang (của label) */
-    align-items: flex-start; /* Căn lên trên cùng (rìa vòng quay) */
-
-    /* QUAN TRỌNG: Không được có padding/margin ở thẻ cha này */
+    justify-content: center;
+    align-items: flex-start;
 }
 
 /* --- TEXT: NỘI DUNG CHỮ (Chỉnh khoảng cách ở đây) --- */
 .label-text {
-    /* Đẩy chữ xuống dưới một chút để không chạm mép vòng quay */
     margin-top: 25px;
-
-    /* Style chữ */
     color: white;
     font-weight: 700;
     font-size: 14px;
     font-family: Arial, sans-serif;
     white-space: nowrap;
-
-    /* Bóng chữ */
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
-
-    /* Xoay dọc chữ */
     writing-mode: vertical-rl;
-    transform: rotate(180deg); /* Xoay để đỉnh chữ hướng ra ngoài */
+    transform: rotate(180deg);
 }
 
 /* --- TÂM VÒNG QUAY --- */
@@ -230,10 +241,21 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     z-index: 20;
     user-select: none;
+    transition: all 0.3s ease;
 }
 
-.wheel-center:active {
+.wheel-center:hover:not(:disabled) {
+    background: #f8f8f8;
+    transform: translate(-50%, -50%) scale(1.05);
+}
+
+.wheel-center:active:not(:disabled) {
     transform: translate(-50%, -50%) scale(0.95);
+}
+
+.wheel-center:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
 }
 
 /* --- BUTTON & RESULT --- */
@@ -261,19 +283,120 @@
     cursor: not-allowed;
 }
 
-.result-box {
-    margin-bottom: 15px;
-    background: #fff0f1;
-    border: 1px dashed #FF4757;
-    padding: 10px;
-    border-radius: 8px;
+/* --- POPUP KẾT QUẢ --- */
+.result-overlay-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 11000; /* Cao hơn modal vòng quay */
+    animation: fadeIn 0.3s ease-out;
 }
 
-.voucher-ticket {
-    font-size: 24px;
-    font-weight: bold;
+.result-popup-card {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    width: 350px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes popIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.8) translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.confetti-effect {
+    font-size: 48px;
+    margin-bottom: 10px;
+    animation: bounce 1s infinite alternate;
+}
+
+.result-popup-card h3 {
     color: #FF4757;
-    margin-top: 5px;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.result-popup-card p {
+    color: #555;
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+
+.voucher-display {
+    background: linear-gradient(135deg, #FF4757 0%, #FF6B81 100%);
+    border-radius: 12px;
+    padding: 20px;
+    margin: 20px 0;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    box-shadow: 0 5px 15px rgba(255, 71, 87, 0.3);
+    border: 2px dashed white;
+}
+
+.voucher-code {
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.voucher-desc {
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+.note {
+    color: #28a745;
+    font-weight: 600;
+    margin-top: 15px;
+}
+
+.reminder {
+    color: #666;
+    font-size: 14px;
+    margin: 10px 0 20px;
+    font-style: italic;
+}
+
+.receive-btn {
+    background: linear-gradient(135deg, #2ED573 0%, #26af61 100%);
+    color: white;
+    border: none;
+    padding: 14px 40px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    box-shadow: 0 5px 0 #1e8c4d;
+    transition: all 0.2s ease;
+    margin-top: 10px;
+}
+
+.receive-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 7px 0 #1e8c4d;
+}
+
+.receive-btn:active {
+    transform: translateY(2px);
+    box-shadow: 0 3px 0 #1e8c4d;
 }
 
 /* ===== RESPONSIVE ===== */
@@ -296,10 +419,35 @@
     .lucky-modal {
         width: 340px;
         padding: 15px;
+        margin: 15px;
     }
 
     .wheel-wrapper {
         width: 280px;
         height: 280px;
     }
+
+    .result-popup-card {
+        width: 320px;
+        padding: 25px 20px;
+        margin: 15px;
+    }
+
+    .voucher-code {
+        font-size: 24px;
+    }
+}
+
+/* Animation cho confetti */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-10px) rotate(5deg);
+    }
+}
+
+.confetti-effect {
+    animation: float 2s ease-in-out infinite;
 }
