@@ -1,6 +1,11 @@
 import { useState } from 'react';
 import { useCart } from '../context/CartContext';
 
+// Helper để tạo key duy nhất cho mỗi item trong giỏ (dựa trên ID và options)
+const getItemKey = (productId, options) => {
+    return `${productId}-${JSON.stringify(options || {})}`;
+};
+
 export const useCartActions = () => {
     const {
         cartDetails,
@@ -10,14 +15,15 @@ export const useCartActions = () => {
     } = useCart();
 
     const [updatingId, setUpdatingId] = useState(null);
-    const [selectedItems, setSelectedItems] = useState([]);
+    const [selectedItems, setSelectedItems] = useState([]); // Mảng các itemKey
 
     // Quản lý chọn sản phẩm
-    const toggleSelectProduct = (productId) => {
+    const toggleSelectProduct = (productId, options) => {
+        const key = getItemKey(productId, options);
         setSelectedItems(prev =>
-            prev.includes(productId)
-                ? prev.filter(id => id !== productId)
-                : [...prev, productId]
+            prev.includes(key)
+                ? prev.filter(k => k !== key)
+                : [...prev, key]
         );
     };
 
@@ -25,7 +31,7 @@ export const useCartActions = () => {
         if (selectedItems.length === cartDetails.length && cartDetails.length > 0) {
             setSelectedItems([]);
         } else {
-            setSelectedItems(cartDetails.map(item => item.productId));
+            setSelectedItems(cartDetails.map(item => getItemKey(item.productId, item.options)));
         }
     };
 
@@ -33,7 +39,13 @@ export const useCartActions = () => {
     const handleSmartRemove = () => {
         if (selectedItems.length > 0) {
             if (window.confirm(`Xóa ${selectedItems.length} sản phẩm đã chọn?`)) {
-                selectedItems.forEach(id => removeFromCart(id));
+                // Duyệt qua cartDetails để tìm các item có key nằm trong selectedItems
+                cartDetails.forEach(item => {
+                    const key = getItemKey(item.productId, item.options);
+                    if (selectedItems.includes(key)) {
+                        removeFromCart(item.productId, item.options);
+                    }
+                });
                 setSelectedItems([]);
             }
         } else {
@@ -45,11 +57,11 @@ export const useCartActions = () => {
     };
 
     // Cập nhật số lượng
-    const handleQuantityChange = async (productId, newQuantity) => {
+    const handleQuantityChange = async (productId, newQuantity, options = {}) => {
         if (newQuantity < 1) return;
-        setUpdatingId(productId);
+        setUpdatingId(getItemKey(productId, options));
         try {
-            await updateQuantity(productId, newQuantity);
+            await updateQuantity(productId, newQuantity, options);
         } catch (error) {
             alert(error.message);
         } finally {
@@ -59,7 +71,7 @@ export const useCartActions = () => {
 
     // Tính toán số liệu
     const subtotal = cartDetails
-        .filter(item => selectedItems.includes(item.productId))
+        .filter(item => selectedItems.includes(getItemKey(item.productId, item.options)))
         .reduce((sum, item) => sum + (item.product.price * item.quantity), 0);
 
     const shipping = (subtotal > 500000 || subtotal === 0) ? 0 : 30000;

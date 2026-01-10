@@ -105,7 +105,7 @@ const setCartStorage = (cart, userId = null) =>
 
 export const cartAPI = {
     getCart: (userId = null) => getCartStorage(userId),
-    addToCart: async (productId, quantity = 1, userId = null) => {
+    addToCart: async (productId, quantity = 1, options = {}, userId = null) => {
         await delay(200);
         const cart = getCartStorage(userId);
         const products = await productsAPI.getAll();
@@ -116,7 +116,13 @@ export const cartAPI = {
         if (!product) throw new Error('Sản phẩm không tồn tại');
         if (product.stock < quantity) throw new Error(`Chỉ còn ${product.stock} sản phẩm trong kho`);
 
-        const existing = cart.find((i) => parseInt(i.productId) === productIdNum);
+        // Tìm sản phẩm trùng khớp cả ID và options (màu, size)
+        const existing = cart.find((i) => {
+            const sameId = parseInt(i.productId) === productIdNum;
+            const sameOptions = JSON.stringify(i.options || {}) === JSON.stringify(options || {});
+            return sameId && sameOptions;
+        });
+
         if (existing) {
             const newQty = existing.quantity + quantity;
             if (newQty > product.stock) {
@@ -124,12 +130,12 @@ export const cartAPI = {
             }
             existing.quantity = newQty;
         } else {
-            cart.push({ productId: productIdNum, quantity });
+            cart.push({ productId: productIdNum, quantity, options });
         }
         setCartStorage(cart, userId);
         return cart;
     },
-    updateQuantity: async (productId, quantity, userId = null) => {
+    updateQuantity: async (productId, quantity, options = {}, userId = null) => {
         await delay(200);
         const cart = getCartStorage(userId);
         const products = await productsAPI.getAll();
@@ -140,21 +146,32 @@ export const cartAPI = {
         if (quantity > product.stock) {
             throw new Error(`Số lượng vượt quá tồn kho (còn ${product.stock} sản phẩm)`);
         }
-        const item = cart.find((i) => parseInt(i.productId) === productIdNum);
+
+        const item = cart.find((i) => {
+            const sameId = parseInt(i.productId) === productIdNum;
+            const sameOptions = JSON.stringify(i.options || {}) === JSON.stringify(options || {});
+            return sameId && sameOptions;
+        });
+
         if (item) {
             if (quantity <= 0) {
-                return cartAPI.removeFromCart(productId, userId);
+                return cartAPI.removeFromCart(productId, options, userId);
             }
             item.quantity = quantity;
             setCartStorage(cart, userId);
         }
         return cart;
     },
-    removeFromCart: async (productId, userId = null) => {
+    removeFromCart: async (productId, options = {}, userId = null) => {
         await delay(200);
         const cart = getCartStorage(userId);
         const productIdNum = parseInt(productId);
-        const newCart = cart.filter((i) => parseInt(i.productId) !== productIdNum);
+        // Filter out item that matches BOTH id and options
+        const newCart = cart.filter((i) => {
+            const sameId = parseInt(i.productId) === productIdNum;
+            const sameOptions = JSON.stringify(i.options || {}) === JSON.stringify(options || {});
+            return !(sameId && sameOptions);
+        });
         setCartStorage(newCart, userId);
         return newCart;
     },
@@ -315,6 +332,8 @@ export const ordersAPI = {
                 price: product.price,
                 productName: product.name,
                 productImage: product.image,
+                colors: item.options?.color || null,
+                types: item.options?.type || null
             };
         });
 
@@ -389,16 +408,16 @@ export const ordersAPI = {
         const userIdStr = String(userId);
         const orders = await ordersAPI.getAll(userIdStr);
         const productIdNum = parseInt(productId);
-        
+
         // Kiểm tra xem có đơn hàng nào (không bị hủy) chứa sản phẩm này không
         const hasPurchased = orders.some(order => {
             // Chỉ kiểm tra đơn hàng không bị hủy (pending, confirmed, shipping, delivered)
             if (order.status === 'cancelled') return false;
-            return order.items && order.items.some(item => 
+            return order.items && order.items.some(item =>
                 parseInt(item.productId) === productIdNum
             );
         });
-        
+
         return hasPurchased;
     },
 
