@@ -1,0 +1,453 @@
+/* --- Floating Button --- */
+.lucky-spin-container {
+    position: fixed;
+    bottom: 120px;
+    right: 40px;
+    z-index: 1000;
+    transition: bottom 0.3s ease;
+}
+
+.lucky-spin-container.scrolled {
+    bottom: 200px;
+}
+
+.lucky-float-btn {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #FF4757 0%, #e84053 100%);
+    color: white;
+    border-radius: 50%;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    box-shadow: 0 8px 24px rgba(255, 71, 87, 0.4);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.lucky-float-btn::before {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    background: linear-gradient(135deg, #FF4757 0%, #e84053 100%);
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+    filter: blur(10px);
+}
+
+.lucky-float-btn:hover {
+    transform: scale(1.1) translateY(-2px);
+    box-shadow: 0 12px 32px rgba(255, 71, 87, 0.5);
+}
+
+.lucky-float-btn:hover::before {
+    opacity: 0.6;
+}
+
+.lucky-float-btn:active {
+    transform: scale(1.05);
+}
+
+/* Animation bounce cho icon */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+/* --- Modal --- */
+.lucky-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.lucky-modal {
+    background: white;
+    padding: 20px;
+    margin-top: 80px;
+    border-radius: 20px;
+    width: 380px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border: none;
+    background: #9f9191;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.modal-title {
+    color: #FF4757;
+    text-transform: uppercase;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+/* --- Spin Info --- */
+.spin-info {
+    margin-bottom: 20px;
+    text-align: center;
+    padding: 10px;
+    border-radius: 8px;
+    background: #f8f9fa;
+}
+
+.already-spun {
+    color: #666;
+}
+
+.can-spin {
+    color: #28a745;
+}
+
+.last-spin-time {
+    font-size: 0.9em;
+    color: #6c757d;
+    margin-top: 5px;
+}
+
+.comeback-msg {
+    color: #ff6b6b;
+    font-weight: bold;
+    margin-top: 8px;
+}
+
+.hint {
+    font-size: 0.9em;
+    color: #495057;
+    margin-top: 5px;
+}
+
+/* --- THE WHEEL (QUAN TRỌNG) --- */
+.wheel-wrapper {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    margin: 0 auto 20px;
+}
+
+.wheel {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 8px solid white;
+    box-shadow: 0 0 0 4px #FF4757, 0 5px 15px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    position: relative;
+}
+
+/* Mũi tên chỉ (Tam giác đỏ) */
+.wheel-arrow {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-top: 40px solid #FF4757;
+    z-index: 10;
+    filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.3));
+}
+
+/* --- LOGIC CĂN CHỈNH CHỮ (ZERO WIDTH) --- */
+.wheel-label {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    height: 50%;
+    width: 0;
+    transform-origin: bottom center;
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+/* --- TEXT: NỘI DUNG CHỮ (Chỉnh khoảng cách ở đây) --- */
+.label-text {
+    margin-top: 25px;
+    color: white;
+    font-weight: 700;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    white-space: nowrap;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+}
+
+/* --- TÂM VÒNG QUAY --- */
+.wheel-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    background: white;
+    border-radius: 50%;
+    border: 4px solid #f1f1f1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #FF4757;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 20;
+    user-select: none;
+    transition: all 0.3s ease;
+}
+
+.wheel-center:hover:not(:disabled) {
+    background: #f8f8f8;
+    transform: translate(-50%, -50%) scale(1.05);
+}
+
+.wheel-center:active:not(:disabled) {
+    transform: translate(-50%, -50%) scale(0.95);
+}
+
+.wheel-center:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+/* --- BUTTON & RESULT --- */
+.spin-btn-large {
+    background: #2ED573;
+    color: white;
+    border: none;
+    padding: 12px 40px;
+    border-radius: 30px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 5px 0 #26af61;
+    transition: 0.1s;
+}
+
+.spin-btn-large:active {
+    box-shadow: 0 2px 0 #26af61;
+    transform: translateY(3px);
+}
+
+.spin-btn-large:disabled {
+    background: #ccc;
+    box-shadow: none;
+    cursor: not-allowed;
+}
+
+/* --- POPUP KẾT QUẢ --- */
+.result-overlay-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 11000; /* Cao hơn modal vòng quay */
+    animation: fadeIn 0.3s ease-out;
+}
+
+.result-popup-card {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    width: 350px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes popIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.8) translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.confetti-effect {
+    font-size: 48px;
+    margin-bottom: 10px;
+    animation: bounce 1s infinite alternate;
+}
+
+.result-popup-card h3 {
+    color: #FF4757;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.result-popup-card p {
+    color: #555;
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+
+.voucher-display {
+    background: linear-gradient(135deg, #FF4757 0%, #FF6B81 100%);
+    border-radius: 12px;
+    padding: 20px;
+    margin: 20px 0;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    box-shadow: 0 5px 15px rgba(255, 71, 87, 0.3);
+    border: 2px dashed white;
+}
+
+.voucher-code {
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.voucher-desc {
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+.note {
+    color: #28a745;
+    font-weight: 600;
+    margin-top: 15px;
+}
+
+.reminder {
+    color: #666;
+    font-size: 14px;
+    margin: 10px 0 20px;
+    font-style: italic;
+}
+
+.receive-btn {
+    background: linear-gradient(135deg, #2ED573 0%, #26af61 100%);
+    color: white;
+    border: none;
+    padding: 14px 40px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    box-shadow: 0 5px 0 #1e8c4d;
+    transition: all 0.2s ease;
+    margin-top: 10px;
+}
+
+.receive-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 7px 0 #1e8c4d;
+}
+
+.receive-btn:active {
+    transform: translateY(2px);
+    box-shadow: 0 3px 0 #1e8c4d;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .lucky-spin-container {
+        bottom: 100px;
+        right: 20px;
+    }
+
+    .lucky-spin-container.scrolled {
+        bottom: 160px;
+    }
+
+    .lucky-float-btn {
+        width: 55px;
+        height: 55px;
+        font-size: 26px;
+    }
+
+    .lucky-modal {
+        width: 340px;
+        padding: 15px;
+        margin: 15px;
+    }
+
+    .wheel-wrapper {
+        width: 280px;
+        height: 280px;
+    }
+
+    .result-popup-card {
+        width: 320px;
+        padding: 25px 20px;
+        margin: 15px;
+    }
+
+    .voucher-code {
+        font-size: 24px;
+    }
+}
+
+/* Animation cho confetti */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-10px) rotate(5deg);
+    }
+}
+
+.confetti-effect {
+    animation: float 2s ease-in-out infinite;
+}

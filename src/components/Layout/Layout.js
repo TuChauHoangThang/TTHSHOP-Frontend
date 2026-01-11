@@ -3,6 +3,7 @@ import Header from './Header';
 import Footer from './Footer';
 import ScrollToTop from '../ScrollToTop';
 import ChatBox from '../ChatBox';
+import LuckySpin from "../LuckySpin";
 
 const Layout = ({ children }) => {
     return (
@@ -27,6 +28,14 @@ const Layout = ({ children }) => {
 
             {/* 💬 Chat box nổi toàn website */}
             <ChatBox />
+            <div style={{
+                position: 'fixed',
+                bottom: '80px',
+                right: '20px',
+                zIndex: 999
+            }}>
+                <LuckySpin />
+            </div>
         </div>
     );
 };
