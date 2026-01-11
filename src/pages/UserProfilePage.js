@@ -3,7 +3,8 @@ import { useAuth } from '../context/AuthContext';
 import { FontAwesomeIcon, icons } from '../utils/icons';
 import '../styles/UserProfilePage.css';
 
-const API_URL = 'http://localhost:3001';
+const API_URL =
+    process.env.REACT_APP_API_URL || 'https://tthshop-backend-6ihw.onrender.com';
 
 const UserProfilePage = () => {
     const { user, logout } = useAuth();

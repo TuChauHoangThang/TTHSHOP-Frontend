@@ -25,32 +25,32 @@ export const CartProvider = ({ children }) => {
   const loadCart = async () => {
     const cart = cartAPI.getCart(currentUserId);
     setCartItems(cart);
-    
+
     // Load thông tin chi tiết sản phẩm
     const products = await productsAPI.getAll();
     const details = cart.map(item => {
       const product = products.find(p => parseInt(p.id) === parseInt(item.productId));
       return product ? { ...item, product } : null;
     }).filter(Boolean);
-    
+
     setCartDetails(details);
   };
 
-  const addToCart = async (productId, quantity = 1) => {
+  const addToCart = async (productId, quantity = 1, options = {}) => {
     try {
-      await cartAPI.addToCart(productId, quantity, currentUserId);
+      await cartAPI.addToCart(productId, quantity, options, currentUserId);
       loadCart();
     } catch (error) {
       throw error; // Re-throw để component có thể xử lý
     }
   };
 
-  const updateQuantity = async (productId, quantity) => {
+  const updateQuantity = async (productId, quantity, options = {}) => {
     try {
       if (quantity <= 0) {
-        await removeFromCart(productId);
+        await removeFromCart(productId, options);
       } else {
-        await cartAPI.updateQuantity(productId, quantity, currentUserId);
+        await cartAPI.updateQuantity(productId, quantity, options, currentUserId);
         loadCart();
       }
     } catch (error) {
@@ -58,9 +58,9 @@ export const CartProvider = ({ children }) => {
     }
   };
 
-  const removeFromCart = async (productId) => {
+  const removeFromCart = async (productId, options = {}) => {
     try {
-      await cartAPI.removeFromCart(productId, currentUserId);
+      await cartAPI.removeFromCart(productId, options, currentUserId);
       loadCart();
     } catch (error) {
       throw error;
