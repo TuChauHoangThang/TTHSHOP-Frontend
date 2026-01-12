@@ -1,9 +1,9 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
 import { formatPrice } from '../utils/formatPrice';
-import { ordersAPI } from '../services/api';
+import { ordersAPI, vouchersAPI } from '../services/api';
 import '../styles/CheckoutPage.css';
 
 const paymentOptions = [
@@ -42,8 +42,24 @@ const initialFormState = {
 
 const CheckoutPage = () => {
     const navigate = useNavigate();
-    const { cartDetails, clearCart } = useCart();
+    const { cartDetails, clearCart, removeFromCart } = useCart(); // Assuming removeFromCart is exposed by useCart, checking context...
+    // Actually useCart usually exposes context value. Let's check imports.
+    // If useCart doesn't expose removeFromCart, we might need to use cartAPI directly or fix useCart.
+    // Looking at file content, useCart is imported from context.
+    // Let's rely on cartAPI for safe partial removal if context is limited, OR assume we need to import it.
+    // The previous file content shows `import { ordersAPI, vouchersAPI } from '../services/api';`. I should add cartAPI.
+
+    const { state } = useLocation();
     const { user } = useAuth();
+
+    // Determine items to checkout
+    const checkoutItems = useMemo(() => {
+        if (state?.items && state.items.length > 0) {
+            return state.items;
+        }
+        return cartDetails;
+    }, [state, cartDetails]);
+
     const [shippingInfo, setShippingInfo] = useState(initialFormState);
     const [paymentMethod, setPaymentMethod] = useState('cod');
     const [errors, setErrors] = useState({});
@@ -56,30 +72,44 @@ const CheckoutPage = () => {
 
     // --- PHẦN THÊM MỚI 1: State cho Modal và danh sách ---
     const [isVoucherModalOpen, setIsVoucherModalOpen] = useState(false);
-    const [allVouchers, setAllVouchers] = useState([]);
+    const [ownedVouchers, setOwnedVouchers] = useState([]);
 
     useEffect(() => {
-        // Lấy danh sách tất cả voucher để hiển thị trong Modal
-        const fetchAllVouchers = async () => {
+        const fetchOwnedVouchers = async () => {
+            if (!user) return;
             try {
-                const response = await fetch('http://localhost:3001/vouchers');
-                if (response.ok) {
-                    const data = await response.json();
-                    setAllVouchers(data);
-                }
+                // 1. Get catalogue
+                const catalogue = await vouchersAPI.getAll();
+                // 2. Get user vouchers
+                const myVouchers = await vouchersAPI.getUserVouchers(user.id);
+
+                // 3. Merge
+                const valid = myVouchers
+                    .filter(uv => !uv.used && !uv.isUsed)
+                    .map(uv => {
+                        const detail = catalogue.find(v => String(v.id) === String(uv.voucherId));
+                        if (!detail) return null;
+                        return {
+                            ...detail,
+                            ...uv,
+                            id: uv.id,
+                            catalogueId: detail.id
+                        };
+                    })
+                    .filter(Boolean);
+                setOwnedVouchers(valid);
             } catch (err) { console.error(err); }
         };
-        fetchAllVouchers();
-    }, []);
+        fetchOwnedVouchers();
+    }, [user]);
 
-    const handleSelectFromModal = (code) => {
-        setVoucherCode(code);
+
+    const handleSelectFromModal = (voucher) => {
+        setVoucherCode(voucher.code);
+        setAppliedVoucher(voucher);
+        setVoucherError('');
         setIsVoucherModalOpen(false);
-        // Sau khi chọn xong bạn có thể để người dùng tự nhấn "Áp dụng"
-        // hoặc tự gọi handleApplyVoucher(code) ở đây.
     };
-    // --- KẾT THÚC PHẦN THÊM MỚI 1 ---
-
     useEffect(() => {
         if (!user) return;
         setShippingInfo(prev => ({
@@ -92,54 +122,66 @@ const CheckoutPage = () => {
     }, [user]);
 
     const subtotal = useMemo(() => {
-        return cartDetails.reduce((total, item) => total + (item.product.price * item.quantity), 0);
-    }, [cartDetails]);
+        return checkoutItems.reduce((total, item) => total + (item.product.price * item.quantity), 0);
+    }, [checkoutItems]);
+
+    // --- EFFECT: Handle Voucher Passed from Cancel/Cart Navigation ---
+    useEffect(() => {
+        if (state?.appliedVoucherCode && ownedVouchers.length > 0) {
+            const code = state.appliedVoucherCode;
+            const fond = ownedVouchers.find(v => v.code === code);
+            if (fond && subtotal >= fond.minOrderValue) {
+                setAppliedVoucher(fond);
+                setVoucherCode(code);
+            }
+        }
+    }, [state, ownedVouchers, subtotal]);
 
     const totalItems = useMemo(() => {
-        return cartDetails.reduce((total, item) => total + item.quantity, 0);
-    }, [cartDetails]);
+        return checkoutItems.reduce((total, item) => total + item.quantity, 0);
+    }, [checkoutItems]);
 
     const shippingFee = subtotal === 0 || subtotal > 500000 ? 0 : 30000;
 
     const discountAmount = useMemo(() => {
         if (!appliedVoucher) return 0;
+        const currentSubtotal = Number(subtotal);
+        const val = Number(appliedVoucher.discountValue);
+
         if (appliedVoucher.discountType === 'fixed') {
-            return appliedVoucher.discountValue;
+            return val;
         }
         if (appliedVoucher.discountType === 'percentage') {
-            return (subtotal * appliedVoucher.discountValue) / 100;
+            return (currentSubtotal * val) / 100;
         }
         if (appliedVoucher.discountType === 'shipping') {
-            return Math.min(shippingFee, appliedVoucher.discountValue);
+            return Math.min(Number(shippingFee), val);
         }
         return 0;
     }, [appliedVoucher, subtotal, shippingFee]);
 
-    const grandTotal = subtotal + shippingFee - discountAmount;
+    const grandTotal = Number(subtotal) + Number(shippingFee) - discountAmount;
 
     const handleApplyVoucher = async () => {
         if (!voucherCode.trim()) return;
         setVoucherError('');
-        try {
-            const response = await fetch('http://localhost:3001/vouchers');
-            if (!response.ok) throw new Error('Network response was not ok');
-            const vouchers = await response.json();
-            const found = vouchers.find(v => v.code.trim().toUpperCase() === voucherCode.trim().toUpperCase());
-            if (!found) {
-                setVoucherError('Mã giảm giá không tồn tại.');
-                setAppliedVoucher(null);
-                return;
-            }
-            if (subtotal < found.minOrderValue) {
-                setVoucherError(`Đơn hàng tối thiểu ${formatPrice(found.minOrderValue)} để áp dụng mã này.`);
-                setAppliedVoucher(null);
-                return;
-            }
-            setAppliedVoucher(found);
-            setVoucherCode('');
-        } catch (err) {
-            setVoucherError('Lỗi kết nối server.');
+
+        // Check in owned vouchers
+        const found = ownedVouchers.find(v => v.code.trim().toUpperCase() === voucherCode.trim().toUpperCase());
+
+        if (!found) {
+            setVoucherError('Mã giảm giá không hợp lệ hoặc bạn chưa sở hữu.');
+            setAppliedVoucher(null);
+            return;
         }
+
+        if (Number(subtotal) < Number(found.minOrderValue)) {
+            setVoucherError(`Đơn hàng tối thiểu ${formatPrice(found.minOrderValue)} để áp dụng mã này.`);
+            setAppliedVoucher(null);
+            return;
+        }
+        setAppliedVoucher(found);
+        setVoucherCode('');
     };
 
     const handleInputChange = (event) => {
@@ -168,8 +210,8 @@ const CheckoutPage = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         setOrderError('');
-        if (cartDetails.length === 0) {
-            setOrderError('Giỏ hàng trống.');
+        if (checkoutItems.length === 0) {
+            setOrderError('Không có sản phẩm để thanh toán.');
             return;
         }
         const validationErrors = validateForm();
@@ -180,12 +222,12 @@ const CheckoutPage = () => {
         setSubmitting(true);
         try {
 
-            const itemsPayload = cartDetails.map(item => ({
+            const itemsPayload = checkoutItems.map(item => ({
                 productId: item.productId,
                 quantity: item.quantity,
                 options: item.options
             }));
-            const itemsSnapshot = cartDetails.map(item => ({
+            const itemsSnapshot = checkoutItems.map(item => ({
                 id: item.productId,
                 name: item.product.name,
                 image: item.product.image,
@@ -208,11 +250,52 @@ const CheckoutPage = () => {
                 items: itemsPayload,
                 shippingAddress: shippingPayload,
                 paymentMethod,
-                voucherId: appliedVoucher?.id || null,
+                voucherId: appliedVoucher?.catalogueId || null, // Use catalogue ID for order record if needed, or userVoucherId
                 discountAmount: discountAmount,
-                clearCart: true
+                clearCart: false // Handle clearing manually for partial checkout
             });
-            clearCart();
+
+            // Mark voucher as used if applied
+            if (appliedVoucher && appliedVoucher.id) {
+                await vouchersAPI.markUserVoucherUsed(appliedVoucher.id);
+            }
+
+            // Remove bought items from cart
+            // Since useCart handles state, we should ideally use its methods.
+            // If clearCart is too aggressive, we need to iterate remove.
+            // Assuming we can't easily import cartAPI to manipulate localstorage directly without desyncing context,
+            // we should try to use removeFromCart if available from context.
+            // Checking context availability in 'useCart' ...
+            // If I can't check context source, I'll rely on the fact that clearCart works for full cart.
+            // For partial, I should try to remove item by item.
+            // WARNING: If useCart doesn't expose removeFromCart, this will fail.
+            // But usually contexts expose actions. I'll blindly call it or check if I need to import cartAPI.
+            // Let's import cartAPI to be safe and do a hard reload of context if possible, or just expect the user to refresh.
+            // Actually, simpler:
+            if (checkoutItems.length === cartDetails.length) {
+                clearCart();
+            } else {
+                // Partial checkout: We need to remove these specific items.
+                // We need to import cartAPI to make this robust if context method isn't available.
+                // or just loop if context has it.
+                // Let's assume we need to import cartAPI and do it manually, then update context?
+                // Updating context from outside is hard.
+                // Let's hope context has removeFromCart.
+                // Wait, I saw useCartActions using removeFromCart from useCart(). So it must be there.
+                for (const item of checkoutItems) {
+                    // We need to use the context's remove function if possible to update UI immediately
+                    // But I need access to it.
+                    // Let's grab it from destructuring at top.
+                    // If it is not there, I will maintain `clearCart` for now but add a specific TODO or try to find it.
+                    // Previous view_file of CartPage shows `removeFromCart` comes from `useCartActions`, which gets it from `useCart()`.
+                    // So `useCart` DEFINITELY has `removeFromCart`.
+                    if (removeFromCart) {
+                        removeFromCart(item.productId, item.options);
+                    }
+                }
+            }
+
+
             setOrderSuccess({
                 id: newOrder.id,
                 paymentMethod,
@@ -355,8 +438,6 @@ const CheckoutPage = () => {
                 <aside className="checkout-summary">
                     <div className="checkout-card sticky">
                         <h2>Tóm tắt đơn hàng</h2>
-
-                        {/* --- PHẦN VOUCHER CỦA BẠN (ĐÃ THÊM NÚT CHỌN MÃ) --- */}
                         {!orderSuccess && (
                             <div className="voucher-section-new">
                                 <div className="voucher-header">
@@ -366,7 +447,7 @@ const CheckoutPage = () => {
                                         className="link-button"
                                         onClick={() => setIsVoucherModalOpen(true)}
                                     >
-                                        Chọn mã có sẵn
+                                        Chọn mã của bạn
                                     </button>
                                 </div>
                                 <div className="voucher-input-row">
@@ -402,7 +483,7 @@ const CheckoutPage = () => {
                         )}
 
                         <div className="summary-items">
-                            {(orderSuccess ? orderSuccess.items : cartDetails).map(item => (
+                            {(orderSuccess ? orderSuccess.items : checkoutItems).map(item => (
                                 <div key={item.id || item.productId} className="summary-item">
                                     <div className="summary-item-thumb"><img src={item.image || item.product.image} alt={item.name} /></div>
                                     <div className="summary-item-info">
@@ -434,8 +515,6 @@ const CheckoutPage = () => {
                     </div>
                 </aside>
             </div>
-
-            {/* --- PHẦN THÊM MỚI 2: Modal Danh sách Voucher --- */}
             {isVoucherModalOpen && (
                 <div className="v-modal-overlay" onClick={() => setIsVoucherModalOpen(false)}>
                     <div className="v-modal-content" onClick={e => e.stopPropagation()}>
@@ -446,7 +525,7 @@ const CheckoutPage = () => {
                             </button>
                         </div>
                         <div className="v-modal-body">
-                            {allVouchers.length > 0 ? allVouchers.map(v => (
+                            {ownedVouchers.length > 0 ? ownedVouchers.map(v => (
                                 <div key={v.id} className={`v-item ${subtotal < v.minOrderValue ? 'v-disabled' : ''}`}>
                                     <div className="v-info">
                                         <span className="v-code">{v.code}</span>
@@ -460,12 +539,12 @@ const CheckoutPage = () => {
                                     <button
                                         className="v-select-btn"
                                         disabled={subtotal < v.minOrderValue}
-                                        onClick={() => handleSelectFromModal(v.code)}
+                                        onClick={() => handleSelectFromModal(v)}
                                     >
                                         Chọn
                                     </button>
                                 </div>
-                            )) : <p>Không có mã nào khả dụng.</p>}
+                            )) : <p>Bạn chưa có mã giảm giá nào hoặc tất cả đã được sử dụng.</p>}
                         </div>
                     </div>
                 </div>

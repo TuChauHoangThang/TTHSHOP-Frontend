@@ -1,8 +1,10 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useCartActions } from '../hooks/useCartActions'; // Import hook mới
+import { useAuth } from '../context/AuthContext';
 import { formatPrice } from '../utils/formatPrice';
 import { FontAwesomeIcon, icons } from '../utils/icons';
+import { vouchersAPI } from '../services/api';
 import '../styles/CartPage.css';
 
 const getItemKey = (productId, options) => {
@@ -24,6 +26,55 @@ const CartPage = () => {
     handleQuantityChange,
     removeFromCart
   } = useCartActions();
+
+  // --- VOUCHER LOGIC ---
+  const { user } = useAuth(); // Needed to fetch vouchers
+  // eslint-disable-next-line
+  const [ownedVouchers, setOwnedVouchers] = React.useState([]);
+  const [selectedVoucher, setSelectedVoucher] = React.useState(null);
+  const [showVoucherModal, setShowVoucherModal] = React.useState(false);
+
+  // Fetch vouchers
+  React.useEffect(() => {
+    if (!user) return;
+    const fetchVouchers = async () => {
+      try {
+        const catalogue = await vouchersAPI.getAll();
+        const userVouchers = await vouchersAPI.getUserVouchers(user.id);
+
+        const valid = userVouchers
+          .filter(uv => !uv.used && !uv.isUsed)
+          .map(uv => {
+            const detail = catalogue.find(v => String(v.id) === String(uv.voucherId));
+            if (!detail) return null;
+            return { ...detail, ...uv, id: uv.id, catalogueId: detail.id };
+          })
+          .filter(Boolean);
+        setOwnedVouchers(valid);
+      } catch (e) {
+        console.error(e);
+      }
+    };
+    fetchVouchers();
+  }, [user]);
+
+  // Calculate discount for display ONLY
+  const discountAmount = React.useMemo(() => {
+    if (!selectedVoucher) return 0;
+    const currentSubtotal = Number(subtotal);
+    const minOrder = Number(selectedVoucher.minOrderValue);
+
+    if (currentSubtotal < minOrder) return 0;
+
+    const val = Number(selectedVoucher.discountValue);
+
+    if (selectedVoucher.discountType === 'fixed') return val;
+    if (selectedVoucher.discountType === 'percentage') return (currentSubtotal * val) / 100;
+    if (selectedVoucher.discountType === 'shipping') return Math.min(Number(shipping), val);
+    return 0;
+  }, [selectedVoucher, subtotal, shipping]);
+
+  const grandTotal = Number(total) - discountAmount;
 
   if (cartDetails.length === 0) {
     return (
@@ -130,16 +181,90 @@ const CartPage = () => {
             <div className="summary-row"><span>Đã chọn:</span><span>{selectedItems.length} sản phẩm</span></div>
             <div className="summary-row"><span>Tạm tính:</span><span>{formatPrice(subtotal)}</span></div>
             <div className="summary-row"><span>Phí vận chuyển:</span><span style={{ color: shipping === 0 ? 'var(--success)' : 'inherit' }}>{shipping === 0 ? 'Miễn phí' : formatPrice(shipping)}</span></div>
+
+            {/* Voucher Section */}
+            <div className="cart-voucher-section" style={{ margin: '15px 0', padding: '10px', border: '1px dashed #ddd', borderRadius: '4px' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <span>🎫 Mã giảm giá</span>
+                <button
+                  className="btn-link"
+                  onClick={() => setShowVoucherModal(true)}
+                  style={{ color: 'var(--primary)', fontWeight: 'bold', cursor: 'pointer', border: 'none', background: 'none' }}
+                >
+                  {selectedVoucher ? 'Đổi mã' : 'Chọn mã'}
+                </button>
+              </div>
+              {selectedVoucher && (
+                <div style={{ marginTop: '8px', fontSize: '0.9rem', color: 'var(--success)', display: 'flex', justifyContent: 'space-between' }}>
+                  <span>{selectedVoucher.code}</span>
+                  <span onClick={() => setSelectedVoucher(null)} style={{ cursor: 'pointer', color: '#666' }}>✕</span>
+                </div>
+              )}
+            </div>
+
+            {discountAmount > 0 && (
+              <div className="summary-row" style={{ color: 'var(--success)' }}>
+                <span>Giảm giá:</span>
+                <span>-{formatPrice(discountAmount)}</span>
+              </div>
+            )}
+
             <div className="summary-row total-row">
               <span>Tổng cộng:</span>
-              <span className="total-price">{formatPrice(total)}</span>
+              <span className="total-price">{formatPrice(grandTotal)}</span>
             </div>
-            <button className="btn-checkout" disabled={selectedItems.length === 0} onClick={() => navigate('/checkout')}>
+            <button
+              className="btn-checkout"
+              disabled={selectedItems.length === 0}
+              onClick={() => {
+                const itemsToCheckout = cartDetails.filter(item =>
+                  selectedItems.includes(getItemKey(item.productId, item.options))
+                );
+                navigate('/checkout', {
+                  state: {
+                    appliedVoucherCode: selectedVoucher?.code,
+                    items: itemsToCheckout
+                  }
+                });
+              }}
+            >
               Thanh Toán ({selectedItems.length})
             </button>
           </div>
         </div>
       </div>
+
+      {/* Voucher Modal - Simple Implementation */}
+      {showVoucherModal && (
+        <div style={{
+          position: 'fixed', top: 0, left: 0, right: 0, bottom: 0,
+          background: 'rgba(0,0,0,0.5)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 1000
+        }} onClick={() => setShowVoucherModal(false)}>
+          <div style={{ background: 'white', padding: '20px', borderRadius: '8px', width: '90%', maxWidth: '400px', maxHeight: '80vh', overflowY: 'auto' }} onClick={e => e.stopPropagation()}>
+            <h3>Chọn Voucher</h3>
+            <div style={{ marginTop: '15px' }}>
+              {ownedVouchers.length > 0 ? ownedVouchers.map(v => (
+                <div key={v.id} style={{
+                  padding: '10px', border: '1px solid #eee', marginBottom: '10px', borderRadius: '4px',
+                  opacity: subtotal < v.minOrderValue ? 0.6 : 1,
+                  background: selectedVoucher?.id === v.id ? '#f0f9ff' : 'white',
+                  borderColor: selectedVoucher?.id === v.id ? 'var(--primary)' : '#eee'
+                }} onClick={() => {
+                  if (subtotal >= v.minOrderValue) {
+                    setSelectedVoucher(v);
+                    setShowVoucherModal(false);
+                  }
+                }}>
+                  <div style={{ fontWeight: 'bold', color: 'var(--primary)' }}>{v.code}</div>
+                  <div style={{ fontSize: '0.85rem' }}>{v.description}</div>
+                  {subtotal < v.minOrderValue && <div style={{ fontSize: '0.75rem', color: 'red' }}>Đơn tối thiểu {formatPrice(v.minOrderValue)}</div>}
+                </div>
+              )) : <p>Bạn chưa có mã giảm giá nào.</p>}
+            </div>
+            <button style={{ marginTop: '10px', width: '100%', padding: '8px' }} onClick={() => setShowVoucherModal(false)}>Đóng</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
