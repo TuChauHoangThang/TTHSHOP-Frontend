@@ -95,8 +95,6 @@ export const reviewsAPI = {
         });
     },
 };
-
-// Cart & Favorites: lưu theo từng user (hoặc khách) trong localStorage.
 const getCartKey = (userId = null) => `cart_${userId || 'guest'}`;
 const getCartStorage = (userId = null) =>
     JSON.parse(localStorage.getItem(getCartKey(userId)) || '[]');
@@ -109,14 +107,10 @@ export const cartAPI = {
         await delay(200);
         const cart = getCartStorage(userId);
         const products = await productsAPI.getAll();
-
-        // Dữ liệu từ json-server đôi khi trả id là string, nên ép kiểu cả hai
         const productIdNum = parseInt(productId);
         const product = products.find((p) => parseInt(p.id) === productIdNum);
         if (!product) throw new Error('Sản phẩm không tồn tại');
         if (product.stock < quantity) throw new Error(`Chỉ còn ${product.stock} sản phẩm trong kho`);
-
-        // Tìm sản phẩm trùng khớp cả ID và options (màu, size)
         const existing = cart.find((i) => {
             const sameId = parseInt(i.productId) === productIdNum;
             const sameOptions = JSON.stringify(i.options || {}) === JSON.stringify(options || {});
@@ -442,5 +436,20 @@ export const vouchersAPI = {
     getByCode: async (code) => {
         const vouchers = await vouchersAPI.getAll();
         return vouchers.find(v => v.code.trim().toUpperCase() === code.trim().toUpperCase());
+    },
+    getUserVouchers: async (userId) => {
+        return fetchJson(`/userVouchers?userId=${userId}`);
+    },
+    markUserVoucherUsed: async (id) => {
+        return fetchJson(`/userVouchers/${id}`, {
+            method: 'PATCH',
+            body: JSON.stringify({ used: true, isUsed: true })
+        });
+    },
+    assignUserVoucher: async (data) => {
+        return fetchJson('/userVouchers', {
+            method: 'POST',
+            body: JSON.stringify(data)
+        });
     }
 };

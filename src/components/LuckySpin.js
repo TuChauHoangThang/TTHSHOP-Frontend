@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useAuth } from '../context/AuthContext';
+import { vouchersAPI } from '../services/api';
 import '../styles/LuckySpin.css';
-
-const API_URL = 'http://localhost:3001';
 
 const LuckySpin = () => {
     const { user } = useAuth();
@@ -37,8 +36,7 @@ const LuckySpin = () => {
 
     // Load vouchers và userVouchers
     useEffect(() => {
-        fetch(`${API_URL}/vouchers`)
-            .then(res => res.json())
+        vouchersAPI.getAll()
             .then(data => setVouchers(data))
             .catch(err => console.error("Lỗi tải voucher:", err));
     }, []);
@@ -49,8 +47,8 @@ const LuckySpin = () => {
             setCheckingSpinStatus(true);
 
             // Lấy danh sách vouchers của user
-            fetch(`${API_URL}/userVouchers?userId=${user.id}`)
-                .then(res => res.json())
+            // Lấy danh sách vouchers của user
+            vouchersAPI.getUserVouchers(user.id)
                 .then(data => {
                     setUserVouchers(data || []);
 
@@ -155,31 +153,25 @@ const LuckySpin = () => {
 
             try {
                 // LƯU VOUCHER VÀO DB USER
-                const response = await fetch(`${API_URL}/userVouchers`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        userId: String(user.id),
-                        voucherId: String(selectedVoucher.id),
-                        code: selectedVoucher.code,
-                        description: selectedVoucher.description,
-                        used: false,
-                        receivedAt: now
-                    })
+                const newVoucher = await vouchersAPI.assignUserVoucher({
+                    userId: String(user.id),
+                    voucherId: String(selectedVoucher.id),
+                    code: selectedVoucher.code,
+                    description: selectedVoucher.description,
+                    used: false,
+                    isUsed: false,
+                    receivedAt: now
                 });
 
-                if (response.ok) {
-                    const newVoucher = await response.json();
+                // CẬP NHẬT STATE
+                setHasSpunToday(true);
+                setLastSpinDate(now);
+                setUserVouchers(prev => [...prev, newVoucher]);
 
-                    // CẬP NHẬT STATE
-                    setHasSpunToday(true);
-                    setLastSpinDate(now);
-                    setUserVouchers(prev => [...prev, newVoucher]);
+                console.log("Đã lưu voucher vào ví người dùng:", newVoucher);
+                // Removed manual response.ok check since fetchJson throws on error
 
-                    console.log("Đã lưu voucher vào ví người dùng:", newVoucher);
-                } else {
-                    console.error("Lỗi lưu voucher");
-                }
+
             } catch (error) {
                 console.error("Lỗi lưu thông tin:", error);
             }
@@ -207,8 +199,7 @@ const LuckySpin = () => {
     const refreshSpinStatus = () => {
         if (user && user.id) {
             setCheckingSpinStatus(true);
-            fetch(`${API_URL}/userVouchers?userId=${user.id}`)
-                .then(res => res.json())
+            vouchersAPI.getUserVouchers(user.id)
                 .then(data => {
                     setUserVouchers(data || []);
 
