@@ -14,7 +14,7 @@ export const useReviews = (productId) => {
   // Load danh sách reviews
   const loadReviews = useCallback(async () => {
     if (!productId) return;
-    
+
     try {
       setLoading(true);
       setError(null);
@@ -74,7 +74,7 @@ export const useReviews = (productId) => {
   }, [hasPurchased, hasReviewed, user]);
 
   // Submit review (tạo mới hoặc cập nhật)
-  const submitReview = async (rating, comment, reviewId = null) => {
+  const submitReview = async (rating, comment, media = [], reviewId = null) => {
     if (!user) {
       throw new Error('Vui lòng đăng nhập để đánh giá sản phẩm');
     }
@@ -85,12 +85,13 @@ export const useReviews = (productId) => {
 
     try {
       setError(null);
-      
+
       if (reviewId) {
         // Cập nhật review đã có - cập nhật cả userName để đảm bảo tên luôn đúng
         await reviewsAPI.update(reviewId, {
           rating: parseInt(rating),
           comment: comment.trim(),
+          media: media,
           userName: user.name || user.email || 'Khách hàng' // Cập nhật userName khi chỉnh sửa
         });
       } else {
@@ -98,21 +99,22 @@ export const useReviews = (productId) => {
         if (hasReviewed()) {
           throw new Error('Bạn đã đánh giá sản phẩm này rồi. Vui lòng chỉnh sửa review hiện tại.');
         }
-        
+
         const reviewData = {
           productId: parseInt(productId),
           userId: user.id,
           userName: user.name || user.email || 'Khách hàng',
           rating: parseInt(rating),
-          comment: comment.trim()
+          comment: comment.trim(),
+          media: media
         };
 
         await reviewsAPI.create(reviewData);
       }
-      
+
       await loadReviews(); // Reload reviews sau khi submit
       await checkPurchaseStatus(); // Cập nhật lại trạng thái
-      
+
       return { success: true };
     } catch (err) {
       const errorMessage = err.message || 'Có lỗi xảy ra khi gửi đánh giá';
