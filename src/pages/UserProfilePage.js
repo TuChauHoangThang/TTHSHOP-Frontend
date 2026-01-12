@@ -3,8 +3,7 @@ import { useAuth } from '../context/AuthContext';
 import { FontAwesomeIcon, icons } from '../utils/icons';
 import '../styles/UserProfilePage.css';
 
-const API_URL =
-    process.env.REACT_APP_API_URL || 'https://tthshop-backend-6ihw.onrender.com';
+const API_URL = 'http://localhost:3001';
 
 const UserProfilePage = () => {
     const { user, logout } = useAuth();
@@ -212,7 +211,10 @@ const UserProfilePage = () => {
     };
 
     if (!user) return <div className="error">Bạn chưa đăng nhập</div>;
-    if (loading) return <div className="loading">Đang tải...</div>;
+    if (loading || !userData || !tempData) {
+        return <div className="loading">Đang tải...</div>;
+    }
+
 
     return (
         <div className="profile-page">
@@ -232,9 +234,11 @@ const UserProfilePage = () => {
                                 <div className="spinner"></div>
                             </div>
                         )}
-                        {avatarPreview || userData.avatar
-                            ? <img src={avatarPreview || userData.avatar} alt="avatar" />
-                            : <FontAwesomeIcon icon={icons.user} size="3x" />}
+                        {avatarPreview || userData?.avatar ? (
+                            <img src={avatarPreview || userData.avatar} alt="avatar" />
+                        ) : (
+                            <FontAwesomeIcon icon={icons.user} size="3x" />
+                        )}
                         <label className="camera">
                             <FontAwesomeIcon icon={icons.edit} />
                             <input
@@ -248,7 +252,7 @@ const UserProfilePage = () => {
                     </div>
 
                     <div className="info">
-                        <h1>{userData.name}</h1>
+                        <h1>{userData?.name}</h1>
                         <p><FontAwesomeIcon icon={icons.email} /> {userData.email}</p>
                         <span className="role">{userData.role}</span>
                         <div className="loyalty-badge">
@@ -550,7 +554,7 @@ const UserProfilePage = () => {
                                                     {voucher.isUsed ? (
                                                         <span className="voucher-status used">Đã sử dụng</span>
                                                     ) : (
-                                                        <button className="btn-use-voucher">Sử dụng ngay</button>
+                                                        <button className="btn-use-voucher" onClick={() => window.location.href = "/products"}>Sử dụng ngay</button>
                                                     )}
                                                 </div>
                                             </div>
