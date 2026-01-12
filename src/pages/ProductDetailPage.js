@@ -45,7 +45,11 @@ const ProductDetailPage = () => {
   const [selectedColor, setSelectedColor] = useState(null);
   const [selectedType, setSelectedType] = useState(null);
   const [quantity, setQuantity] = useState(1);
+
   const [isTypeDropdownOpen, setIsTypeDropdownOpen] = useState(false);
+
+  // Tab State
+  const [activeTab, setActiveTab] = useState('description');
 
   // Custom hook cho reviews
   const productId = id ? parseInt(id) : null;
@@ -65,6 +69,7 @@ const ProductDetailPage = () => {
   const [showReviewForm, setShowReviewForm] = useState(false);
   const [reviewRating, setReviewRating] = useState(5);
   const [reviewComment, setReviewComment] = useState('');
+  const [reviewMedia, setReviewMedia] = useState([]); // Array of { type: 'image'|'video', url: string }
   const [submittingReview, setSubmittingReview] = useState(false);
   const [reviewError, setReviewError] = useState('');
   const [editingReviewId, setEditingReviewId] = useState(null);
@@ -76,13 +81,50 @@ const ProductDetailPage = () => {
       if (getUserReview.id === editingReviewId) {
         setReviewRating(getUserReview.rating);
         setReviewComment(getUserReview.comment);
+        setReviewMedia(getUserReview.media || []);
         setShowReviewForm(true);
       }
     } else if (!editingReviewId && !showReviewForm) {
       setReviewRating(5);
       setReviewComment('');
+      setReviewMedia([]);
     }
   }, [getUserReview, editingReviewId, showReviewForm]);
+
+  const handleFileChange = async (e) => {
+    const files = Array.from(e.target.files);
+    setReviewError(''); // Clear previous errors
+
+    if (files.length + reviewMedia.length > 5) {
+      setReviewError('Bạn chỉ được tải lên tối đa 5 ảnh/video');
+      return;
+    }
+
+    const newMedia = [];
+    for (const file of files) {
+      if (file.size > 50 * 1024 * 1024) { // 50MB limit
+        setReviewError(`File ${file.name} quá lớn (tối đa 50MB)`);
+        continue;
+      }
+
+      const reader = new FileReader();
+      await new Promise((resolve) => {
+        reader.onload = (e) => {
+          newMedia.push({
+            type: file.type.startsWith('video/') ? 'video' : 'image',
+            url: e.target.result
+          });
+          resolve();
+        };
+        reader.readAsDataURL(file);
+      });
+    }
+    setReviewMedia(prev => [...prev, ...newMedia]);
+  };
+
+  const removeMedia = (index) => {
+    setReviewMedia(prev => prev.filter((_, i) => i !== index));
+  };
 
   const stockBadge = useMemo(() => {
     if (!product) return '';
@@ -231,19 +273,26 @@ const ProductDetailPage = () => {
     e.preventDefault();
     if (!productId) return;
 
-    if (!reviewComment.trim() || reviewComment.trim().length < 10) {
-      setReviewError('Bình luận phải có ít nhất 10 ký tự');
+    if (reviewRating === 0) {
+      setReviewError('Vui lòng chọn số sao đánh giá');
+      return;
+    }
+    if (!reviewComment.trim() || reviewComment.trim().length < 5) {
+      setReviewError('Bình luận phải có ít nhất 5 ký tự');
       return;
     }
 
     setReviewError('');
     setSubmittingReview(true);
 
+    setSubmittingReview(true);
+
     try {
-      await submitReview(reviewRating, reviewComment, editingReviewId);
+      await submitReview(reviewRating, reviewComment, reviewMedia, editingReviewId);
       alert(editingReviewId ? 'Đã cập nhật đánh giá!' : 'Cảm ơn bạn đã đánh giá sản phẩm!');
       setReviewComment('');
       setReviewRating(5);
+      setReviewMedia([]);
       setShowReviewForm(false);
       setEditingReviewId(null);
     } catch (err) {
@@ -257,6 +306,7 @@ const ProductDetailPage = () => {
     setEditingReviewId(review.id);
     setReviewRating(review.rating);
     setReviewComment(review.comment);
+    setReviewMedia(review.media || []);
     setShowReviewForm(true);
     setReviewError('');
   };
@@ -338,7 +388,7 @@ const ProductDetailPage = () => {
                   e.target.src = 'https://via.placeholder.com/400x400?text=No+Image';
                 }} />
               ) : (
-                <div style={{ width: '100%', height: '400px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#f0f0f0' }}>
+                <div className="no-image-placeholder">
                   Không có hình ảnh
                 </div>
               )}
@@ -500,212 +550,273 @@ const ProductDetailPage = () => {
         </div>
       </div>
 
-      <section className="description-section">
-        <div className="description-header">
-          <h3>Mô tả sản phẩm</h3>
-          {product.description && product.description.length > 220 && (
-            <button
-              className="toggle-desc-btn"
-              onClick={() => setIsDescExpanded(prev => !prev)}
-            >
-              {isDescExpanded ? 'Thu gọn' : 'Xem thêm'}
-            </button>
-          )}
-        </div>
-        <div className={`description ${isDescExpanded ? 'expanded' : 'clamped'}`}>
-          {product.description}
-        </div>
-        {!isDescExpanded && product.description && product.description.length > 220 && (
-          <div className="fade-overlay" aria-hidden="true" />
-        )}
-      </section>
+      {/* Tab Navigation */}
+      <div className="product-tabs">
+        <button
+          className={`tab-btn ${activeTab === 'description' ? 'active' : ''}`}
+          onClick={() => setActiveTab('description')}
+        >
+          Mô tả sản phẩm
+        </button>
+        <button
+          className={`tab-btn ${activeTab === 'reviews' ? 'active' : ''}`}
+          onClick={() => setActiveTab('reviews')}
+        >
+          Đánh giá ({reviews.length})
+        </button>
+      </div>
 
-      <div className="section">
-        <h2>Đánh giá sản phẩm</h2>
-
-        {/* Form đánh giá - chỉ hiển thị khi user đã mua */}
-        {hasPurchased && user && !showReviewForm && !hasReviewed && (
-          <div className="review-prompt">
-            <p>Bạn đã mua sản phẩm này. Hãy chia sẻ đánh giá của bạn!</p>
-            <button
-              className="btn-review"
-              onClick={() => {
-                setEditingReviewId(null);
-                setReviewRating(5);
-                setReviewComment('');
-                setShowReviewForm(true);
-              }}
-            >
-              Viết đánh giá
-            </button>
-          </div>
-        )}
-
-        {/* Hiển thị nút chỉnh sửa nếu đã có review */}
-        {hasPurchased && user && hasReviewed && getUserReview && !showReviewForm && (
-          <div className="review-prompt">
-            <p>Bạn đã đánh giá sản phẩm này. Bạn có thể chỉnh sửa hoặc xóa đánh giá của mình.</p>
-            <div style={{ display: 'flex', gap: '10px' }}>
-              <button
-                className="btn-review"
-                onClick={() => handleEditReview(getUserReview)}
-              >
-                Chỉnh sửa đánh giá
-              </button>
-              <button
-                className="btn-review"
-                style={{ background: '#dc3545' }}
-                onClick={() => handleDeleteReview(getUserReview.id)}
-              >
-                Xóa đánh giá
-              </button>
+      <div className="tab-content-container">
+        {activeTab === 'description' && (
+          <section className="description-section">
+            <div className="description-header">
+              <h3>Mô tả chi tiết</h3> {/* Changed title for better context */}
+              {product.description && product.description.length > 220 && (
+                <button
+                  className="toggle-desc-btn"
+                  onClick={() => setIsDescExpanded(prev => !prev)}
+                >
+                  {isDescExpanded ? 'Thu gọn' : 'Xem thêm'}
+                </button>
+              )}
             </div>
-          </div>
+            <div className={`description ${isDescExpanded ? 'expanded' : 'clamped'}`}>
+              {product.description}
+            </div>
+            {!isDescExpanded && product.description && product.description.length > 220 && (
+              <div className="fade-overlay" aria-hidden="true" />
+            )}
+          </section>
         )}
 
-        {(canReview || (hasReviewed && editingReviewId)) && showReviewForm && (
-          <form className="review-form" onSubmit={handleSubmitReview}>
-            <div className="review-form-header">
-              <h3>{editingReviewId ? 'Chỉnh sửa đánh giá' : 'Viết đánh giá của bạn'}</h3>
-              <button
-                type="button"
-                className="review-form-close"
-                onClick={() => {
-                  setShowReviewForm(false);
-                  setReviewError('');
-                  setEditingReviewId(null);
-                  setReviewRating(5);
-                  setReviewComment('');
-                }}
-              >
-                ✕
-              </button>
-            </div>
+        {activeTab === 'reviews' && (
+          <div className="reviews-section">
+            {/* Content moved to conditional render */}
+            <h2>Đánh giá sản phẩm</h2>
 
-            <div className="form-group">
-              <label>Đánh giá của bạn:</label>
-              <div className="rating-selector">
-                {[1, 2, 3, 4, 5].map((star) => (
-                  <button
-                    key={star}
-                    type="button"
-                    className={`star-btn ${reviewRating >= star ? 'active' : ''}`}
-                    onClick={() => setReviewRating(star)}
-                  >
-                    ★
-                  </button>
-                ))}
+            {/* Form đánh giá - chỉ hiển thị khi user đã mua */}
+            {hasPurchased && user && !showReviewForm && !hasReviewed && (
+              <div className="review-prompt">
+                <p>Bạn đã mua sản phẩm này. Hãy chia sẻ đánh giá của bạn!</p>
+                <button
+                  className="btn-review"
+                  onClick={() => {
+                    setEditingReviewId(null);
+                    setReviewRating(5);
+                    setReviewComment('');
+                    setReviewMedia([]);
+                    setShowReviewForm(true);
+                  }}
+                >
+                  Viết đánh giá
+                </button>
               </div>
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="review-comment">Bình luận:</label>
-              <textarea
-                id="review-comment"
-                className="review-textarea"
-                value={reviewComment}
-                onChange={(e) => {
-                  setReviewComment(e.target.value);
-                  setReviewError('');
-                }}
-                placeholder="Chia sẻ trải nghiệm của bạn về sản phẩm này..."
-                rows="4"
-                required
-                minLength="10"
-              />
-              <div className="char-count">
-                {reviewComment.length}/10 ký tự (tối thiểu)
-              </div>
-            </div>
-
-            {reviewError && (
-              <div className="review-error">{reviewError}</div>
             )}
 
-            <div className="review-form-actions">
-              <button
-                type="button"
-                className="btn-cancel"
-                onClick={() => {
-                  setShowReviewForm(false);
-                  setReviewComment('');
-                  setReviewError('');
-                  setEditingReviewId(null);
-                  setReviewRating(5);
-                }}
-                disabled={submittingReview}
-              >
-                Hủy
-              </button>
-              <button
-                type="submit"
-                className="btn-submit-review"
-                disabled={submittingReview || reviewComment.trim().length < 10}
-              >
-                {submittingReview ? 'Đang gửi...' : (editingReviewId ? 'Cập nhật đánh giá' : 'Gửi đánh giá')}
-              </button>
-            </div>
-          </form>
-        )}
+            {/* Hiển thị nút chỉnh sửa nếu đã có review */}
+            {hasPurchased && user && hasReviewed && getUserReview && !showReviewForm && (
+              <div className="review-prompt">
+                <p>Bạn đã đánh giá sản phẩm này. Bạn có thể chỉnh sửa hoặc xóa đánh giá của mình.</p>
+                <div style={{ display: 'flex', gap: '10px' }}>
+                  <button
+                    className="btn-review"
+                    onClick={() => handleEditReview(getUserReview)}
+                  >
+                    Chỉnh sửa đánh giá
+                  </button>
+                  <button
+                    className="btn-review"
+                    style={{ background: '#dc3545' }}
+                    onClick={() => handleDeleteReview(getUserReview.id)}
+                  >
+                    Xóa đánh giá
+                  </button>
+                </div>
+              </div>
+            )}
 
-        {!user && (
-          <div className="review-prompt">
-            <p>Đăng nhập và mua sản phẩm để có thể đánh giá.</p>
-          </div>
-        )}
+            {(canReview || (hasReviewed && editingReviewId)) && showReviewForm && (
+              <form className="review-form" onSubmit={handleSubmitReview}>
+                <div className="review-form-header">
+                  <h3>{editingReviewId ? 'Chỉnh sửa đánh giá' : 'Viết đánh giá của bạn'}</h3>
+                  <button
+                    type="button"
+                    className="review-form-close"
+                    onClick={() => {
+                      setShowReviewForm(false);
+                      setReviewError('');
+                      setEditingReviewId(null);
+                      setReviewRating(5);
+                      setReviewMedia([]);
+                      setReviewComment('');
+                    }}
+                  >
+                    ✕
+                  </button>
+                </div>
 
-
-        {user && !canReview && !hasReviewed && (
-          <div className="review-prompt">
-            <p>Bạn cần mua sản phẩm trước khi có thể đánh giá.</p>
-          </div>
-        )}
-
-        {/* Danh sách reviews */}
-        {reviewsLoading ? (
-          <p className="muted">Đang tải đánh giá...</p>
-        ) : reviews.length === 0 ? (
-          <p className="muted">Chưa có đánh giá nào.</p>
-        ) : (
-          <div className="reviews">
-            {reviews.map((r) => {
-              const isOwnReview = user && String(r.userId) === String(user.id);
-              return (
-                <div key={r.id} className={`review-card ${isOwnReview ? 'own-review' : ''}`}>
-                  <div className="review-header">
-                    <div className="reviewer">
-                      {r.userName || 'Khách hàng'}
-                      {isOwnReview && <span className="review-badge">(Bạn)</span>}
-                    </div>
-                    <div className="review-rating">
-                      {'★'.repeat(r.rating)}{'☆'.repeat(5 - r.rating)}
-                    </div>
-                  </div>
-                  <p className="review-comment">{r.comment}</p>
-                  <div className="review-footer">
-                    <div className="review-date">
-                      {new Date(r.createdAt).toLocaleDateString('vi-VN')}
-                    </div>
-                    {isOwnReview && !showReviewForm && (
-                      <div className="review-actions">
-                        <button
-                          className="btn-edit-review"
-                          onClick={() => handleEditReview(r)}
-                        >
-                          Chỉnh sửa
-                        </button>
-                        <button
-                          className="btn-delete-review"
-                          onClick={() => handleDeleteReview(r.id)}
-                        >
-                          Xóa
-                        </button>
-                      </div>
-                    )}
+                <div className="form-group">
+                  <label>Đánh giá của bạn:</label>
+                  <div className="star-rating-input">
+                    {[1, 2, 3, 4, 5].map((star) => (
+                      <button
+                        key={star}
+                        type="button"
+                        className={`star-option ${star <= reviewRating ? 'active' : ''}`}
+                        onClick={() => setReviewRating(star)}
+                      >
+                        ★
+                      </button>
+                    ))}
+                    <span className="rating-text-hint">
+                      {reviewRating === 1 ? 'Tệ' :
+                        reviewRating === 2 ? 'Không hài lòng' :
+                          reviewRating === 3 ? 'Bình thường' :
+                            reviewRating === 4 ? 'Hài lòng' : 'Tuyệt vời'}
+                    </span>
                   </div>
                 </div>
-              );
-            })}
+
+                <div className="form-group">
+                  <label htmlFor="review-comment">Bình luận:</label>
+                  <textarea
+                    id="review-comment"
+                    className="review-textarea"
+                    value={reviewComment}
+                    onChange={(e) => {
+                      setReviewComment(e.target.value);
+                      setReviewError('');
+                    }}
+                    placeholder="Chia sẻ trải nghiệm của bạn về sản phẩm này..."
+                    rows="4"
+                    required
+                    minLength="5"
+                  />
+                  <div className="char-count">
+                    {reviewComment.length}/5 ký tự (tối thiểu)
+                  </div>
+                </div>
+
+                <div className="form-group">
+                  <label>Thêm ảnh/video (Tối đa 5):</label>
+                  <div className="media-upload-area">
+                    <label className="upload-btn">
+                      <FontAwesomeIcon icon={icons.camera} /> Thêm ảnh/video
+                      <input
+                        type="file"
+                        accept="image/*,video/*"
+                        multiple
+                        onChange={handleFileChange}
+                        hidden
+                        disabled={reviewMedia.length >= 5}
+                      />
+                    </label>
+                    <div className="media-previews">
+                      {reviewMedia.map((media, idx) => (
+                        <div key={idx} className="media-preview-item">
+                          {media.type === 'video' ? (
+                            <video src={media.url} />
+                          ) : (
+                            <img src={media.url} alt="preview" />
+                          )}
+                          <button type="button" onClick={() => removeMedia(idx)} className="remove-media-btn">×</button>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {reviewError && (
+                  <div className="review-error">{reviewError}</div>
+                )}
+
+                <div className="review-form-actions">
+                  <button
+                    type="button"
+                    className="btn-cancel"
+                    onClick={() => {
+                      setShowReviewForm(false);
+                      setReviewComment('');
+                      setReviewMedia([]);
+                      setReviewError('');
+                      setEditingReviewId(null);
+                      setReviewRating(5);
+                    }}
+                    disabled={submittingReview}
+                  >
+                    Hủy
+                  </button>
+                  <button
+                    type="submit"
+                    className="btn-submit-review"
+                    disabled={submittingReview}
+                  >
+                    {submittingReview ? 'Đang gửi...' : (editingReviewId ? 'Cập nhật đánh giá' : 'Gửi đánh giá')}
+                  </button>
+                </div>
+              </form>
+            )}
+
+            {!user && (
+              <div className="review-prompt">
+                <p>Đăng nhập và mua sản phẩm để có thể đánh giá.</p>
+              </div>
+            )}
+
+
+            {user && !canReview && !hasReviewed && (
+              <div className="review-prompt">
+                <p>Bạn cần mua sản phẩm trước khi có thể đánh giá.</p>
+              </div>
+            )}
+
+            {/* Danh sách reviews */}
+            {reviewsLoading ? (
+              <p className="muted">Đang tải đánh giá...</p>
+            ) : reviews.length === 0 ? (
+              <p className="muted">Chưa có đánh giá nào.</p>
+            ) : (
+              <div className="reviews">
+                {reviews.map((r) => {
+                  const isOwnReview = user && String(r.userId) === String(user.id);
+                  return (
+                    <div key={r.id} className={`review-card ${isOwnReview ? 'own-review' : ''}`}>
+                      <div className="review-header">
+                        <div className="reviewer">
+                          {r.userName || 'Khách hàng'}
+                          {isOwnReview && <span className="review-badge">(Bạn)</span>}
+                        </div>
+                        <div className="review-rating">
+                          {'★'.repeat(r.rating)}{'☆'.repeat(5 - r.rating)}
+                        </div>
+                      </div>
+                      <p className="review-comment">{r.comment}</p>
+
+                      {r.media && r.media.length > 0 && (
+                        <div className="review-media-gallery">
+                          {r.media.map((m, i) => (
+                            <div key={i} className="review-media-item">
+                              {m.type === 'video' ? (
+                                <video src={m.url} controls />
+                              ) : (
+                                <img src={m.url} alt="review media" onClick={() => window.open(m.url, '_blank')} />
+                              )}
+                            </div>
+                          ))}
+                        </div>
+                      )}
+
+                      <div className="review-footer">
+                        <div className="review-date">
+                          {new Date(r.createdAt).toLocaleDateString('vi-VN')}
+                        </div>
+
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            )}
           </div>
         )}
       </div>

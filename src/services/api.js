@@ -433,3 +433,14 @@ export const blogsAPI = {
         return await response.json();
     }
 };
+
+export const vouchersAPI = {
+    getAll: async () => {
+        const response = await fetch(`${API_URL}/vouchers`);
+        return await response.json();
+    },
+    getByCode: async (code) => {
+        const vouchers = await vouchersAPI.getAll();
+        return vouchers.find(v => v.code.trim().toUpperCase() === code.trim().toUpperCase());
+    }
+};

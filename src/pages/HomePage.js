@@ -18,9 +18,10 @@ const HomePage = () => {
     const { products, loading } = useProducts();
     const { addToCart } = useCart();
     const { user } = useAuth();
-    
+
     const [favorites, setFavorites] = useState([]);
     const [bestSellingProducts, setBestSellingProducts] = useState([]);
+    const [discountedProducts, setDiscountedProducts] = useState([]);
 
     useEffect(() => {
         loadFavorites();
@@ -28,17 +29,22 @@ const HomePage = () => {
 
     useEffect(() => {
         if (products.length > 0) {
-            // Lấy sản phẩm bán chạy (sắp xếp theo rating và reviews)
-            const sorted = [...products]
+            // 1. Sản phẩm bán chạy: Sắp xếp theo số lượng đã bán (sold) giảm dần
+            const sortedBySold = [...products]
+                .sort((a, b) => (b.sold || 0) - (a.sold || 0))
+                .slice(0, 4); // Lấy 4 sản phẩm
+            setBestSellingProducts(sortedBySold);
+
+            // 2. Sản phẩm giảm giá: Có originalPrice > price
+            const discounted = products
+                .filter(p => p.originalPrice && p.originalPrice > p.price)
                 .sort((a, b) => {
-                    // Ưu tiên rating cao, sau đó là số lượng reviews
-                    if (b.rating !== a.rating) {
-                        return b.rating - a.rating;
-                    }
-                    return b.reviews - a.reviews;
+                    const discountA = (a.originalPrice - a.price) / a.originalPrice;
+                    const discountB = (b.originalPrice - b.price) / b.originalPrice;
+                    return discountB - discountA; // Giảm giá sâu xếp trước
                 })
-                .slice(0, 4); // Lấy 4 sản phẩm đầu tiên
-            setBestSellingProducts(sorted);
+                .slice(0, 4);
+            setDiscountedProducts(discounted);
         }
     }, [products]);
 
@@ -208,12 +214,12 @@ const HomePage = () => {
                             const isFavorite = favorites.includes(product.id);
                             return (
                                 <div key={product.id} className="product-card">
-                                    <div 
+                                    <div
                                         className="product-image-container"
                                         onClick={() => handleProductClick(product.id)}
                                     >
-                                        <img 
-                                            src={product.image} 
+                                        <img
+                                            src={product.image}
                                             alt={product.name}
                                             className="product-image"
                                         />
@@ -231,33 +237,33 @@ const HomePage = () => {
                                             <FontAwesomeIcon icon={isFavorite ? icons.heart : icons.heartRegular} />
                                         </button>
                                     </div>
-                                    
+
                                     <div className="product-info">
-                                        <h3 
+                                        <h3
                                             className="product-name"
                                             onClick={() => handleProductClick(product.id)}
                                         >
                                             {product.name}
                                         </h3>
-                                        
+
                                         <div className="product-rating">
                                             <span className="stars">
                                                 {[...Array(5)].map((_, i) => (
-                                                    <FontAwesomeIcon 
-                                                        key={i} 
-                                                        icon={icons.star} 
-                                                        className={i < Math.floor(product.rating) ? 'star-filled' : 'star-empty'} 
+                                                    <FontAwesomeIcon
+                                                        key={i}
+                                                        icon={icons.star}
+                                                        className={i < Math.floor(product.rating) ? 'star-filled' : 'star-empty'}
                                                     />
                                                 ))}
                                             </span>
                                             <span className="rating-value">({product.rating})</span>
                                             <span className="reviews-count">({product.reviews} đánh giá)</span>
                                         </div>
-                                        
+
                                         <div className="product-category">{product.category}</div>
-                                        
+
                                         <div className="product-price">{formatPrice(product.price)}</div>
-                                        
+
                                         <div className="product-stock">
                                             {product.stock > 0 ? (
                                                 <span className="in-stock">Còn {product.stock} sản phẩm</span>
@@ -265,7 +271,7 @@ const HomePage = () => {
                                                 <span className="out-of-stock-text">Hết hàng</span>
                                             )}
                                         </div>
-                                        
+
                                         <button
                                             className="add-to-cart-btn"
                                             onClick={() => handleAddToCart(product.id)}
@@ -281,14 +287,126 @@ const HomePage = () => {
                 )}
             </section>
 
+            {/* SẢN PHẨM KHUYẾN MÃI */}
+            {discountedProducts.length > 0 && (
+                <section className="products">
+                    <h2>Săn Sale Giá Sốc</h2>
+                    <div className="products-grid">
+                        {discountedProducts.map(product => {
+                            const isFavorite = favorites.includes(product.id);
+                            const discountPercent = Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100);
+
+                            return (
+                                <div key={product.id} className="product-card">
+                                    <div
+                                        className="product-image-container"
+                                        onClick={() => handleProductClick(product.id)}
+                                    >
+                                        <img
+                                            src={product.image}
+                                            alt={product.name}
+                                            className="product-image"
+                                        />
+                                        <div className="discount-badge">-{discountPercent}%</div>
+                                        {product.stock === 0 && (
+                                            <div className="out-of-stock">Hết hàng</div>
+                                        )}
+                                        <button
+                                            className={`favorite-btn ${isFavorite ? 'active' : ''}`}
+                                            onClick={(e) => {
+                                                e.stopPropagation();
+                                                handleToggleFavorite(product.id);
+                                            }}
+                                            title={isFavorite ? 'Bỏ yêu thích' : 'Thêm yêu thích'}
+                                        >
+                                            <FontAwesomeIcon icon={isFavorite ? icons.heart : icons.heartRegular} />
+                                        </button>
+                                    </div>
+
+                                    <div className="product-info">
+                                        <h3
+                                            className="product-name"
+                                            onClick={() => handleProductClick(product.id)}
+                                        >
+                                            {product.name}
+                                        </h3>
+
+                                        <div className="product-rating">
+                                            <span className="stars">
+                                                {[...Array(5)].map((_, i) => (
+                                                    <FontAwesomeIcon
+                                                        key={i}
+                                                        icon={icons.star}
+                                                        className={i < Math.floor(product.rating) ? 'star-filled' : 'star-empty'}
+                                                    />
+                                                ))}
+                                            </span>
+                                            <span className="reviews-count">({product.reviews} đánh giá)</span>
+                                        </div>
+
+                                        <div className="product-category">{product.category}</div>
+
+                                        <div className="product-price-container">
+                                            <span className="product-price new">{formatPrice(product.price)}</span>
+                                            <span className="product-price old">{formatPrice(product.originalPrice)}</span>
+                                        </div>
+
+                                        <button
+                                            className="add-to-cart-btn"
+                                            onClick={() => handleAddToCart(product.id)}
+                                            disabled={product.stock === 0}
+                                        >
+                                            <FontAwesomeIcon icon={icons.cart} /> {product.stock > 0 ? 'Thêm vào giỏ' : 'Hết hàng'}
+                                        </button>
+                                    </div>
+                                </div>
+                            );
+                        })}
+                    </div>
+                </section>
+            )}
+
             {/* FEEDBACK */}
             <section className="feedback">
-                <h2>Feedback khách hàng</h2>
-                <blockquote>
-                    "Lần đầu mua tranh giấy cuộn nhưng rất bất ngờ vì độ độc đáo.
-                    Sản phẩm nhẹ, dễ bảo quản và rất nổi bật."
-                </blockquote>
-                <p className="customer">— Trà Giang</p>
+                <h2>Khách hàng nói gì về TTH Shop?</h2>
+                <div className="feedback-list">
+                    <div className="feedback-card">
+                        <div className="feedback-content">
+                            "Lần đầu mua tranh giấy cuộn nhưng rất bất ngờ vì độ độc đáo. Sản phẩm nhẹ, dễ bảo quản và rất nổi bật. Đóng gói rất cẩn thận."
+                        </div>
+                        <div className="feedback-author">
+                            <div className="author-avatar">TG</div>
+                            <div className="author-info">
+                                <h4>Trà Giang</h4>
+                                <p>Đã mua Tranh cuộn</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="feedback-card">
+                        <div className="feedback-content">
+                            "Mùi nến thơm rất dễ chịu, không bị gắt như các loại nến công nghiệp. Hũ nến xinh xắn, dùng làm quà tặng rất hợp lý."
+                        </div>
+                        <div className="feedback-author">
+                            <div className="author-avatar">MA</div>
+                            <div className="author-info">
+                                <h4>Minh Anh</h4>
+                                <p>Đã mua Nến thơm</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="feedback-card">
+                        <div className="feedback-content">
+                            "Túi vải rất dày dặn, đường may chắc chắn. Mình dùng đi học hàng ngày đựng rất nhiều sách vở mà vẫn bền. Sẽ ủng hộ shop dài dài."
+                        </div>
+                        <div className="feedback-author">
+                            <div className="author-avatar">HL</div>
+                            <div className="author-info">
+                                <h4>Hoàng Long</h4>
+                                <p>Đã mua Túi Canvas</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
         </div>
     );
