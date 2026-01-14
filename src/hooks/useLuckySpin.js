@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { vouchersAPI } from '../services/api';
+import {useLocation} from "react-router-dom";
 
 export const useLuckySpin = () => {
     const { user } = useAuth();
-
+    const location = useLocation();
     const [vouchers, setVouchers] = useState([]);
     const [userVouchers, setUserVouchers] = useState([]);
     const [isSpinning, setIsSpinning] = useState(false);
@@ -32,6 +33,9 @@ export const useLuckySpin = () => {
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
+
+    const hideChatRoutes = ['/login', '/register'];
+    const shouldRender = !hideChatRoutes.includes(location.pathname);
 
     // Load vouchers và userVouchers
     useEffect(() => {
@@ -207,6 +211,7 @@ export const useLuckySpin = () => {
         scrolled,
         showResultPopup,
         resultVoucher,
+        shouldRender,
         closeAll,
         formatDate
     };

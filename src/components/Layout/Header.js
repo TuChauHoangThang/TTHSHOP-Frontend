@@ -106,7 +106,7 @@ const Header = () => {
                     ) : (
                         <div className="auth-links">
                             <Link to="/login" className="nav-link">Đăng Nhập</Link>
-                            <Link to="/register" className="btn-register">Đăng Ký</Link>
+                            <Link to="/register" className="nav-link">Đăng Ký</Link>
                         </div>
                     )}
                 </nav>

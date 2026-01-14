@@ -19,8 +19,12 @@ const LuckySpin = () => {
         showResultPopup,
         resultVoucher,
         closeAll,
+        shouldRender,
         formatDate
     } = useLuckySpin();
+
+    if (!shouldRender)
+        return null;
 
     return (
         <>
