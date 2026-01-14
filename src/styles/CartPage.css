@@ -24,6 +24,7 @@
   color: var(--text-main);
   margin-bottom: 5px;
 }
+
 .cart-items-header {
   display: flex;
   justify-content: space-between;
@@ -156,11 +157,9 @@
   width: 40px;
   text-align: center;
   border: none;
-  background: white;
+  background: transparent;
   font-weight: 700;
   height: 30px;
-  border-left: 1px solid var(--border);
-  border-right: 1px solid var(--border);
 }
 
 .item-total-price {
@@ -195,7 +194,7 @@
   border: 1px solid var(--border);
   position: sticky;
   top: 20px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
 }
 
 .summary-row {
@@ -241,5 +240,7 @@
 }
 
 @media (max-width: 992px) {
-  .cart-content { grid-template-columns: 1fr; }
+  .cart-content {
+    grid-template-columns: 1fr;
+  }
 }

@@ -58,7 +58,12 @@ export const useCartActions = () => {
 
     // Cập nhật số lượng
     const handleQuantityChange = async (productId, newQuantity, options = {}) => {
-        if (newQuantity < 1) return;
+        if (newQuantity < 1) {
+            if (window.confirm('Bạn có chắc chắn muốn xóa sản phẩm này khỏi giỏ hàng?')) {
+                removeFromCart(productId, options);
+            }
+            return;
+        }
         setUpdatingId(getItemKey(productId, options));
         try {
             await updateQuantity(productId, newQuantity, options);
