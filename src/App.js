@@ -2,7 +2,8 @@ import React from 'react';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import {AuthProvider} from './context/AuthContext';
 import {CartProvider} from './context/CartContext';
-import Layout from './components/Layout/Layout';
+import ProtectedAuthRoute from './components/ProtectedAuthRoute';
+import Layout from './components//Layout/Layout';
 import ProtectedRoute from './components/ProtectedRoute';
 import ScrollToTop from './components/ScrollToTop';
 import BlogPage from './pages/BlogPage';
@@ -32,8 +33,23 @@ function App() {
                             <Route path="/" element={<HomePage />} />
                             <Route path="/products" element={<ProductsPage />} />
                             <Route path="/products/:id" element={<ProductDetailPage />} />
-                            <Route path="/login" element={<LoginPage />} />
-                            <Route path="/register" element={<RegisterPage />} />
+                            <Route
+                                path="/login"
+                                element={
+                                    <ProtectedAuthRoute>
+                                        <LoginPage />
+                                    </ProtectedAuthRoute>
+                                }
+                            />
+
+                            <Route
+                                path="/register"
+                                element={
+                                    <ProtectedAuthRoute>
+                                        <RegisterPage />
+                                    </ProtectedAuthRoute>
+                                }
+                            />
                             <Route path="/cart" element={<CartPage />} />
                             <Route path="/contact" element={<ContactPage />} />
                             <Route path="/blog" element={<BlogPage />} />
@@ -63,6 +79,7 @@ function App() {
                                 }
                             />
                         </Routes>
+
                         <ScrollToTop />
                     </Layout>
                 </CartProvider>
