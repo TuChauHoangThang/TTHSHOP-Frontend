@@ -1,26 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { blogsAPI } from '../services/api';
-import '../styles/BlogPage.css'; // Bạn sẽ tạo file CSS này
+import { useBlog } from '../hooks/useBlog';
+import '../styles/BlogPage.css';
 
 const BlogPage = () => {
-    const [blogs, setBlogs] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const { blogs, loading } = useBlog();
     const navigate = useNavigate();
-
-    useEffect(() => {
-        const fetchBlogs = async () => {
-            try {
-                const data = await blogsAPI.getAll();
-                setBlogs(data);
-            } catch (error) {
-                console.error("Lỗi tải bài viết:", error);
-            } finally {
-                setLoading(false);
-            }
-        };
-        fetchBlogs();
-    }, []);
 
     if (loading) return <div className="loading">Đang tải tin tức...</div>;
 
