@@ -1,5 +1,5 @@
 const API_URL =
-    process.env.REACT_APP_API_URL || 'https://tthshop-backend-6ihw.onrender.com';
+    process.env.REACT_APP_API_URL || 'http://localhost:3001';
 
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -286,6 +286,14 @@ export const authAPI = {
     logout: () => {
         localStorage.removeItem('currentUser');
     },
+};
+
+export const usersAPI = {
+    getById: async (id) => fetchJson(`/users/${id}`),
+    update: async (id, data) => fetchJson(`/users/${id}`, {
+        method: 'PUT',
+        body: JSON.stringify(data),
+    }),
 };
 
 // Orders stored in json-server (db.json)
