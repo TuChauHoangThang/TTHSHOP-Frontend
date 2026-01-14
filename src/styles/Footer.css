@@ -55,7 +55,9 @@
 
 /* Social Links */
 .social-links {
-  display: flex;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center;
   gap: 1rem;
   margin-top: 0.5rem;
 }
@@ -179,13 +181,19 @@
 }
 
 @keyframes heartbeat {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: scale(1);
   }
-  10%, 30% {
+
+  10%,
+  30% {
     transform: scale(1.1);
   }
-  20%, 40% {
+
+  20%,
+  40% {
     transform: scale(1);
   }
 }
@@ -238,5 +246,3 @@
     height: 20px;
   }
 }
-
-

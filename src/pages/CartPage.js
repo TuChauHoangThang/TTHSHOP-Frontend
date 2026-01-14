@@ -1,10 +1,8 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useCartActions } from '../hooks/useCartActions'; // Import hook mới
-import { useAuth } from '../context/AuthContext';
+import { useCartPage } from '../hooks/useCartPage';
 import { formatPrice } from '../utils/formatPrice';
 import { FontAwesomeIcon, icons } from '../utils/icons';
-import { vouchersAPI } from '../services/api';
 import '../styles/CartPage.css';
 
 const getItemKey = (productId, options) => {
@@ -19,62 +17,20 @@ const CartPage = () => {
     updatingId,
     subtotal,
     shipping,
-    total,
     toggleSelectProduct,
     toggleSelectAll,
     handleSmartRemove,
     handleQuantityChange,
-    removeFromCart
-  } = useCartActions();
-
-  // --- VOUCHER LOGIC ---
-  const { user } = useAuth(); // Needed to fetch vouchers
-  // eslint-disable-next-line
-  const [ownedVouchers, setOwnedVouchers] = React.useState([]);
-  const [selectedVoucher, setSelectedVoucher] = React.useState(null);
-  const [showVoucherModal, setShowVoucherModal] = React.useState(false);
-
-  // Fetch vouchers
-  React.useEffect(() => {
-    if (!user) return;
-    const fetchVouchers = async () => {
-      try {
-        const catalogue = await vouchersAPI.getAll();
-        const userVouchers = await vouchersAPI.getUserVouchers(user.id);
-
-        const valid = userVouchers
-          .filter(uv => !uv.used && !uv.isUsed)
-          .map(uv => {
-            const detail = catalogue.find(v => String(v.id) === String(uv.voucherId));
-            if (!detail) return null;
-            return { ...detail, ...uv, id: uv.id, catalogueId: detail.id };
-          })
-          .filter(Boolean);
-        setOwnedVouchers(valid);
-      } catch (e) {
-        console.error(e);
-      }
-    };
-    fetchVouchers();
-  }, [user]);
-
-  // Calculate discount for display ONLY
-  const discountAmount = React.useMemo(() => {
-    if (!selectedVoucher) return 0;
-    const currentSubtotal = Number(subtotal);
-    const minOrder = Number(selectedVoucher.minOrderValue);
-
-    if (currentSubtotal < minOrder) return 0;
-
-    const val = Number(selectedVoucher.discountValue);
-
-    if (selectedVoucher.discountType === 'fixed') return val;
-    if (selectedVoucher.discountType === 'percentage') return (currentSubtotal * val) / 100;
-    if (selectedVoucher.discountType === 'shipping') return Math.min(Number(shipping), val);
-    return 0;
-  }, [selectedVoucher, subtotal, shipping]);
-
-  const grandTotal = Number(total) - discountAmount;
+    removeFromCart,
+    // Voucher props
+    ownedVouchers,
+    selectedVoucher,
+    setSelectedVoucher,
+    showVoucherModal,
+    setShowVoucherModal,
+    discountAmount,
+    grandTotal
+  } = useCartPage();
 
   if (cartDetails.length === 0) {
     return (
