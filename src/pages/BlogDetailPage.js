@@ -16,7 +16,7 @@ const BlogDetailPage = () => {
 
     return (
         <div className="blog-detail-container">
-            <button onClick={() => navigate(-1)} className="btn-back">← Quay lại</button>
+
             <article className="blog-article">
                 <img src={blog.image} alt={blog.title} className="main-banner" />
                 <div className="article-content">

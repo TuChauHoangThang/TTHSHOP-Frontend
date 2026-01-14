@@ -38,25 +38,49 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  const register = async (userData) => {
-    try {
-      const response = await authAPI.register(userData);
-      authAPI.setCurrentUser(response.user);
-      setUser(response.user);
-      // Nếu có giỏ hàng của khách, chuyển sang tài khoản mới
-      const guestCart = cartAPI.getCart(null);
-      if (guestCart.length > 0) {
-        cartAPI.copyCart(null, response.user.id);
-      }
-      return { success: true };
-    } catch (error) {
-      return { success: false, error: error.message };
-    }
-  };
+    const register = async (userData) => {
+        try {
+            const fullUserData = {
+                email: userData.email,
+                password: userData.password,
+                name: userData.name,
+                role: 'user',
 
-  const logout = () => {
+                avatar: null,
+                phone: '',
+                address: '',
+                language: 'vi',
+
+                notificationSettings: {
+                    orderUpdates: true,
+                    promotions: true,
+                    systemNews: true,
+                    emailNotifications: true
+                },
+
+                createdAt: new Date().toISOString()
+            };
+
+            const response = await authAPI.register(fullUserData);
+
+            authAPI.setCurrentUser(response.user);
+            setUser(response.user);
+
+            // Chuyển giỏ hàng khách → user mới
+            const guestCart = cartAPI.getCart(null);
+            if (guestCart.length > 0) {
+                cartAPI.copyCart(null, response.user.id);
+            }
+
+            return { success: true };
+        } catch (error) {
+            return { success: false, error: error.message };
+        }
+    };
+
+
+    const logout = () => {
     if (user) {
-      // Giữ lại giỏ hàng dưới dạng khách để người dùng không mất sau khi đăng xuất
       cartAPI.copyCart(user.id, null);
     }
     authAPI.logout();

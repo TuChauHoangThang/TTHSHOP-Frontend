@@ -1367,7 +1367,6 @@
 }
 
 .chat-message.user {
-    background: #e9ecef;
     color: #333;
     align-self: flex-end;
     border-bottom-right-radius: 4px;

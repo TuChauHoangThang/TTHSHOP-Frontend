@@ -24,6 +24,7 @@
   color: var(--text-main);
   margin-bottom: 5px;
 }
+
 .cart-items-header {
   display: flex;
   justify-content: space-between;
