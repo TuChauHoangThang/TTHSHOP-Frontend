@@ -204,7 +204,7 @@ const HomePage = () => {
             </section>
 
             {/* SẢN PHẨM BÁN CHẠY */}
-            <section className="products">
+            <section className="products best-selling-section">
                 <h2>Sản phẩm bán chạy</h2>
                 {loading ? (
                     <div className="loading">Đang tải sản phẩm...</div>
@@ -289,7 +289,7 @@ const HomePage = () => {
 
             {/* SẢN PHẨM KHUYẾN MÃI */}
             {discountedProducts.length > 0 && (
-                <section className="products">
+                <section className="products sale-section">
                     <h2>Săn Sale Giá Sốc</h2>
                     <div className="products-grid">
                         {discountedProducts.map(product => {
@@ -368,46 +368,49 @@ const HomePage = () => {
 
             {/* FEEDBACK */}
             <section className="feedback">
-                <h2>Khách hàng nói gì về TTH Shop?</h2>
-                <div className="feedback-list">
-                    <div className="feedback-card">
-                        <div className="feedback-content">
-                            "Lần đầu mua tranh giấy cuộn nhưng rất bất ngờ vì độ độc đáo. Sản phẩm nhẹ, dễ bảo quản và rất nổi bật. Đóng gói rất cẩn thận."
-                        </div>
-                        <div className="feedback-author">
-                            <div className="author-avatar">TG</div>
-                            <div className="author-info">
-                                <h4>Trà Giang</h4>
-                                <p>Đã mua Tranh cuộn</p>
+                <div className="feedback-container">
+                    <h2>Khách hàng nói gì về TTH Shop?</h2>
+                    <div className="feedback-list">
+                        <div className="feedback-card">
+                            <div className="feedback-content">
+                                "Lần đầu mua tranh giấy cuộn nhưng rất bất ngờ vì độ độc đáo. Sản phẩm nhẹ, dễ bảo quản và rất nổi bật. Đóng gói rất cẩn thận."
+                            </div>
+                            <div className="feedback-author">
+                                <div className="author-avatar">TG</div>
+                                <div className="author-info">
+                                    <h4>Trà Giang</h4>
+                                    <p>Đã mua Tranh cuộn</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div className="feedback-card">
-                        <div className="feedback-content">
-                            "Mùi nến thơm rất dễ chịu, không bị gắt như các loại nến công nghiệp. Hũ nến xinh xắn, dùng làm quà tặng rất hợp lý."
-                        </div>
-                        <div className="feedback-author">
-                            <div className="author-avatar">MA</div>
-                            <div className="author-info">
-                                <h4>Minh Anh</h4>
-                                <p>Đã mua Nến thơm</p>
+                        <div className="feedback-card">
+                            <div className="feedback-content">
+                                "Mùi nến thơm rất dễ chịu, không bị gắt như các loại nến công nghiệp. Hũ nến xinh xắn, dùng làm quà tặng rất hợp lý."
+                            </div>
+                            <div className="feedback-author">
+                                <div className="author-avatar">MA</div>
+                                <div className="author-info">
+                                    <h4>Minh Anh</h4>
+                                    <p>Đã mua Nến thơm</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div className="feedback-card">
-                        <div className="feedback-content">
-                            "Túi vải rất dày dặn, đường may chắc chắn. Mình dùng đi học hàng ngày đựng rất nhiều sách vở mà vẫn bền. Sẽ ủng hộ shop dài dài."
-                        </div>
-                        <div className="feedback-author">
-                            <div className="author-avatar">HL</div>
-                            <div className="author-info">
-                                <h4>Hoàng Long</h4>
-                                <p>Đã mua Túi Canvas</p>
+                        <div className="feedback-card">
+                            <div className="feedback-content">
+                                "Túi vải rất dày dặn, đường may chắc chắn. Mình dùng đi học hàng ngày đựng rất nhiều sách vở mà vẫn bền. Sẽ ủng hộ shop dài dài."
+                            </div>
+                            <div className="feedback-author">
+                                <div className="author-avatar">HL</div>
+                                <div className="author-info">
+                                    <h4>Hoàng Long</h4>
+                                    <p>Đã mua Túi Canvas</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
+
         </div>
     );
 };

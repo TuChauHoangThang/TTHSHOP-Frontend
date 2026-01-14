@@ -1,8 +1,8 @@
 :root {
-  --primary-color: #4f46e5;
-  --primary-dark: #4338ca;
-  --primary-light: #818cf8;
-  --secondary-color: #ec4899;
+  --primary-color: #C07A4D;
+  --primary-dark: #A06030;
+  --primary-light: #E0A07D;
+  --secondary-color: #DDA07A;
   --text-main: #111827;
   --text-secondary: #4b5563;
   --text-light: #9ca3af;
@@ -14,10 +14,12 @@
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
   --radius-md: 0.5rem;
   --radius-lg: 1rem;
   --radius-xl: 1.5rem;
   --radius-pill: 9999px;
+  --bg-color: #ccc;
 }
 
 .product-detail-page {
@@ -112,7 +114,6 @@
   height: 80px;
   border-radius: var(--radius-md);
   padding: 8px;
-  background: white;
   cursor: pointer;
   transition: all 0.2s ease;
   border: 2px solid transparent;
@@ -134,7 +135,7 @@
 .thumb.active {
   border-color: var(--primary-color);
   background: white;
-  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
+  box-shadow: 0 0 0 4px rgba(192, 122, 77, 0.1);
 }
 
 /* Info Section */
@@ -301,12 +302,8 @@
 
 .color-option.active {
   border-color: var(--primary-color);
-  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
+  box-shadow: 0 0 0 4px rgba(192, 122, 77, 0.1);
   transform: scale(1.05);
-}
-
-.color-option.white-color {
-  /* Specific handling for white */
 }
 
 .color-option.white-color::after {
@@ -339,7 +336,7 @@
 .dropdown-toggle:hover,
 .dropdown-toggle:focus {
   border-color: var(--primary-color);
-  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
+  box-shadow: 0 0 0 4px rgba(192, 122, 77, 0.1);
 }
 
 .dropdown-menu {
@@ -380,97 +377,99 @@
 /* Back Button */
 .back-button {
   display: inline-flex;
+  width: fit-content;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   background: white;
-  border: 1px solid #e5e7eb;
+  border: 1.5px solid #e5e7eb;
   color: var(--text-secondary);
-  padding: 12px 24px;
-  /* Increased padding */
-  border-radius: var(--radius-pill);
+  padding: 10px 20px;
+  border-radius: 12px;
   font-weight: 600;
   cursor: pointer;
-  margin-bottom: 20px;
-  /* Reduced margin */
+  margin-bottom: 24px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  font-size: 1rem;
-  /* Increased font size */
-  box-shadow: var(--shadow-sm);
+  font-size: 0.95rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .back-button:hover {
-  background: var(--primary-color);
-  color: white;
+  background: #fff;
+  color: var(--primary-color);
   border-color: var(--primary-color);
   transform: translateX(-4px);
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 4px 12px rgba(192, 122, 77, 0.15);
+}
+
+.back-button svg {
+  transition: transform 0.3s ease;
+}
+
+.back-button:hover svg {
+  transform: translateX(-2px);
 }
 
 /* ... existing styles ... */
 
-/* Quantity Selector - Refined Soft Design */
-.quantity-selector {
+/* Quantity Selector - Professional Border-Box Design */
+.product-detail-page .quantity-selector {
   display: flex;
   align-items: center;
-  border: 1px solid #e5e7eb;
-  border-radius: 12px;
-  /* Softer radius */
+  border: 1px solid #ddd;
+  border-radius: 8px;
   background: white;
   width: fit-content;
-  padding: 4px;
-  /* Internal padding */
-  gap: 4px;
-  /* Space between elements */
-  transition: border-color 0.2s, box-shadow 0.2s;
+  overflow: hidden;
+  height: 40px;
 }
 
-.quantity-selector:hover {
-  border-color: #d1d5db;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-}
-
-.quantity-btn {
-  width: 36px;
-  height: 36px;
-  background: transparent;
-  color: var(--text-main);
+.product-detail-page .quantity-btn {
+  width: 40px;
+  height: 100%;
+  background: #fff;
+  color: #333;
   border: none;
-  border-radius: 8px;
-  /* Rounded buttons */
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   transition: all 0.2s;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
 }
 
-.quantity-btn:hover:not(:disabled) {
-  background-color: #f3f4f6;
-  color: var(--primary-color);
+.product-detail-page .quantity-btn:hover:not(:disabled) {
+  background-color: #f1f3f5;
 }
 
-.quantity-btn:active:not(:disabled) {
-  background-color: #e5e7eb;
-  transform: scale(0.95);
+.product-detail-page .quantity-btn:first-child {
+  border-right: 1px solid #ddd;
 }
 
-.quantity-btn:disabled {
-  color: #d1d5db;
+.product-detail-page .quantity-btn:last-child {
+  border-left: 1px solid #ddd;
+}
+
+.product-detail-page .quantity-btn:active:not(:disabled) {
+  background-color: #e9ecef;
+}
+
+.product-detail-page .quantity-btn:disabled {
+  color: #ccc;
+  background-color: #f8f9fa;
   cursor: not-allowed;
-  opacity: 0.6;
 }
 
-.quantity-input {
-  width: 44px;
-  height: 36px;
+.product-detail-page .quantity-input {
+  width: 50px;
+  height: 100%;
   border: none;
   background: transparent;
   text-align: center;
-  font-weight: 600;
-  font-size: 1.05rem;
-  color: var(--text-main);
-  padding: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #222;
+  appearance: textfield;
+  -moz-appearance: textfield;
 }
 
 .quantity-input:focus {
@@ -504,7 +503,7 @@
 .btn-primary:hover:not(:disabled) {
   background: var(--primary-color);
   transform: translateY(-2px);
-  box-shadow: 0 10px 20px -5px rgba(79, 70, 229, 0.3);
+  box-shadow: 0 10px 20px -5px rgba(192, 122, 77, 0.3);
 }
 
 .btn-secondary {
@@ -661,6 +660,7 @@
     flex-direction: column;
   }
 }
+
 /* Tab Navigation Styles */
 .product-tabs {
   display: flex;
@@ -713,27 +713,31 @@
   min-height: 400px;
 }
 
-.description-section, 
-.reviews-section, /* New class for reviews container */
+.description-section,
+.reviews-section,
+/* New class for reviews container */
 .section {
-  margin-top: 0; /* Remove top margin as tabs handle spacing */
-  box-shadow: none; /* Optional: flatter design for tab content */
+  margin-top: 0;
+  /* Remove top margin as tabs handle spacing */
+  box-shadow: none;
+  /* Optional: flatter design for tab content */
   padding: 0;
   border: none;
 }
 
 .description-section {
-    padding: 20px 0;
+  padding: 20px 0;
 }
 
 /* Ensure review form and list look good inside tab */
 .reviews-section .section {
-    padding: 0;
-    box-shadow: none;
+  padding: 0;
+  box-shadow: none;
 }
 
 .reviews-section h2 {
-    display: none; /* Hide duplicate '��nh gi� s?n ph?m' heading if exists in tab btn */
+  display: none;
+  /* Hide duplicate '��nh gi� s?n ph?m' heading if exists in tab btn */
 }
 
 
@@ -792,7 +796,7 @@
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0, 0, 0, 0.6);
   color: white;
   border: none;
   font-size: 14px;
@@ -846,9 +850,11 @@
   border: none;
   font-size: 2rem;
   line-height: 1;
-  color: #d1d5db; /* Gray default */
+  color: #d1d5db;
+  /* Gray default */
   cursor: pointer;
-  padding: 0 4px; /* Touch target size */
+  padding: 0 4px;
+  /* Touch target size */
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -857,7 +863,8 @@
 }
 
 .star-option.active {
-  color: #f59e0b; /* Star yellow */
+  color: #f59e0b;
+  /* Star yellow */
 }
 
 /* Hover effect: When hovering container, color stars up to hovered one */
@@ -870,4 +877,3 @@
   color: var(--primary-color);
   font-size: 1rem;
 }
-

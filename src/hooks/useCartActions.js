@@ -72,7 +72,7 @@ export const useCartActions = () => {
     // Tính toán số liệu
     const subtotal = cartDetails
         .filter(item => selectedItems.includes(getItemKey(item.productId, item.options)))
-        .reduce((sum, item) => sum + (item.product.price * item.quantity), 0);
+        .reduce((sum, item) => sum + (item.product.finalPrice * item.quantity), 0);
 
     const shipping = (subtotal > 500000 || subtotal === 0) ? 0 : 30000;
     const total = subtotal + shipping;

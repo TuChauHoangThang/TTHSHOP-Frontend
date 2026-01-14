@@ -57,7 +57,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+  background: linear-gradient(135deg, rgba(192, 122, 77, 0.1) 0%, rgba(160, 96, 48, 0.1) 100%);
   opacity: 0;
   transition: opacity 0.3s ease;
   border-radius: 10px;
@@ -69,10 +69,10 @@
 
 .pagination-btn:hover:not(:disabled):not(.active) {
   background: white;
-  border-color: #667eea;
-  color: #667eea;
+  border-color: #C07A4D;
+  color: #C07A4D;
   transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.25);
+  box-shadow: 0 6px 20px rgba(192, 122, 77, 0.25);
 }
 
 .pagination-btn:active:not(:disabled) {
@@ -87,11 +87,11 @@
 }
 
 .pagination-btn.active {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #C07A4D 0%, #A06030 100%);
   border-color: transparent;
   color: white;
   font-weight: 700;
-  box-shadow: 0 8px 24px rgba(102, 126, 234, 0.4);
+  box-shadow: 0 8px 24px rgba(192, 122, 77, 0.4);
   transform: scale(1.15);
   z-index: 2;
   min-width: 52px;
@@ -104,7 +104,7 @@
   position: absolute;
   inset: -4px;
   border-radius: 14px;
-  border: 2px solid rgba(102, 126, 234, 0.3);
+  border: 2px solid rgba(192, 122, 77, 0.3);
   animation: pulse 2s infinite;
 }
 
@@ -124,70 +124,48 @@
 
 .pagination-btn.active:hover {
   transform: scale(1.18);
-  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.5);
+  box-shadow: 0 10px 30px rgba(192, 122, 77, 0.5);
 }
 
 /* Input form */
 .pagination-input-form {
   display: flex;
   align-items: center;
-  gap: 6px;
-  margin: 0 6px;
-  background: #f8f9fa;
-  padding: 4px;
-  border-radius: 12px;
+  margin: 0;
 }
 
-.pagination-input {
-  width: 70px;
-  height: 40px;
-  padding: 8px 12px;
-  border: 2px solid #e9ecef;
+.pagination-input.current-page-input {
+  width: 90px;
+  height: 52px;
+  border: 2px solid #C07A4D;
   background: white;
   color: #333;
-  border-radius: 10px;
-  font-size: 0.95rem;
-  font-weight: 600;
-  text-align: center;
-  transition: all 0.3s ease;
-  outline: none;
-}
-
-.pagination-input:focus {
-  border-color: #667eea;
-  box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.15);
-  transform: scale(1.05);
-}
-
-.pagination-input::placeholder {
-  color: #adb5bd;
-  font-size: 0.85rem;
-  font-weight: 500;
-}
-
-.pagination-go-btn {
-  height: 40px;
-  padding: 0 18px;
-  border: none;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  border-radius: 10px;
-  cursor: pointer;
-  font-size: 0.9rem;
+  border-radius: 12px;
+  font-size: 1.1rem;
   font-weight: 700;
-  transition: all 0.3s ease;
-  white-space: nowrap;
-  letter-spacing: 0.5px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(192, 122, 77, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
+  cursor: text;
 }
 
-.pagination-go-btn:hover {
-  transform: translateY(-2px) scale(1.05);
-  box-shadow: 0 6px 18px rgba(102, 126, 234, 0.4);
+.pagination-input.current-page-input:focus {
+  transform: scale(1.15);
+  box-shadow: 0 10px 30px rgba(192, 122, 77, 0.5);
 }
 
-.pagination-go-btn:active {
-  transform: translateY(0) scale(1);
+.pagination-input.current-page-input::selection {
+  background: rgba(255, 255, 255, 0.3);
 }
+
+.pagination-input.current-page-input::placeholder {
+  color: #adb5bd;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+/* Removing Go Button styles as it's no longer used */
 
 /* Responsive */
 @media (max-width: 768px) {
@@ -215,16 +193,10 @@
     font-size: 1rem;
   }
 
-  .pagination-input {
-    width: 60px;
-    height: 36px;
-    font-size: 0.9rem;
-  }
-
-  .pagination-go-btn {
-    height: 36px;
-    padding: 0 14px;
-    font-size: 0.85rem;
+  .pagination-input.current-page-input {
+    width: 70px;
+    height: 48px;
+    font-size: 1rem;
   }
 
   .pagination-info {
@@ -251,14 +223,9 @@
     transform: scale(1.1);
   }
 
-  .pagination-input {
-    width: 50px;
-    height: 32px;
-  }
-
-  .pagination-go-btn {
-    height: 32px;
-    padding: 0 12px;
-    font-size: 0.8rem;
+  .pagination-input.current-page-input {
+    width: 60px;
+    height: 44px;
+    font-size: 0.9rem;
   }
 }

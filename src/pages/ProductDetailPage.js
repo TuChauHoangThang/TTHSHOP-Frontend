@@ -5,6 +5,7 @@ import { useAuth } from '../context/AuthContext';
 import { productsAPI, favoritesAPI } from '../services/api';
 import { useReviews } from '../hooks/useReviews';
 import { formatPrice } from '../utils/formatPrice';
+import { getPriceByType } from '../utils/productPrice';
 import { FontAwesomeIcon, icons } from '../utils/icons';
 import '../styles/ProductDetailPage.css';
 
@@ -374,7 +375,7 @@ const ProductDetailPage = () => {
                 {'☆'.repeat(5 - Math.floor(product.rating || 0))}
               </span>
               <span className="rating-value">({product.rating || 0})</span>
-              <span className="reviews-count">({product.reviews || 0} đánh giá)</span>
+              <span className="reviews-count">({reviews.length} đánh giá)</span>
             </div>
             <div className="category">{product.category}</div>
             <div className={`stock ${product.stock === 0 ? 'out' : ''}`}>{stockBadge}</div>
@@ -415,7 +416,7 @@ const ProductDetailPage = () => {
         </div>
 
         <div className="detail-right">
-          <div className="price price-right">{formatPrice(product.price)}</div>
+          <div className="price price-right">{formatPrice(getPriceByType(product.price, selectedType, product.types))}</div>
           <div className="options-box">
             {/* Color Selection */}
             {product.colors && product.colors.length > 0 && (

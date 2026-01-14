@@ -18,6 +18,10 @@ const fetchJson = async (endpoint, options = {}) => {
 export const productsAPI = {
     getAll: async () => fetchJson('/products'),
     getById: async (id) => fetchJson(`/products/${id}`),
+    update: async (id, data) => fetchJson(`/products/${id}`, {
+        method: 'PATCH',
+        body: JSON.stringify(data),
+    }),
     search: async (keyword) => fetchJson(`/products?q=${encodeURIComponent(keyword)}`),
     getByCategory: async (category) => {
         const products = await productsAPI.getAll();
@@ -315,7 +319,12 @@ export const ordersAPI = {
             if (product.stock < item.quantity) {
                 throw new Error(`Sản phẩm "${product.name}" chỉ còn ${product.stock} sản phẩm`);
             }
-            subtotal += product.price * item.quantity;
+            const basePrice = product.price;
+            const finalPrice = product.types && item.options?.type
+                ? basePrice + (product.types.indexOf(item.options.type) * 30000)
+                : basePrice;
+
+            subtotal += finalPrice * item.quantity;
             stockUpdates.push({
                 id: product.id,
                 stock: product.stock - item.quantity,
@@ -323,7 +332,7 @@ export const ordersAPI = {
             return {
                 productId: item.productId,
                 quantity: item.quantity,
-                price: product.price,
+                price: finalPrice,
                 productName: product.name,
                 productImage: product.image,
                 colors: item.options?.color || null,

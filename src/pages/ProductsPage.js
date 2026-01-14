@@ -10,7 +10,6 @@ import { formatPrice } from '../utils/formatPrice';
 import { FontAwesomeIcon, icons } from '../utils/icons';
 import Pagination from '../components/Pagination';
 import '../styles/ProductsPage.css';
-import '../styles/toggle-btn.css';
 
 const ProductsPage = () => {
   const navigate = useNavigate();

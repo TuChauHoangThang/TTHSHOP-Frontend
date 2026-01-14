@@ -76,7 +76,7 @@
 
 .search-input:focus {
   outline: none;
-  border-color: #667eea;
+  border-color: #C07A4D;
 }
 
 .clear-search-btn {
@@ -130,7 +130,7 @@
 
 .sort-select:focus {
   outline: none;
-  border-color: #667eea;
+  border-color: #C07A4D;
 }
 
 /* Layout */
@@ -187,7 +187,7 @@
 
 .sidebar-header svg {
   font-size: 1rem;
-  color: #667eea;
+  color: #C07A4D;
 }
 
 .toggle-sidebar-btn {
@@ -235,7 +235,7 @@
 
 .filter-section h3 svg {
   font-size: 0.9rem;
-  color: #667eea;
+  color: #C07A4D;
 }
 
 /* Category List */
@@ -260,13 +260,13 @@
 
 .category-item:hover {
   background: #e9ecef;
-  border-color: #667eea;
+  border-color: #C07A4D;
 }
 
 .category-item.active {
-  background: #667eea;
+  background: #C07A4D;
   color: white;
-  border-color: #667eea;
+  border-color: #C07A4D;
   font-weight: 600;
 }
 
@@ -294,7 +294,7 @@
 
 .price-input:focus {
   outline: none;
-  border-color: #667eea;
+  border-color: #C07A4D;
 }
 
 .price-separator {
@@ -363,6 +363,8 @@
   width: 100%;
   box-sizing: border-box;
   max-width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .product-card:hover {
@@ -433,6 +435,9 @@
 
 .product-info {
   padding: 15px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .product-name {
@@ -447,10 +452,12 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   line-height: 1.4;
+  height: 2.8em;
+  /* Ensures 2 lines of height */
 }
 
 .product-name:hover {
-  color: #667eea;
+  color: #C07A4D;
 }
 
 .product-rating {
@@ -523,23 +530,24 @@
 .add-to-cart-btn {
   width: 100%;
   padding: 10px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+  background: linear-gradient(135deg, #C07A4D 0%, #A06030 100%);
+  color: #111;
   border: none;
   border-radius: 6px;
   font-size: 0.9rem;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
   transition: all 0.3s;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
+  margin-top: auto;
 }
 
 .add-to-cart-btn:hover:not(:disabled) {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+  box-shadow: 0 4px 12px rgba(192, 122, 77, 0.4);
 }
 
 .add-to-cart-btn:disabled {
@@ -562,7 +570,7 @@
 }
 
 .loading {
-  color: #667eea;
+  color: #C07A4D;
 }
 
 .error {
@@ -690,15 +698,16 @@
     padding: 15px;
   }
 }
+
 /* Show Sidebar Button */
 .show-sidebar-btn {
   padding: 10px 16px;
-  background-color: #667eea;
-  color: white;
+  background-color: #C07A4D;
+  color: #111;
   border: none;
   border-radius: 6px;
   font-size: 0.95rem;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -708,9 +717,9 @@
 }
 
 .show-sidebar-btn:hover {
-  background-color: #5a6fd1;
+  background-color: #A06030;
   transform: translateY(-2px);
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 
@@ -732,7 +741,7 @@
 
 .price-input-top:focus {
   outline: none;
-  border-color: #667eea;
+  border-color: #C07A4D;
 }
 
 .separator {
@@ -744,10 +753,72 @@
   .price-filter-top {
     width: 100%;
   }
-  
+
   .price-input-top {
     flex: 1;
     width: auto;
   }
 }
 
+
+.toggle-sidebar-btn-top {
+  width: 60px;
+  height: 38px;
+  padding: 0 12px;
+  background: linear-gradient(135deg, #C07A4D 0%, #A06030 100%);
+  color: #111;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 3px 8px rgba(192, 122, 77, 0.3);
+  position: relative;
+  overflow: hidden;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.toggle-sidebar-btn-top::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.toggle-sidebar-btn-top:hover::before {
+  opacity: 1;
+}
+
+.toggle-sidebar-btn-top:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 6px 16px rgba(192, 122, 77, 0.4);
+}
+
+.toggle-sidebar-btn-top:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 2px 6px rgba(192, 122, 77, 0.3);
+}
+
+.toggle-sidebar-btn-top svg {
+  font-size: 0.85rem;
+  transition: transform 0.3s ease;
+}
+
+.toggle-sidebar-btn-top:hover svg {
+  transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+  .toggle-sidebar-btn-top {
+    width: 100%;
+    min-width: unset;
+  }
+}

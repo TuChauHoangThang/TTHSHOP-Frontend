@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { cartAPI, productsAPI } from '../services/api';
+import { getPriceByType } from '../utils/productPrice';
 import { useAuth } from './AuthContext';
 
 const CartContext = createContext();
@@ -30,7 +31,10 @@ export const CartProvider = ({ children }) => {
     const products = await productsAPI.getAll();
     const details = cart.map(item => {
       const product = products.find(p => parseInt(p.id) === parseInt(item.productId));
-      return product ? { ...item, product } : null;
+      if (!product) return null;
+
+      const finalPrice = getPriceByType(product.price, item.options?.type, product.types);
+      return { ...item, product: { ...product, finalPrice } };
     }).filter(Boolean);
 
     setCartDetails(details);
@@ -75,7 +79,7 @@ export const CartProvider = ({ children }) => {
 
   const getTotalPrice = () => {
     return cartDetails.reduce((total, item) => {
-      return total + (item.product.price * item.quantity);
+      return total + (item.product.finalPrice * item.quantity);
     }, 0);
   };
 

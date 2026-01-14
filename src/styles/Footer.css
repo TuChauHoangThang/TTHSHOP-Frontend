@@ -42,7 +42,7 @@
   left: 0;
   width: 50px;
   height: 3px;
-  background: linear-gradient(90deg, #667eea, #764ba2);
+  background: linear-gradient(90deg, #C07A4D, #A06030);
   border-radius: 2px;
 }
 
@@ -74,9 +74,9 @@
 }
 
 .social-link:hover {
-  background-color: #667eea;
+  background-color: #C07A4D;
   transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+  box-shadow: 0 5px 15px rgba(192, 122, 77, 0.4);
 }
 
 /* Footer Links */
@@ -105,7 +105,7 @@
   left: -20px;
   opacity: 0;
   transition: all 0.3s ease;
-  color: #667eea;
+  color: #C07A4D;
 }
 
 .footer-link:hover {
@@ -141,7 +141,7 @@
 .contact-item svg {
   flex-shrink: 0;
   margin-top: 2px;
-  color: #667eea;
+  color: #C07A4D;
 }
 
 .contact-item span {
@@ -179,13 +179,19 @@
 }
 
 @keyframes heartbeat {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: scale(1);
   }
-  10%, 30% {
+
+  10%,
+  30% {
     transform: scale(1.1);
   }
-  20%, 40% {
+
+  20%,
+  40% {
     transform: scale(1);
   }
 }
@@ -238,5 +244,3 @@
     height: 20px;
   }
 }
-
-

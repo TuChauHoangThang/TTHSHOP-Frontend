@@ -143,7 +143,7 @@ const CartPage = () => {
                         {item.options?.color && <span style={{ marginRight: '10px' }}>Màu: <strong>{item.options.color}</strong></span>}
                         {item.options?.type && <span>Loại: <strong>{item.options.type}</strong></span>}
                       </div>
-                      <span className="cart-item-price-unit" style={{ display: 'block', marginTop: '4px' }}>Đơn giá: {formatPrice(item.product.price)}</span>
+                      <span className="cart-item-price-unit" style={{ display: 'block', marginTop: '4px' }}>Đơn giá: {formatPrice(item.product.finalPrice || item.product.price)}</span>
                     </div>
                     <div className="cart-item-controls">
                       <div className="control-left-group">
@@ -161,7 +161,7 @@ const CartPage = () => {
                           >+</button>
                         </div>
                         <div className="cart-item-total">
-                          <span className="item-total-price">{formatPrice(item.product.price * item.quantity)}</span>
+                          <span className="item-total-price">{formatPrice((item.product.finalPrice || item.product.price) * item.quantity)}</span>
                         </div>
                       </div>
                       <button className="btn-remove-item-small" onClick={() => { if (window.confirm('Xóa sản phẩm này?')) removeFromCart(item.productId, item.options) }}>

@@ -122,7 +122,7 @@ const CheckoutPage = () => {
     }, [user]);
 
     const subtotal = useMemo(() => {
-        return checkoutItems.reduce((total, item) => total + (item.product.price * item.quantity), 0);
+        return checkoutItems.reduce((total, item) => total + ((item.product.finalPrice || item.product.price) * item.quantity), 0);
     }, [checkoutItems]);
 
     // --- EFFECT: Handle Voucher Passed from Cancel/Cart Navigation ---
@@ -427,7 +427,7 @@ const CheckoutPage = () => {
                                                 </div>
                                             )}
                                         </div>
-                                        <div className="order-item-price">{formatPrice(item.price * item.quantity)}</div>
+                                        <div className="order-item-price">{formatPrice((item.product?.finalPrice || item.product?.price || item.price) * item.quantity)}</div>
                                     </div>
                                 ))}
                             </div>
@@ -495,7 +495,7 @@ const CheckoutPage = () => {
                                             </div>
                                         )}
                                     </div>
-                                    <div className="summary-item-price">{formatPrice((item.price || item.product.price) * item.quantity)}</div>
+                                    <div className="summary-item-price">{formatPrice((item.product?.finalPrice || item.product?.price || item.price) * item.quantity)}</div>
                                 </div>
                             ))}
                         </div>

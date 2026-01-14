@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import { reviewsAPI, ordersAPI } from '../services/api';
+import { reviewsAPI, ordersAPI, productsAPI } from '../services/api';
 import { useAuth } from '../context/AuthContext';
 
 
@@ -73,6 +73,25 @@ export const useReviews = (productId) => {
     return hasPurchased && !hasReviewed() && user;
   }, [hasPurchased, hasReviewed, user]);
 
+  // Cập nhật lại sản phẩm (số lượng đánh giá và rating)
+  const syncProductMetrics = useCallback(async (currentReviews) => {
+    if (!productId || !currentReviews) return;
+
+    try {
+      const totalRating = currentReviews.reduce((sum, r) => sum + r.rating, 0);
+      const avgRating = currentReviews.length > 0
+        ? parseFloat((totalRating / currentReviews.length).toFixed(1))
+        : 0;
+
+      await productsAPI.update(productId, {
+        reviews: currentReviews.length,
+        rating: avgRating
+      });
+    } catch (err) {
+      console.error('Lỗi khi đồng bộ dữ liệu sản phẩm:', err);
+    }
+  }, [productId]);
+
   // Submit review (tạo mới hoặc cập nhật)
   const submitReview = async (rating, comment, media = [], reviewId = null) => {
     if (!user) {
@@ -87,12 +106,12 @@ export const useReviews = (productId) => {
       setError(null);
 
       if (reviewId) {
-        // Cập nhật review đã có - cập nhật cả userName để đảm bảo tên luôn đúng
+        // Cập nhật review đã có
         await reviewsAPI.update(reviewId, {
           rating: parseInt(rating),
           comment: comment.trim(),
           media: media,
-          userName: user.name || user.email || 'Khách hàng' // Cập nhật userName khi chỉnh sửa
+          userName: user.name || user.email || 'Khách hàng'
         });
       } else {
         // Tạo review mới
@@ -112,8 +131,14 @@ export const useReviews = (productId) => {
         await reviewsAPI.create(reviewData);
       }
 
-      await loadReviews(); // Reload reviews sau khi submit
-      await checkPurchaseStatus(); // Cập nhật lại trạng thái
+      // Reload reviews trước
+      const updatedData = await reviewsAPI.getByProductId(productId);
+      setReviews(updatedData || []);
+
+      // Đồng bộ vào bảng products
+      await syncProductMetrics(updatedData || []);
+
+      await checkPurchaseStatus();
 
       return { success: true };
     } catch (err) {
@@ -132,8 +157,15 @@ export const useReviews = (productId) => {
     try {
       setError(null);
       await reviewsAPI.delete(reviewId);
-      await loadReviews(); // Reload reviews sau khi xóa
-      await checkPurchaseStatus(); // Cập nhật lại trạng thái
+
+      // Reload reviews
+      const updatedData = await reviewsAPI.getByProductId(productId);
+      setReviews(updatedData || []);
+
+      // Đồng bộ vào bảng products
+      await syncProductMetrics(updatedData || []);
+
+      await checkPurchaseStatus();
       return { success: true };
     } catch (err) {
       const errorMessage = err.message || 'Có lỗi xảy ra khi xóa đánh giá';
