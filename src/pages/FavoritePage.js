@@ -1,9 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext';
-import { useCart } from '../context/CartContext';
-import { usePagination } from '../hooks/usePagination';
-import { favoritesAPI } from '../services/api';
+import React from 'react';
+import { useFavoritePage } from '../hooks/useFavoritePage';
 import { formatPrice } from '../utils/formatPrice';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { icons } from '../utils/icons';
@@ -11,64 +7,20 @@ import Pagination from '../components/Pagination';
 import '../styles/FavoritePage.css';
 
 const FavoritePage = () => {
-  const navigate = useNavigate();
-  const { user } = useAuth();
-  const { addToCart } = useCart();
-  
-  const [favoriteProducts, setFavoriteProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState('');
-
-  // Sử dụng usePagination hook
-  const { 
-    currentPage, 
-    totalPages, 
-    paginatedItems: paginatedProducts, 
-    handlePageChange 
-  } = usePagination(favoriteProducts, 12, true);
-
-  useEffect(() => {
-    if (user) {
-      loadFavorites();
-    } else {
-      setLoading(false);
-    }
-  }, [user]);
-
-  const loadFavorites = async () => {
-    try {
-      setLoading(true);
-      const products = await favoritesAPI.getAll(user.id);
-      setFavoriteProducts(products);
-      setError('');
-    } catch (err) {
-      setError(err.message || 'Có lỗi xảy ra khi tải danh sách yêu thích');
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const handleRemoveFavorite = async (productId) => {
-    try {
-      await favoritesAPI.removeFromFavorites(productId, user.id);
-      await loadFavorites();
-    } catch (err) {
-      alert(err.message || 'Có lỗi xảy ra khi xóa sản phẩm khỏi yêu thích');
-    }
-  };
-
-  const handleAddToCart = async (productId) => {
-    try {
-      await addToCart(productId, 1);
-      alert('Đã thêm vào giỏ hàng!');
-    } catch (err) {
-      alert(err.message || 'Có lỗi xảy ra khi thêm vào giỏ hàng');
-    }
-  };
-
-  const handleProductClick = (productId) => {
-    navigate(`/products/${productId}`);
-  };
+  const {
+    user,
+    favoriteProducts,
+    loading,
+    error,
+    currentPage,
+    totalPages,
+    paginatedProducts,
+    handlePageChange,
+    handleRemoveFavorite,
+    handleAddToCart,
+    handleProductClick,
+    navigate
+  } = useFavoritePage();
 
   if (!user) {
     return (
@@ -124,82 +76,81 @@ const FavoritePage = () => {
         <>
           <div className="favorite-grid">
             {paginatedProducts.map(product => (
-            <div key={product.id} className="favorite-card">
-              <div 
-                className="favorite-image-container"
-                onClick={() => handleProductClick(product.id)}
-              >
-                <img 
-                  src={product.image} 
-                  alt={product.name}
-                  className="favorite-image"
-                />
-                {product.stock === 0 && (
-                  <div className="out-of-stock">Hết hàng</div>
-                )}
-                <button
-                  className="favorite-remove-btn"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    if (window.confirm('Bạn có chắc muốn xóa sản phẩm này khỏi yêu thích?')) {
-                      handleRemoveFavorite(product.id);
-                    }
-                  }}
-                  title="Xóa khỏi yêu thích"
-                >
-                  <FontAwesomeIcon icon={icons.heart} />
-                </button>
-              </div>
-              
-              <div className="favorite-info">
-                <h3 
-                  className="favorite-name"
+              <div key={product.id} className="favorite-card">
+                <div
+                  className="favorite-image-container"
                   onClick={() => handleProductClick(product.id)}
                 >
-                  {product.name}
-                </h3>
-                
-                <div className="favorite-rating">
-                  <span className="stars">
-                    {'★'.repeat(Math.floor(product.rating))}
-                    {'☆'.repeat(5 - Math.floor(product.rating))}
-                  </span>
-                  <span className="rating-value">({product.rating})</span>
-                  <span className="reviews-count">({product.reviews} đánh giá)</span>
-                </div>
-                
-                <div className="favorite-category">{product.category}</div>
-                
-                <div className="favorite-price">{formatPrice(product.price)}</div>
-                
-                <div className="favorite-stock">
-                  {product.stock > 0 ? (
-                    <span className="in-stock">Còn {product.stock} sản phẩm</span>
-                  ) : (
-                    <span className="out-of-stock-text">Hết hàng</span>
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="favorite-image"
+                  />
+                  {product.stock === 0 && (
+                    <div className="out-of-stock">Hết hàng</div>
                   )}
-                </div>
-                
-                <div className="favorite-actions">
                   <button
-                    className="add-to-cart-btn"
-                    onClick={() => handleAddToCart(product.id)}
-                    disabled={product.stock === 0}
+                    className="favorite-remove-btn"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      e.stopPropagation();
+                      handleRemoveFavorite(product.id);
+                    }}
+                    title="Xóa khỏi yêu thích"
                   >
-                    {product.stock > 0 ? 'Thêm vào giỏ' : 'Hết hàng'}
+                    <FontAwesomeIcon icon={icons.heart} />
                   </button>
-                  <button
-                    className="view-detail-btn"
+                </div>
+
+                <div className="favorite-info">
+                  <h3
+                    className="favorite-name"
                     onClick={() => handleProductClick(product.id)}
                   >
-                    Xem chi tiết
-                  </button>
+                    {product.name}
+                  </h3>
+
+                  <div className="favorite-rating">
+                    <span className="stars">
+                      {'★'.repeat(Math.floor(product.rating))}
+                      {'☆'.repeat(5 - Math.floor(product.rating))}
+                    </span>
+                    <span className="rating-value">({product.rating})</span>
+                    <span className="reviews-count">({product.reviews} đánh giá)</span>
+                  </div>
+
+                  <div className="favorite-category">{product.category}</div>
+
+                  <div className="favorite-price">{formatPrice(product.price)}</div>
+
+                  <div className="favorite-stock">
+                    {product.stock > 0 ? (
+                      <span className="in-stock">Còn {product.stock} sản phẩm</span>
+                    ) : (
+                      <span className="out-of-stock-text">Hết hàng</span>
+                    )}
+                  </div>
+
+                  <div className="favorite-actions">
+                    <button
+                      className="add-to-cart-btn"
+                      onClick={() => handleAddToCart(product.id)}
+                      disabled={product.stock === 0}
+                    >
+                      {product.stock > 0 ? 'Thêm vào giỏ' : 'Hết hàng'}
+                    </button>
+                    <button
+                      className="view-detail-btn"
+                      onClick={() => handleProductClick(product.id)}
+                    >
+                      Xem chi tiết
+                    </button>
+                  </div>
                 </div>
               </div>
-            </div>
             ))}
           </div>
-          
+
           {totalPages > 1 && (
             <Pagination
               currentPage={currentPage}

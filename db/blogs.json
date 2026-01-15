@@ -1,0 +1,44 @@
+[
+  {
+    "id": "1",
+    "title": "Hành Trình Khai Sinh Một Chiếc Túi Vải Canvas Handmade: Khi Từng Sợi Vải Biết Kể Chuyện",
+    "summary": "Bạn có bao giờ thắc mắc một chiếc túi Canvas bền bỉ được tạo ra như thế nào không? Hãy cùng TTHSHOP khám phá quy trình tỉ mỉ này.",
+    "content": "<h3>1. Bản Giao Hưởng Của Những Sợi Bông: Lựa Chọn Chất Liệu</h3><p>Mọi kiệt tác đều bắt đầu từ những nguyên liệu thô sơ nhất, nhưng tại TTH SHOP, sự 'thô sơ' ấy phải đạt đến tiêu chuẩn khắt khe. Vải Canvas tiêu chuẩn phải là loại vải sợi bông tự nhiên có mật độ dệt cao để đảm bảo độ bền vượt trội theo năm tháng. Chúng tôi chọn những thớ vải đủ dày để đứng form, đủ dai để chịu lực và đặc biệt là phải hoàn toàn thân thiện với môi trường.</p><h3>2. Vũ Điệu Của Kim Chỉ: Quy Trình Cắt Và May Thủ Công</h3><p>Nếu chất liệu là linh hồn thì kỹ thuật may chính là hình hài của chiếc túi. Khác hoàn toàn với những đường may vội vã của máy công nghiệp, mỗi chiếc túi tại cửa hàng đều được cắt tay thủ công để đảm bảo sự chính xác đến từng milimet. Mỗi đường kim mũi chỉ đều được các nghệ nhân thực hiện với sự tập trung cao độ, gửi gắm vào đó sự tỉ mỉ để tạo nên sự khác biệt độc bản so với hàng sản xuất hàng loạt.</p><p>Sở hữu một chiếc túi từ TTH SHOP là bạn đang trân trọng một giá trị văn hóa thủ công bền vững.</p>",
+    "image": "https://i.pinimg.com/originals/e8/3c/62/e83c624f53518364b1bcb9cbbb7229f5.jpg",
+    "author": "TTHSHOP Team",
+    "createdAt": "2025-12-20T08:00:00.000Z",
+    "tags": [
+      "quy trình",
+      "canvas",
+      "handmade"
+    ]
+  },
+  {
+    "id": "2",
+    "title": "Mẹo bảo quản đồ len handmade không bị xù lông",
+    "summary": "Đồ len handmade rất ấm áp nhưng cũng rất 'nhạy cảm'. Lưu lại ngay các mẹo sau để giữ khăn và áo len luôn như mới.",
+    "content": "<h3>1. Giặt tay bằng nước lạnh</h3><p>Nước nóng sẽ làm sợi len bị co lại và biến dạng. Hãy sử dụng nước lạnh kết hợp với một ít sữa tắm hoặc dầu gội nhẹ nhàng để giữ được độ mềm mượt của sợi len.</p><h3>2. Sử dụng túi giặt chuyên dụng</h3><p>Nếu bắt buộc phải giặt máy, hãy nhớ để sản phẩm vào túi giặt để tránh việc lồng giặt làm xước hoặc kéo dãn các mắt len.</p><h3>3. Không treo bằng móc</h3><p>Sức nặng của nước khi ướt sẽ làm áo len bị chảy xệ nếu bạn treo bằng móc. Hãy phơi trên một mặt phẳng khô thoáng để giữ dáng áo tốt nhất.</p>",
+    "image": "https://tiemlenhandmade.vn/wp-content/uploads/2023/05/LEN-HANDMADE.jpg",
+    "author": "Khánh Tâm",
+    "createdAt": "2025-12-25T10:30:00.000Z",
+    "tags": [
+      "mẹo hay",
+      "bảo quản",
+      "len"
+    ]
+  },
+  {
+    "id": "3",
+    "title": "Xu hướng Decor phòng ngủ với nến thơm handmade",
+    "summary": "Nến thơm không chỉ mang lại hương thơm mà còn là phụ kiện trang trí tuyệt vời. Khám phá cách phối nến thơm cho không gian sống.",
+    "content": "<h3>Tạo điểm nhấn với nến sáp ong</h3><p>Màu vàng tự nhiên của sáp ong mang lại cảm giác ấm cúng cho căn phòng vào mùa đông. Bạn có thể đặt nến trên những khay gỗ nhỏ hoặc cạnh một lọ hoa khô để tạo ra góc nhỏ thư giãn tinh tế.</p><h3>Liệu pháp mùi hương tại gia</h3><p>Mùi hương tinh dầu tự nhiên từ nến handmade sẽ giúp bạn giải tỏa căng thẳng sau một ngày làm việc mệt mỏi, đưa bạn vào giấc ngủ sâu và ngon hơn.</p>",
+    "image": "http://sleep.vn/wp-content/uploads/2022/12/sap-thom-phong-ngu-nen-thom-phong-ngu1-3.jpg",
+    "author": "Admin",
+    "createdAt": "2025-12-30T15:45:00.000Z",
+    "tags": [
+      "decor",
+      "nến thơm",
+      "trang trí"
+    ]
+  }
+]

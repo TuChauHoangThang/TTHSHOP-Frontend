@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
-import { usersAPI, ordersAPI, vouchersAPI } from '../services/api';
+import { usersAPI, ordersAPI, vouchersAPI, notificationsAPI } from '../services/api';
 
 export const useUserProfile = () => {
     const { user, logout } = useAuth();
@@ -12,7 +12,6 @@ export const useUserProfile = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [voucherCurrentPage, setVoucherCurrentPage] = useState(1);
 
-    // Constants exposed if needed or kept internal if only used for slicing
     const ordersPerPage = 4;
     const vouchersPerPage = 4;
 
@@ -20,11 +19,9 @@ export const useUserProfile = () => {
     const [tempData, setTempData] = useState(null);
     const [orders, setOrders] = useState([]);
 
-    // Avatar upload
     const [avatarPreview, setAvatarPreview] = useState(null);
     const [uploadingAvatar, setUploadingAvatar] = useState(false);
 
-    // Notifications
     const [notifications, setNotifications] = useState([]);
     const [notificationSettings, setNotificationSettings] = useState({
         orderUpdates: true,
@@ -33,11 +30,9 @@ export const useUserProfile = () => {
         emailNotifications: true
     });
 
-    // Vouchers
     const [vouchers, setVouchers] = useState([]);
     const [loyaltyPoints, setLoyaltyPoints] = useState(0);
 
-    // Toast notification
     const [toast, setToast] = useState({ show: false, message: '', type: '' });
 
     const [passwordData, setPasswordData] = useState({
@@ -55,15 +50,9 @@ export const useUserProfile = () => {
         Promise.all([
             usersAPI.getById(userId),
             ordersAPI.getAll(userId),
-            // Mock data for notifications
-            Promise.resolve([
-                { id: 1, type: 'order', message: 'Đơn hàng #123 đã được giao thành công', time: '2 giờ trước', read: false },
-                { id: 2, type: 'promotion', message: 'Giảm giá 50% cho đơn hàng tiếp theo', time: '1 ngày trước', read: false },
-                { id: 3, type: 'system', message: 'Cập nhật điều khoản sử dụng', time: '3 ngày trước', read: true }
-            ]),
-            // Fetch vouchers from API
+            notificationsAPI.getAll(userId),
             vouchersAPI.getUserVouchers(userId),
-            Promise.resolve(1250) // loyalty points
+            Promise.resolve(1250)
         ])
             .then(([u, o, n, v, points]) => {
                 const sortedOrders = [...o].sort(
@@ -78,13 +67,21 @@ export const useUserProfile = () => {
                 setNotifications(n);
                 setVouchers(sortedVouchers);
                 setLoyaltyPoints(points);
-
-                // Load notification settings from user data
                 if (u.notificationSettings) {
                     setNotificationSettings(u.notificationSettings);
                 }
+                setLoading(false);
             })
-            .finally(() => setLoading(false));
+            .catch(error => {
+                console.error("Error loading profile data:", error);
+                // Try to load just user data if full load fails
+                usersAPI.getById(userId).then(u => {
+                    setUserData(u);
+                    setTempData(u);
+                })
+                    .catch(e => console.error("Critical error loading user:", e))
+                    .finally(() => setLoading(false));
+            });
     }, [user]);
 
     const showToast = (message, type = 'success') => {

@@ -1,0 +1,18 @@
+[
+    {
+        "id": 1,
+        "userId": 1,
+        "type": "order",
+        "message": "Đơn hàng #123 đã được giao thành công",
+        "time": "2024-05-19T10:00:00.000Z",
+        "read": false
+    },
+    {
+        "id": 2,
+        "userId": 1,
+        "type": "promotion",
+        "message": "Giảm giá 50% cho đơn hàng tiếp theo",
+        "time": "2024-05-18T09:30:00.000Z",
+        "read": false
+    }
+]

@@ -1,10 +1,13 @@
 import { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
-import { vouchersAPI } from '../services/api';
-import {useLocation} from "react-router-dom";
+import { vouchersAPI, notificationsAPI } from '../services/api';
+import { useToast } from '../context/ToastContext';
+import { useLocation, useNavigate } from "react-router-dom";
 
 export const useLuckySpin = () => {
     const { user } = useAuth();
+    const navigate = useNavigate();
+    const { addToast } = useToast();
     const location = useLocation();
     const [vouchers, setVouchers] = useState([]);
     const [userVouchers, setUserVouchers] = useState([]);
@@ -115,17 +118,22 @@ export const useLuckySpin = () => {
 
     const handleSpin = async () => {
         if (!user || !user.id) {
-            alert("Vui lòng đăng nhập!");
+            if (window.confirm('Vui lòng đăng nhập để tham gia quay thưởng!')) {
+                navigate('/login');
+            }
             return;
         }
 
         if (checkingSpinStatus) {
-            alert("Đang kiểm tra lượt quay...");
+            console.log("Đang kiểm tra lượt quay...");
             return;
         }
 
         if (hasSpunToday) {
-            alert("Bạn đã quay vòng quay may mắn hôm nay. Vui lòng quay lại vào ngày mai!");
+            try {
+                await notificationsAPI.create(user.id, 'system', 'Bạn đã sử dụng hết lượt quay hôm nay.');
+            } catch (e) { console.error(e); }
+            addToast('Bạn đã hết lượt quay hôm nay. Quay lại mai nhé!', 'info');
             return;
         }
 
@@ -170,6 +178,10 @@ export const useLuckySpin = () => {
                 setHasSpunToday(true);
                 setLastSpinDate(now);
                 setUserVouchers(prev => [...prev, newVoucher]);
+
+                // THÊM THÔNG BÁO VÀO DB
+                await notificationsAPI.create(user.id, 'promotion', `Chúc mừng! Bạn đã quay trúng voucher giảm ${selectedVoucher.code}`);
+                addToast(`Chúc mừng! Bạn nhận được voucher ${selectedVoucher.code}`, 'success');
 
                 console.log("Đã lưu voucher vào ví người dùng:", newVoucher);
 

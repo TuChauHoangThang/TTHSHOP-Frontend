@@ -68,7 +68,7 @@ export const useCartActions = () => {
         try {
             await updateQuantity(productId, newQuantity, options);
         } catch (error) {
-            alert(error.message);
+            console.error(error);
         } finally {
             setUpdatingId(null);
         }

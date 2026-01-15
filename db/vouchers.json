@@ -1,0 +1,66 @@
+[
+  {
+    "id": "1",
+    "code": "GIAM10K",
+    "discountType": "fixed",
+    "discountValue": 10000,
+    "minOrderValue": 100000,
+    "description": "Giảm 10.000đ cho đơn từ 100K"
+  },
+  {
+    "id": "2",
+    "code": "GIAM20K",
+    "discountType": "fixed",
+    "discountValue": 20000,
+    "minOrderValue": 200000,
+    "description": "Giảm 20.000đ cho đơn từ 200K"
+  },
+  {
+    "id": "3",
+    "code": "GIAM50K",
+    "discountType": "fixed",
+    "discountValue": 50000,
+    "minOrderValue": 500000,
+    "description": "Giảm 50.000đ cho đơn từ 500K"
+  },
+  {
+    "id": "4",
+    "code": "GIAM100K",
+    "discountType": "fixed",
+    "discountValue": 100000,
+    "minOrderValue": 1000000,
+    "description": "Giảm 100.000đ cho đơn từ 1 triệu"
+  },
+  {
+    "id": "5",
+    "code": "FREESHIP",
+    "discountType": "shipping",
+    "discountValue": 30000,
+    "minOrderValue": 0,
+    "description": "Miễn phí vận chuyển"
+  },
+  {
+    "id": "6",
+    "code": "SALE15",
+    "discountType": "percentage",
+    "discountValue": 15,
+    "minOrderValue": 0,
+    "description": "Giảm 15% tổng đơn"
+  },
+  {
+    "id": "7",
+    "code": "GIAM5K",
+    "discountType": "fixed",
+    "discountValue": 5000,
+    "minOrderValue": 0,
+    "description": "Giảm 5.000đ cho mọi đơn"
+  },
+  {
+    "id": "8",
+    "code": "COMBO99",
+    "discountType": "fixed",
+    "discountValue": 0,
+    "minOrderValue": 0,
+    "description": "Combo ưu đãi 99K"
+  }
+]

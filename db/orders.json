@@ -1,0 +1,410 @@
+[
+  {
+    "id": "8759",
+    "userId": "1",
+    "items": [
+      {
+        "productId": 20,
+        "quantity": 2,
+        "price": 550000,
+        "productName": "Tranh vẽ tay trên vải canvas",
+        "productImage": "https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=400"
+      }
+    ],
+    "totals": {
+      "subtotal": 1100000,
+      "shippingFee": 0,
+      "grandTotal": 1100000
+    },
+    "shippingAddress": {
+      "fullName": "Admin User",
+      "phone": "0921432352",
+      "email": "admin@gmail.com",
+      "address": "aDa",
+      "ward": "ád",
+      "district": "ád",
+      "city": "ád",
+      "note": ""
+    },
+    "paymentMethod": "cod",
+    "status": "pending",
+    "createdAt": "2025-12-23T07:02:05.520Z",
+    "updatedAt": "2025-12-23T07:02:05.521Z"
+  },
+  {
+    "id": "ef48",
+    "userId": "1",
+    "items": [
+      {
+        "productId": 39,
+        "quantity": 1,
+        "price": 75000,
+        "productName": "Móc chìa khóa hình gấu",
+        "productImage": "https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?w=400"
+      },
+      {
+        "productId": 40,
+        "quantity": 1,
+        "price": 80000,
+        "productName": "Móc chìa khóa hình mèo",
+        "productImage": "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400"
+      }
+    ],
+    "totals": {
+      "subtotal": 155000,
+      "shippingFee": 30000,
+      "grandTotal": 185000
+    },
+    "shippingAddress": {
+      "fullName": "Admin User",
+      "phone": "0921432352",
+      "email": "admin@gmail.com",
+      "address": "biên hòa đồng nai",
+      "ward": "ád",
+      "district": "ád",
+      "city": "biên hòa",
+      "note": ""
+    },
+    "paymentMethod": "cod",
+    "status": "pending",
+    "createdAt": "2025-12-23T07:13:13.130Z",
+    "updatedAt": "2025-12-23T07:13:13.130Z"
+  },
+  {
+    "id": "1b1b",
+    "userId": "1",
+    "items": [
+      {
+        "productId": 2,
+        "quantity": 1,
+        "price": 250000,
+        "productName": "Túi vải handmade thân thiện môi trường",
+        "productImage": "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=400"
+      }
+    ],
+    "totals": {
+      "subtotal": 250000,
+      "shippingFee": 30000,
+      "grandTotal": 280000
+    },
+    "shippingAddress": {
+      "fullName": "Admin",
+      "phone": "0776267228",
+      "email": "admin@gmail.com",
+      "address": "AS",
+      "ward": "ASD",
+      "district": "ASD",
+      "city": "ASD",
+      "note": ""
+    },
+    "paymentMethod": "cod",
+    "status": "pending",
+    "createdAt": "2025-12-26T07:19:24.010Z",
+    "updatedAt": "2025-12-26T07:19:24.013Z"
+  },
+  {
+    "id": "b9a1",
+    "userId": "1",
+    "items": [
+      {
+        "productId": 3,
+        "quantity": 1,
+        "price": 320000,
+        "productName": "Khăn choàng len handmade",
+        "productImage": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400"
+      }
+    ],
+    "totals": {
+      "subtotal": 320000,
+      "shippingFee": 30000,
+      "grandTotal": 350000
+    },
+    "shippingAddress": {
+      "fullName": "Admin",
+      "phone": "0776267228",
+      "email": "admin@gmail.com",
+      "address": "AS",
+      "ward": "asd",
+      "district": "asd",
+      "city": "ASD",
+      "note": ""
+    },
+    "paymentMethod": "cod",
+    "status": "pending",
+    "createdAt": "2025-12-26T07:20:11.949Z",
+    "updatedAt": "2025-12-26T07:20:11.949Z"
+  },
+  {
+    "id": "24a5",
+    "userId": "1",
+    "items": [
+      {
+        "productId": 12,
+        "quantity": 1,
+        "price": 380000,
+        "productName": "Bộ khăn trải bàn thêu tay",
+        "productImage": "https://images.unsplash.com/photo-1583394838336-acd977736f90?w=400"
+      }
+    ],
+    "totals": {
+      "subtotal": 380000,
+      "shippingFee": 30000,
+      "grandTotal": 410000
+    },
+    "shippingAddress": {
+      "fullName": "Admin",
+      "phone": "0776267228",
+      "email": "admin@gmail.com",
+      "address": "AS",
+      "ward": "ád",
+      "district": "áds",
+      "city": "ASD",
+      "note": ""
+    },
+    "paymentMethod": "cod",
+    "status": "pending",
+    "createdAt": "2025-12-26T07:24:47.915Z",
+    "updatedAt": "2025-12-26T07:24:47.915Z"
+  },
+  {
+    "id": "e4a8",
+    "userId": "1",
+    "items": [
+      {
+        "productId": 103,
+        "quantity": 1,
+        "price": 550000,
+        "productName": "Áo dài thổ cẩm handmade",
+        "productImage": "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=400"
+      }
+    ],
+    "totals": {
+      "subtotal": 550000,
+      "shippingFee": 0,
+      "grandTotal": 550000
+    },
+    "shippingAddress": {
+      "fullName": "Admin User",
+      "phone": "0921432352",
+      "email": "admin@gmail.com",
+      "address": "biên hòa đồng nai",
+      "ward": "ád",
+      "district": "ád",
+      "city": "biên hòa",
+      "note": ""
+    },
+    "paymentMethod": "cod",
+    "status": "pending",
+    "createdAt": "2026-01-09T07:40:43.495Z",
+    "updatedAt": "2026-01-09T07:40:43.497Z"
+  },
+  {
+    "id": "c897",
+    "userId": "1",
+    "items": [
+      {
+        "productId": 1,
+        "quantity": 2,
+        "price": 150000,
+        "productName": "Vòng tay handmade từ hạt gỗ tự nhiên",
+        "productImage": "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400"
+      },
+      {
+        "productId": 2,
+        "quantity": 1,
+        "price": 250000,
+        "productName": "Túi vải handmade thân thiện môi trường",
+        "productImage": "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=400"
+      }
+    ],
+    "totals": {
+      "subtotal": 550000,
+      "shippingFee": 0,
+      "grandTotal": 550000
+    },
+    "shippingAddress": {
+      "fullName": "Admin",
+      "phone": "0921432352",
+      "email": "admin@gmail.com",
+      "address": "bien hoa",
+      "ward": "adasda",
+      "district": "đâs",
+      "city": "ádas",
+      "note": ""
+    },
+    "paymentMethod": "bank_transfer",
+    "status": "pending",
+    "createdAt": "2026-01-09T08:10:36.653Z",
+    "updatedAt": "2026-01-09T08:10:36.653Z"
+  },
+  {
+    "id": "0947",
+    "userId": "1",
+    "items": [
+      {
+        "productId": 1,
+        "quantity": 2,
+        "price": 150000,
+        "productName": "Vòng tay handmade từ hạt gỗ tự nhiên",
+        "productImage": "https://bizweb.dktcdn.net/thumb/1024x1024/100/053/286/products/20190401173317-img-2959.jpg?v=1557219127160",
+        "colors": "Đỏ",
+        "types": "Size S"
+      }
+    ],
+    "totals": {
+      "subtotal": 300000,
+      "shippingFee": 30000,
+      "grandTotal": 330000
+    },
+    "shippingAddress": {
+      "fullName": "Admin User",
+      "phone": "0782864027",
+      "email": "admin@gmail.com",
+      "address": "sadsad",
+      "ward": "asddsa",
+      "district": "ads",
+      "city": "sdaasd",
+      "note": "gfnv"
+    },
+    "paymentMethod": "cod",
+    "status": "pending",
+    "createdAt": "2026-01-12T11:40:44.098Z",
+    "updatedAt": "2026-01-12T11:40:44.098Z"
+  },
+  {
+    "id": "3e8a",
+    "userId": "eb1b",
+    "items": [
+      {
+        "productId": 2,
+        "quantity": 1,
+        "price": 250000,
+        "productName": "Túi vải handmade thân thiện môi trường",
+        "productImage": "https://canavibag.com/uploads/hinh-0016.jpg",
+        "colors": "Be",
+        "types": "Nhỏ"
+      }
+    ],
+    "totals": {
+      "subtotal": 250000,
+      "shippingFee": 30000,
+      "grandTotal": 280000
+    },
+    "shippingAddress": {
+      "fullName": "tam",
+      "phone": "0782864027",
+      "email": "thang@gmail.com",
+      "address": "sadsad",
+      "ward": "ádasd",
+      "district": "đâs",
+      "city": "sdaasd",
+      "note": "sad"
+    },
+    "paymentMethod": "bank_transfer",
+    "status": "pending",
+    "createdAt": "2026-01-12T12:03:40.811Z",
+    "updatedAt": "2026-01-12T12:03:40.811Z"
+  },
+  {
+    "id": "9399",
+    "userId": "d946",
+    "items": [
+      {
+        "productId": 1,
+        "quantity": 1,
+        "price": 150000,
+        "productName": "Vòng tay handmade từ hạt gỗ tự nhiên",
+        "productImage": "https://bizweb.dktcdn.net/thumb/1024x1024/100/053/286/products/20190401173317-img-2959.jpg?v=1557219127160",
+        "colors": "Đỏ",
+        "types": "Size S"
+      }
+    ],
+    "totals": {
+      "subtotal": 150000,
+      "shippingFee": 30000,
+      "grandTotal": 180000
+    },
+    "shippingAddress": {
+      "fullName": "aaa",
+      "phone": "0782864027",
+      "email": "aa@gmail.com",
+      "address": "sadsad",
+      "ward": "asddsa",
+      "district": "đâs",
+      "city": "sdaasd",
+      "note": ""
+    },
+    "paymentMethod": "cod",
+    "status": "pending",
+    "createdAt": "2026-01-12T12:38:41.010Z",
+    "updatedAt": "2026-01-12T12:38:41.010Z"
+  },
+  {
+    "userId": "C_YbsiQ",
+    "items": [
+      {
+        "productId": 49,
+        "quantity": 1,
+        "price": 198000,
+        "productName": "Túi balo cói đan tay",
+        "productImage": "https://salt.tikicdn.com/ts/tmp/67/7b/11/3f43b172ff1e8698dd2714d6acfe0a80.jpg",
+        "colors": "Vàng",
+        "types": "Vừa (20L)"
+      }
+    ],
+    "totals": {
+      "subtotal": 198000,
+      "shippingFee": 30000,
+      "grandTotal": 228000
+    },
+    "shippingAddress": {
+      "fullName": "Thang",
+      "phone": "0778504450",
+      "email": "abc113@gmail.com",
+      "address": "58 Ich Thanh",
+      "ward": "Truong Thanh",
+      "district": "Quan 9",
+      "city": "Ho Chi Minh",
+      "note": ""
+    },
+    "paymentMethod": "cod",
+    "status": "pending",
+    "createdAt": "2026-01-15T09:51:02.459Z",
+    "updatedAt": "2026-01-15T09:51:02.459Z",
+    "id": "X063Ie0"
+  },
+  {
+    "userId": "C_YbsiQ",
+    "items": [
+      {
+        "productId": 2,
+        "quantity": 1,
+        "price": 250000,
+        "productName": "Túi vải handmade thân thiện môi trường",
+        "productImage": "https://canavibag.com/uploads/hinh-0016.jpg",
+        "colors": "Be",
+        "types": "Nhỏ"
+      }
+    ],
+    "totals": {
+      "subtotal": 250000,
+      "shippingFee": 30000,
+      "grandTotal": 280000
+    },
+    "shippingAddress": {
+      "fullName": "Thang",
+      "phone": "0778504450",
+      "email": "abc113@gmail.com",
+      "address": "58 Ich Thanh",
+      "ward": "Truong Thanh",
+      "district": "Quan 9",
+      "city": "Ho Chi Minh",
+      "note": ""
+    },
+    "paymentMethod": "cod",
+    "status": "pending",
+    "createdAt": "2026-01-15T10:14:37.166Z",
+    "updatedAt": "2026-01-15T10:14:37.166Z",
+    "id": "iYG-Yhb"
+  }
+]

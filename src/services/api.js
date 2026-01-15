@@ -4,19 +4,50 @@ const API_URL =
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const fetchJson = async (endpoint, options = {}) => {
-    const res = await fetch(`${API_URL}${endpoint}`, {
-        headers: { 'Content-Type': 'application/json', ...(options.headers || {}) },
-        ...options,
-    });
-    if (!res.ok) {
-        const text = await res.text();
-        throw new Error(text || 'Lỗi kết nối API');
+    try {
+        const res = await fetch(`${API_URL}${endpoint}`, {
+            headers: { 'Content-Type': 'application/json', ...(options.headers || {}) },
+            ...options,
+        });
+
+        if (!res.ok) {
+            let errorMessage = 'Lỗi kết nối API';
+            try {
+                // Try parsing JSON error first
+                const errorData = await res.json();
+                if (typeof errorData === 'object' && errorData !== null) {
+                    errorMessage = errorData.message || errorData.error || JSON.stringify(errorData);
+                } else {
+                    errorMessage = String(errorData);
+                }
+            } catch (jsonError) {
+                // Fallback to text
+                const text = await res.text();
+                if (text && text.trim().length > 0) {
+                    errorMessage = text;
+                }
+            }
+            throw new Error(errorMessage);
+        }
+
+        // For 204 No Content
+        if (res.status === 204) {
+            return null;
+        }
+
+        return res.json();
+    } catch (error) {
+        // Ensure we always throw an Error object
+        if (error instanceof Error) {
+            throw error;
+        } else {
+            throw new Error(String(error) || 'Đã xảy ra lỗi không xác định');
+        }
     }
-    return res.json();
 };
 
 export const productsAPI = {
-    getAll: async () => fetchJson('/products'),
+    getAll: async (query = '') => fetchJson(`/products${query}`),
     getById: async (id) => fetchJson(`/products/${id}`),
     update: async (id, data) => fetchJson(`/products/${id}`, {
         method: 'PATCH',
@@ -74,6 +105,7 @@ export const reviewsAPI = {
                 userName: reviewData.userName || 'Khách hàng',
                 rating: parseInt(reviewData.rating),
                 comment: reviewData.comment.trim(),
+                media: reviewData.media || [],
                 createdAt: new Date().toISOString(),
             }),
         });
@@ -470,3 +502,47 @@ export const vouchersAPI = {
         });
     }
 };
+
+export const notificationsAPI = {
+    getAll: async (userId) => {
+        try {
+            // Fetch ordered by time desc
+            const res = await fetchJson(`/notifications?userId=${userId}&_sort=time&_order=desc`);
+            return res;
+        } catch (error) {
+            console.warn("Notifications API warning:", error);
+            return [];
+        }
+    },
+    create: async (userId, type, message) => {
+        try {
+            const newNotif = {
+                userId,
+                type,
+                message,
+                time: new Date().toISOString(),
+                read: false
+            };
+            return await fetchJson('/notifications', {
+                method: 'POST',
+                body: JSON.stringify(newNotif)
+            });
+        } catch (error) {
+            // Silently fail for notifications to avoid blocking main user flows
+            console.warn("Failed to create notification:", error);
+            return null;
+        }
+    },
+    markAsRead: async (id) => {
+        try {
+            return await fetchJson(`/notifications/${id}`, {
+                method: 'PATCH',
+                body: JSON.stringify({ read: true })
+            });
+        } catch (error) {
+            console.warn("Failed to mark notification as read:", error);
+            return null;
+        }
+    }
+};
+

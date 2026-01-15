@@ -822,3 +822,48 @@
     min-width: unset;
   }
 }
+/* PAGE HEADER BANNER */
+.page-header {
+    background: linear-gradient(135deg, #ff9966 0%, #ff5e62 100%);
+    color: white;
+    padding: 60px 20px;
+    text-align: center;
+    border-radius: 16px;
+    margin-bottom: 40px;
+    box-shadow: 0 10px 30px rgba(255, 94, 98, 0.3);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.page-header h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.page-header p {
+    font-size: 1.2rem;
+    font-weight: 500;
+    opacity: 0.9;
+    background: rgba(255,255,255,0.2);
+    padding: 8px 16px;
+    border-radius: 50px;
+    display: inline-block;
+}
+
+/* Specific style for Flash Sale if needed */
+.flash-sale-page .page-header {
+    background: linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%);
+}
+
+.best-selling-page .page-header {
+    background: linear-gradient(135deg, #f09819 0%, #edde5d 100%);
+}
+

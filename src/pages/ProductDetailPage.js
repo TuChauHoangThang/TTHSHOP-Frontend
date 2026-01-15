@@ -1,331 +1,66 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { useCart } from '../context/CartContext';
-import { useAuth } from '../context/AuthContext';
-import { productsAPI, favoritesAPI } from '../services/api';
-import { useReviews } from '../hooks/useReviews';
+import { useProductDetailPage } from '../hooks/useProductDetailPage';
 import { formatPrice } from '../utils/formatPrice';
 import { getPriceByType } from '../utils/productPrice';
 import { FontAwesomeIcon, icons } from '../utils/icons';
 import '../styles/ProductDetailPage.css';
 
-// Helper function to convert color names to hex values
-const getColorHex = (colorName) => {
-  const colorMap = {
-    'Đỏ': '#dc3545',
-    'Xanh dương': '#007bff',
-    'Xanh lá': '#28a745',
-    'Vàng': '#ffc107',
-    'Cam': '#fd7e14',
-    'Tím': '#6f42c1',
-    'Hồng': '#e83e8c',
-    'Đen': '#000000',
-    'Trắng': '#ffffff',
-    'Xám': '#6c757d',
-    'Nâu': '#8b4513',
-    'Be': '#f5f5dc',
-    'Kem': '#fffdd0',
-    'Xanh nhạt': '#87ceeb',
-    'Hồng nhạt': '#ffb6c1',
-  };
-  return colorMap[colorName] || '#667eea';
-};
-
 const ProductDetailPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const { addToCart } = useCart();
-  const { user } = useAuth();
 
-  const [product, setProduct] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState('');
-  const [isFavorite, setIsFavorite] = useState(false);
-  const [activeImage, setActiveImage] = useState('');
-  const [adding, setAdding] = useState(false);
-  const [selectedColor, setSelectedColor] = useState(null);
-  const [selectedType, setSelectedType] = useState(null);
-  const [quantity, setQuantity] = useState(1);
-
-  const [isTypeDropdownOpen, setIsTypeDropdownOpen] = useState(false);
-
-  // Tab State
-  const [activeTab, setActiveTab] = useState('description');
-
-  // Custom hook cho reviews
-  const productId = id ? parseInt(id) : null;
   const {
+    product,
+    loading,
+    error,
+    isFavorite,
+    activeImage,
+    setActiveImage,
+    adding,
+    selectedColor,
+    setSelectedColor,
+    selectedType,
+    setSelectedType,
+    quantity,
+    handleQuantityChange,
+    handleQuantityInput,
+    isTypeDropdownOpen,
+    setIsTypeDropdownOpen,
+    activeTab,
+    setActiveTab,
+    isDescExpanded,
+    setIsDescExpanded,
     reviews,
-    loading: reviewsLoading,
-    error: reviewsError,
+    reviewsLoading,
     hasPurchased,
     canReview,
     hasReviewed,
     getUserReview,
-    submitReview,
-    deleteReview
-  } = useReviews(productId);
-
-  // State cho form đánh giá
-  const [showReviewForm, setShowReviewForm] = useState(false);
-  const [reviewRating, setReviewRating] = useState(5);
-  const [reviewComment, setReviewComment] = useState('');
-  const [reviewMedia, setReviewMedia] = useState([]); // Array of { type: 'image'|'video', url: string }
-  const [submittingReview, setSubmittingReview] = useState(false);
-  const [reviewError, setReviewError] = useState('');
-  const [editingReviewId, setEditingReviewId] = useState(null);
-  const [isDescExpanded, setIsDescExpanded] = useState(false);
-
-  // Khởi tạo form với dữ liệu review nếu đang chỉnh sửa
-  useEffect(() => {
-    if (getUserReview && editingReviewId) {
-      if (getUserReview.id === editingReviewId) {
-        setReviewRating(getUserReview.rating);
-        setReviewComment(getUserReview.comment);
-        setReviewMedia(getUserReview.media || []);
-        setShowReviewForm(true);
-      }
-    } else if (!editingReviewId && !showReviewForm) {
-      setReviewRating(5);
-      setReviewComment('');
-      setReviewMedia([]);
-    }
-  }, [getUserReview, editingReviewId, showReviewForm]);
-
-  const handleFileChange = async (e) => {
-    const files = Array.from(e.target.files);
-    setReviewError(''); // Clear previous errors
-
-    if (files.length + reviewMedia.length > 5) {
-      setReviewError('Bạn chỉ được tải lên tối đa 5 ảnh/video');
-      return;
-    }
-
-    const newMedia = [];
-    for (const file of files) {
-      if (file.size > 50 * 1024 * 1024) { // 50MB limit
-        setReviewError(`File ${file.name} quá lớn (tối đa 50MB)`);
-        continue;
-      }
-
-      const reader = new FileReader();
-      await new Promise((resolve) => {
-        reader.onload = (e) => {
-          newMedia.push({
-            type: file.type.startsWith('video/') ? 'video' : 'image',
-            url: e.target.result
-          });
-          resolve();
-        };
-        reader.readAsDataURL(file);
-      });
-    }
-    setReviewMedia(prev => [...prev, ...newMedia]);
-  };
-
-  const removeMedia = (index) => {
-    setReviewMedia(prev => prev.filter((_, i) => i !== index));
-  };
-
-  const stockBadge = useMemo(() => {
-    if (!product) return '';
-    if (product.stock === 0) return 'Hết hàng';
-    if (product.stock < 3) return `Chỉ còn ${product.stock}`;
-    return `Còn ${product.stock} sản phẩm`;
-  }, [product]);
-
-  useEffect(() => {
-    const loadData = async () => {
-      try {
-        setLoading(true);
-        setError('');
-        const productId = parseInt(id);
-        if (isNaN(productId)) {
-          throw new Error('ID sản phẩm không hợp lệ');
-        }
-        const p = await productsAPI.getById(productId);
-        if (!p) {
-          throw new Error('Không tìm thấy sản phẩm');
-        }
-        setProduct(p);
-        setActiveImage(p.images?.[0] || p.image || '');
-        setIsFavorite(user ? favoritesAPI.isFavorite(productId, user.id) : false);
-        // Initialize selections
-        if (p.colors && p.colors.length > 0) {
-          setSelectedColor(p.colors[0]);
-        }
-        if (p.types && p.types.length > 0) {
-          setSelectedType(p.types[0]);
-        }
-        setQuantity(1);
-      } catch (err) {
-        console.error('Lỗi tải sản phẩm:', err);
-        setError(err.message || 'Đã xảy ra lỗi khi tải sản phẩm');
-        setProduct(null);
-      } finally {
-        setLoading(false);
-      }
-    };
-    if (id) {
-      loadData();
-    }
-  }, [id, user]);
-
-  // Close dropdown when clicking outside
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (isTypeDropdownOpen && !event.target.closest('.custom-dropdown')) {
-        setIsTypeDropdownOpen(false);
-      }
-    };
-
-    if (isTypeDropdownOpen) {
-      document.addEventListener('mousedown', handleClickOutside);
-      return () => {
-        document.removeEventListener('mousedown', handleClickOutside);
-      };
-    }
-  }, [isTypeDropdownOpen]);
-
-  const handleAddToCart = async () => {
-    if (!product) return;
-
-    // Validate selections
-    if (product.colors && product.colors.length > 0 && !selectedColor) {
-      alert('Vui lòng chọn màu sắc');
-      return;
-    }
-    if (product.types && product.types.length > 0 && !selectedType) {
-      alert('Vui lòng chọn loại sản phẩm');
-      return;
-    }
-    if (quantity <= 0) {
-      alert('Số lượng phải lớn hơn 0');
-      return;
-    }
-    if (quantity > product.stock) {
-      alert(`Chỉ còn ${product.stock} sản phẩm trong kho`);
-      return;
-    }
-
-    try {
-      setAdding(true);
-      const options = {
-        color: selectedColor,
-        type: selectedType
-      };
-      await addToCart(product.id, quantity, options);
-      alert(`Đã thêm ${quantity} sản phẩm vào giỏ hàng!`);
-      // Reset quantity after adding
-      setQuantity(1);
-    } catch (err) {
-      alert(err.message);
-    } finally {
-      setAdding(false);
-    }
-  };
-
-  const handleQuantityChange = (delta) => {
-    setQuantity(prev => {
-      const newQty = prev + delta;
-      if (newQty < 1) return 1;
-      if (product && newQty > product.stock) return product.stock;
-      return newQty;
-    });
-  };
-
-  const handleQuantityInput = (e) => {
-    const value = parseInt(e.target.value) || 1;
-    if (value < 1) {
-      setQuantity(1);
-    } else if (product && value > product.stock) {
-      setQuantity(product.stock);
-    } else {
-      setQuantity(value);
-    }
-  };
-
-  const handleToggleFavorite = async () => {
-    if (!product) return;
-
-    if (!user) {
-      const confirmLogin = window.confirm('Vui lòng đăng nhập để thêm sản phẩm vào yêu thích. Bạn có muốn đăng nhập ngay bây giờ?');
-      if (confirmLogin) {
-        navigate('/login');
-      }
-      return;
-    }
-
-    try {
-      if (isFavorite) {
-        await favoritesAPI.removeFromFavorites(product.id, user.id);
-        alert('Đã xóa khỏi yêu thích');
-      } else {
-        await favoritesAPI.addToFavorites(product.id, user.id);
-        alert('Đã thêm vào yêu thích');
-      }
-      setIsFavorite(!isFavorite);
-    } catch (err) {
-      alert(err.message);
-    }
-  };
-
-  const handleSubmitReview = async (e) => {
-    e.preventDefault();
-    if (!productId) return;
-
-    if (reviewRating === 0) {
-      setReviewError('Vui lòng chọn số sao đánh giá');
-      return;
-    }
-    if (!reviewComment.trim() || reviewComment.trim().length < 5) {
-      setReviewError('Bình luận phải có ít nhất 5 ký tự');
-      return;
-    }
-
-    setReviewError('');
-    setSubmittingReview(true);
-
-    setSubmittingReview(true);
-
-    try {
-      await submitReview(reviewRating, reviewComment, reviewMedia, editingReviewId);
-      alert(editingReviewId ? 'Đã cập nhật đánh giá!' : 'Cảm ơn bạn đã đánh giá sản phẩm!');
-      setReviewComment('');
-      setReviewRating(5);
-      setReviewMedia([]);
-      setShowReviewForm(false);
-      setEditingReviewId(null);
-    } catch (err) {
-      setReviewError(err.message || 'Có lỗi xảy ra khi gửi đánh giá');
-    } finally {
-      setSubmittingReview(false);
-    }
-  };
-
-  const handleEditReview = (review) => {
-    setEditingReviewId(review.id);
-    setReviewRating(review.rating);
-    setReviewComment(review.comment);
-    setReviewMedia(review.media || []);
-    setShowReviewForm(true);
-    setReviewError('');
-  };
-
-  const handleDeleteReview = async (reviewId) => {
-    if (!window.confirm('Bạn có chắc chắn muốn xóa đánh giá này?')) {
-      return;
-    }
-
-    try {
-      await deleteReview(reviewId);
-      alert('Đã xóa đánh giá!');
-      setShowReviewForm(false);
-      setEditingReviewId(null);
-    } catch (err) {
-      alert(err.message || 'Có lỗi xảy ra khi xóa đánh giá');
-    }
-  };
+    showReviewForm,
+    setShowReviewForm,
+    reviewRating,
+    setReviewRating,
+    reviewComment,
+    setReviewComment,
+    reviewMedia,
+    setReviewMedia,
+    submittingReview,
+    reviewError,
+    setReviewError,
+    editingReviewId,
+    setEditingReviewId,
+    handleAddToCart,
+    handleToggleFavorite,
+    handleFileChange,
+    removeMedia,
+    handleSubmitReview,
+    handleEditReview,
+    handleDeleteReview,
+    stockBadge,
+    getColorHex,
+    user
+  } = useProductDetailPage(id, navigate);
 
   if (loading) {
     return (

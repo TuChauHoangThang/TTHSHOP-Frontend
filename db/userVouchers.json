@@ -1,0 +1,115 @@
+[
+  {
+    "id": "117e",
+    "userId": "2",
+    "voucherId": "2",
+    "code": "GIAM20K",
+    "description": "Giảm 20.000đ cho đơn từ 200K",
+    "isUsed": false,
+    "receivedAt": "2026-01-09T14:40:15.233Z"
+  },
+  {
+    "id": "bccb",
+    "userId": "2",
+    "voucherId": "3",
+    "code": "GIAM50K",
+    "description": "Giảm 50.000đ cho đơn từ 500K",
+    "isUsed": false,
+    "receivedAt": "2026-01-09T14:40:30.331Z"
+  },
+  {
+    "id": "ee76",
+    "userId": "1",
+    "voucherId": "2",
+    "code": "GIAM20K",
+    "description": "Giảm 20.000đ cho đơn từ 200K",
+    "used": true,
+    "receivedAt": "2026-01-10T06:31:50.854Z"
+  },
+  {
+    "id": "45f2",
+    "userId": "2",
+    "voucherId": "1",
+    "code": "GIAM10K",
+    "description": "Giảm 10.000đ cho đơn từ 100K",
+    "used": false,
+    "receivedAt": "2026-01-12T07:50:27.950Z"
+  },
+  {
+    "id": "a041",
+    "userId": "d454",
+    "voucherId": "4",
+    "code": "GIAM100K",
+    "description": "Giảm 100.000đ cho đơn từ 1 triệu",
+    "used": false,
+    "receivedAt": "2026-01-12T08:02:22.395Z"
+  },
+  {
+    "id": "4711",
+    "userId": "1",
+    "voucherId": "7",
+    "code": "GIAM5K",
+    "description": "Giảm 5.000đ cho mọi đơn",
+    "used": false,
+    "receivedAt": "2026-01-12T11:20:41.308Z"
+  },
+  {
+    "id": "f8e7",
+    "userId": "dba3",
+    "voucherId": "4",
+    "code": "GIAM100K",
+    "description": "Giảm 100.000đ cho đơn từ 1 triệu",
+    "used": false,
+    "receivedAt": "2026-01-12T11:42:31.561Z"
+  },
+  {
+    "id": "3d24",
+    "userId": "eb1b",
+    "voucherId": "5",
+    "code": "FREESHIP",
+    "description": "Miễn phí vận chuyển",
+    "used": true,
+    "isUsed": true,
+    "receivedAt": "2026-01-12T12:01:56.560Z"
+  },
+  {
+    "id": "eac0",
+    "userId": "d946",
+    "voucherId": "1",
+    "code": "GIAM10K",
+    "description": "Giảm 10.000đ cho đơn từ 100K",
+    "used": true,
+    "isUsed": true,
+    "receivedAt": "2026-01-12T12:38:05.202Z"
+  },
+  {
+    "id": "c013",
+    "userId": "1",
+    "voucherId": "3",
+    "code": "GIAM50K",
+    "description": "Giảm 50.000đ cho đơn từ 500K",
+    "used": false,
+    "isUsed": false,
+    "receivedAt": "2026-01-14T06:09:00.867Z"
+  },
+  {
+    "id": "a2cd",
+    "userId": "2",
+    "voucherId": "1",
+    "code": "GIAM10K",
+    "description": "Giảm 10.000đ cho đơn từ 100K",
+    "used": false,
+    "isUsed": false,
+    "receivedAt": "2026-01-14T07:34:44.877Z"
+  },
+  {
+    "userId": "C_YbsiQ",
+    "voucherId": "2",
+    "code": "GIAM20K",
+    "description": "Giảm 20.000đ cho đơn từ 200K",
+    "used": false,
+    "isUsed": false,
+    "receivedAt": "2026-01-15T09:49:51.063Z",
+    "id": "hOwjtUl"
+  }
+]

@@ -26,7 +26,7 @@ export const useFavorites = () => {
     try {
       setLoading(true);
       const favoriteProducts = await favoritesAPI.getAll(user.id);
-      setFavorites(favoriteProducts.map(p => p.id));
+      setFavorites(favoriteProducts.map(p => parseInt(p.id)));
     } catch (err) {
       console.error('Lỗi tải yêu thích:', err);
       setFavorites([]);
