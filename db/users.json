@@ -1,0 +1,109 @@
+[
+  {
+    "id": "1",
+    "email": "admin@gmail.com",
+    "password": "hung123",
+    "name": "Admin",
+    "phone": "0921432352",
+    "address": "bien hoa",
+    "role": "admin",
+    "createdAt": "2024-01-01T00:00:00.000Z",
+    "avatar": "blob:http://localhost:3000/608c8907-c652-487e-8734-1f320bfbf314",
+    "notificationSettings": {
+      "orderUpdates": false,
+      "promotions": false,
+      "systemNews": false,
+      "emailNotifications": false
+    },
+    "language": "en"
+  },
+  {
+    "id": "2",
+    "email": "user@gmail.com",
+    "password": "123456",
+    "name": "Normal User",
+    "phone": "",
+    "address": "",
+    "role": "user",
+    "createdAt": "2024-01-01T00:00:00.000Z",
+    "avatar": null,
+    "notificationSettings": {
+      "orderUpdates": true,
+      "promotions": true,
+      "systemNews": true,
+      "emailNotifications": true
+    },
+    "language": "vi"
+  },
+  {
+    "email": "abc123@gmail.com",
+    "password": "113004",
+    "name": "Thang",
+    "phone": "",
+    "address": "",
+    "role": "user",
+    "createdAt": "2025-12-15T11:14:18.027Z",
+    "id": "3"
+  },
+  {
+    "id": "a56e",
+    "email": "abc@gmail.com",
+    "password": "123456",
+    "name": "abcxyz",
+    "phone": "",
+    "address": "",
+    "role": "user",
+    "createdAt": "2026-01-11T01:51:52.605Z"
+  },
+  {
+    "id": "d454",
+    "email": "hung@gmail.com",
+    "password": "123456",
+    "name": "ádasd",
+    "phone": "",
+    "address": "",
+    "role": "user",
+    "createdAt": "2026-01-12T08:02:04.326Z"
+  },
+  {
+    "id": "dba3",
+    "email": "khanhtamm@gmail.com",
+    "password": "123123",
+    "name": "khanhatma",
+    "phone": "",
+    "address": "",
+    "role": "user",
+    "createdAt": "2026-01-12T11:42:22.729Z"
+  },
+  {
+    "id": "eb1b",
+    "email": "thang@gmail.com",
+    "password": "123123",
+    "name": "tam",
+    "phone": "",
+    "address": "",
+    "role": "user",
+    "createdAt": "2026-01-12T12:01:44.619Z"
+  },
+  {
+    "id": "d946",
+    "email": "aa@gmail.com",
+    "password": "123123",
+    "name": "aaa",
+    "phone": "",
+    "address": "",
+    "role": "user",
+    "createdAt": "2026-01-12T12:37:38.177Z"
+  },
+  {
+    "email": "abc113@gmail.com",
+    "password": "113004",
+    "name": "Thang",
+    "phone": "",
+    "address": "",
+    "role": "user",
+    "createdAt": "2026-01-15T09:48:27.376Z",
+    "id": "C_YbsiQ",
+    "avatar": "blob:http://localhost:3000/b4d2bee7-f450-4fd0-ad28-96ed8522550a"
+  }
+]

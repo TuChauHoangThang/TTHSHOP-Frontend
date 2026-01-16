@@ -106,7 +106,6 @@ const Header = () => {
                     ) : (
                         <div className="auth-links">
                             <Link to="/login" className="nav-link">Đăng Nhập</Link>
-                            <Link to="/register" className="nav-link">Đăng Ký</Link>
                         </div>
                     )}
                 </nav>
@@ -159,7 +158,6 @@ const Header = () => {
                 ) : (
                     <>
                         <Link to="/login" className="mobile-nav-link" onClick={() => setIsMenuOpen(false)}>Đăng Nhập</Link>
-                        <Link to="/register" className="mobile-nav-link" onClick={() => setIsMenuOpen(false)}>Đăng Ký</Link>
                     </>
                 )}
             </nav>

@@ -1,9 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useProducts } from '../hooks/useProducts';
-import { useCart } from '../context/CartContext';
-import { useAuth } from '../context/AuthContext';
-import { productsAPI, favoritesAPI } from '../services/api';
+import { useHomePage } from '../hooks/useHomePage';
 import { formatPrice } from '../utils/formatPrice';
 import { FontAwesomeIcon, icons } from '../utils/icons';
 import '../styles/HomePage.css';
@@ -15,93 +12,16 @@ import 'swiper/css/navigation';
 
 const HomePage = () => {
     const navigate = useNavigate();
-    const { products, loading } = useProducts();
-    const { addToCart } = useCart();
-    const { user } = useAuth();
-
-    const [favorites, setFavorites] = useState([]);
-    const [bestSellingProducts, setBestSellingProducts] = useState([]);
-    const [discountedProducts, setDiscountedProducts] = useState([]);
-
-    useEffect(() => {
-        loadFavorites();
-    }, [user]);
-
-    useEffect(() => {
-        if (products.length > 0) {
-            // 1. Sản phẩm bán chạy: Sắp xếp theo số lượng đã bán (sold) giảm dần
-            const sortedBySold = [...products]
-                .sort((a, b) => (b.sold || 0) - (a.sold || 0))
-                .slice(0, 4); // Lấy 4 sản phẩm
-            setBestSellingProducts(sortedBySold);
-
-            // 2. Sản phẩm giảm giá: Có originalPrice > price
-            const discounted = products
-                .filter(p => p.originalPrice && p.originalPrice > p.price)
-                .sort((a, b) => {
-                    const discountA = (a.originalPrice - a.price) / a.originalPrice;
-                    const discountB = (b.originalPrice - b.price) / b.originalPrice;
-                    return discountB - discountA; // Giảm giá sâu xếp trước
-                })
-                .slice(0, 4);
-            setDiscountedProducts(discounted);
-        }
-    }, [products]);
-
-    const loadFavorites = async () => {
-        if (user) {
-            try {
-                const favoriteProducts = await favoritesAPI.getAll(user.id);
-                setFavorites(favoriteProducts.map(p => p.id));
-            } catch (err) {
-                console.error('Lỗi tải yêu thích:', err);
-                setFavorites([]);
-            }
-        } else {
-            setFavorites([]);
-        }
-    };
-
-    const handleAddToCart = async (productId) => {
-        try {
-            await addToCart(productId, 1);
-            alert('Đã thêm vào giỏ hàng!');
-        } catch (err) {
-            alert(err.message);
-        }
-    };
-
-    const handleToggleFavorite = async (productId) => {
-        if (!user) {
-            const confirmLogin = window.confirm('Vui lòng đăng nhập để thêm sản phẩm vào yêu thích. Bạn có muốn đăng nhập ngay bây giờ?');
-            if (confirmLogin) {
-                navigate('/login');
-            }
-            return;
-        }
-
-        try {
-            const isFavorite = favoritesAPI.isFavorite(productId, user.id);
-            if (isFavorite) {
-                await favoritesAPI.removeFromFavorites(productId, user.id);
-                alert('Đã xóa khỏi yêu thích');
-            } else {
-                await favoritesAPI.addToFavorites(productId, user.id);
-                alert('Đã thêm vào yêu thích');
-            }
-            loadFavorites();
-        } catch (err) {
-            alert(err.message);
-        }
-    };
-
-    const handleProductClick = (productId) => {
-        navigate(`/products/${productId}`);
-    };
-
-    const handleViewProducts = () => {
-        navigate('/products');
-    };
+    const {
+        loading,
+        favorites,
+        bestSellingProducts,
+        discountedProducts,
+        handleAddToCart,
+        handleToggleFavorite,
+        handleProductClick,
+        handleViewProducts
+    } = useHomePage();
 
     const bannerData = [
         {
@@ -204,14 +124,19 @@ const HomePage = () => {
             </section>
 
             {/* SẢN PHẨM BÁN CHẠY */}
-            <section className="products">
-                <h2>Sản phẩm bán chạy</h2>
+            <section className="products best-selling-section">
+                <div className="section-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
+                    <h2>Sản phẩm bán chạy</h2>
+                    <button className="view-more-btn" onClick={() => navigate('/best-selling')}>
+                        Xem thêm
+                    </button>
+                </div>
                 {loading ? (
                     <div className="loading">Đang tải sản phẩm...</div>
                 ) : (
                     <div className="products-grid">
                         {bestSellingProducts.map(product => {
-                            const isFavorite = favorites.includes(product.id);
+                            const isFavorite = favorites.some(favId => String(favId) === String(product.id));
                             return (
                                 <div key={product.id} className="product-card">
                                     <div
@@ -289,11 +214,16 @@ const HomePage = () => {
 
             {/* SẢN PHẨM KHUYẾN MÃI */}
             {discountedProducts.length > 0 && (
-                <section className="products">
-                    <h2>Săn Sale Giá Sốc</h2>
+                <section className="products sale-section">
+                    <div className="section-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
+                        <h2>Săn Sale Giá Sốc</h2>
+                        <button className="view-more-btn" onClick={() => navigate('/flash-sale')}>
+                            Xem thêm
+                        </button>
+                    </div>
                     <div className="products-grid">
                         {discountedProducts.map(product => {
-                            const isFavorite = favorites.includes(product.id);
+                            const isFavorite = favorites.some(favId => String(favId) === String(product.id));
                             const discountPercent = Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100);
 
                             return (
@@ -368,46 +298,49 @@ const HomePage = () => {
 
             {/* FEEDBACK */}
             <section className="feedback">
-                <h2>Khách hàng nói gì về TTH Shop?</h2>
-                <div className="feedback-list">
-                    <div className="feedback-card">
-                        <div className="feedback-content">
-                            "Lần đầu mua tranh giấy cuộn nhưng rất bất ngờ vì độ độc đáo. Sản phẩm nhẹ, dễ bảo quản và rất nổi bật. Đóng gói rất cẩn thận."
-                        </div>
-                        <div className="feedback-author">
-                            <div className="author-avatar">TG</div>
-                            <div className="author-info">
-                                <h4>Trà Giang</h4>
-                                <p>Đã mua Tranh cuộn</p>
+                <div className="feedback-container">
+                    <h2>Khách hàng nói gì về TTH Shop?</h2>
+                    <div className="feedback-list">
+                        <div className="feedback-card">
+                            <div className="feedback-content">
+                                "Lần đầu mua tranh giấy cuộn nhưng rất bất ngờ vì độ độc đáo. Sản phẩm nhẹ, dễ bảo quản và rất nổi bật. Đóng gói rất cẩn thận."
+                            </div>
+                            <div className="feedback-author">
+                                <div className="author-avatar">TG</div>
+                                <div className="author-info">
+                                    <h4>Trà Giang</h4>
+                                    <p>Đã mua Tranh cuộn</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div className="feedback-card">
-                        <div className="feedback-content">
-                            "Mùi nến thơm rất dễ chịu, không bị gắt như các loại nến công nghiệp. Hũ nến xinh xắn, dùng làm quà tặng rất hợp lý."
-                        </div>
-                        <div className="feedback-author">
-                            <div className="author-avatar">MA</div>
-                            <div className="author-info">
-                                <h4>Minh Anh</h4>
-                                <p>Đã mua Nến thơm</p>
+                        <div className="feedback-card">
+                            <div className="feedback-content">
+                                "Mùi nến thơm rất dễ chịu, không bị gắt như các loại nến công nghiệp. Hũ nến xinh xắn, dùng làm quà tặng rất hợp lý."
+                            </div>
+                            <div className="feedback-author">
+                                <div className="author-avatar">MA</div>
+                                <div className="author-info">
+                                    <h4>Minh Anh</h4>
+                                    <p>Đã mua Nến thơm</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div className="feedback-card">
-                        <div className="feedback-content">
-                            "Túi vải rất dày dặn, đường may chắc chắn. Mình dùng đi học hàng ngày đựng rất nhiều sách vở mà vẫn bền. Sẽ ủng hộ shop dài dài."
-                        </div>
-                        <div className="feedback-author">
-                            <div className="author-avatar">HL</div>
-                            <div className="author-info">
-                                <h4>Hoàng Long</h4>
-                                <p>Đã mua Túi Canvas</p>
+                        <div className="feedback-card">
+                            <div className="feedback-content">
+                                "Túi vải rất dày dặn, đường may chắc chắn. Mình dùng đi học hàng ngày đựng rất nhiều sách vở mà vẫn bền. Sẽ ủng hộ shop dài dài."
+                            </div>
+                            <div className="feedback-author">
+                                <div className="author-avatar">HL</div>
+                                <div className="author-info">
+                                    <h4>Hoàng Long</h4>
+                                    <p>Đã mua Túi Canvas</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
+
         </div>
     );
 };

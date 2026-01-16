@@ -2,14 +2,16 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon, icons } from '../utils/icons';
 import '../styles/Pagination.css';
 
-const Pagination = ({ 
-  currentPage, 
-  totalPages, 
-  onPageChange, 
+const Pagination = ({
+  currentPage,
+  totalPages,
+  onPageChange,
   itemsPerPage = 12,
-  showPageInfo = true 
+  showPageInfo = true
 }) => {
   const [inputPage, setInputPage] = useState('');
+
+  // Không cần useEffect đồng bộ currentPage vào input nữa vì input dùng để nhập trang mới
 
   if (totalPages <= 1) {
     return null; // Không hiển thị phân trang nếu chỉ có 1 trang
@@ -51,7 +53,7 @@ const Pagination = ({
           Trang {currentPage} / {totalPages}
         </div>
       )}
-      
+
       <div className="pagination">
         {/* Nút Previous */}
         <button
@@ -63,7 +65,7 @@ const Pagination = ({
           <FontAwesomeIcon icon={icons.chevronLeft} />
         </button>
 
-        {/* Trang trước */}
+        {/* Trang trước số */}
         {currentPage > 1 && (
           <button
             className="pagination-btn"
@@ -74,16 +76,20 @@ const Pagination = ({
           </button>
         )}
 
-        {/* Trang hiện tại */}
-        <button
-          className="pagination-btn active"
-          aria-label={`Trang ${currentPage}`}
-          aria-current="page"
-        >
-          {currentPage}
-        </button>
+        {/* Ô nhập trang cần tới */}
+        <form onSubmit={handleInputSubmit} className="pagination-input-form">
+          <input
+            type="text"
+            className="pagination-input current-page-input"
+            value={inputPage}
+            placeholder="..."
+            onChange={handleInputChange}
+            onBlur={handleInputBlur}
+            aria-label="Nhập số trang cần tới"
+          />
+        </form>
 
-        {/* Trang kế tiếp */}
+        {/* Trang kế tiếp số */}
         {currentPage < totalPages && (
           <button
             className="pagination-btn"
@@ -93,26 +99,6 @@ const Pagination = ({
             {currentPage + 1}
           </button>
         )}
-
-        {/* Input nhập trang */}
-        <form onSubmit={handleInputSubmit} className="pagination-input-form">
-          <input
-            type="text"
-            className="pagination-input"
-            placeholder="Trang"
-            value={inputPage}
-            onChange={handleInputChange}
-            onBlur={handleInputBlur}
-            aria-label="Nhập số trang"
-          />
-          <button
-            type="submit"
-            className="pagination-go-btn"
-            aria-label="Đi đến trang"
-          >
-            Đến
-          </button>
-        </form>
 
         {/* Nút Next */}
         <button

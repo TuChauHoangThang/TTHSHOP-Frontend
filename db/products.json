@@ -1,0 +1,5045 @@
+[
+  {
+    "id": "1",
+    "name": "Vòng tay handmade từ hạt gỗ tự nhiên",
+    "price": 150000,
+    "image": "https://bizweb.dktcdn.net/thumb/1024x1024/100/053/286/products/20190401173317-img-2959.jpg?v=1557219127160",
+    "description": "Vòng tay handmade độc đáo được làm từ hạt gỗ tự nhiên, kết hợp với dây da mềm mại. Sản phẩm thân thiện với môi trường, phù hợp cho mọi lứa tuổi.",
+    "category": "Phụ kiện",
+    "colors": [
+      "Đỏ",
+      "Đen",
+      "Trắng"
+    ],
+    "types": [
+      "Size S",
+      "Size M",
+      "Size L"
+    ],
+    "stock": 5,
+    "rating": 4,
+    "reviews": 1,
+    "tags": [
+      "handmade",
+      "gỗ",
+      "phụ kiện"
+    ],
+    "images": [
+      "https://bizweb.dktcdn.net/thumb/1024x1024/100/053/286/products/20190401172541-img-2949.jpg?v=1557219127160",
+      "https://bizweb.dktcdn.net/thumb/1024x1024/100/053/286/products/20190401172649-img-2951.jpg?v=1557219127160"
+    ],
+    "sold": 633
+  },
+  {
+    "id": "2",
+    "name": "Túi vải handmade thân thiện môi trường",
+    "price": 250000,
+    "image": "https://canavibag.com/uploads/hinh-0016.jpg",
+    "description": "Túi vải canvas handmade với thiết kế đơn giản nhưng tinh tế. Kích thước vừa phải, phù hợp cho việc đi chợ, đi học hoặc đi làm. Có thể giặt máy.",
+    "category": "Túi xách",
+    "colors": [
+      "Be",
+      "Nâu",
+      "Đen"
+    ],
+    "types": [
+      "Nhỏ",
+      "Vừa",
+      "Lớn"
+    ],
+    "stock": 3,
+    "rating": 5,
+    "reviews": 1,
+    "tags": [
+      "handmade",
+      "vải",
+      "thân thiện môi trường"
+    ],
+    "images": [
+      "https://canavibag.com/uploads/2819361tui-deo-cheo-cho-nam-11.png",
+      "https://canavibag.com/uploads/tote-bag-promotional-shopping-bag-6f900ff4-0e8c-48fa-a78b-aef495cdae75.jpg"
+    ],
+    "sold": 545,
+    "originalPrice": 373000
+  },
+  {
+    "id": "3",
+    "name": "Khăn choàng len handmade",
+    "price": 320000,
+    "image": "https://down-vn.img.susercontent.com/file/3d32d1efd730d3084521be12f5a4ea06@resize_w900_nl.webp",
+    "description": "Khăn choàng len ấm áp được đan tay với chất liệu len mềm mại. Thiết kế hoa văn độc đáo, màu sắc đa dạng. Phù hợp cho mùa đông.",
+    "category": "sản phẩm từ len",
+    "colors": [
+      "Hồng",
+      "Xám",
+      "Xanh dương"
+    ],
+    "types": [
+      "Khăn ngắn",
+      "Khăn dài"
+    ],
+    "stock": 7,
+    "rating": 4,
+    "reviews": 1,
+    "tags": [
+      "handmade",
+      "len",
+      "mùa đông"
+    ],
+    "images": [
+      "https://down-vn.img.susercontent.com/file/vn-11134207-7ras8-m46w5qw21z9r43@resize_w900_nl.webp",
+      "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-llrzs5ybs3bz78@resize_w900_nl.webp"
+    ],
+    "sold": 39
+  },
+  {
+    "id": "4",
+    "name": "Nến thơm handmade từ sáp ong",
+    "price": 180000,
+    "image": "https://static.spacet.vn/image-resized/1024x10240_max/img/blog/2023-10-06/top-5-cach-lam-nen-thom-handmade-don-gian-cho-nguoi-moi-bat-dau-651fd522c9649b0ef524c09a.webp",
+    "description": "Nến thơm được làm từ sáp ong tự nhiên, có mùi hương dịu nhẹ. Thời gian cháy lâu, an toàn cho sức khỏe. Có nhiều mùi hương để lựa chọn.",
+    "category": "Trang trí",
+    "colors": [
+      "Trắng",
+      "Vàng nhạt",
+      "Xanh lá"
+    ],
+    "types": [
+      "Hộp đơn",
+      "Hộp đôi"
+    ],
+    "stock": 12,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "nến",
+      "sáp ong",
+      "trang trí"
+    ],
+    "images": [
+      "https://spacet-release.s3.ap-southeast-1.amazonaws.com/img/blog/2023-10-06/top-5-cach-lam-nen-thom-handmade-don-gian-cho-nguoi-moi-bat-dau-651fd5b7c9649b0ef524d86e.webp",
+      "https://spacet-release.s3.ap-southeast-1.amazonaws.com/img/blog/2023-10-06/top-5-cach-lam-nen-thom-handmade-don-gian-cho-nguoi-moi-bat-dau-651fd5b8c9649b0ef524d871.webp"
+    ],
+    "sold": 886
+  },
+  {
+    "id": "5",
+    "name": "Tranh thêu tay hoa sen",
+    "price": 450000,
+    "image": "https://theuviet.com/wp-content/uploads/2019/12/tranh-theu-tay-hoa-sen-msen0005-1577178776.jpg",
+    "description": "Tranh thêu tay với hình ảnh hoa sen thanh tao. Được thêu bằng chỉ lụa cao cấp, khung gỗ tự nhiên. Phù hợp trang trí phòng khách hoặc phòng ngủ.",
+    "category": "tranh cuộn",
+    "colors": [
+      "Nâu gỗ",
+      "Đen viền"
+    ],
+    "types": [
+      "40x50",
+      "60x80"
+    ],
+    "stock": 2,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "thêu",
+      "tranh",
+      "trang trí"
+    ],
+    "images": [
+      "https://theuviet.com/wp-content/uploads/2020/03/tranh-theu-tay-hoa-sen-msen0005.jpg",
+      "https://theuviet.com/wp-content/uploads/2020/03/chi-tiet-tranh-theu-tay-hoa-sen-msen0005.jpg"
+    ],
+    "sold": 75,
+    "originalPrice": 637000
+  },
+  {
+    "id": "6",
+    "name": "Bộ ly sứ vẽ tay",
+    "price": 280000,
+    "image": "https://lysu.com.vn/wp-content/uploads/2025/04/ly-su-bat-trang-qua-tang-in-logo-hoa-tiet-ve-tay-hoa-sen-do-co-nap-dung-tich-350ml-1.jpg",
+    "description": "Bộ 4 ly sứ được vẽ tay với hoa văn độc đáo. Mỗi ly có thiết kế riêng biệt, không chiếc nào giống chiếc nào. An toàn cho sức khỏe, có thể dùng trong lò vi sóng.",
+    "category": "Đồ dùng",
+    "stock": 6,
+    "rating": 0,
+    "reviews": 0,
+    "colors": [
+      "Trắng",
+      "Xanh dương",
+      "Hồng nhạt"
+    ],
+    "types": [
+      "Bộ 4 ly",
+      "Bộ 6 ly",
+      "Bộ 8 ly"
+    ],
+    "tags": [
+      "handmade",
+      "sứ",
+      "ly",
+      "vẽ tay"
+    ],
+    "images": [
+      "https://product.hstatic.net/200000781139/product/ly_ve_truc_61092f8723574f718296bd1b5fc167ad_grande.jpg",
+      "https://xuonggomsu.vn/wp-content/uploads/2024/07/ly-tru-quai-vuong-bat-trang-co-nap-hoa-tiet-ve-tay-2.jpg"
+    ],
+    "sold": 158
+  },
+  {
+    "id": "7",
+    "name": "Ví da handmade",
+    "price": 380000,
+    "image": "https://vuadasaigon.com/images/thumbnails/480/480/detailed/5/vi_da_bo_may_thu_cong_vd80_1.jpg",
+    "description": "Ví da bò thật được làm thủ công, có nhiều ngăn tiện lợi. Chất liệu da mềm, bền đẹp theo thời gian. Thiết kế tối giản, phù hợp cho cả nam và nữ.",
+    "category": "Phụ kiện",
+    "stock": 4,
+    "rating": 0,
+    "reviews": 0,
+    "colors": [
+      "Nâu",
+      "Đen",
+      "Nâu đậm"
+    ],
+    "types": [
+      "Ví dài",
+      "Ví ngắn",
+      "Ví đa năng"
+    ],
+    "tags": [
+      "handmade",
+      "da",
+      "ví",
+      "phụ kiện"
+    ],
+    "images": [
+      "https://vuadasaigon.com/images/thumbnails/480/480/detailed/5/vi_da_bo_may_thu_cong_vd80_2.jpg",
+      "https://vuadasaigon.com/images/thumbnails/480/480/detailed/5/vi_da_bo_may_thu_cong_vd80_3.jpg"
+    ],
+    "sold": 516
+  },
+  {
+    "id": "8",
+    "name": "Móc khóa đất sét nung",
+    "price": 85000,
+    "image": "https://cdn.chus.vn/images/thumbnails/767/767/detailed/272/10683_35_F1.jpg.webp",
+    "description": "Móc khóa được nặn từ đất sét và nung thủ công. Có nhiều hình dạng đáng yêu như động vật, hoa quả. Màu sắc tươi sáng, bền màu.",
+    "category": "móc chìa khóa",
+    "stock": 20,
+    "rating": 0,
+    "reviews": 0,
+    "colors": [
+      "Đỏ",
+      "Vàng",
+      "Xanh lá",
+      "Hồng"
+    ],
+    "types": [
+      "Hình động vật",
+      "Hình hoa quả",
+      "Hình trái tim"
+    ],
+    "tags": [
+      "handmade",
+      "đất sét",
+      "móc khóa"
+    ],
+    "images": [
+      "https://cdn.chus.vn/images/thumbnails/850/566/product_mood_image/272/10683_35_M1.jpg.webp",
+      "https://cdn.chus.vn/images/thumbnails/850/566/detailed/272/10683_35_C1.jpg.webp"
+    ],
+    "sold": 971
+  },
+  {
+    "id": "9",
+    "name": "Gối tựa lưng thêu hoa",
+    "price": 220000,
+    "image": "https://product.hstatic.net/1000203256/product/dsc04860_97c7b0cd7ebd4cfa9b408a08de312cf7_1024x1024.jpg",
+    "description": "Gối tựa lưng được thêu tay với hoa văn tinh tế. Ruột gối làm từ bông tự nhiên, vỏ gối bằng vải cotton mềm mại. Kích thước 40x40cm.",
+    "category": "Trang trí",
+    "stock": 7,
+    "rating": 0,
+    "reviews": 0,
+    "colors": [
+      "Trắng",
+      "Be",
+      "Hồng nhạt"
+    ],
+    "types": [
+      "40x40cm",
+      "50x50cm",
+      "60x60cm"
+    ],
+    "tags": [
+      "handmade",
+      "gối",
+      "thêu",
+      "trang trí"
+    ],
+    "images": [
+      "https://product.hstatic.net/1000203256/product/dsc04864_eac0603dbb6448f0a89ae79c7ba099da_1024x1024.jpg",
+      "https://product.hstatic.net/1000203256/product/dsc04868_ac743d7f7f9c4476a7709229c26ead01_1024x1024.jpg"
+    ],
+    "sold": 56
+  },
+  {
+    "id": "10",
+    "name": "Bình hoa gốm sứ handmade",
+    "price": 350000,
+    "image": "https://vinacera.com/wp-content/uploads/2024/03/binh-hoa-mini-men-trang-ve-hoa-tiet-5.jpg",
+    "description": "Bình hoa gốm sứ được nung thủ công với hoa văn độc đáo. Kích thước vừa phải, phù hợp để cắm hoa tươi hoặc hoa khô. Màu sắc tự nhiên, sang trọng.",
+    "category": "Trang trí",
+    "stock": 5,
+    "rating": 0,
+    "reviews": 0,
+    "colors": [
+      "Nâu gỗ",
+      "Trắng",
+      "Xanh nhạt"
+    ],
+    "types": [
+      "Nhỏ (15cm)",
+      "Vừa (20cm)",
+      "Lớn (25cm)"
+    ],
+    "tags": [
+      "handmade",
+      "gốm",
+      "bình hoa",
+      "trang trí"
+    ],
+    "images": [
+      "https://vinacera.com/wp-content/uploads/2024/03/binh-hoa-mini-men-trang-ve-hoa-tiet-8.jpg",
+      "https://vinacera.com/wp-content/uploads/2024/03/binh-hoa-mini-men-trang-ve-hoa-tiet-12.jpg"
+    ],
+    "sold": 707
+  },
+  {
+    "id": "11",
+    "name": "Túi đeo chéo da thật handmade",
+    "price": 420000,
+    "image": "https://www.gento.vn/wp-content/uploads/2021/04/tui-deo-cheo-da-bo-sap-gento-176.jpg",
+    "description": "Túi đeo chéo được làm từ da bò thật, thiết kế tối giản và thanh lịch. Có nhiều ngăn tiện lợi, dây đeo có thể điều chỉnh. Phù hợp cho cả nam và nữ.",
+    "category": "túi balo",
+    "stock": 6,
+    "rating": 0,
+    "reviews": 0,
+    "colors": [
+      "Nâu",
+      "Đen",
+      "Nâu đậm"
+    ],
+    "types": [
+      "Nhỏ",
+      "Vừa",
+      "Lớn"
+    ],
+    "tags": [
+      "handmade",
+      "da",
+      "túi",
+      "phụ kiện"
+    ],
+    "images": [
+      "https://www.gento.vn/wp-content/uploads/2021/04/tui-deo-cheo-da-bo-sap-gento-1761.jpg",
+      "https://www.gento.vn/wp-content/uploads/2021/04/tui-deo-cheo-da-bo-sap-gento-1762.jpg"
+    ],
+    "sold": 944,
+    "originalPrice": 624000
+  },
+  {
+    "id": "12",
+    "name": "Bộ khăn trải bàn thêu tay",
+    "price": 380000,
+    "image": "https://tanmydesign.com/temp/-uploaded-san-pham-Khan%20trai%20ban%20theu-Table%20Runner_RUNNER-DAOLEO-23_cr_324x324.jpg",
+    "description": "Bộ khăn trải bàn được thêu tay với hoa văn truyền thống. Chất liệu vải cotton cao cấp, dễ giặt và bền màu. Kích thước 150x150cm.",
+    "category": "Trang trí",
+    "stock": 4,
+    "rating": 0,
+    "reviews": 0,
+    "colors": [
+      "Trắng",
+      "Be",
+      "Kem"
+    ],
+    "types": [
+      "120x120cm",
+      "150x150cm",
+      "180x180cm"
+    ],
+    "tags": [
+      "handmade",
+      "thêu",
+      "khăn",
+      "trang trí"
+    ],
+    "images": [
+      "https://tanmydesign.com/temp/-uploaded-san-pham-Khan%20trai%20ban%20theu-kh%C4%83n%20tr%E1%BA%A3i%20b%C3%A0n%20tr%C3%B2n_KTB-TRON-CAMTUCAUDO-9_cr_324x324.jpg",
+      "https://tanmydesign.com/temp/-uploaded-san-pham-Khan%20trai%20ban%20theu_IG8A5484_cr_324x324.jpg"
+    ],
+    "sold": 801
+  },
+  {
+    "id": "13",
+    "name": "Đèn ngủ gốm sứ handmade",
+    "price": 280000,
+    "image": "http://gomsusonghong.com/uploads/u/gomsusonghong.vn/product/2019/07/04/21/34/600_600/mau1562229291.jpg",
+    "description": "Đèn ngủ được làm từ gốm sứ, ánh sáng dịu nhẹ tạo không gian ấm cúng. Thiết kế độc đáo, an toàn khi sử dụng. Có nhiều màu sắc để lựa chọn.",
+    "category": "Trang trí",
+    "stock": 8,
+    "rating": 0,
+    "reviews": 0,
+    "colors": [
+      "Trắng",
+      "Xanh dương",
+      "Hồng nhạt"
+    ],
+    "types": [
+      "Nhỏ (15W)",
+      "Vừa (25W)",
+      "Lớn (40W)"
+    ],
+    "tags": [
+      "handmade",
+      "gốm",
+      "đèn",
+      "trang trí"
+    ],
+    "images": [
+      "http://gomsusonghong.com/uploads/u/gomsusonghong.vn/product/2019/07/04/21/34/600_600/mau1562229299.jpg",
+      "http://gomsusonghong.com/uploads/u/gomsusonghong.vn/product/2019/07/04/21/35/600_600/mau1562229305.jpg"
+    ],
+    "sold": 115
+  },
+  {
+    "id": "14",
+    "name": "Bộ bát đĩa gốm handmade",
+    "price": 320000,
+    "image": "https://xuonggomsuviet.vn/wp-content/uploads/2024/09/bo-bat-dia-bat-trang-men-hoang-tho-ve-hoa-cuc-4.webp",
+    "description": "Bộ 6 bát đĩa gốm được nung thủ công, hoa văn độc đáo. An toàn cho sức khỏe, có thể dùng trong lò vi sóng và máy rửa bát.",
+    "category": "Đồ dùng",
+    "stock": 5,
+    "rating": 0,
+    "reviews": 0,
+    "colors": [
+      "Trắng",
+      "Xanh nhạt",
+      "Be"
+    ],
+    "types": [
+      "Bộ 4 người",
+      "Bộ 6 người",
+      "Bộ 8 người"
+    ],
+    "tags": [
+      "handmade",
+      "gốm",
+      "bát đĩa",
+      "đồ dùng"
+    ],
+    "images": [
+      "https://product.hstatic.net/200000258799/product/z4561837080862_2d7aadd56c292a69c9e6c1743a442803_7a696a1c45fb4a0aa7974f8bd8a311ae_master.jpg",
+      "https://gomsuhcm.com/wp-content/uploads/2019/07/Bo-bat-dia-bat-trang-ve-chuon-men-ran-cao-cap-02.jpg"
+    ],
+    "sold": 881
+  },
+  {
+    "id": "15",
+    "name": "Túi xách cói đan tay",
+    "price": 290000,
+    "image": "https://kamaka.vn/cdn/shop/files/2_34a3bf8b-2c55-4db8-894b-7e3deb6ae7df_1400x.jpg?v=1747046562",
+    "description": "Túi xách được đan từ cói tự nhiên, thiết kế bền chắc và thời trang. Phù hợp cho mùa hè, thân thiện với môi trường. Có thể giặt nhẹ.",
+    "category": "túi balo",
+    "stock": 7,
+    "rating": 0,
+    "reviews": 0,
+    "colors": [
+      "Nâu",
+      "Be",
+      "Kem"
+    ],
+    "types": [
+      "Nhỏ",
+      "Vừa",
+      "Lớn"
+    ],
+    "tags": [
+      "handmade",
+      "cói",
+      "túi",
+      "thân thiện môi trường"
+    ],
+    "images": [
+      "https://kamaka.vn/cdn/shop/files/6_9a0bda3e-aaf0-4204-95cf-d6155c70ed5c_1400x.jpg?v=1747046573",
+      "https://lh4.googleusercontent.com/proxy/oLjwdihmhJS3n9wvO8Lr7OF-xUzXTVUmmxiPCSBf_VpJ1bgIBXZAZntrCckuGobssuoGZieOnvoEQaWB46Q_HGmC4h1pepoqUT4SEIJ4DchwaASH40xgnTCnruuhiuuIZlAGBnPNRzL5jutNPwNTxXZzPUnY_25FcyCiHDztVb7XtDNg"
+    ],
+    "sold": 722
+  },
+  {
+    "id": "16",
+    "name": "Vòng cổ đá tự nhiên handmade",
+    "price": 200000,
+    "image": "https://product.hstatic.net/1000238562/product/_eo_1456_abee05781fd6417883da6b5bbe595fbf_master.jpg",
+    "description": "Vòng cổ được làm từ đá tự nhiên, mỗi chiếc đều độc đáo. Dây đeo bằng da mềm mại, có thể điều chỉnh độ dài. Phù hợp cho mọi phong cách.",
+    "category": "Phụ kiện",
+    "stock": 9,
+    "rating": 0,
+    "reviews": 0,
+    "colors": [
+      "Xanh lá",
+      "Đỏ",
+      "Tím",
+      "Xanh dương"
+    ],
+    "types": [
+      "Ngắn (40cm)",
+      "Vừa (45cm)",
+      "Dài (50cm)"
+    ],
+    "tags": [
+      "handmade",
+      "đá",
+      "vòng cổ",
+      "phụ kiện"
+    ],
+    "images": [
+      "https://cdn.chus.vn/images/thumbnails/767/767/detailed/203/1647352525_10101-04-f1_w767_h1105.jpg.webp",
+      "https://chus.vn/images/detailed/284/Hi%CC%80nh_F_no9n-j3.jpg"
+    ],
+    "sold": 530,
+    "originalPrice": 233000
+  },
+  {
+    "id": "17",
+    "name": "Bộ khăn tắm cotton handmade",
+    "price": 350000,
+    "image": "https://hanvico.com.vn/wp-content/uploads/2023/11/dsc08268.jpg",
+    "description": "Bộ 2 khăn tắm cotton cao cấp, thấm hút tốt và mềm mại. Kích thước 70x140cm, phù hợp cho cả gia đình. Có thể giặt máy.",
+    "category": "Thời trang",
+    "stock": 6,
+    "rating": 0,
+    "reviews": 0,
+    "colors": [
+      "Trắng",
+      "Xanh dương",
+      "Hồng",
+      "Xám"
+    ],
+    "types": [
+      "Bộ 2 khăn",
+      "Bộ 4 khăn",
+      "Bộ 6 khăn"
+    ],
+    "tags": [
+      "handmade",
+      "cotton",
+      "khăn tắm",
+      "thời trang"
+    ],
+    "images": [
+      "https://hanvico.com.vn/wp-content/uploads/2023/11/dsc08270.jpg",
+      "https://khantamgiasi.vn/wp-content/uploads/2023/03/khan-tam-chat-lieu-bamboo-soi-tre_64084e61a8e5b.jpeg"
+    ],
+    "sold": 757,
+    "originalPrice": 448000
+  },
+  {
+    "id": "18",
+    "name": "Hộp đựng đồ gỗ handmade",
+    "price": 180000,
+    "image": "https://product.hstatic.net/200000057828/product/hop-go-handmade_9fa6efbc03f2466899a426e5e55cf3c6_421885e4d9004a8dbf13c818545e350a_master.jpg",
+    "description": "Hộp đựng đồ được làm từ gỗ tự nhiên, thiết kế tối giản. Có thể dùng để đựng đồ trang sức, phụ kiện hoặc đồ lưu niệm. Kích thước 20x15x10cm.",
+    "category": "Trang trí",
+    "stock": 10,
+    "rating": 0,
+    "reviews": 0,
+    "colors": [
+      "Nâu gỗ",
+      "Nâu đậm",
+      "Đen"
+    ],
+    "types": [
+      "Nhỏ (15x10x8cm)",
+      "Vừa (20x15x10cm)",
+      "Lớn (25x20x12cm)"
+    ],
+    "tags": [
+      "handmade",
+      "gỗ",
+      "hộp",
+      "trang trí"
+    ],
+    "images": [
+      "https://image.made-in-china.com/202f0j00tFCoQinWALqv/Pine-Wood-Box-Natural-DIY-Craft-with-Hinged-Lid-and-Front-Clasp.webp",
+      "https://bizweb.dktcdn.net/100/365/844/products/12x12.jpg?v=1692013261083"
+    ],
+    "sold": 135
+  },
+  {
+    "id": "19",
+    "name": "Bộ chén trà gốm sứ vẽ tay",
+    "price": 240000,
+    "image": "https://gomsubachviet.vn/wp-content/uploads/2024/05/bo-am-tra-ve-tay.jpg",
+    "description": "Bộ 6 chén trà được vẽ tay với hoa văn tinh tế. Chất liệu gốm sứ cao cấp, giữ nhiệt tốt. Phù hợp cho việc thưởng thức trà.",
+    "category": "Đồ dùng",
+    "stock": 8,
+    "rating": 0,
+    "reviews": 0,
+    "colors": [
+      "Trắng",
+      "Xanh nhạt",
+      "Hồng nhạt"
+    ],
+    "types": [
+      "Bộ 4 chén",
+      "Bộ 6 chén",
+      "Bộ 8 chén"
+    ],
+    "tags": [
+      "handmade",
+      "gốm",
+      "chén trà",
+      "vẽ tay"
+    ],
+    "images": [
+      "https://gomsubattrang.com/Images/SanPham/ojt-bo-am-chen-bat-trang-ve-truc-chuon.jpg",
+      "https://gomsuhanoi.com/public/userfiles/images/IMG_2774-06.jpg"
+    ],
+    "sold": 191
+  },
+  {
+    "id": "20",
+    "name": "Tranh vẽ tay trên vải canvas",
+    "price": 550000,
+    "image": "https://hatocanvas.com/wp-content/uploads/2023/12/canvas-tranh-ve-10.jpeg",
+    "description": "Tranh được vẽ tay trên vải canvas, mỗi bức tranh đều độc đáo. Khung gỗ tự nhiên, kích thước 40x50cm. Phù hợp trang trí phòng khách, phòng làm việc.",
+    "category": "tranh cuộn",
+    "stock": 0,
+    "rating": 0,
+    "reviews": 0,
+    "colors": [
+      "Nâu gỗ",
+      "Đen viền",
+      "Trắng"
+    ],
+    "types": [
+      "30x40cm",
+      "40x50cm",
+      "50x70cm"
+    ],
+    "tags": [
+      "handmade",
+      "tranh",
+      "vẽ tay",
+      "trang trí"
+    ],
+    "images": [
+      "https://hatocanvas.com/wp-content/uploads/2023/10/ve-tranh-canvas-don-gian.jpg",
+      "https://bizweb.dktcdn.net/100/210/055/products/34b6f93d6db39649a58150aea7407853.jpg?v=1709812030173"
+    ],
+    "sold": 68
+  },
+  {
+    "id": "21",
+    "name": "Búp bê vải handmade dễ thương",
+    "price": 180000,
+    "image": "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lth1jh46xij1de",
+    "description": "Búp bê vải handmade đáng yêu với thiết kế độc đáo. Được may thủ công từ vải cotton mềm mại, an toàn cho trẻ em. Có nhiều màu sắc và kiểu dáng.",
+    "category": "búp bê",
+    "stock": 12,
+    "rating": 0,
+    "reviews": 0,
+    "colors": [
+      "Hồng",
+      "Xanh dương",
+      "Vàng",
+      "Trắng"
+    ],
+    "types": [
+      "Nhỏ (20cm)",
+      "Vừa (30cm)",
+      "Lớn (40cm)"
+    ],
+    "tags": [
+      "handmade",
+      "búp bê",
+      "vải",
+      "đồ chơi"
+    ],
+    "images": [
+      "https://down-vn.img.susercontent.com/file/sg-11134201-7rblb-loz7uijzwkt39e",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGZ-7ZnMKFyaRgjyVUi2-I_YsehOnGqOriSA&s"
+    ],
+    "sold": 577,
+    "originalPrice": 221000
+  },
+  {
+    "id": "22",
+    "name": "Búp bê gấu bông handmade",
+    "price": 220000,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQA55t3J7PGzqMUYLHRkI2M46TypwsTCa-SVA&s",
+    "description": "Búp bê gấu bông được làm thủ công từ vải nỉ mềm mại. Kích thước vừa phải, phù hợp làm quà tặng hoặc đồ chơi cho trẻ em. Có thể giặt máy.",
+    "category": "búp bê",
+    "stock": 10,
+    "rating": 0,
+    "reviews": 0,
+    "colors": [
+      "Nâu",
+      "Trắng",
+      "Hồng",
+      "Xám"
+    ],
+    "types": [
+      "Nhỏ (25cm)",
+      "Vừa (35cm)",
+      "Lớn (45cm)"
+    ],
+    "tags": [
+      "handmade",
+      "búp bê",
+      "gấu bông",
+      "đồ chơi"
+    ],
+    "images": [
+      "https://product.hstatic.net/200000898525/product/tho-len-nhoi-bong-handmade-bup-be-len-amigurumi-cho-be__7__59109a5162174161905964a82d78e844_master.jpg",
+      "https://vn-live-01.slatic.net/p/5db4d21b4fa43464fc60ac7d4f5fdb79.jpg"
+    ],
+    "sold": 868
+  },
+  {
+    "id": "23",
+    "name": "Búp bê công chúa handmade",
+    "price": 250000,
+    "image": "https://product.hstatic.net/1000354887/product/bella__1__3bf73779692f479cb4c6d7d48bc1cbb6_master.jpg",
+    "description": "Búp bê công chúa xinh xắn được may thủ công với trang phục đẹp mắt. Chất liệu vải cao cấp, chi tiết tinh tế. Phù hợp làm quà tặng cho bé gái.",
+    "category": "búp bê",
+    "stock": 8,
+    "rating": 0,
+    "reviews": 0,
+    "colors": [
+      "Hồng",
+      "Tím",
+      "Vàng",
+      "Xanh dương"
+    ],
+    "types": [
+      "Nhỏ (25cm)",
+      "Vừa (35cm)",
+      "Lớn (45cm)"
+    ],
+    "tags": [
+      "handmade",
+      "búp bê",
+      "công chúa",
+      "quà tặng"
+    ],
+    "images": [
+      "https://product.hstatic.net/1000354887/product/rapunzel__1__0c01abd630da43379ee1a3391a33c1a4_master.jpg",
+      "https://product.hstatic.net/1000354887/product/elsa___1__5c71c25776b249f1821573fa67826a0f_master.jpg"
+    ],
+    "sold": 606
+  },
+  {
+    "id": "24",
+    "name": "Búp bê thú cưng handmade",
+    "price": 200000,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSG-zdzRAReI6iaUvRuM9xinRblLKLsIb812Q&s",
+    "description": "Búp bê hình thú cưng đáng yêu được làm thủ công. Thiết kế ngộ nghĩnh, màu sắc tươi sáng. Phù hợp cho mọi lứa tuổi, đặc biệt là trẻ em.",
+    "category": "búp bê",
+    "stock": 15,
+    "rating": 0,
+    "reviews": 0,
+    "colors": [
+      "Nâu",
+      "Trắng",
+      "Cam",
+      "Xám"
+    ],
+    "types": [
+      "Hình mèo",
+      "Hình chó",
+      "Hình thỏ"
+    ],
+    "tags": [
+      "handmade",
+      "búp bê",
+      "thú cưng",
+      "đồ chơi"
+    ],
+    "images": [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmDHFfquM1whCK8dXIEm0sGBYGYxzkckOjlQ&s",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1zZRg7RylwHf6x3DCRqdout8v6XOTHoO_hw&s"
+    ],
+    "sold": 349
+  },
+  {
+    "id": "25",
+    "name": "Búp bê truyền thống handmade",
+    "price": 280000,
+    "image": "https://media.vietnamplus.vn/images/7255a701687d11cb8c6bbc58a6c807858e0cd78860abb595728794f9aedcb821eb227e882d8a0710f97df3ef99278a6b/m7.jpg",
+    "description": "Búp bê truyền thống với trang phục dân tộc được may thủ công tinh tế. Sản phẩm mang đậm bản sắc văn hóa Việt Nam, phù hợp làm quà lưu niệm.",
+    "category": "búp bê",
+    "stock": 6,
+    "rating": 0,
+    "reviews": 0,
+    "colors": [
+      "Đỏ",
+      "Vàng",
+      "Xanh dương",
+      "Hồng"
+    ],
+    "types": [
+      "Áo dài đỏ",
+      "Áo dài vàng",
+      "Áo tứ thân"
+    ],
+    "tags": [
+      "handmade",
+      "búp bê",
+      "truyền thống",
+      "văn hóa"
+    ],
+    "images": [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSz_nqjrPYCiHQTV8TAyg7KXk7-QTnm07v1lw&s",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRozCn7EhKJpFIqZDxS8xEhJkg7Eiiutx-6TQ&s"
+    ],
+    "sold": 144
+  },
+  {
+    "id": "26",
+    "name": "Hoa hồng giấy handmade",
+    "price": 120000,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlNKZ1GELJArF7TDU_SwPu7m_Lsjet2ZTjFg&s",
+    "description": "Hoa hồng được làm từ giấy nhún cao cấp, bền đẹp theo thời gian. Màu sắc tự nhiên, giống hoa thật. Phù hợp trang trí nhà cửa hoặc làm quà tặng.",
+    "category": "hoa handmade",
+    "stock": 20,
+    "rating": 0,
+    "reviews": 0,
+    "colors": [
+      "Đỏ",
+      "Hồng",
+      "Trắng",
+      "Vàng"
+    ],
+    "types": [
+      "Bông đơn",
+      "Bó 3 bông",
+      "Bó 5 bông"
+    ],
+    "tags": [
+      "handmade",
+      "hoa",
+      "giấy",
+      "trang trí"
+    ],
+    "images": [
+      "https://bmcraft.vn/wp-content/uploads/2021/09/H8-jpg.webp",
+      "https://bmcraft.vn/wp-content/uploads/2021/09/H9.jpg"
+    ],
+    "sold": 32
+  },
+  {
+    "id": "27",
+    "name": "Hoa cúc vải handmade",
+    "price": 100000,
+    "image": "https://thucongvietnam.com/data/news/12748/z2174558733828_08260d1e9348d2c570bad378fd3e98a0.jpg",
+    "description": "Hoa cúc được làm từ vải lụa mềm mại, màu sắc tươi tắn. Thiết kế tinh tế, bền đẹp. Có thể dùng để trang trí hoặc làm quà tặng ý nghĩa.",
+    "category": "hoa handmade",
+    "stock": 18,
+    "rating": 0,
+    "reviews": 0,
+    "colors": [
+      "Vàng",
+      "Trắng",
+      "Hồng",
+      "Tím"
+    ],
+    "types": [
+      "Bông đơn",
+      "Bó 3 bông",
+      "Bó 5 bông"
+    ],
+    "tags": [
+      "handmade",
+      "hoa",
+      "vải",
+      "trang trí"
+    ],
+    "images": [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsMV4WdWdD52rFz6W0HyY0aVipOPqefvc1OA&s",
+      "https://thucongvietnam.com/data/news/12748/z2174559442809_6921b5e585f0fecb2bccd1e108cfa262.jpg"
+    ],
+    "sold": 620
+  },
+  {
+    "id": "28",
+    "name": "Hoa sen vải handmade",
+    "price": 150000,
+    "image": "https://i.pinimg.com/564x/12/e9/d6/12e9d61a4d00953d253bae2513605f3b.jpg",
+    "description": "Hoa sen được làm thủ công từ vải satin cao cấp. Màu sắc thanh tao, thiết kế đẹp mắt. Phù hợp trang trí phòng khách, phòng thờ hoặc làm quà tặng.",
+    "category": "hoa handmade",
+    "stock": 12,
+    "rating": 0,
+    "reviews": 0,
+    "colors": [
+      "Hồng",
+      "Trắng",
+      "Hồng nhạt"
+    ],
+    "types": [
+      "Bông đơn",
+      "Bó 3 bông",
+      "Bó 5 bông"
+    ],
+    "tags": [
+      "handmade",
+      "hoa",
+      "sen",
+      "trang trí"
+    ],
+    "images": [
+      "https://yohand.com.vn/wp-content/uploads/2025/03/z6404332787111_33ad17444b0fef44219fcb0888f8bc49.jpg",
+      "https://i.pinimg.com/736x/a5/d8/a8/a5d8a83b55cd411e32f051c5f3acb2d0.jpg"
+    ],
+    "sold": 605,
+    "originalPrice": 180000
+  },
+  {
+    "id": "29",
+    "name": "Bó hoa hướng dương handmade",
+    "price": 180000,
+    "image": "https://tiemlennhaty.com/wp-content/uploads/2023/11/bo-hoa-huong-duong-len.jpg",
+    "description": "Bó hoa hướng dương được làm từ vải và giấy nhún, màu vàng tươi sáng. Thiết kế đẹp mắt, bền lâu. Phù hợp làm quà tặng hoặc trang trí không gian sống.",
+    "category": "hoa handmade",
+    "stock": 10,
+    "rating": 0,
+    "reviews": 0,
+    "colors": [
+      "Vàng",
+      "Cam",
+      "Vàng nhạt"
+    ],
+    "types": [
+      "Bó nhỏ (3 bông)",
+      "Bó vừa (5 bông)",
+      "Bó lớn (7 bông)"
+    ],
+    "tags": [
+      "handmade",
+      "hoa",
+      "hướng dương",
+      "quà tặng"
+    ],
+    "images": [
+      "https://lensoiquynhlam.com/wp-content/uploads/2024/03/b05b5dda7942ae1cf75332.jpg",
+      "https://hoahandmade.vn/public/image/sanpham/207/bo-hoa-huong-duong-len-tot-nghiep-handmade_anh_phu.webp"
+    ],
+    "sold": 214,
+    "originalPrice": 258000
+  },
+  {
+    "id": "30",
+    "name": "Hoa đào giấy handmade",
+    "price": 140000,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyzbSGe6_623VuvmEbxp6DBazAurP_a2WgZQ&s",
+    "description": "Hoa đào được làm từ giấy nhún với màu hồng phấn đẹp mắt. Thiết kế tinh tế, giống hoa thật. Phù hợp trang trí Tết hoặc các dịp lễ đặc biệt.",
+    "category": "hoa handmade",
+    "stock": 15,
+    "rating": 0,
+    "reviews": 0,
+    "colors": [
+      "Hồng",
+      "Hồng nhạt",
+      "Trắng hồng"
+    ],
+    "types": [
+      "Cành nhỏ",
+      "Cành vừa",
+      "Cành lớn"
+    ],
+    "tags": [
+      "handmade",
+      "hoa",
+      "đào",
+      "Tết"
+    ],
+    "images": [
+      "https://suchin.vn/wp-content/uploads/2022/01/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/GxwZHyqrfR0/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDZ5K35d-6YBJ_5bgzDyHhWsrvj4Q"
+    ],
+    "sold": 415
+  },
+  {
+    "id": "31",
+    "name": "Tranh cuộn phong cảnh thiên nhiên",
+    "price": 480000,
+    "image": "https://mansaigon.com.vn/wp-content/uploads/2021/12/rem-cua-cuon-tranh-phong-canh.jpg",
+    "description": "Tranh cuộn vẽ phong cảnh thiên nhiên thanh bình. Được vẽ tay trên giấy dó, có thể cuộn lại dễ dàng. Phù hợp trang trí phòng khách, phòng làm việc.",
+    "category": "tranh cuộn",
+    "colors": [
+      "Vàng",
+      "Nâu",
+      "Đen"
+    ],
+    "types": [
+      "Nhỏ (30x60cm)",
+      "Vừa (40x80cm)",
+      "Lớn (50x100cm)"
+    ],
+    "stock": 5,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "tranh",
+      "phong cảnh",
+      "trang trí"
+    ],
+    "images": [
+      "https://thegioimancua.vn/wp-content/uploads/2021/07/man-cuon-hien-dai-6.jpg",
+      "https://thegioirem.vn/wp-content/uploads/2023/06/rem-cuon-in-trang-5.jpg"
+    ],
+    "sold": 887,
+    "originalPrice": 652000
+  },
+  {
+    "id": "32",
+    "name": "Tranh cuộn chữ thư pháp",
+    "price": 420000,
+    "image": "https://dungcuthuphap.com/wp-content/uploads/2021/12/267731124_1635908366740179_7922744581645975230_n.jpg",
+    "description": "Tranh cuộn chữ thư pháp được viết tay trên giấy dó. Mỗi bức tranh đều độc đáo, mang ý nghĩa tốt lành. Phù hợp trang trí phòng khách, phòng thờ.",
+    "category": "tranh cuộn",
+    "colors": [
+      "Đen",
+      "Vàng",
+      "Đỏ"
+    ],
+    "types": [
+      "Nhỏ (30x60cm)",
+      "Vừa (40x80cm)",
+      "Lớn (50x100cm)"
+    ],
+    "stock": 4,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "tranh",
+      "thư pháp",
+      "văn hóa"
+    ],
+    "images": [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmnYiaJSZYKvf944u8RxeZjcCk5x6KGhHOVA&s0",
+      "https://dungcuthuphap.com/wp-content/uploads/2022/06/287488371_1757816677882680_3035726868502438384_n.jpg"
+    ],
+    "sold": 450
+  },
+  {
+    "id": "33",
+    "name": "Tranh cuộn hoa sen và cá",
+    "price": 450000,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKe6S8WsDj6AB4ar6PQGcwu8S-OmBALFrG5w&s",
+    "description": "Tranh cuộn vẽ hoa sen và cá với ý nghĩa phong thủy. Được vẽ tay tinh tế, màu sắc hài hòa. Phù hợp trang trí phòng khách, mang lại may mắn.",
+    "category": "tranh cuộn",
+    "colors": [
+      "Hồng",
+      "Xanh",
+      "Vàng"
+    ],
+    "types": [
+      "Nhỏ (30x60cm)",
+      "Vừa (40x80cm)",
+      "Lớn (50x100cm)"
+    ],
+    "stock": 3,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "tranh",
+      "phong thủy",
+      "trang trí"
+    ],
+    "images": [
+      "https://file.hstatic.net/200000163039/file/xg-9155_c594d6d664c54e419d01cdba37c25fc5_grande.png",
+      "https://tranhnamdinh.vn/upload/pro/TSL06.jpg?width=500&quality=100&bgcolor=000"
+    ],
+    "sold": 689
+  },
+  {
+    "id": "34",
+    "name": "Tranh cuộn tứ quý",
+    "price": 520000,
+    "image": "https://thegioiremvanphong.com/wp-content/uploads/2021/04/174167881_466619774648371_6035416435316897798_n.jpg",
+    "description": "Tranh cuộn tứ quý vẽ bốn mùa xuân, hạ, thu, đông. Được vẽ tay trên giấy dó, thiết kế đẹp mắt. Phù hợp trang trí phòng khách, thể hiện sự sang trọng.",
+    "category": "tranh cuộn",
+    "colors": [
+      "Xanh",
+      "Đỏ",
+      "Vàng"
+    ],
+    "types": [
+      "Nhỏ (30x60cm)",
+      "Vừa (40x80cm)",
+      "Lớn (50x100cm)"
+    ],
+    "stock": 2,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "tranh",
+      "tứ quý",
+      "trang trí"
+    ],
+    "images": [
+      "https://thegioiremvanphong.com/wp-content/uploads/2021/04/cach-treo-bo-tranh-tu-quy.jpg",
+      "https://thegioiremvanphong.com/wp-content/uploads/2021/04/172682411_943995509760966_3324746639412999578_n.jpg"
+    ],
+    "sold": 909
+  },
+  {
+    "id": "35",
+    "name": "Áo len đan tay",
+    "price": 380000,
+    "image": "https://down-vn.img.susercontent.com/file/3b174e6882e073c2959e866369f8f305",
+    "description": "Áo len được đan tay từ len mềm mại, ấm áp. Thiết kế đơn giản nhưng thanh lịch, phù hợp cho mùa đông. Có nhiều màu sắc và kích cỡ.",
+    "category": "sản phẩm từ len",
+    "colors": [
+      "Xám",
+      "Đen",
+      "Trắng",
+      "Hồng"
+    ],
+    "types": [
+      "Size S",
+      "Size M",
+      "Size L",
+      "Size XL"
+    ],
+    "stock": 8,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "len",
+      "áo",
+      "thời trang"
+    ],
+    "images": [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqdI92ITq29Zq3XQnRmUFQz9fuDpj1bULAPA&s",
+      "https://i.pinimg.com/474x/91/f3/f8/91f3f89afee35d1381685c1c4c2587b9.jpg"
+    ],
+    "sold": 633
+  },
+  {
+    "id": "36",
+    "name": "Mũ len đan tay",
+    "price": 150000,
+    "image": "https://file.hstatic.net/200000503583/file/cach-dan-mu-len-nu-dep-9.jpg_351d51dcf00f4f6a82d1bf423129253e.jpg",
+    "description": "Mũ len được đan tay với hoa văn độc đáo. Chất liệu len mềm mại, giữ ấm tốt. Phù hợp cho mùa đông, có nhiều màu sắc để lựa chọn.",
+    "category": "sản phẩm từ len",
+    "colors": [
+      "Đỏ",
+      "Xanh dương",
+      "Đen",
+      "Trắng"
+    ],
+    "types": [
+      "Size M",
+      "Size L"
+    ],
+    "stock": 15,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "len",
+      "mũ",
+      "phụ kiện"
+    ],
+    "images": [
+      "https://i.ytimg.com/vi/13PPn8u3HG8/hqdefault.jpg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtciyn8Ht4JA09lfEFDrGJIGLWHDXAX57PMQ&s"
+    ],
+    "sold": 538
+  },
+  {
+    "id": "37",
+    "name": "Găng tay len đan tay",
+    "price": 120000,
+    "image": "https://down-vn.img.susercontent.com/file/7d8c7beabcbeccefefb6ca9410f93ebc",
+    "description": "Găng tay len được đan tay từ len mềm mại. Thiết kế vừa vặn, giữ ấm tốt. Phù hợp cho mùa đông, có nhiều màu sắc.",
+    "category": "sản phẩm từ len",
+    "colors": [
+      "Đen",
+      "Xám",
+      "Hồng",
+      "Xanh"
+    ],
+    "types": [
+      "Size S",
+      "Size M",
+      "Size L"
+    ],
+    "stock": 20,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "len",
+      "găng tay",
+      "phụ kiện"
+    ],
+    "images": [
+      "https://down-vn.img.susercontent.com/file/3364befbd3988d68795aeb6b25f7a8ce",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfGKpHTzIya7aM7_0IpeRxXha1k4BAKn7itg&s"
+    ],
+    "sold": 570
+  },
+  {
+    "id": "38",
+    "name": "Túi len đan tay",
+    "price": 200000,
+    "image": "https://chus.vn/images/detailed/242/10675_02_F1.jpg",
+    "description": "Túi len được đan tay với thiết kế đẹp mắt. Chất liệu len mềm mại, bền đẹp. Phù hợp cho mùa đông, có thể dùng hàng ngày.",
+    "category": "sản phẩm từ len",
+    "colors": [
+      "Be",
+      "Nâu",
+      "Xám",
+      "Đen"
+    ],
+    "types": [
+      "Nhỏ",
+      "Vừa",
+      "Lớn"
+    ],
+    "stock": 12,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "len",
+      "túi",
+      "phụ kiện"
+    ],
+    "images": [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmGTyjGgyX-aR7eaig4n6Nul6Ynn_-SoNROQ&s",
+      "https://cdn.chus.vn/images/thumbnails/850/850/detailed/242/10675_02_C2.jpg.webp"
+    ],
+    "sold": 599
+  },
+  {
+    "id": "39",
+    "name": "Móc chìa khóa hình gấu",
+    "price": 75000,
+    "image": "https://sagift.vn/wp-content/uploads/2022/06/moc-khoa-gau-bong-thuong-hieu.webp",
+    "description": "Móc chìa khóa hình gấu đáng yêu được làm thủ công. Chất liệu vải nỉ mềm mại, màu sắc tươi sáng. Phù hợp làm quà tặng hoặc sử dụng hàng ngày.",
+    "category": "móc chìa khóa",
+    "colors": [
+      "Nâu",
+      "Trắng",
+      "Hồng"
+    ],
+    "types": [
+      "Nhỏ",
+      "Vừa"
+    ],
+    "stock": 24,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "móc khóa",
+      "gấu",
+      "phụ kiện"
+    ],
+    "images": [
+      "https://pos.nvncdn.com/cba2a3-7534/ps/20230830_CIAf2Y3u5u.jpeg?v=1693369646",
+      "https://teddy.vn/wp-content/uploads/2024/06/moc-khoa-loopy-4.jpg"
+    ],
+    "sold": 990
+  },
+  {
+    "id": "40",
+    "name": "Móc chìa khóa hình mèo",
+    "price": 80000,
+    "image": "https://bizweb.dktcdn.net/thumb/1024x1024/100/514/459/products/vn-11134207-7r98o-low2hn67s7dab5-1714722478947.jpg?v=1717652505950",
+    "description": "Móc chìa khóa hình mèo dễ thương được làm thủ công. Thiết kế ngộ nghĩnh, màu sắc đa dạng. Phù hợp cho người yêu thích mèo.",
+    "category": "móc chìa khóa",
+    "colors": [
+      "Vàng",
+      "Trắng",
+      "Xám",
+      "Cam"
+    ],
+    "types": [
+      "Nhỏ",
+      "Vừa"
+    ],
+    "stock": 21,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "móc khóa",
+      "mèo",
+      "phụ kiện"
+    ],
+    "images": [
+      "https://dathangsi.vn/upload/products/2020/07/0214-moc-khoa-meo-con-trong-hop-3x2.5cm.jpg",
+      "https://i.ytimg.com/vi/N9otW4bpvhA/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCBZ88DOIxAXvvrFMbsds8JXleGmQ"
+    ],
+    "sold": 381
+  },
+  {
+    "id": "41",
+    "name": "Móc chìa khóa hình trái tim",
+    "price": 70000,
+    "image": "https://anh.quatructuyen.com/media/wysiwyg/tien-ich/moc-khoa/moc_khoa_cap_doi-_chia_khoa_trai_tim_39_.JPG",
+    "description": "Móc chìa khóa hình trái tim được làm thủ công từ vải nỉ. Màu sắc đẹp mắt, phù hợp làm quà tặng cho người thân yêu.",
+    "category": "móc chìa khóa",
+    "colors": [
+      "Đỏ",
+      "Hồng",
+      "Trắng"
+    ],
+    "types": [
+      "Nhỏ",
+      "Vừa"
+    ],
+    "stock": 30,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "móc khóa",
+      "trái tim",
+      "quà tặng"
+    ],
+    "images": [
+      "https://anh.quatructuyen.com/media/wysiwyg/tien-ich/moc-khoa/moc_khoa_cap_doi-_chia_khoa_trai_tim_38_.JPG",
+      "https://down-vn.img.susercontent.com/file/sg-11134201-8226r-mhjc7zbfnc3l58_tn.webp"
+    ],
+    "sold": 182
+  },
+  {
+    "id": "42",
+    "name": "Móc chìa khóa thêu tay",
+    "price": 95000,
+    "image": "https://down-vn.img.susercontent.com/file/cc51cda4bfc3e5150b509bbbeebea37a",
+    "description": "Móc chìa khóa được thêu tay với hoa văn tinh tế. Chất liệu vải cao cấp, bền đẹp. Mỗi chiếc đều độc đáo, phù hợp làm quà tặng.",
+    "category": "móc chìa khóa",
+    "colors": [
+      "Trắng",
+      "Be",
+      "Xanh"
+    ],
+    "types": [
+      "Nhỏ",
+      "Vừa"
+    ],
+    "stock": 18,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "móc khóa",
+      "thêu",
+      "phụ kiện"
+    ],
+    "images": [
+      "https://down-vn.img.susercontent.com/file/2f0a768a4486d0a98e5f4d29fe30f16d",
+      "https://down-vn.img.susercontent.com/file/78e1bc2626fae73b1b2a49f99ca84440"
+    ],
+    "sold": 985
+  },
+  {
+    "id": "43",
+    "name": "Gấu bông handmade",
+    "price": 260000,
+    "image": "https://bizweb.dktcdn.net/100/364/149/files/gau.png?v=1613487478305",
+    "description": "Gấu bông được làm thủ công từ vải nỉ mềm mại. Kích thước vừa phải, đáng yêu. Phù hợp làm quà tặng cho trẻ em hoặc người yêu.",
+    "category": "thú bông",
+    "colors": [
+      "Nâu",
+      "Trắng",
+      "Hồng"
+    ],
+    "types": [
+      "Nhỏ (20cm)",
+      "Vừa (30cm)",
+      "Lớn (40cm)"
+    ],
+    "stock": 10,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "gấu bông",
+      "đồ chơi",
+      "quà tặng"
+    ],
+    "images": [
+      "https://bizweb.dktcdn.net/100/364/149/products/34-9dfd4bc7-caf6-4cc8-aa14-7f840145e4d6.jpg?v=1724038123010",
+      "https://bizweb.dktcdn.net/100/105/259/files/43952258-2157418047623552-3870557577204989952-o.jpg?v=1548650640927"
+    ],
+    "sold": 373
+  },
+  {
+    "id": "44",
+    "name": "Thỏ bông handmade",
+    "price": 240000,
+    "image": "https://bizweb.dktcdn.net/thumb/1024x1024/100/364/149/products/32-2ac0af8a-88b4-4fea-970d-6c1dc7174f52.jpg?v=1724038011273",
+    "description": "Thỏ bông được làm thủ công từ vải nỉ cao cấp. Thiết kế đáng yêu, màu sắc tươi sáng. Phù hợp làm quà tặng hoặc đồ chơi cho trẻ em.",
+    "category": "thú bông",
+    "colors": [
+      "Trắng",
+      "Hồng",
+      "Xám"
+    ],
+    "types": [
+      "Nhỏ (20cm)",
+      "Vừa (30cm)",
+      "Lớn (40cm)"
+    ],
+    "stock": 12,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "thỏ bông",
+      "đồ chơi",
+      "quà tặng"
+    ],
+    "images": [
+      "https://tamnguyenshop.com/Upload/D%E1%BB%A4NG%20C%E1%BB%A4%20HANDMADE/set-02-con-tho-bong-tai-hong-gan-long-den-5.jpg",
+      "https://down-vn.img.susercontent.com/file/sg-11134201-23010-ck3tr77lptmv28"
+    ],
+    "sold": 915,
+    "originalPrice": 304000
+  },
+  {
+    "id": "45",
+    "name": "Mèo bông handmade",
+    "price": 250000,
+    "image": "https://down-vn.img.susercontent.com/file/c9b8b2c539bc9ebb11e6670d7ba4f999",
+    "description": "Mèo bông được làm thủ công với thiết kế dễ thương. Chất liệu vải nỉ mềm mại, an toàn. Phù hợp cho người yêu thích mèo.",
+    "category": "thú bông",
+    "colors": [
+      "Vàng",
+      "Trắng",
+      "Xám",
+      "Cam"
+    ],
+    "types": [
+      "Nhỏ (20cm)",
+      "Vừa (30cm)",
+      "Lớn (40cm)"
+    ],
+    "stock": 8,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "mèo bông",
+      "đồ chơi",
+      "quà tặng"
+    ],
+    "images": [
+      "https://bizweb.dktcdn.net/100/267/913/products/chart1.jpg?v=1670636850557",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWavhSwNqZOvVhgcFdxpcPkbeD2lbrD-Qtqg&s"
+    ],
+    "sold": 841,
+    "originalPrice": 252000
+  },
+  {
+    "id": "46",
+    "name": "Chó bông handmade",
+    "price": 270000,
+    "image": "https://img.lazcdn.com/g/p/4e9b9488df2699597c5b75df918bf289.jpg_720x720q80.jpg",
+    "description": "Chó bông được làm thủ công từ vải nỉ mềm mại. Thiết kế đáng yêu, màu sắc đa dạng. Phù hợp làm quà tặng hoặc đồ chơi cho trẻ em.",
+    "category": "thú bông",
+    "colors": [
+      "Nâu",
+      "Trắng",
+      "Đen"
+    ],
+    "types": [
+      "Nhỏ (20cm)",
+      "Vừa (30cm)",
+      "Lớn (40cm)"
+    ],
+    "stock": 9,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "chó bông",
+      "đồ chơi",
+      "quà tặng"
+    ],
+    "images": [
+      "https://down-vn.img.susercontent.com/file/208a1d1682ccbeeaae4036800a32c8b8",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIRvQbmNJCvDqiEQBtX6bfzTBRlea6LeSp-w&s"
+    ],
+    "sold": 368
+  },
+  {
+    "id": "47",
+    "name": "Túi balo vải canvas handmade",
+    "price": 320000,
+    "image": "https://quatangthanhcong.com/upload/filemanager/images/tin_tuc/tui-tote-mon-phu-kien-khong-the-thieu-cua-nhung-co-nang-sanh-mot-3.jpg",
+    "description": "Túi balo được may thủ công từ vải canvas bền chắc. Thiết kế đơn giản, nhiều ngăn tiện lợi. Phù hợp cho học sinh, sinh viên.",
+    "category": "túi balo",
+    "colors": [
+      "Đen",
+      "Be",
+      "Xanh",
+      "Nâu"
+    ],
+    "types": [
+      "Nhỏ (15L)",
+      "Vừa (20L)",
+      "Lớn (30L)"
+    ],
+    "stock": 10,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "balo",
+      "canvas",
+      "túi xách"
+    ],
+    "images": [
+      "https://aothun.net/wp-content/uploads/2019/12/tui-vai-bo-01-6.jpg",
+      "https://inchi.vn/data/thumbnails/bo-sua---1.jpg"
+    ],
+    "sold": 630,
+    "originalPrice": 412000
+  },
+  {
+    "id": "48",
+    "name": "Túi balo da thật handmade",
+    "price": 450000,
+    "image": "https://cdn.hstatic.net/products/1000397717/thumbnail_b4503c73a4cc4c5da14a4a040a3b25fb_master.jpg",
+    "description": "Túi balo được làm từ da bò thật, thiết kế sang trọng. Chất liệu bền đẹp, nhiều ngăn tiện lợi. Phù hợp cho công việc hoặc du lịch.",
+    "category": "túi balo",
+    "colors": [
+      "Nâu",
+      "Đen"
+    ],
+    "types": [
+      "Nhỏ (15L)",
+      "Vừa (20L)",
+      "Lớn (30L)"
+    ],
+    "stock": 6,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "balo",
+      "da",
+      "túi xách"
+    ],
+    "images": [
+      "https://www.velisa.vn/wp-content/uploads/2021/03/IMG_5115.jpg",
+      "https://www.gento.vn/wp-content/uploads/2023/09/balo-da-handmade5.jpg"
+    ],
+    "sold": 775
+  },
+  {
+    "id": "49",
+    "name": "Túi balo cói đan tay",
+    "price": 280000,
+    "image": "https://salt.tikicdn.com/ts/tmp/67/7b/11/3f43b172ff1e8698dd2714d6acfe0a80.jpg",
+    "description": "Túi balo được đan từ cói tự nhiên, thiết kế thời trang. Thân thiện với môi trường, phù hợp cho mùa hè. Có thể giặt nhẹ.",
+    "category": "túi balo",
+    "colors": [
+      "Vàng",
+      "Nâu",
+      "Be"
+    ],
+    "types": [
+      "Nhỏ (15L)",
+      "Vừa (20L)",
+      "Lớn (30L)"
+    ],
+    "stock": 7,
+    "rating": 5,
+    "reviews": 1,
+    "tags": [
+      "handmade",
+      "balo",
+      "cói",
+      "thân thiện môi trường"
+    ],
+    "images": [
+      "https://salt.tikicdn.com/ts/tmp/96/3d/e0/6e5a4eb2363fec85753438db322bc34b.jpg",
+      "https://assets.muasam24.com/5250693631182137904/693645aba67f524bf12817f6/17069.png?thumbnail=304x364"
+    ],
+    "sold": 992
+  },
+  {
+    "id": "50",
+    "name": "Túi balo vải thổ cẩm handmade",
+    "price": 380000,
+    "image": "https://mia.vn/media/uploads/tin-tuc/top-7-mau-balo-tho-cam-dep-duoc-tin-do-phu-kien-yeu-thich-nhat-1677021062.jpg",
+    "description": "Túi balo được may từ vải thổ cẩm truyền thống, hoa văn độc đáo. Thiết kế đẹp mắt, mang đậm bản sắc văn hóa. Phù hợp cho mọi lứa tuổi.",
+    "category": "túi balo",
+    "colors": [
+      "Đỏ",
+      "Xanh",
+      "Vàng"
+    ],
+    "types": [
+      "Nhỏ (15L)",
+      "Vừa (20L)",
+      "Lớn (30L)"
+    ],
+    "stock": 7,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "balo",
+      "thổ cẩm",
+      "văn hóa"
+    ],
+    "images": [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREdKZ-bBwNjp-_pEnHkaGmpjHHDG97Np7DxQ&s",
+      "https://product.hstatic.net/1000252226/product/rnt404_grande.jpg"
+    ],
+    "sold": 466,
+    "originalPrice": 567000
+  },
+  {
+    "id": "51",
+    "name": "Ví thổ cẩm handmade",
+    "price": 220000,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkDKyuhqXDhP7oToaWDO8YjvvbG-ft5Ck1ZA&s",
+    "description": "Ví được may từ vải thổ cẩm với hoa văn truyền thống. Thiết kế đẹp mắt, nhiều ngăn tiện lợi. Phù hợp làm quà tặng hoặc sử dụng hàng ngày.",
+    "category": "sản phẩm từ thổ cẩm",
+    "colors": [
+      "Đỏ",
+      "Xanh",
+      "Vàng",
+      "Đen"
+    ],
+    "types": [
+      "Nhỏ",
+      "Vừa",
+      "Lớn"
+    ],
+    "stock": 12,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "ví",
+      "thổ cẩm",
+      "văn hóa"
+    ],
+    "images": [
+      "https://sunshinegiftshop.vn/wp-content/uploads/2025/04/vi-tho-cam-hmong-dung-tai-nghe-handmade-2.webp",
+      "https://sunshinegiftshop.vn/wp-content/uploads/2025/04/vi-tho-cam-hmong-dung-tai-nghe-handmad-3.webp"
+    ],
+    "sold": 445,
+    "originalPrice": 265000
+  },
+  {
+    "id": "52",
+    "name": "Khăn quàng cổ thổ cẩm",
+    "price": 180000,
+    "image": "https://product.hstatic.net/1000111569/product/vn-11134207-7r98o-lmuif36r8rtr56_bed6985612cf49f9be368fab11cae587_1024x1024.jpg",
+    "description": "Khăn quàng cổ được may từ vải thổ cẩm với hoa văn đẹp mắt. Chất liệu mềm mại, ấm áp. Phù hợp cho mùa đông, thể hiện phong cách riêng.",
+    "category": "sản phẩm từ thổ cẩm",
+    "colors": [
+      "Đỏ",
+      "Xanh",
+      "Vàng"
+    ],
+    "types": [
+      "Ngắn",
+      "Dài"
+    ],
+    "stock": 15,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "khăn",
+      "thổ cẩm",
+      "thời trang"
+    ],
+    "images": [
+      "https://chus.vn/images/detailed/241/10038_35_F1.jpg",
+      "https://bossi.vn/wp-content/uploads/2023/06/z4486296868265_4a52b4ebe3c4d23d3604f5d2e708bb58.png"
+    ],
+    "sold": 106,
+    "originalPrice": 263000
+  },
+  {
+    "id": "53",
+    "name": "Túi đựng đồ thổ cẩm",
+    "price": 250000,
+    "image": "https://dantra.vn/uploads/san-pham/tho-cam-dan-toc/tui-tho-cam/tui-tho-cam-2.jpeg",
+    "description": "Túi đựng đồ được may từ vải thổ cẩm với hoa văn truyền thống. Kích thước vừa phải, nhiều ngăn tiện lợi. Phù hợp cho mọi lứa tuổi.",
+    "category": "sản phẩm từ thổ cẩm",
+    "colors": [
+      "Đỏ",
+      "Xanh",
+      "Vàng",
+      "Đen"
+    ],
+    "types": [
+      "Nhỏ",
+      "Vừa",
+      "Lớn"
+    ],
+    "stock": 10,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "túi",
+      "thổ cẩm",
+      "văn hóa"
+    ],
+    "images": [
+      "https://product.hstatic.net/1000252226/product/tvt325_1024x1024.jpg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQb1IbSUB0ufgNt30-4M_VfJpueSkTkTFWUrw&s"
+    ],
+    "sold": 404,
+    "originalPrice": 373000
+  },
+  {
+    "id": "54",
+    "name": "Áo thổ cẩm handmade",
+    "price": 420000,
+    "image": "https://poshanukimnguyen.com/Uploads/files/sp41.jpg",
+    "description": "Áo được may từ vải thổ cẩm với hoa văn độc đáo. Thiết kế đẹp mắt, mang đậm bản sắc văn hóa. Phù hợp cho các dịp lễ, sự kiện đặc biệt.",
+    "category": "sản phẩm từ thổ cẩm",
+    "colors": [
+      "Đỏ",
+      "Xanh",
+      "Vàng"
+    ],
+    "types": [
+      "Size S",
+      "Size M",
+      "Size L",
+      "Size XL"
+    ],
+    "stock": 6,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "áo",
+      "thổ cẩm",
+      "thời trang"
+    ],
+    "images": [
+      "https://vn-test-11.slatic.net/p/43451cc6278081344705c40c1a7134a2.jpg",
+      "https://bizweb.dktcdn.net/thumb/1024x1024/100/201/044/products/2710675tho-cam-d-gan-chu-1-jpeg.jpg?v=1492048773807"
+    ],
+    "sold": 983
+  },
+  {
+    "id": "55",
+    "name": "Búp bê vải hoa handmade",
+    "price": 190000,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_hOktuRyqkjgywn6yLbf5j2p8X-MTWCbdSA&s",
+    "description": "Búp bê vải với hoa văn đẹp mắt được may thủ công. Chất liệu cotton mềm mại, an toàn cho trẻ em.",
+    "category": "búp bê",
+    "colors": [
+      "Hồng",
+      "Xanh",
+      "Vàng"
+    ],
+    "types": [
+      "Nhỏ (15cm)",
+      "Vừa (25cm)",
+      "Lớn (35cm)"
+    ],
+    "stock": 11,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "búp bê",
+      "vải",
+      "đồ chơi"
+    ],
+    "images": [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQXPxGoOnp3M64Pz9PK2kDQaCydVh1MdlHPA&s",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8JUU6AT8PnBV5Ib1J3aSg-3Ns5NWwNfQ0lQ&s"
+    ],
+    "sold": 236
+  },
+  {
+    "id": "56",
+    "name": "Búp bê em bé handmade",
+    "price": 170000,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjsovRpwmxoqHV-CAKW74mfqEs64oe5AW4BQ&s",
+    "description": "Búp bê em bé đáng yêu được làm thủ công. Thiết kế ngộ nghĩnh, màu sắc tươi sáng.",
+    "category": "búp bê",
+    "colors": [
+      "Hồng",
+      "Xanh",
+      "Vàng"
+    ],
+    "types": [
+      "Nhỏ (15cm)",
+      "Vừa (25cm)",
+      "Lớn (35cm)"
+    ],
+    "stock": 13,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "búp bê",
+      "em bé",
+      "quà tặng"
+    ],
+    "images": [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7mkp3HTMDJ5dpDGclEbNM1Z2f4grSILeRwA&s",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkJeQFMwmRw6cBrwONpd1hBwWNFIm71uQbOg&s"
+    ],
+    "sold": 313,
+    "originalPrice": 178000
+  },
+  {
+    "id": "57",
+    "name": "Búp bê nàng tiên handmade",
+    "price": 230000,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhkLOBVBU4k4L-R4mYFhMV7EHmSSkhuq6w5Q&s",
+    "description": "Búp bê nàng tiên xinh xắn với đôi cánh đẹp mắt. Được may thủ công tinh tế, phù hợp làm quà tặng.",
+    "category": "búp bê",
+    "colors": [
+      "Hồng",
+      "Trắng",
+      "Xanh"
+    ],
+    "types": [
+      "Nhỏ (15cm)",
+      "Vừa (25cm)",
+      "Lớn (35cm)"
+    ],
+    "stock": 9,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "búp bê",
+      "nàng tiên",
+      "quà tặng"
+    ],
+    "images": [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2dpqhr_Qal1HujPotNqgdH8B2C8pITFCCww&s",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQE76TRvcOIwit300zlIWZEiZW-jiW-YjstXw&s"
+    ],
+    "sold": 759
+  },
+  {
+    "id": "58",
+    "name": "Búp bê siêu nhân handmade",
+    "price": 210000,
+    "image": "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lszgaj8x7mx08e",
+    "description": "Búp bê siêu nhân được làm thủ công với trang phục đẹp mắt. Phù hợp cho bé trai.",
+    "category": "búp bê",
+    "colors": [
+      "Batman",
+      "Supterman",
+      "Thor"
+    ],
+    "types": [
+      "Nhỏ (15cm)",
+      "Vừa (25cm)",
+      "Lớn (35cm)"
+    ],
+    "stock": 10,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "búp bê",
+      "siêu nhân",
+      "đồ chơi"
+    ],
+    "images": [
+      "https://img.lazcdn.com/g/p/0c9b40bbe2b7263e049f9a447f6f752b.jpg_720x720q80.jpg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShB5Y_hU_GR0pNvRe8nZaNXcQ3HDqyAubKHA&s",
+      "https://salt.tikicdn.com/cache/w300/ts/product/62/0e/97/6ca5e30680d7e18fe938585f2572b845.jpg"
+    ],
+    "sold": 901
+  },
+  {
+    "id": "59",
+    "name": "Búp bê hoàng tử handmade",
+    "price": 240000,
+    "image": "https://down-vn.img.susercontent.com/file/sg-11134201-23010-ibyu3rzfhwmvff",
+    "description": "Búp bê hoàng tử với trang phục sang trọng được may thủ công. Thiết kế đẹp mắt, chi tiết tinh tế.",
+    "category": "búp bê",
+    "colors": [
+      "Xanh",
+      "Đỏ",
+      "Vàng"
+    ],
+    "types": [
+      "Nhỏ (15cm)",
+      "Vừa (25cm)",
+      "Lớn (35cm)"
+    ],
+    "stock": 7,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "búp bê",
+      "hoàng tử",
+      "quà tặng"
+    ],
+    "images": [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRC6DTwLuU965IGMVhNAjkWdN_6ixEQag9PnQ&s",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5nzdXXMpry9XmnC_eQzoCLcLtDW5OrXLgAA&s"
+    ],
+    "sold": 438
+  },
+  {
+    "id": "60",
+    "name": "Búp bê búp bê nhỏ xinh handmade",
+    "price": 160000,
+    "image": "https://cf.shopee.vn/file/33d4bab452c871a6d3c39aafad58e825",
+    "description": "Búp bê nhỏ xinh được làm thủ công. Kích thước vừa phải, đáng yêu, phù hợp làm quà tặng.",
+    "category": "búp bê",
+    "colors": [
+      "Hồng",
+      "Xanh",
+      "Vàng"
+    ],
+    "types": [
+      "Nhỏ (15cm)",
+      "Vừa (25cm)",
+      "Lớn (35cm)"
+    ],
+    "stock": 14,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "búp bê",
+      "nhỏ xinh",
+      "quà tặng"
+    ],
+    "images": [
+      "https://cf.shopee.vn/file/f494510c04c9e2e847161bfbd928065a",
+      "https://cf.shopee.vn/file/35bde81d6237fd132b8a1fecf1dde95a"
+    ],
+    "sold": 558
+  },
+  {
+    "id": "61",
+    "name": "Búp bê thần tiên handmade",
+    "price": 270000,
+    "image": "https://file.hstatic.net/200000602571/article/upload_1021d56459cb492f93fd39be5dec408d_1024x1024.jpg",
+    "description": "Búp bê thần tiên với thiết kế độc đáo được làm thủ công. Chất liệu cao cấp, đẹp mắt.",
+    "category": "búp bê",
+    "colors": [
+      "Trắng",
+      "Hồng",
+      "Xanh"
+    ],
+    "types": [
+      "Nhỏ (15cm)",
+      "Vừa (25cm)",
+      "Lớn (35cm)"
+    ],
+    "stock": 6,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "búp bê",
+      "thần tiên",
+      "quà tặng"
+    ],
+    "images": [
+      "https://storage.googleapis.com/mosiduo/charts/675402435233822"
+    ],
+    "sold": 754,
+    "originalPrice": 399000
+  },
+  {
+    "id": "62",
+    "name": "Hoa tulip vải handmade",
+    "price": 130000,
+    "image": "https://down-vn.img.susercontent.com/file/vn-11134207-23030-0nr8c6zssaov25@resize_w900_nl.webp",
+    "description": "Hoa tulip được làm từ vải lụa mềm mại, màu sắc tươi tắn. Thiết kế tinh tế, bền đẹp.",
+    "category": "hoa handmade",
+    "colors": [
+      "Đỏ",
+      "Hồng",
+      "Vàng",
+      "Trắng"
+    ],
+    "types": [
+      "1 bông",
+      "3 bông",
+      "5 bông"
+    ],
+    "stock": 16,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "hoa",
+      "tulip",
+      "trang trí"
+    ],
+    "images": [
+      "https://down-vn.img.susercontent.com/file/vn-11134207-7ras8-m1nex75hn2ab99@resize_w900_nl.webp",
+      "https://down-vn.img.susercontent.com/file/vn-11134207-7ras8-m1nex75hogur03@resize_w900_nl.webp",
+      "https://down-vn.img.susercontent.com/file/vn-11134207-7ras8-m1nex75hpvf7a0@resize_w900_nl.webp"
+    ],
+    "sold": 696
+  },
+  {
+    "id": "63",
+    "name": "Hoa lan vải handmade",
+    "price": 160000,
+    "image": "https://hoalan360.com/upload/UploadFiles/images/chau-lan-lam-bang-vai-voan-5-6.jpg",
+    "description": "Hoa lan được làm thủ công từ vải satin cao cấp. Màu sắc thanh tao, thiết kế đẹp mắt.",
+    "category": "hoa handmade",
+    "colors": [
+      "Trắng",
+      "Tím",
+      "Hồng"
+    ],
+    "types": [
+      "1 bông",
+      "3 bông",
+      "5 bông"
+    ],
+    "stock": 11,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "hoa",
+      "lan",
+      "trang trí"
+    ],
+    "images": [
+      "https://hoalan360.com/upload/UploadFiles/images/ho-diep-lam-bang-vai-voan-5-6.jpg",
+      "https://hoalan360.com/upload/UploadFiles/images/ho-diep-trang-lam-bang-vai-voan-5-6.jpg",
+      "https://hoalan360.com/upload/UploadFiles/images/hoa-lan-vai-voan-5-6.jpg"
+    ],
+    "sold": 536,
+    "originalPrice": 209000
+  },
+  {
+    "id": "64",
+    "name": "Bó hoa cẩm chướng handmade",
+    "price": 140000,
+    "image": "https://down-vn.img.susercontent.com/file/vn-11134258-820l4-min3rh9r68lk8b",
+    "description": "Bó hoa cẩm chướng được làm từ giấy nhún và vải. Màu sắc đa dạng, đẹp mắt.",
+    "category": "hoa handmade",
+    "colors": [
+      "Hồng",
+      "Đỏ",
+      "Trắng",
+      "Vàng"
+    ],
+    "types": [
+      "5 bông",
+      "7 bông",
+      "9 bông"
+    ],
+    "stock": 13,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "hoa",
+      "cẩm chướng",
+      "quà tặng"
+    ],
+    "images": [
+      "https://down-vn.img.susercontent.com/file/vn-11134207-820l4-mfvhwksy680d3f@resize_w900_nl.webp",
+      "https://down-vn.img.susercontent.com/file/vn-11134207-820l4-mfvhwksxe4nd11@resize_w900_nl.webp",
+      "https://down-vn.img.susercontent.com/file/vn-11134207-820l4-mfvhwksxtkwc75@resize_w900_nl.webp"
+    ],
+    "sold": 111
+  },
+  {
+    "id": "65",
+    "name": "Hoa ly giấy handmade",
+    "price": 150000,
+    "image": "https://www.lensoilienho.com/uploads/source/hoa-handmade/img-20220619-205948-17480924401279183174.jpg",
+    "description": "Hoa ly được làm từ giấy nhún với màu trắng tinh khôi. Thiết kế tinh tế, giống hoa thật.",
+    "category": "hoa handmade",
+    "colors": [
+      "Trắng",
+      "Hồng",
+      "Vàng"
+    ],
+    "types": [
+      "1 bông",
+      "3 bông",
+      "5 bông"
+    ],
+    "stock": 12,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "hoa",
+      "ly",
+      "trang trí"
+    ],
+    "images": [
+      "https://www.lensoilienho.com/uploads/source/hoa-handmade/fb-img-1672592362341.jpg"
+    ],
+    "sold": 181,
+    "originalPrice": 198000
+  },
+  {
+    "id": "66",
+    "name": "Hoa hồng đỏ giấy handmade",
+    "price": 125000,
+    "image": "https://hoahandmade.vn/public/image/sanpham/160/hoa-hong-do-giay-handmade_anh_phu.webp",
+    "description": "Hoa hồng đỏ được làm từ giấy nhún cao cấp. Màu đỏ rực rỡ, bền đẹp theo thời gian.",
+    "category": "hoa handmade",
+    "colors": [
+      "Đỏ",
+      "Hồng",
+      "Trắng"
+    ],
+    "types": [
+      "1 bông",
+      "3 bông",
+      "5 bông"
+    ],
+    "stock": 17,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "hoa",
+      "hồng đỏ",
+      "quà tặng"
+    ],
+    "images": [
+      "https://hoahandmade.vn/public/image/sanpham/160/hoa-hong-do-giay-handmade.webp"
+    ],
+    "sold": 214,
+    "originalPrice": 129000
+  },
+  {
+    "id": "67",
+    "name": "Hoa cúc họa mi handmade",
+    "price": 110000,
+    "image": "http://img.handmadev.com/photos/2023/12/huong-dan-moc-hoa-cuc-hoa-mi.jpg",
+    "description": "Hoa cúc họa mi được làm từ vải lụa mềm mại. Màu trắng tinh khôi, đẹp mắt.",
+    "category": "hoa handmade",
+    "colors": [
+      "Trắng",
+      "Vàng"
+    ],
+    "types": [
+      "1 bông",
+      "3 bông",
+      "5 bông"
+    ],
+    "stock": 19,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "hoa",
+      "cúc họa mi",
+      "trang trí"
+    ],
+    "images": [
+      "http://img.handmadev.com/photos/2023/12/huong-dan-moc-hoa-cuc-hoa-mi.jpg"
+    ],
+    "sold": 748,
+    "originalPrice": 147000
+  },
+  {
+    "id": "68",
+    "name": "Bó hoa mix màu handmade",
+    "price": 170000,
+    "image": "https://bizweb.dktcdn.net/100/505/662/products/hoa-sap-ha-noi-3-jpeg.jpg?v=1716284299433",
+    "description": "Bó hoa mix nhiều màu sắc được làm thủ công. Thiết kế đẹp mắt, phù hợp trang trí.",
+    "category": "hoa handmade",
+    "colors": [
+      "Mix màu",
+      "Đỏ-Hồng",
+      "Vàng-Trắng"
+    ],
+    "types": [
+      "5 bông",
+      "7 bông",
+      "9 bông"
+    ],
+    "stock": 9,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "hoa",
+      "mix màu",
+      "quà tặng"
+    ],
+    "images": [
+      "https://bizweb.dktcdn.net/100/505/662/products/hoa-sap-ha-noi-4-jpeg.jpg?v=1716284306377",
+      "https://bizweb.dktcdn.net/100/505/662/products/hoa-sap-mix-mau-jpeg.jpg?v=1716284321017"
+    ],
+    "sold": 256,
+    "originalPrice": 196000
+  },
+  {
+    "id": "69",
+    "name": "Tranh cuộn núi non sông nước",
+    "price": 500000,
+    "image": "https://3.bp.blogspot.com/-nxPpDMK_XHc/XL3gS-s5QoI/AAAAAAAAGlA/LlHHtOG4qfUH3a-XNYDMGET6XSU0FvZzgCLcBGAs/s1600/tranh%252Bphong%252Bcanh%2B%252823%2529.JPG",
+    "description": "Tranh cuộn vẽ cảnh núi non sông nước thanh bình. Được vẽ tay trên giấy dó, có thể cuộn lại.",
+    "category": "tranh cuộn",
+    "colors": [
+      "Xanh",
+      "Nâu",
+      "Đen"
+    ],
+    "types": [
+      "Nhỏ (30x60cm)",
+      "Vừa (40x80cm)",
+      "Lớn (50x100cm)"
+    ],
+    "stock": 4,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "tranh",
+      "núi non",
+      "trang trí"
+    ],
+    "images": [
+      "https://2.bp.blogspot.com/-aQx8XY-9QF0/XL3gVuhEPJI/AAAAAAAAGls/jj77tqxqO8kwl6y42g5kaU5V8nUsipOgACLcBGAs/s1600/tranh%252Bphong%252Bcanh%2B%252833%2529.JPG",
+      "https://4.bp.blogspot.com/-HP3swFb-Nm0/XL3gX2vw77I/AAAAAAAAGmA/zGhaAPwkfVAAe7KSCO9JvHsddX6ItE2rQCLcBGAs/s1600/tranh%252Bphong%252Bcanh%2B%252838%2529.JPG"
+    ],
+    "sold": 442,
+    "originalPrice": 536000
+  },
+  {
+    "id": "70",
+    "name": "Tranh cuộn chim hạc và trúc",
+    "price": 460000,
+    "image": "https://cdn.tgdd.vn/Files/2021/12/24/1406598/y-nghia-cua-chim-hac-va-cach-dat-tranh-chim-hac-hop-phong-thuy-202112242027299437.jpg",
+    "description": "Tranh cuộn vẽ chim hạc và trúc với ý nghĩa trường thọ. Được vẽ tay tinh tế, màu sắc hài hòa.",
+    "category": "tranh cuộn",
+    "colors": [
+      "Xanh",
+      "Trắng",
+      "Đen"
+    ],
+    "types": [
+      "Nhỏ (30x60cm)",
+      "Vừa (40x80cm)",
+      "Lớn (50x100cm)"
+    ],
+    "stock": 3,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "tranh",
+      "chim hạc",
+      "phong thủy"
+    ],
+    "images": [
+      "https://thegioitranhsondau.com/upload/sanpham/large/tranh-ve-nhung-chu-chim-hac-ben-hoa-mau-don-va-khom-truc.jpg",
+      "https://thegioitranhsondau.com/upload/images/tranh-truc-chim-hac-va-mat-trang-2.jpg"
+    ],
+    "sold": 659
+  },
+  {
+    "id": "71",
+    "name": "Tranh cuộn hoa mai",
+    "price": 440000,
+    "image": "https://tse1.mm.bing.net/th/id/OIP.-e5NAmcFEgf0TWZe7w7dQgHaD6?pid=Api&h=220&P=0",
+    "description": "Tranh cuộn vẽ hoa mai với ý nghĩa may mắn. Được vẽ tay trên giấy dó, thiết kế đẹp mắt.",
+    "category": "tranh cuộn",
+    "colors": [
+      "Vàng",
+      "Đỏ",
+      "Đen"
+    ],
+    "types": [
+      "Nhỏ (30x60cm)",
+      "Vừa (40x80cm)",
+      "Lớn (50x100cm)"
+    ],
+    "stock": 4,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "tranh",
+      "hoa mai",
+      "Tết"
+    ],
+    "images": [
+      "https://tse4.mm.bing.net/th/id/OIP.-XgJpiMXplKdhODzQ7Z7ogHaD_?pid=Api&h=220&P=0",
+      "https://tse3.mm.bing.net/th/id/OIP.X8o86JdySOHR1mqYERptrwHaD_?pid=Api&h=220&P=0"
+    ],
+    "sold": 994
+  },
+  {
+    "id": "72",
+    "name": "Tranh cuộn long phượng",
+    "price": 580000,
+    "image": "https://tse3.mm.bing.net/th/id/OIP.MQ4NmGNmt2PG2H5TJda_QAHaEK?pid=Api&h=220&P=0",
+    "description": "Tranh cuộn vẽ long phượng với ý nghĩa phong thủy. Được vẽ tay tinh tế, thể hiện sự sang trọng.",
+    "category": "tranh cuộn",
+    "colors": [
+      "Vàng",
+      "Đỏ",
+      "Đen"
+    ],
+    "types": [
+      "Nhỏ (30x60cm)",
+      "Vừa (40x80cm)",
+      "Lớn (50x100cm)"
+    ],
+    "stock": 2,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "tranh",
+      "long phượng",
+      "phong thủy"
+    ],
+    "images": [
+      "https://tse4.mm.bing.net/th/id/OIP.dCw8ELPptL6I3kU20c225QHaE9?pid=Api&h=220&P=0",
+      "https://tse2.mm.bing.net/th/id/OIP.5kt6BwBWMXNL0cDYVzGC_AHaE8?pid=Api&h=220&P=0"
+    ],
+    "sold": 465
+  },
+  {
+    "id": "73",
+    "name": "Tranh cuộn tùng bách",
+    "price": 470000,
+    "image": "https://tse4.mm.bing.net/th/id/OIP.5VqnIm3mPoy-xUI4UN_5UwHaFj?pid=Api&h=220&P=0",
+    "description": "Tranh cuộn vẽ tùng bách với ý nghĩa kiên cường. Được vẽ tay trên giấy dó, màu sắc tự nhiên.",
+    "category": "tranh cuộn",
+    "colors": [
+      "Xanh",
+      "Nâu",
+      "Đen"
+    ],
+    "types": [
+      "Nhỏ (30x60cm)",
+      "Vừa (40x80cm)",
+      "Lớn (50x100cm)"
+    ],
+    "stock": 3,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "tranh",
+      "tùng bách",
+      "trang trí"
+    ],
+    "images": [
+      "https://dongtruyenthong.vn/thumb/525x374/1/upload/sanpham/tranh-song-tung-bach-hac-ma-vang-1-172127695580.jpg",
+      "https://dongtruyenthong.vn/thumb/525x374/1/upload/sanpham/tranh-song-tung-bach-hac-ma-vang-3-172127695571.jpg",
+      "https://dongtruyenthong.vn/thumb/525x374/1/upload/sanpham/tranh-song-tung-bach-hac-ma-vang-4-172127695592.jpg"
+    ],
+    "sold": 869
+  },
+  {
+    "id": "74",
+    "name": "Tranh cuộn làng quê Việt Nam",
+    "price": 490000,
+    "image": "https://qualuuniemvn.com/uploads/shops/files/tranh-cuon-danh-lam-thang-canh-8.jpg",
+    "description": "Tranh cuộn vẽ cảnh làng quê Việt Nam thanh bình. Được vẽ tay tinh tế, mang đậm bản sắc văn hóa.",
+    "category": "tranh cuộn",
+    "colors": [
+      "Xanh",
+      "Vàng",
+      "Nâu"
+    ],
+    "types": [
+      "Nhỏ (30x60cm)",
+      "Vừa (40x80cm)",
+      "Lớn (50x100cm)"
+    ],
+    "stock": 3,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "tranh",
+      "làng quê",
+      "văn hóa"
+    ],
+    "images": [
+      "https://qualuuniemvn.com/uploads/shops/files/tranh-cuon-danh-lam-thang-canh-9.jpg",
+      "https://qualuuniemvn.com/uploads/shops/files/tranh-cuon-danh-lam-thang-canh-10.jpg",
+      "https://qualuuniemvn.com/uploads/shops/files/tranh-cuon-danh-lam-thang-canh-11.jpg",
+      "https://qualuuniemvn.com/uploads/shops/temp_pic/tranh-cuon-dong-que-viet-nam.jpg",
+      "https://qualuuniemvn.com/uploads/shops/temp_pic/tranh-cuon-danh-lam-thang-canh-2.jpg",
+      "https://qualuuniemvn.com/uploads/shops/temp_pic/tranh-cuon-danh-lam-thang-canh.jpg",
+      "https://qualuuniemvn.com/uploads/shops/temp_pic/tranh-cuon-ao-dai-viet-nam.jpg",
+      "https://qualuuniemvn.com/uploads/shops/temp_pic/tranh-cuon-ao-dai-viet-nam-5.jpg"
+    ],
+    "sold": 993,
+    "originalPrice": 606000
+  },
+  {
+    "id": "75",
+    "name": "Áo khoác len đan tay",
+    "price": 420000,
+    "image": "https://aolendalat.com/wp-content/uploads/2021/12/ao-len-dan-tay-form-dang-suon-1.jpg",
+    "description": "Áo khoác len được đan tay từ len mềm mại, ấm áp. Thiết kế đẹp mắt, phù hợp cho mùa đông.",
+    "category": "sản phẩm từ len",
+    "colors": [
+      "Đen",
+      "Xám",
+      "Nâu",
+      "Be"
+    ],
+    "types": [
+      "Size S",
+      "Size M",
+      "Size L",
+      "Size XL"
+    ],
+    "stock": 7,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "len",
+      "áo khoác",
+      "thời trang"
+    ],
+    "images": [
+      "https://aolendalat.com/wp-content/uploads/2021/12/ao-len-dan-tay-theo-yeu-cau-anh-ao-len-1.jpg",
+      "https://aolendalat.com/wp-content/uploads/2021/12/ao-len-dan-tay-cho-nguoi-lon-tuoi-1.jpg"
+    ],
+    "sold": 338
+  },
+  {
+    "id": "76",
+    "name": "Tất len đan tay",
+    "price": 100000,
+    "image": "https://i.ytimg.com/vi/Vtm-6dScnNk/maxresdefault.jpg",
+    "description": "Tất len được đan tay với hoa văn độc đáo. Chất liệu len mềm mại, giữ ấm tốt.",
+    "category": "sản phẩm từ len",
+    "colors": [
+      "Đen",
+      "Xám",
+      "Trắng",
+      "Hồng"
+    ],
+    "types": [
+      "Size S",
+      "Size M",
+      "Size L"
+    ],
+    "stock": 22,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "len",
+      "tất",
+      "phụ kiện"
+    ],
+    "images": [
+      "https://tse3.mm.bing.net/th/id/OIP.A8OsT5cG45by9PXSVPzAYQHaEK?pid=Api&h=220&P=0",
+      "https://tse2.mm.bing.net/th/id/OIP.usd7k83HJB4ZqFHmFE-OeAHaDt?pid=Api&h=220&P=0"
+    ],
+    "sold": 576,
+    "originalPrice": 146000
+  },
+  {
+    "id": "77",
+    "name": "Áo len cổ lọ đan tay",
+    "price": 360000,
+    "image": "https://tse2.mm.bing.net/th/id/OIP.oKiuVt8TfGdzDW0d-dhXmAHaHa?pid=Api&h=220&P=0",
+    "description": "Áo len cổ lọ được đan tay từ len mềm mại. Thiết kế đơn giản, thanh lịch, phù hợp cho mùa đông.",
+    "category": "sản phẩm từ len",
+    "colors": [
+      "Đen",
+      "Xám",
+      "Trắng",
+      "Hồng"
+    ],
+    "types": [
+      "Size S",
+      "Size M",
+      "Size L",
+      "Size XL"
+    ],
+    "stock": 9,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "len",
+      "áo",
+      "thời trang"
+    ],
+    "images": [
+      "https://tse2.mm.bing.net/th/id/OIP.oAqmhFWI4Xi8HS0Hj_HrigHaHa?pid=Api&h=220&P=0",
+      "https://tse4.mm.bing.net/th/id/OIP.Q5I7LfkqzkFQwjmuceYxhwHaHa?pid=Api&h=220&P=0"
+    ],
+    "sold": 937,
+    "originalPrice": 521000
+  },
+  {
+    "id": "78",
+    "name": "Khăn len đan tay",
+    "price": 180000,
+    "image": "https://bizweb.dktcdn.net/100/267/913/products/239-1701851930461.png?v=1703209089857",
+    "description": "Khăn len được đan tay với hoa văn đẹp mắt. Chất liệu len mềm mại, ấm áp, phù hợp cho mùa đông.",
+    "category": "sản phẩm từ len",
+    "colors": [
+      "Đỏ",
+      "Xanh",
+      "Xám",
+      "Hồng"
+    ],
+    "types": [
+      "Ngắn",
+      "Dài"
+    ],
+    "stock": 14,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "len",
+      "khăn",
+      "phụ kiện"
+    ],
+    "images": [
+      "https://bizweb.dktcdn.net/100/267/913/products/242-1701851930448.png?v=1703209089857",
+      "https://bizweb.dktcdn.net/100/267/913/products/240-1701851930475.png?v=1701851936040",
+      "https://bizweb.dktcdn.net/100/267/913/products/241-1701851930491.png?v=1701851936647"
+    ],
+    "sold": 352,
+    "originalPrice": 210000
+  },
+  {
+    "id": "79",
+    "name": "Áo len cardigan đan tay",
+    "price": 400000,
+    "image": "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lzq8yeb2ocdd99@resize_w900_nl.webp",
+    "description": "Áo len cardigan được đan tay từ len mềm mại. Thiết kế đẹp mắt, phù hợp cho mùa đông.",
+    "category": "sản phẩm từ len",
+    "colors": [
+      "Be",
+      "Nâu",
+      "Xám",
+      "Đen"
+    ],
+    "types": [
+      "Size S",
+      "Size M",
+      "Size L",
+      "Size XL"
+    ],
+    "stock": 6,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "len",
+      "cardigan",
+      "thời trang"
+    ],
+    "images": [
+      "https://cf.shopee.vn/file/98c01702a08b0fb32106baabf4ece406",
+      "https://cf.shopee.vn/file/b947f965b0fd6069b3923d04b414b839",
+      "https://cf.shopee.vn/file/ecfa1f3c0c28f1c1c1a81e1707f41c2a"
+    ],
+    "sold": 415
+  },
+  {
+    "id": "80",
+    "name": "Bộ mũ và khăn len đan tay",
+    "price": 280000,
+    "image": "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lzq8yeb2mxjh3c@resize_w900_nl.webp",
+    "description": "Bộ mũ và khăn len được đan tay từ len mềm mại. Thiết kế đồng bộ, đẹp mắt.",
+    "category": "sản phẩm từ len",
+    "colors": [
+      "Đỏ",
+      "Xanh",
+      "Xám",
+      "Hồng"
+    ],
+    "types": [
+      "Size M",
+      "Size L"
+    ],
+    "stock": 8,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "len",
+      "mũ khăn",
+      "phụ kiện"
+    ],
+    "images": [
+      "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lzq8yeb2mxjh3c@resize_w900_nl.webp",
+      "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lzq8yebmm4b1e1@resize_w900_nl.webp"
+    ],
+    "sold": 252,
+    "originalPrice": 336000
+  },
+  {
+    "id": "81",
+    "name": "Móc chìa khóa hình chó",
+    "price": 78000,
+    "image": "https://down-vn.img.susercontent.com/file/sg-11134201-7rbn3-lm7pm3h4ciu20f@resize_w900_nl.webp",
+    "description": "Móc chìa khóa hình chó đáng yêu được làm thủ công. Chất liệu vải nỉ mềm mại, màu sắc tươi sáng.",
+    "category": "móc chìa khóa",
+    "colors": [
+      "Nâu",
+      "Trắng",
+      "Đen"
+    ],
+    "types": [
+      "Nhỏ",
+      "Vừa"
+    ],
+    "stock": 24,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "móc khóa",
+      "chó",
+      "phụ kiện"
+    ],
+    "images": [
+      "https://down-vn.img.susercontent.com/file/vn-11134201-23020-8o0tket0lpnv96@resize_w900_nl.webp",
+      "https://down-vn.img.susercontent.com/file/vn-11134201-23020-hela3qt0lpnv15@resize_w900_nl.webp"
+    ],
+    "sold": 405,
+    "originalPrice": 80000
+  },
+  {
+    "id": "82",
+    "name": "Móc chìa khóa hình thỏ",
+    "price": 72000,
+    "image": "https://down-vn.img.susercontent.com/file/sg-11134201-7rd74-lx297owrzi4m02@resize_w900_nl.webp",
+    "description": "Móc chìa khóa hình thỏ dễ thương được làm thủ công. Thiết kế ngộ nghĩnh, màu sắc đa dạng.",
+    "category": "móc chìa khóa",
+    "colors": [
+      "Trắng",
+      "Hồng",
+      "Xám"
+    ],
+    "types": [
+      "Nhỏ",
+      "Vừa"
+    ],
+    "stock": 26,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "móc khóa",
+      "thỏ",
+      "phụ kiện"
+    ],
+    "images": [
+      "https://down-vn.img.susercontent.com/file/sg-11134201-7rd44-lx297qa5z8lke1@resize_w900_nl.webp",
+      "https://down-vn.img.susercontent.com/file/sg-11134201-7rd5i-lx297rntyjrafa@resize_w900_nl.webp",
+      "https://down-vn.img.susercontent.com/file/sg-11134201-7rd5f-lx297t5nt71l74@resize_w900_nl.webp"
+    ],
+    "sold": 209,
+    "originalPrice": 73000
+  },
+  {
+    "id": "83",
+    "name": "Móc chìa khóa hình sao",
+    "price": 68000,
+    "image": "http://img.handmadev.com/photos/2023/06/chart-moc-moc-khoa-ngoi-sao-1687287225.jpg",
+    "description": "Móc chìa khóa hình sao được làm thủ công từ vải nỉ. Màu sắc đẹp mắt, phù hợp làm quà tặng.",
+    "category": "móc chìa khóa",
+    "colors": [
+      "Vàng",
+      "Trắng",
+      "Hồng"
+    ],
+    "types": [
+      "Nhỏ",
+      "Vừa"
+    ],
+    "stock": 28,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "móc khóa",
+      "sao",
+      "quà tặng"
+    ],
+    "images": [
+      "http://img.handmadev.com/photos/2023/06/chart-moc-moc-khoa-ngoi-sao-1687287225.jpg"
+    ],
+    "sold": 110,
+    "originalPrice": 84000
+  },
+  {
+    "id": "84",
+    "name": "Móc chìa khóa hình bông hoa",
+    "price": 88000,
+    "image": "https://cf.shopee.vn/file/fb0d0bbba382676cc6ea965e1f751b01",
+    "description": "Móc chìa khóa hình bông hoa được làm thủ công. Chất liệu vải cao cấp, bền đẹp.",
+    "category": "móc chìa khóa",
+    "colors": [
+      "Hồng",
+      "Đỏ",
+      "Vàng",
+      "Trắng"
+    ],
+    "types": [
+      "Nhỏ",
+      "Vừa"
+    ],
+    "stock": 20,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "móc khóa",
+      "hoa",
+      "phụ kiện"
+    ],
+    "images": [
+      "https://cf.shopee.vn/file/f581596158db8f210c4117bb2a95eb40",
+      "https://cf.shopee.vn/file/c67ac423fc2be0779866ef47393da8b1"
+    ],
+    "sold": 713
+  },
+  {
+    "id": "85",
+    "name": "Móc chìa khóa hình mặt cười",
+    "price": 65000,
+    "image": "https://down-vn.img.susercontent.com/file/44e81175707ef939b51ad91aee5d21ef@resize_w900_nl.webp",
+    "description": "Móc chìa khóa hình mặt cười vui vẻ được làm thủ công. Thiết kế đáng yêu, màu sắc tươi sáng.",
+    "category": "móc chìa khóa",
+    "colors": [
+      "Vàng",
+      "Hồng",
+      "Xanh"
+    ],
+    "types": [
+      "Nhỏ",
+      "Vừa"
+    ],
+    "stock": 32,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "móc khóa",
+      "mặt cười",
+      "quà tặng"
+    ],
+    "images": [
+      "https://down-vn.img.susercontent.com/file/31721a90ee94fe06f99097090a9126ac@resize_w900_nl.webp",
+      "https://down-vn.img.susercontent.com/file/c28af49a79ff1e612e90445a06d7ecf2@resize_w900_nl.webp"
+    ],
+    "sold": 729
+  },
+  {
+    "id": "86",
+    "name": "Móc chìa khóa hình trái cây",
+    "price": 82000,
+    "image": "https://down-vn.img.susercontent.com/file/vn-11134258-820l4-min3rh9r68lk8b",
+    "description": "Móc chìa khóa hình trái cây đáng yêu được làm thủ công. Có nhiều loại trái cây để lựa chọn.",
+    "category": "móc chìa khóa",
+    "colors": [
+      "Đỏ",
+      "Vàng",
+      "Xanh",
+      "Cam"
+    ],
+    "types": [
+      "Nhỏ",
+      "Vừa"
+    ],
+    "stock": 21,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "móc khóa",
+      "trái cây",
+      "phụ kiện"
+    ],
+    "images": [
+      "https://down-vn.img.susercontent.com/file/9ad02bec71f02a91521f1f3aede69012@resize_w900_nl.webp",
+      "https://down-vn.img.susercontent.com/file/6ee116fc704be25a3910e0ea9ebed4b8@resize_w900_nl.webp"
+    ],
+    "sold": 858,
+    "originalPrice": 95000
+  },
+  {
+    "id": "87",
+    "name": "Gấu bông lớn handmade",
+    "price": 320000,
+    "image": "https://down-vn.img.susercontent.com/file/vn-11134201-23020-tr8p86nvkrnvd4@resize_w900_nl.webp",
+    "description": "Gấu bông lớn được làm thủ công từ vải nỉ mềm mại. Kích thước lớn, đáng yêu, phù hợp làm quà tặng.",
+    "category": "thú bông",
+    "colors": [
+      "Nâu",
+      "Trắng",
+      "Hồng"
+    ],
+    "types": [
+      "Vừa (30cm)",
+      "Lớn (40cm)",
+      "Rất lớn (50cm)"
+    ],
+    "stock": 8,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "gấu bông",
+      "lớn",
+      "quà tặng"
+    ],
+    "images": [
+      "https://down-vn.img.susercontent.com/file/555f0d34b6775396f0198f63db823624@resize_w900_nl.webp",
+      "https://down-vn.img.susercontent.com/file/d1c1a4b2ab17b11bcc9b11e841328413@resize_w900_nl.webp",
+      "https://down-vn.img.susercontent.com/file/2e6554b132bebf89d3a6a274400efd6a@resize_w900_nl.webp"
+    ],
+    "sold": 165
+  },
+  {
+    "id": "88",
+    "name": "Heo bông handmade",
+    "price": 220000,
+    "image": "https://down-vn.img.susercontent.com/file/vn-11134258-820l4-min3rh9r68lk8b",
+    "description": "Heo bông được làm thủ công từ vải nỉ cao cấp. Thiết kế đáng yêu, màu sắc tươi sáng.",
+    "category": "thú bông",
+    "colors": [
+      "Hồng",
+      "Trắng",
+      "Vàng"
+    ],
+    "types": [
+      "Nhỏ (20cm)",
+      "Vừa (30cm)",
+      "Lớn (40cm)"
+    ],
+    "stock": 11,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "heo bông",
+      "đồ chơi",
+      "quà tặng"
+    ],
+    "images": [
+      "https://down-vn.img.susercontent.com/file/b9bd9ea221ef50a7bac50c3fb01a259c@resize_w900_nl.webp",
+      "https://down-vn.img.susercontent.com/file/e7ebe016be6e9c97ace78738e425be2d@resize_w900_nl.webp",
+      "https://down-vn.img.susercontent.com/file/e4e55f3f594d223c2cb5acae5067318e@resize_w900_nl.webp"
+    ],
+    "sold": 447
+  },
+  {
+    "id": "89",
+    "name": "Voi bông handmade",
+    "price": 280000,
+    "image": "https://down-vn.img.susercontent.com/file/vn-11134258-820l4-min3rh9r68lk8b",
+    "description": "Voi bông được làm thủ công với thiết kế dễ thương. Chất liệu vải nỉ mềm mại, an toàn.",
+    "category": "thú bông",
+    "colors": [
+      "Xám",
+      "Xanh",
+      "Hồng"
+    ],
+    "types": [
+      "Nhỏ (20cm)",
+      "Vừa (30cm)",
+      "Lớn (40cm)"
+    ],
+    "stock": 9,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "voi bông",
+      "đồ chơi",
+      "quà tặng"
+    ],
+    "images": [
+      "https://down-vn.img.susercontent.com/file/08780dda3117d058cf101fde7a84cc32@resize_w900_nl.webp",
+      "https://down-vn.img.susercontent.com/file/5767f71d8fc2c47c7ccc80a6ce735eda@resize_w900_nl.webp",
+      "https://down-vn.img.susercontent.com/file/1898f972e65389f5496bc57c8f03eb61@resize_w900_nl.webp"
+    ],
+    "sold": 95
+  },
+  {
+    "id": "90",
+    "name": "Khỉ bông handmade",
+    "price": 250000,
+    "image": "https://saolakids.vn/wp-content/uploads/17-1-2-450x450.jpg",
+    "description": "Khỉ bông được làm thủ công từ vải nỉ mềm mại. Thiết kế đáng yêu, màu sắc đa dạng.",
+    "category": "thú bông",
+    "colors": [
+      "Nâu",
+      "Vàng",
+      "Cam"
+    ],
+    "types": [
+      "Nhỏ (20cm)",
+      "Vừa (30cm)",
+      "Lớn (40cm)"
+    ],
+    "stock": 10,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "khỉ bông",
+      "đồ chơi",
+      "quà tặng"
+    ],
+    "images": [
+      "https://saolakids.vn/wp-content/uploads/z3484721121837c52aa36a680cd4e7f85af184624eb258-450x450.jpg",
+      "https://saolakids.vn/wp-content/uploads/23-2-450x450.jpg"
+    ],
+    "sold": 50
+  },
+  {
+    "id": "91",
+    "name": "Cá heo bông handmade",
+    "price": 240000,
+    "image": "https://nicegiftvn.com.vn/data/nicegiftvn.com.vn/2023-06/xuong-gau-bong-nho3.jpg",
+    "description": "Cá heo bông được làm thủ công với thiết kế dễ thương. Chất liệu vải nỉ mềm mại, an toàn.",
+    "category": "thú bông",
+    "colors": [
+      "Xanh",
+      "Xám",
+      "Trắng"
+    ],
+    "types": [
+      "Nhỏ (20cm)",
+      "Vừa (30cm)",
+      "Lớn (40cm)"
+    ],
+    "stock": 12,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "cá heo bông",
+      "đồ chơi",
+      "quà tặng"
+    ],
+    "images": [
+      "https://nicegiftvn.com.vn/data/nicegiftvn.com.vn/2023-06/gau-1.jpg"
+    ],
+    "sold": 169,
+    "originalPrice": 351000
+  },
+  {
+    "id": "92",
+    "name": "Hổ bông handmade",
+    "price": 290000,
+    "image": "https://down-vn.img.susercontent.com/file/sg-11134201-22100-9m2spt8u7pivb4@resize_w900_nl.webp",
+    "description": "Hổ bông được làm thủ công từ vải nỉ cao cấp. Thiết kế đáng yêu, phù hợp làm quà tặng.",
+    "category": "thú bông",
+    "colors": [
+      "Vàng",
+      "Cam",
+      "Trắng"
+    ],
+    "types": [
+      "Nhỏ (20cm)",
+      "Vừa (30cm)",
+      "Lớn (40cm)"
+    ],
+    "stock": 7,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "hổ bông",
+      "đồ chơi",
+      "quà tặng"
+    ],
+    "images": [
+      "https://down-vn.img.susercontent.com/file/sg-11134201-22100-0m2spt8u7pivc6@resize_w900_nl.webp",
+      "https://down-vn.img.susercontent.com/file/sg-11134201-22100-3w822kiv7piv44@resize_w900_nl.webp"
+    ],
+    "sold": 708
+  },
+  {
+    "id": "93",
+    "name": "Túi balo handmade",
+    "price": 350000,
+    "image": "https://down-vn.img.susercontent.com/file/512822a48754b316062a02ee60a38891@resize_w900_nl.webp",
+    "description": "Túi balo thể thao được may thủ công từ vải canvas bền chắc. Thiết kế hiện đại, nhiều ngăn tiện lợi.",
+    "category": "túi balo",
+    "colors": [
+      "Đen",
+      "Xanh",
+      "Đỏ",
+      "Xám"
+    ],
+    "types": [
+      "Nhỏ (15L)",
+      "Vừa (20L)",
+      "Lớn (30L)"
+    ],
+    "stock": 9,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "balo",
+      "thể thao",
+      "túi xách"
+    ],
+    "images": [
+      "https://down-vn.img.susercontent.com/file/7f9514e1e5743756f6e0e07077f67f59@resize_w900_nl.webp"
+    ],
+    "sold": 210,
+    "originalPrice": 446000
+  },
+  {
+    "id": "94",
+    "name": "Túi balo du lịch handmade",
+    "price": 380000,
+    "image": "https://hoianleather.com/wp-content/uploads/2021/07/Balo-da-handmade-720x720.jpg",
+    "description": "Túi balo du lịch được may thủ công với nhiều ngăn tiện lợi. Chất liệu bền chắc, phù hợp cho du lịch.",
+    "category": "túi balo",
+    "colors": [
+      "Đen",
+      "Nâu",
+      "Xanh",
+      "Xám"
+    ],
+    "types": [
+      "Nhỏ (15L)",
+      "Vừa (20L)",
+      "Lớn (30L)"
+    ],
+    "stock": 7,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "balo",
+      "du lịch",
+      "túi xách"
+    ],
+    "images": [
+      "https://hoianleather.com/wp-content/uploads/2021/07/Balo-da-bo-that-danh-cho-nam-2-720x720.jpg",
+      "https://hoianleather.com/wp-content/uploads/2021/07/Balo-da-bo-that-Hoi-An-2-720x720.jpg"
+    ],
+    "sold": 320
+  },
+  {
+    "id": "95",
+    "name": "Túi balo học sinh handmade",
+    "price": 300000,
+    "image": "https://mia.vn/media/uploads/tin-tuc/cach-may-balo-7-1680791115.jpg",
+    "description": "Túi balo học sinh được may thủ công với thiết kế đẹp mắt. Nhiều ngăn tiện lợi, phù hợp cho học sinh.",
+    "category": "túi balo",
+    "colors": [
+      "Đen",
+      "Xanh",
+      "Hồng",
+      "Xám"
+    ],
+    "types": [
+      "Nhỏ (15L)",
+      "Vừa (20L)",
+      "Lớn (30L)"
+    ],
+    "stock": 11,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "balo",
+      "học sinh",
+      "túi xách"
+    ],
+    "images": [
+      "https://mia.vn/media/uploads/tin-tuc/cach-may-balo-7-1680791115.jpg"
+    ],
+    "sold": 612
+  },
+  {
+    "id": "96",
+    "name": "Túi balo vải bố handmade",
+    "price": 290000,
+    "image": "https://thucongvietnam.com/data/news/13570/69.jpg",
+    "description": "Túi balo được may từ vải bố tự nhiên. Thiết kế đơn giản, thân thiện với môi trường.",
+    "category": "túi balo",
+    "colors": [
+      "Be",
+      "Nâu",
+      "Xám"
+    ],
+    "types": [
+      "Nhỏ (15L)",
+      "Vừa (20L)",
+      "Lớn (30L)"
+    ],
+    "stock": 10,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "balo",
+      "vải bố",
+      "thân thiện môi trường"
+    ],
+    "images": [
+      "https://thucongvietnam.com/data/news/13570/68.jpg",
+      "https://thucongvietnam.com/data/news/13570/71.jpg"
+    ],
+    "sold": 473,
+    "originalPrice": 301000
+  },
+  {
+    "id": "97",
+    "name": "Túi balo mini handmade",
+    "price": 250000,
+    "image": "https://file.hstatic.net/1000031726/file/balo15_9a9d08c160e5401ca8af7381f386fa6b_grande.jpg",
+    "description": "Túi balo mini được may thủ công với kích thước nhỏ gọn. Thiết kế đẹp mắt, phù hợp cho đi chơi.",
+    "category": "túi balo",
+    "colors": [
+      "Đen",
+      "Hồng",
+      "Xanh",
+      "Be"
+    ],
+    "types": [
+      "Nhỏ (10L)",
+      "Vừa (15L)"
+    ],
+    "stock": 13,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "balo",
+      "mini",
+      "túi xách"
+    ],
+    "images": [
+      "https://tse3.mm.bing.net/th/id/OIP.TYGdioQu2dBA4k7BLmsliQHaHZ?pid=Api&h=220&P=0"
+    ],
+    "sold": 623
+  },
+  {
+    "id": "98",
+    "name": "Túi balo laptop thổ cẩm handmade",
+    "price": 400000,
+    "image": "https://handmadeshop.vn/wp-content/uploads/2024/10/Tui-laptop-tho-cam-28x38-Tui-Lap-Top.jpg",
+    "description": "Túi balo laptop được may thủ công với ngăn đựng laptop riêng. Thiết kế chuyên nghiệp, bền chắc.",
+    "category": "túi balo",
+    "colors": [
+      "Đen",
+      "Xám",
+      "Nâu"
+    ],
+    "types": [
+      "13 inch",
+      "15 inch",
+      "17 inch"
+    ],
+    "stock": 6,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "balo",
+      "laptop",
+      "túi xách"
+    ],
+    "images": [
+      "https://handmadeshop.vn/wp-content/uploads/2024/10/Tui-laptop-tho-cam-28x38-Tui-Lap-Top.jpg"
+    ],
+    "sold": 639
+  },
+  {
+    "id": "99",
+    "name": "Túi thổ cẩm handmade",
+    "price": 300000,
+    "image": "https://handmadeshop.vn/wp-content/uploads/2024/10/Tui-tho-cam-34x32x7-T62-5-1536x2048.jpg",
+    "description": "Túi được may từ vải thổ cẩm với hoa văn truyền thống. Thiết kế đẹp mắt, mang đậm bản sắc văn hóa.",
+    "category": "sản phẩm từ thổ cẩm",
+    "colors": [
+      "Đỏ",
+      "Xanh",
+      "Vàng",
+      "Đen"
+    ],
+    "types": [
+      "Nhỏ",
+      "Vừa",
+      "Lớn"
+    ],
+    "stock": 11,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "túi",
+      "thổ cẩm",
+      "văn hóa"
+    ],
+    "images": [
+      "https://handmadeshop.vn/wp-content/uploads/2024/10/Tui-tho-cam-34x32x7-T62-4-1597x2048.jpg"
+    ],
+    "sold": 486
+  },
+  {
+    "id": "100",
+    "name": "Váy thổ cẩm handmade",
+    "price": 450000,
+    "image": "https://media.phunutoday.vn/files/content/2019/07/28/chonvay2-1025.jpg",
+    "description": "Váy được may từ vải thổ cẩm với hoa văn độc đáo. Thiết kế đẹp mắt, phù hợp cho các dịp lễ.",
+    "category": "sản phẩm từ thổ cẩm",
+    "colors": [
+      "Đỏ",
+      "Xanh",
+      "Vàng"
+    ],
+    "types": [
+      "Size S",
+      "Size M",
+      "Size L",
+      "Size XL"
+    ],
+    "stock": 8,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "váy",
+      "thổ cẩm",
+      "thời trang"
+    ],
+    "images": [
+      "https://vn-test-11.slatic.net/p/5e72c7f9b94d6d95ef7ee28b67183061.jpg",
+      "https://media.loveitopcdn.com/2210/img-20200726-221114.jpg",
+      "https://cf.shopee.vn/file/3e8b976d1236db98263193ff94938f5f"
+    ],
+    "sold": 80
+  },
+  {
+    "id": "101",
+    "name": "Khăn trải bàn thổ cẩm handmade",
+    "price": 350000,
+    "image": "https://down-vn.img.susercontent.com/file/82ef84dcd6343e1db546c47d48982970@resize_w900_nl.webp",
+    "description": "Khăn trải bàn được may từ vải thổ cẩm với hoa văn truyền thống. Chất liệu cao cấp, dễ giặt.",
+    "category": "sản phẩm từ thổ cẩm",
+    "colors": [
+      "Đỏ",
+      "Xanh",
+      "Vàng"
+    ],
+    "types": [
+      "Nhỏ (1m)",
+      "Vừa (1.5m)",
+      "Lớn (2m)"
+    ],
+    "stock": 9,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "khăn",
+      "thổ cẩm",
+      "trang trí"
+    ],
+    "images": [
+      "https://down-vn.img.susercontent.com/file/5861953bc9fec78621885338b2c42d4b@resize_w900_nl.webp"
+    ],
+    "sold": 324
+  },
+  {
+    "id": "102",
+    "name": "Gối thổ cẩm handmade",
+    "price": 280000,
+    "image": "https://goiaura.com/Images/Products/goi-tho-cam(3).jpg",
+    "description": "Gối được may từ vải thổ cẩm với hoa văn đẹp mắt. Ruột gối mềm mại, vỏ gối bằng vải thổ cẩm.",
+    "category": "sản phẩm từ thổ cẩm",
+    "colors": [
+      "Đỏ",
+      "Xanh",
+      "Vàng",
+      "Đen"
+    ],
+    "types": [
+      "Nhỏ (30x30cm)",
+      "Vừa (40x40cm)",
+      "Lớn (50x50cm)"
+    ],
+    "stock": 10,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "gối",
+      "thổ cẩm",
+      "trang trí"
+    ],
+    "images": [
+      "https://tse3.mm.bing.net/th/id/OIP.7KNxxiEf0XQUhSpcdMbA-AHaF7?pid=Api&h=220&P=0",
+      "https://tse1.mm.bing.net/th/id/OIP.s_FvOXdsNpCHBTw72vOjSwHaHk?pid=Api&h=220&P=0"
+    ],
+    "sold": 751
+  },
+  {
+    "id": "103",
+    "name": "Áo dài thổ cẩm handmade",
+    "price": 550000,
+    "image": "https://tse3.mm.bing.net/th/id/OIP.L5NP25tQwhFNBLHU7T_4GwHaJ4?pid=Api&h=220&P=0",
+    "description": "Áo dài được may từ vải thổ cẩm với hoa văn độc đáo. Thiết kế đẹp mắt, mang đậm bản sắc văn hóa.",
+    "category": "sản phẩm từ thổ cẩm",
+    "colors": [
+      "Đỏ",
+      "Xanh",
+      "Vàng"
+    ],
+    "types": [
+      "Size S",
+      "Size M",
+      "Size L",
+      "Size XL"
+    ],
+    "stock": 5,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "áo dài",
+      "thổ cẩm",
+      "thời trang"
+    ],
+    "images": [
+      "https://tse4.mm.bing.net/th/id/OIP.nYaeBGk9zUOQNzrBPqe2PQHaJ4?pid=Api&h=220&P=0",
+      "https://tse4.mm.bing.net/th/id/OIP.I712WxjDPMHvfGtvSh0chAHaHa?pid=Api&h=220&P=0"
+    ],
+    "sold": 270,
+    "originalPrice": 609000
+  },
+  {
+    "id": "104",
+    "name": "Túi xách thổ cẩm handmade",
+    "price": 320000,
+    "image": "https://khankm0.com/media/uploads/V%E1%BA%A2I%20TH%E1%BB%94%20C%E1%BA%A8M%202022/21.5/tui-tho-cam%20(3).jpg",
+    "description": "Túi xách được may từ vải thổ cẩm với hoa văn truyền thống. Thiết kế đẹp mắt, nhiều ngăn tiện lợi.",
+    "category": "sản phẩm từ thổ cẩm",
+    "colors": [
+      "Đỏ",
+      "Xanh",
+      "Vàng",
+      "Đen"
+    ],
+    "types": [
+      "Nhỏ",
+      "Vừa",
+      "Lớn"
+    ],
+    "stock": 9,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "túi xách",
+      "thổ cẩm",
+      "văn hóa"
+    ],
+    "images": [
+      "https://tse4.mm.bing.net/th/id/OIP.CkyGEbUkkxaJ2kKXSv2N2AHaHa?pid=Api&h=220&P=0",
+      "https://tse3.mm.bing.net/th/id/OIP.80WqND8UVxaXcpHwbhDetAHaHa?pid=Api&h=220&P=0",
+      "https://tse1.mm.bing.net/th/id/OIP.VqjCc5Ko23EIcSqY83sqCAHaHa?pid=Api&h=220&P=0"
+    ],
+    "sold": 151
+  },
+  {
+    "id": "105",
+    "name": "Búp bê cute handmade",
+    "price": 260000,
+    "image": "http://img.handmadev.com/photos/2023/03/6-mau-bup-be-moc-tu-len-1-1679803282.jpg",
+    "description": "Búp bê nàng tiên cá xinh xắn được làm thủ công. Thiết kế độc đáo với đuôi cá đẹp mắt.",
+    "category": "búp bê",
+    "colors": [
+      "Xanh",
+      "Hồng",
+      "Tím"
+    ],
+    "types": [
+      "Nhỏ (15cm)",
+      "Vừa (25cm)",
+      "Lớn (35cm)"
+    ],
+    "stock": 8,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "búp bê",
+      "tiên cá",
+      "quà tặng"
+    ],
+    "images": [
+      "http://img.handmadev.com/photos/2023/03/6-mau-bup-be-moc-tu-len-2-1679803283.jpg",
+      "http://img.handmadev.com/photos/2023/03/6-mau-bup-be-moc-tu-len-3-1679803283.jpg"
+    ],
+    "sold": 880
+  },
+  {
+    "id": "106",
+    "name": "Búp bê công handmade",
+    "price": 250000,
+    "image": "https://down-vn.img.susercontent.com/file/sg-11134201-22110-3gf6o2yf2cjv3a@resize_w900_nl.webp",
+    "description": "Búp bê công chúa bạch tuyết được may thủ công với trang phục đẹp mắt. Chất liệu cao cấp, chi tiết tinh tế.",
+    "category": "búp bê",
+    "colors": [
+      "Trắng",
+      "Xanh",
+      "Hồng"
+    ],
+    "types": [
+      "Nhỏ (15cm)",
+      "Vừa (25cm)",
+      "Lớn (35cm)"
+    ],
+    "stock": 9,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "búp bê",
+      "công chúa",
+      "quà tặng"
+    ],
+    "images": [
+      "https://down-vn.img.susercontent.com/file/vn-11134207-7qukw-lfv9mmrxfka2b8@resize_w900_nl.webp",
+      "https://down-vn.img.susercontent.com/file/vn-11134207-7qukw-lfv9mmrxgyui9e@resize_w900_nl.webp",
+      "https://down-vn.img.susercontent.com/file/vn-11134207-7qukw-lfv9mmrxgyui9e@resize_w900_nl.webp "
+    ],
+    "sold": 460
+  },
+  {
+    "id": "107",
+    "name": "Búp bê robot handmade",
+    "price": 220000,
+    "image": "https://tse2.mm.bing.net/th/id/OIP.5_dLGHRLuQ82RDoVH4WkYgHaHb?pid=Api&h=220&P=0",
+    "description": "Búp bê robot được làm thủ công với thiết kế hiện đại. Phù hợp cho bé trai yêu thích công nghệ.",
+    "category": "búp bê",
+    "colors": [
+      "Xám",
+      "Xanh",
+      "Đỏ",
+      "Vàng"
+    ],
+    "types": [
+      "Nhỏ (15cm)",
+      "Vừa (25cm)",
+      "Lớn (35cm)"
+    ],
+    "stock": 10,
+    "rating": 5,
+    "reviews": 1,
+    "tags": [
+      "handmade",
+      "búp bê",
+      "robot",
+      "đồ chơi"
+    ],
+    "images": [
+      "https://tse2.mm.bing.net/th/id/OIP.5_dLGHRLuQ82RDoVH4WkYgHaHb?pid=Api&h=220&P=0"
+    ],
+    "sold": 826
+  },
+  {
+    "id": "108",
+    "name": "Búp bê nông dân handmade",
+    "price": 200000,
+    "image": "https://tse4.mm.bing.net/th/id/OIP.XyBQk5aGhgeC2Bv3uizeowHaHa?pid=Api&h=220&P=0",
+    "description": "Búp bê nông dân với trang phục truyền thống được may thủ công. Mang đậm bản sắc văn hóa Việt Nam.",
+    "category": "búp bê",
+    "colors": [
+      "Nâu",
+      "Xanh",
+      "Đen"
+    ],
+    "types": [
+      "Nhỏ (15cm)",
+      "Vừa (25cm)",
+      "Lớn (35cm)"
+    ],
+    "stock": 10,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "búp bê",
+      "nông dân",
+      "văn hóa"
+    ],
+    "images": [
+      "https://tse2.mm.bing.net/th/id/OIP.vRf7U_EVCFpBz0nOH3gDtAHaHa?pid=Api&h=220&P=0",
+      "https://tse4.mm.bing.net/th/id/OIP.Gz72dXW3AAxVT4K13QwPigHaHa?pid=Api&h=220&P=0"
+    ],
+    "sold": 364
+  },
+  {
+    "id": "109",
+    "name": "Búp bê múa ba lê handmade",
+    "price": 280000,
+    "image": "https://thegioidogiadung.com.vn/12538-large_default/bo-san-pham-lam-bup-be-dien-vien-mua-ba-le.jpg",
+    "description": "Búp bê múa ba lê với trang phục đẹp mắt được may thủ công. Thiết kế tinh tế, phù hợp làm quà tặng.",
+    "category": "búp bê",
+    "colors": [
+      "Trắng",
+      "Hồng",
+      "Xanh"
+    ],
+    "types": [
+      "Nhỏ (15cm)",
+      "Vừa (25cm)",
+      "Lớn (35cm)"
+    ],
+    "stock": 7,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "búp bê",
+      "ba lê",
+      "quà tặng"
+    ],
+    "images": [
+      "https://i.pinimg.com/736x/34/59/35/345935998211f970ebabe9f80ec9c804.jpg"
+    ],
+    "sold": 677
+  },
+  {
+    "id": "110",
+    "name": "Búp bê cưới handmade",
+    "price": 300000,
+    "image": "https://tse4.mm.bing.net/th/id/OIP.uV_RVg6cLQ5B1kaRTsOQIwHaFP?pid=Api&h=220&P=0",
+    "description": "Búp bê cưới với trang phục cưới đẹp mắt được may thủ công. Phù hợp làm quà tặng đám cưới.",
+    "category": "búp bê",
+    "colors": [
+      "Trắng",
+      "Hồng",
+      "Vàng"
+    ],
+    "types": [
+      "Nhỏ (15cm)",
+      "Vừa (25cm)",
+      "Lớn (35cm)"
+    ],
+    "stock": 6,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "búp bê",
+      "cưới",
+      "quà tặng"
+    ],
+    "images": [
+      "https://tse2.mm.bing.net/th/id/OIP.iKoa-Eng_fI1wITrRJDVGwHaJ4?pid=Api&h=220&P=0",
+      "https://tse2.mm.bing.net/th/id/OIP.yWy5nvXGpF1ztpFe1H7SNQHaHa?pid=Api&h=220&P=0"
+    ],
+    "sold": 615,
+    "originalPrice": 380000
+  },
+  {
+    "id": "111",
+    "name": "Búp bê áo dài handmade",
+    "price": 290000,
+    "image": "https://tse1.mm.bing.net/th/id/OIP.RW4rV08Wi1_mB56B-JI60wHaHa?pid=Api&h=220&P=0",
+    "description": "Búp bê mặc áo dài truyền thống được may thủ công. Thiết kế đẹp mắt, mang đậm bản sắc văn hóa.",
+    "category": "búp bê",
+    "colors": [
+      "Đỏ",
+      "Xanh",
+      "Vàng",
+      "Trắng"
+    ],
+    "types": [
+      "Nhỏ (15cm)",
+      "Vừa (25cm)",
+      "Lớn (35cm)"
+    ],
+    "stock": 8,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "búp bê",
+      "áo dài",
+      "văn hóa"
+    ],
+    "images": [
+      "https://tse4.mm.bing.net/th/id/OIP.kxe4VZCwO6qwckSrwSveAgHaHa?pid=Api&h=220&P=0"
+    ],
+    "sold": 820
+  },
+  {
+    "id": "112",
+    "name": "Hoa cẩm tú cầu handmade",
+    "price": 145000,
+    "image": "https://tse2.mm.bing.net/th/id/OIP.QoP39bwtP8R7f52Wl6U25QHaHa?pid=Api&h=220&P=0",
+    "description": "Hoa cẩm tú cầu được làm từ giấy nhún và vải. Màu sắc đa dạng, thiết kế tinh tế, đẹp mắt.",
+    "category": "hoa handmade",
+    "colors": [
+      "Xanh",
+      "Hồng",
+      "Tím",
+      "Trắng"
+    ],
+    "types": [
+      "1 bông",
+      "3 bông",
+      "5 bông"
+    ],
+    "stock": 14,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "hoa",
+      "cẩm tú cầu",
+      "trang trí"
+    ],
+    "images": [
+      "https://tse4.mm.bing.net/th/id/OIP.lukVxzntb-OjNDemVTqQFwHaHa?pid=Api&h=220&P=0",
+      "https://tse4.mm.bing.net/th/id/OIP.3s0q9cFlacIpYL3wZRE-OAHaHa?pid=Api&h=220&P=0"
+    ],
+    "sold": 961
+  },
+  {
+    "id": "113",
+    "name": "Hoa đồng tiền vải handmade",
+    "price": 135000,
+    "image": "https://tse3.mm.bing.net/th/id/OIP.88gdGH7Z8H9RJW6GENhPIAHaJ4?pid=Api&h=220&P=0",
+    "description": "Hoa đồng tiền được làm từ vải lụa mềm mại. Màu sắc tươi tắn, thiết kế đẹp mắt, bền đẹp.",
+    "category": "hoa handmade",
+    "colors": [
+      "Đỏ",
+      "Hồng",
+      "Vàng",
+      "Cam"
+    ],
+    "types": [
+      "1 bông",
+      "3 bông",
+      "5 bông"
+    ],
+    "stock": 15,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "hoa",
+      "đồng tiền",
+      "trang trí"
+    ],
+    "images": [
+      "https://tse4.mm.bing.net/th/id/OIP.62dqugX-XnfzC3eMDAwvNwHaHa?pid=Api&h=220&P=0",
+      "https://tse1.mm.bing.net/th/id/OIP.JPZDp9skMtGE0wUzXrZ7rgHaHa?pid=Api&h=220&P=0"
+    ],
+    "sold": 384
+  },
+  {
+    "id": "114",
+    "name": "Hoa hướng dương giấy handmade",
+    "price": 155000,
+    "image": "https://tse2.mm.bing.net/th/id/OIP.HA6gML5Ry0Rzy7vi6E3i4gHaEK?pid=Api&h=220&P=0",
+    "description": "Hoa hướng dương được làm từ giấy nhún với màu vàng rực rỡ. Thiết kế tinh tế, giống hoa thật.",
+    "category": "hoa handmade",
+    "colors": [
+      "Vàng",
+      "Cam"
+    ],
+    "types": [
+      "1 bông",
+      "3 bông",
+      "5 bông"
+    ],
+    "stock": 12,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "hoa",
+      "hướng dương",
+      "quà tặng"
+    ],
+    "images": [
+      "https://tse4.mm.bing.net/th/id/OIP.xgqNLmEmPKopFzbBwUrI0AHaHa?pid=Api&h=220&P=0",
+      "https://tse4.mm.bing.net/th/id/OIP.YWQOaJrGlQR594ViFBYGPwHaET?pid=Api&h=220&P=0"
+    ],
+    "sold": 384
+  },
+  {
+    "id": "115",
+    "name": "Hoa oải hương vải handmade",
+    "price": 140000,
+    "image": "https://tse4.mm.bing.net/th/id/OIP.6731wtNINytqGcqfIB7HxgAAAA?pid=Api&h=220&P=0",
+    "description": "Hoa oải hương được làm từ vải satin cao cấp. Màu tím thanh tao, thiết kế đẹp mắt.",
+    "category": "hoa handmade",
+    "colors": [
+      "Tím",
+      "Xanh",
+      "Trắng"
+    ],
+    "types": [
+      "1 bông",
+      "3 bông",
+      "5 bông"
+    ],
+    "stock": 13,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "hoa",
+      "oải hương",
+      "trang trí"
+    ],
+    "images": [
+      "https://tse1.mm.bing.net/th/id/OIP.Hdzwu6SbNFZFZ013WMo7TgHaHa?pid=Api&h=220&P=0",
+      "https://tse2.mm.bing.net/th/id/OIP.dZkCepDePk2PqB185N8WeQHaHa?pid=Api&h=220&P=0"
+    ],
+    "sold": 935
+  },
+  {
+    "id": "116",
+    "name": "Hoa cúc dại handmade",
+    "price": 120000,
+    "image": "https://tse4.mm.bing.net/th/id/OIP.gDYJhSjz7xDoLEKvfoJ6PwHaE8?pid=Api&h=220&P=0",
+    "description": "Hoa cúc dại được làm từ vải lụa mềm mại. Màu sắc tự nhiên, thiết kế đơn giản nhưng đẹp mắt.",
+    "category": "hoa handmade",
+    "colors": [
+      "Trắng",
+      "Vàng",
+      "Hồng"
+    ],
+    "types": [
+      "1 bông",
+      "3 bông",
+      "5 bông"
+    ],
+    "stock": 18,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "hoa",
+      "cúc dại",
+      "trang trí"
+    ],
+    "images": [
+      "https://tse2.mm.bing.net/th/id/OIP.ABoKHoMdEkAP4EAsX7IHjwHaEK?pid=Api&h=220&P=0",
+      "https://tse4.mm.bing.net/th/id/OIP.Q7Vug-Yoe8g3NnjGcJGmOgHaEK?pid=Api&h=220&P=0"
+    ],
+    "sold": 545
+  },
+  {
+    "id": "117",
+    "name": "Hoa phong lan vải handmade",
+    "price": 165000,
+    "image": "https://tse2.mm.bing.net/th/id/OIP.qXSFd2KkAZ9q1BPxczQ1XgHaJ4?pid=Api&h=220&P=0",
+    "description": "Hoa phong lan được làm thủ công từ vải satin cao cấp. Màu sắc thanh tao, thiết kế tinh tế.",
+    "category": "hoa handmade",
+    "colors": [
+      "Tím",
+      "Trắng",
+      "Hồng"
+    ],
+    "types": [
+      "1 bông",
+      "3 bông",
+      "5 bông"
+    ],
+    "stock": 10,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "hoa",
+      "phong lan",
+      "trang trí"
+    ],
+    "images": [
+      "https://tse3.mm.bing.net/th/id/OIP.ODmclyfIQuKCeUQCNzbaWAHaGH?pid=Api&h=220&P=0"
+    ],
+    "sold": 407
+  },
+  {
+    "id": "118",
+    "name": "Bó hoa baby handmade",
+    "price": 160000,
+    "image": "https://tse4.mm.bing.net/th/id/OIP.gad8dEe-axIe6yrehD8RMAHaJ4?pid=Api&h=220&P=0",
+    "description": "Bó hoa baby được làm từ giấy nhún và vải. Màu sắc nhẹ nhàng, thiết kế đẹp mắt, phù hợp trang trí.",
+    "category": "hoa handmade",
+    "colors": [
+      "Hồng",
+      "Trắng",
+      "Xanh"
+    ],
+    "types": [
+      "5 bông",
+      "7 bông",
+      "9 bông"
+    ],
+    "stock": 11,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "hoa",
+      "baby",
+      "quà tặng"
+    ],
+    "images": [
+      "https://tse1.mm.bing.net/th/id/OIP.jniLNNTdPKGfnjX8rIcS9AHaHa?pid=Api&h=220&P=0",
+      "https://tse1.mm.bing.net/th/id/OIP.-4WgKtZfmVespDYBXYAUhwHaHa?pid=Api&h=220&P=0",
+      "https://tse3.mm.bing.net/th/id/OIP.1qmunYz2O2x1S4XmpeBoWgHaIg?pid=Api&h=220&P=0"
+    ],
+    "sold": 968
+  },
+  {
+    "id": "119",
+    "name": "Tranh cuộn hoa đào và chim",
+    "price": 480000,
+    "image": "https://tse2.mm.bing.net/th/id/OIP.xcNSNOAIrjbe1APMyQGvjwHaD7?pid=Api&h=220&P=0",
+    "description": "Tranh cuộn vẽ hoa đào và chim với ý nghĩa may mắn. Được vẽ tay trên giấy dó, thiết kế đẹp mắt.",
+    "category": "tranh cuộn",
+    "colors": [
+      "Hồng",
+      "Đỏ",
+      "Đen"
+    ],
+    "types": [
+      "Nhỏ (30x60cm)",
+      "Vừa (40x80cm)",
+      "Lớn (50x100cm)"
+    ],
+    "stock": 4,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "tranh",
+      "hoa đào",
+      "Tết"
+    ],
+    "images": [
+      "https://tse2.mm.bing.net/th/id/OIP.1aTmPPxd6hj-hbktL_xG7wHaDm?pid=Api&h=220&P=0",
+      "https://tse2.mm.bing.net/th/id/OIP.bAd_70eOOeSuN9zZj752PAHaE8?pid=Api&h=220&P=0"
+    ],
+    "sold": 281,
+    "originalPrice": 661000
+  },
+  {
+    "id": "120",
+    "name": "Tranh cuộn sơn thủy hữu tình",
+    "price": 510000,
+    "image": "https://tse4.mm.bing.net/th/id/OIP.oUL3GjRk5Mg0AoQp1CMeKwHaEn?pid=Api&h=220&P=0",
+    "description": "Tranh cuộn vẽ cảnh sơn thủy hữu tình thanh bình. Được vẽ tay tinh tế, màu sắc hài hòa.",
+    "category": "tranh cuộn",
+    "colors": [
+      "Xanh",
+      "Nâu",
+      "Đen"
+    ],
+    "types": [
+      "Nhỏ (30x60cm)",
+      "Vừa (40x80cm)",
+      "Lớn (50x100cm)"
+    ],
+    "stock": 3,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "tranh",
+      "sơn thủy",
+      "trang trí"
+    ],
+    "images": [
+      "https://tse3.mm.bing.net/th/id/OIP.1P9okot4xpqXP08e1rgIWAHaHa?pid=Api&h=220&P=0",
+      "https://tse1.mm.bing.net/th/id/OIP.jrtP4-5JuArpCa4_WZoG0gHaEo?pid=Api&h=220&P=0"
+    ],
+    "sold": 785
+  },
+  {
+    "id": "121",
+    "name": "Tranh cuộn hoa mẫu đơn",
+    "price": 450000,
+    "image": "https://tse4.mm.bing.net/th/id/OIP.iSRemA5jqDNpbBZSnqwK4wHaFj?pid=Api&h=220&P=0",
+    "description": "Tranh cuộn vẽ hoa mẫu đơn với ý nghĩa phú quý. Được vẽ tay trên giấy dó, thiết kế đẹp mắt.",
+    "category": "tranh cuộn",
+    "colors": [
+      "Hồng",
+      "Đỏ",
+      "Vàng"
+    ],
+    "types": [
+      "Nhỏ (30x60cm)",
+      "Vừa (40x80cm)",
+      "Lớn (50x100cm)"
+    ],
+    "stock": 4,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "tranh",
+      "mẫu đơn",
+      "phong thủy"
+    ],
+    "images": [
+      "https://tse1.mm.bing.net/th/id/OIP.4D1WOQHlxZBtrBcVRefsSAHaDt?pid=Api&h=220&P=0",
+      "https://tse4.mm.bing.net/th/id/OIP.wpkjNpc0_-8vrL7y9603cAHaDm?pid=Api&h=220&P=0"
+    ],
+    "sold": 900
+  },
+  {
+    "id": "122",
+    "name": "Tranh cuộn ngư tiều canh mục",
+    "price": 540000,
+    "image": "https://tse2.mm.bing.net/th/id/OIP.pD3PNdIZ5Fk--yoY8q6bFQHaDw?pid=Api&h=220&P=0",
+    "description": "Tranh cuộn vẽ cảnh ngư tiều canh mục với ý nghĩa thanh bình. Được vẽ tay tinh tế, thể hiện sự sang trọng.",
+    "category": "tranh cuộn",
+    "colors": [
+      "Xanh",
+      "Nâu",
+      "Đen"
+    ],
+    "types": [
+      "Nhỏ (30x60cm)",
+      "Vừa (40x80cm)",
+      "Lớn (50x100cm)"
+    ],
+    "stock": 2,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "tranh",
+      "ngư tiều",
+      "văn hóa"
+    ],
+    "images": [
+      "https://tse2.mm.bing.net/th/id/OIP.aFv_9izpQPQliECYSE7tvAHaE5?pid=Api&h=220&P=0",
+      "https://tse2.mm.bing.net/th/id/OIP.T4YlHaKjLync9t3F7yH40QHaDv?pid=Api&h=220&P=0"
+    ],
+    "sold": 472
+  },
+  {
+    "id": "123",
+    "name": "Tranh cuộn hoa cúc và chim",
+    "price": 460000,
+    "image": "https://tse4.mm.bing.net/th/id/OIP.xQKXxb5CfsYX6J6NNUkDvgHaFG?pid=Api&h=220&P=0",
+    "description": "Tranh cuộn vẽ hoa cúc và chim với ý nghĩa trường thọ. Được vẽ tay trên giấy dó, màu sắc tự nhiên.",
+    "category": "tranh cuộn",
+    "colors": [
+      "Vàng",
+      "Trắng",
+      "Đen"
+    ],
+    "types": [
+      "Nhỏ (30x60cm)",
+      "Vừa (40x80cm)",
+      "Lớn (50x100cm)"
+    ],
+    "stock": 3,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "tranh",
+      "hoa cúc",
+      "phong thủy"
+    ],
+    "images": [
+      "https://tse2.mm.bing.net/th/id/OIP.IzXnk1mvOLyGE-CYbgf5kQHaHa?pid=Api&h=220&P=0"
+    ],
+    "sold": 311
+  },
+  {
+    "id": "124",
+    "name": "Tranh cuộn cảnh chùa chiền",
+    "price": 500000,
+    "image": "https://tse4.mm.bing.net/th/id/OIP.38ZSoiUL8sXc7rhGVBnl8wHaFj?pid=Api&h=220&P=0",
+    "description": "Tranh cuộn vẽ cảnh chùa chiền thanh tịnh. Được vẽ tay tinh tế, mang đậm bản sắc văn hóa.",
+    "category": "tranh cuộn",
+    "colors": [
+      "Vàng",
+      "Nâu",
+      "Đen"
+    ],
+    "types": [
+      "Nhỏ (30x60cm)",
+      "Vừa (40x80cm)",
+      "Lớn (50x100cm)"
+    ],
+    "stock": 3,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "tranh",
+      "chùa chiền",
+      "văn hóa"
+    ],
+    "images": [
+      "https://tse3.mm.bing.net/th/id/OIP.B_7pgC-QWWI7sgYCrkRKHgHaFj?pid=Api&h=220&P=0",
+      "https://tse2.mm.bing.net/th/id/OIP.rOxPQE75-b9nn7b-AV1k8QHaFs?pid=Api&h=220&P=0"
+    ],
+    "sold": 492,
+    "originalPrice": 673000
+  },
+  {
+    "id": "125",
+    "name": "Áo len cổ tim đan tay",
+    "price": 370000,
+    "image": "https://tse3.mm.bing.net/th/id/OIP.pPOM3RoBoB5UxoLKViAgsQHaHa?pid=Api&h=220&P=0",
+    "description": "Áo len cổ tim được đan tay từ len mềm mại. Thiết kế đẹp mắt, phù hợp cho mùa đông.",
+    "category": "sản phẩm từ len",
+    "colors": [
+      "Hồng",
+      "Đỏ",
+      "Xám",
+      "Đen"
+    ],
+    "types": [
+      "Size S",
+      "Size M",
+      "Size L",
+      "Size XL"
+    ],
+    "stock": 8,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "len",
+      "áo",
+      "thời trang"
+    ],
+    "images": [
+      "https://tse4.mm.bing.net/th/id/OIP.4Ou8NCNB-lTLGnCEncVSQgHaHa?pid=Api&h=220&P=0",
+      "https://tse4.mm.bing.net/th/id/OIP.EJciB2H2vN1C2KS7EhammgHaJK?pid=Api&h=220&P=0"
+    ],
+    "sold": 189
+  },
+  {
+    "id": "126",
+    "name": "Áo len tay dài đan tay",
+    "price": 390000,
+    "image": "https://tse2.mm.bing.net/th/id/OIP.K5WVebE2PuurXVrSEUj2pgHaJ3?pid=Api&h=220&P=0",
+    "description": "Áo len tay dài được đan tay từ len mềm mại. Thiết kế đơn giản, thanh lịch, ấm áp.",
+    "category": "sản phẩm từ len",
+    "colors": [
+      "Đen",
+      "Xám",
+      "Trắng",
+      "Be"
+    ],
+    "types": [
+      "Size S",
+      "Size M",
+      "Size L",
+      "Size XL"
+    ],
+    "stock": 7,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "len",
+      "áo",
+      "thời trang"
+    ],
+    "images": [
+      "https://tse3.mm.bing.net/th/id/OIP.9LyR3nQMHfpOq61P8JX6QAHaHa?pid=Api&h=220&P=0",
+      "https://tse1.mm.bing.net/th/id/OIP.oWt--dq-x9yMo_1j_Hn0hQAAAA?pid=Api&h=220&P=0"
+    ],
+    "sold": 999
+  },
+  {
+    "id": "127",
+    "name": "Áo len tay ngắn đan tay",
+    "price": 340000,
+    "image": "https://tse4.mm.bing.net/th/id/OIP.HkVsHIhX8wKfQz-kk4q3awHaHa?pid=Api&h=220&P=0",
+    "description": "Áo len tay ngắn được đan tay từ len mềm mại. Thiết kế đẹp mắt, phù hợp cho mùa thu.",
+    "category": "sản phẩm từ len",
+    "colors": [
+      "Xám",
+      "Hồng",
+      "Xanh",
+      "Trắng"
+    ],
+    "types": [
+      "Size S",
+      "Size M",
+      "Size L",
+      "Size XL"
+    ],
+    "stock": 10,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "len",
+      "áo",
+      "thời trang"
+    ],
+    "images": [
+      "https://tse2.mm.bing.net/th/id/OIP.d2ogg6dNFY0Ksv5TGwtwbAHaHa?pid=Api&h=220&P=0",
+      "https://tse4.mm.bing.net/th/id/OIP.IN4mHFEmZCRM3KwA_1m4YQHaHa?pid=Api&h=220&P=0"
+    ],
+    "sold": 245,
+    "originalPrice": 430000
+  },
+  {
+    "id": "128",
+    "name": "Áo len không tay đan tay",
+    "price": 320000,
+    "image": "https://tse2.mm.bing.net/th/id/OIP.H7obuGoQjjufuv6Pw0rNWQHaHa?pid=Api&h=220&P=0",
+    "description": "Áo len không tay được đan tay từ len mềm mại. Thiết kế hiện đại, phù hợp cho mùa thu.",
+    "category": "sản phẩm từ len",
+    "colors": [
+      "Đen",
+      "Xám",
+      "Hồng",
+      "Be"
+    ],
+    "types": [
+      "Size S",
+      "Size M",
+      "Size L",
+      "Size XL"
+    ],
+    "stock": 11,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "len",
+      "áo",
+      "thời trang"
+    ],
+    "images": [
+      "https://tse1.mm.bing.net/th/id/OIP.rFPvPgw5hTTJcadj4rX39gHaHa?pid=Api&h=220&P=0",
+      "https://tse4.mm.bing.net/th/id/OIP.j99ypJ4djl64D8MPqbDVQQHaHa?pid=Api&h=220&P=0"
+    ],
+    "sold": 33
+  },
+  {
+    "id": "129",
+    "name": "Áo len họa tiết đan tay",
+    "price": 410000,
+    "image": "https://tse2.mm.bing.net/th/id/OIP.urEGGGuWf5zFbsQtO4dc4AHaHa?pid=Api&h=220&P=0",
+    "description": "Áo len với họa tiết độc đáo được đan tay. Thiết kế đẹp mắt, phù hợp cho mùa đông.",
+    "category": "sản phẩm từ len",
+    "colors": [
+      "Xám",
+      "Đen",
+      "Xanh",
+      "Hồng"
+    ],
+    "types": [
+      "Size S",
+      "Size M",
+      "Size L",
+      "Size XL"
+    ],
+    "stock": 6,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "len",
+      "áo",
+      "thời trang"
+    ],
+    "images": [
+      "https://tse1.mm.bing.net/th/id/OIP.JYcFEP_7a--LbdQJ6AartAHaHa?pid=Api&h=220&P=0",
+      "https://tse4.mm.bing.net/th/id/OIP.yNpqv14Erc1nlJOo7artVQHaHa?pid=Api&h=220&P=0"
+    ],
+    "sold": 140
+  },
+  {
+    "id": "130",
+    "name": "Áo len cổ tròn đan tay",
+    "price": 350000,
+    "image": "https://tse1.mm.bing.net/th/id/OIP.8HV33XVqJUdRy6dE_i_rewHaFj?pid=Api&h=220&P=0",
+    "description": "Áo len cổ tròn được đan tay từ len mềm mại. Thiết kế đơn giản, thanh lịch, ấm áp.",
+    "category": "sản phẩm từ len",
+    "colors": [
+      "Đen",
+      "Xám",
+      "Trắng",
+      "Be"
+    ],
+    "types": [
+      "Size S",
+      "Size M",
+      "Size L",
+      "Size XL"
+    ],
+    "stock": 9,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "len",
+      "áo",
+      "thời trang"
+    ],
+    "images": [
+      "https://tse1.mm.bing.net/th/id/OIP.kOg_Emi1LydM76hlQtHNGgHaHa?pid=Api&h=220&P=0",
+      "https://tse4.mm.bing.net/th/id/OIP.AAItVf-B04htiO5QCtXofgHaJ3?pid=Api&h=220&P=0"
+    ],
+    "sold": 674
+  },
+  {
+    "id": "131",
+    "name": "Móc chìa khóa hình ngôi sao",
+    "price": 70000,
+    "image": "https://tse2.mm.bing.net/th/id/OIP.ThvtCE0VSj69Mqb0-YddKgHaJ4?pid=Api&h=220&P=0",
+    "description": "Móc chìa khóa hình ngôi sao được làm thủ công từ vải nỉ. Màu sắc đẹp mắt, phù hợp làm quà tặng.",
+    "category": "móc chìa khóa",
+    "colors": [
+      "Vàng",
+      "Trắng",
+      "Hồng"
+    ],
+    "types": [
+      "Nhỏ",
+      "Vừa"
+    ],
+    "stock": 29,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "móc khóa",
+      "ngôi sao",
+      "quà tặng"
+    ],
+    "images": [
+      "https://tse3.mm.bing.net/th/id/OIP.elwBQLlp8hngWzqqY_hAugHaHa?pid=Api&h=220&P=0",
+      "https://tse4.mm.bing.net/th/id/OIP.6-9MU8GDXv27qdDV1XcvmwHaKh?pid=Api&h=220&P=0"
+    ],
+    "sold": 235,
+    "originalPrice": 79000
+  },
+  {
+    "id": "132",
+    "name": "Móc chìa khóa hình mặt trăng",
+    "price": 75000,
+    "image": "https://tse1.mm.bing.net/th/id/OIP._HBi57e3ixtU5b8kLt-kvAHaEK?pid=Api&h=220&P=0",
+    "description": "Móc chìa khóa hình mặt trăng đáng yêu được làm thủ công. Thiết kế ngộ nghĩnh, màu sắc đa dạng.",
+    "category": "móc chìa khóa",
+    "colors": [
+      "Vàng",
+      "Trắng",
+      "Xám"
+    ],
+    "types": [
+      "Nhỏ",
+      "Vừa"
+    ],
+    "stock": 27,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "móc khóa",
+      "mặt trăng",
+      "phụ kiện"
+    ],
+    "images": [
+      "https://tse1.mm.bing.net/th/id/OIP.XXKUaBvBS6CHwdOAMz7fUgHaHa?pid=Api&h=220&P=0",
+      "https://tse1.mm.bing.net/th/id/OIP.JK233UiE-sr-XyUQty159AHaJ4?pid=Api&h=220&P=0"
+    ],
+    "sold": 723,
+    "originalPrice": 86000
+  },
+  {
+    "id": "133",
+    "name": "Móc chìa khóa hình bánh mì",
+    "price": 80000,
+    "image": "https://tse3.mm.bing.net/th/id/OIP.ftFt8xA5k5mUgEWTUOLd8gHaHa?pid=Api&h=220&P=0",
+    "description": "Móc chìa khóa hình bánh mì đáng yêu được làm thủ công. Thiết kế ngộ nghĩnh, màu sắc tươi sáng.",
+    "category": "móc chìa khóa",
+    "colors": [
+      "Vàng",
+      "Nâu",
+      "Be"
+    ],
+    "types": [
+      "Nhỏ",
+      "Vừa"
+    ],
+    "stock": 25,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "móc khóa",
+      "bánh mì",
+      "phụ kiện"
+    ],
+    "images": [
+      "https://tse1.mm.bing.net/th/id/OIP.0zIqlsm4dT8xqK-18p3DLgHaHa?pid=Api&h=220&P=0",
+      "https://tse4.mm.bing.net/th/id/OIP.c_Co0E2TMJyKHFxy44bW0wHaHa?pid=Api&h=220&P=0"
+    ],
+    "sold": 257,
+    "originalPrice": 85000
+  },
+  {
+    "id": "134",
+    "name": "Móc chìa khóa hình kem",
+    "price": 77000,
+    "image": "https://tse4.mm.bing.net/th/id/OIP.i7IT7lwaMyFo2TQR1HwMLQHaEK?pid=Api&h=220&P=0",
+    "description": "Móc chìa khóa hình kem đáng yêu được làm thủ công. Chất liệu vải cao cấp, bền đẹp.",
+    "category": "móc chìa khóa",
+    "colors": [
+      "Trắng",
+      "Hồng",
+      "Vàng"
+    ],
+    "types": [
+      "Nhỏ",
+      "Vừa"
+    ],
+    "stock": 23,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "móc khóa",
+      "kem",
+      "phụ kiện"
+    ],
+    "images": [
+      "https://tse4.mm.bing.net/th/id/OIP.L-HGuT7sp9pGMGOL5SBbrgHaHS?pid=Api&h=220&P=0",
+      "https://tse1.mm.bing.net/th/id/OIP.WXU018K4jSfMrzh8aAOs4AHaHR?pid=Api&h=220&P=0"
+    ],
+    "sold": 523,
+    "originalPrice": 97000
+  },
+  {
+    "id": "135",
+    "name": "Móc chìa khóa hình bánh ngọt",
+    "price": 85000,
+    "image": "https://tse2.mm.bing.net/th/id/OIP.PmpCojKSKHyBOqMU0tUBLQHaFw?pid=Api&h=220&P=0",
+    "description": "Móc chìa khóa hình bánh ngọt đáng yêu được làm thủ công. Thiết kế đáng yêu, màu sắc tươi sáng.",
+    "category": "móc chìa khóa",
+    "colors": [
+      "Hồng",
+      "Trắng",
+      "Vàng"
+    ],
+    "types": [
+      "Nhỏ",
+      "Vừa"
+    ],
+    "stock": 22,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "móc khóa",
+      "bánh ngọt",
+      "quà tặng"
+    ],
+    "images": [
+      "https://tse2.mm.bing.net/th/id/OIP.k9NQVIWZkPY7UM4jIH0zuAHaHa?pid=Api&h=220&P=0",
+      "https://tse2.mm.bing.net/th/id/OIP.CPxGj6lgnFOcG5lPhF1ZDQHaHI?pid=Api&h=220&P=0"
+    ],
+    "sold": 569
+  },
+  {
+    "id": "136",
+    "name": "Móc chìa khóa hình pizza",
+    "price": 90000,
+    "image": "https://tse1.mm.bing.net/th/id/OIP.Py9_G959F15NgfNnNhIhXgHaHa?pid=Api&h=220&P=0",
+    "description": "Móc chìa khóa hình pizza đáng yêu được làm thủ công. Có nhiều màu sắc để lựa chọn.",
+    "category": "móc chìa khóa",
+    "colors": [
+      "Đỏ",
+      "Vàng",
+      "Xanh"
+    ],
+    "types": [
+      "Nhỏ",
+      "Vừa"
+    ],
+    "stock": 20,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "móc khóa",
+      "pizza",
+      "phụ kiện"
+    ],
+    "images": [
+      "https://tse1.mm.bing.net/th/id/OIP.Py9_G959F15NgfNnNhIhXgHaHa?pid=Api&h=220&P=0",
+      "https://tse2.mm.bing.net/th/id/OIP.CGm7o32-FxVpYMRywYlyywHaHa?pid=Api&h=220&P=0"
+    ],
+    "sold": 883
+  },
+  {
+    "id": "137",
+    "name": "Gấu bông nhỏ handmade",
+    "price": 180000,
+    "image": "https://tse4.mm.bing.net/th/id/OIP.h4UVx4Ap5czJd6p3Dsr30wHaE_?pid=Api&h=220&P=0",
+    "description": "Gấu bông nhỏ được làm thủ công từ vải nỉ mềm mại. Kích thước nhỏ gọn, đáng yêu, phù hợp làm quà tặng.",
+    "category": "thú bông",
+    "colors": [
+      "Nâu",
+      "Trắng",
+      "Hồng"
+    ],
+    "types": [
+      "Nhỏ (15cm)",
+      "Vừa (20cm)"
+    ],
+    "stock": 15,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "gấu bông",
+      "nhỏ",
+      "quà tặng"
+    ],
+    "images": [
+      "https://tse3.mm.bing.net/th/id/OIP.6nX0-UKx75SwkJ7fydENsAHaHP?pid=Api&h=220&P=0",
+      "https://tse3.mm.bing.net/th/id/OIP.vBdreyEtk2CL0xKc9Y-ZNgHaJt?pid=Api&h=220&P=0",
+      "https://tse4.mm.bing.net/th/id/OIP.RnwrdPim25PdLwSITMYMHQAAAA?pid=Api&h=220&P=0"
+    ],
+    "sold": 920
+  },
+  {
+    "id": "138",
+    "name": "Bò bông handmade",
+    "price": 260000,
+    "image": "https://tse4.mm.bing.net/th/id/OIP.0ZWsdn4tddYx1yO9SJ6J8QHaHa?pid=Api&h=220&P=0",
+    "description": "Bò bông được làm thủ công từ vải nỉ cao cấp. Thiết kế đáng yêu, màu sắc tự nhiên.",
+    "category": "thú bông",
+    "colors": [
+      "Nâu",
+      "Trắng",
+      "Đen"
+    ],
+    "types": [
+      "Nhỏ (20cm)",
+      "Vừa (30cm)",
+      "Lớn (40cm)"
+    ],
+    "stock": 9,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "bò bông",
+      "đồ chơi",
+      "quà tặng"
+    ],
+    "images": [
+      "https://tse3.mm.bing.net/th/id/OIP.M2jcAtzmDjmsaBUBJObQrAHaIG?pid=Api&h=220&P=0",
+      "https://tse4.mm.bing.net/th/id/OIP.rwVOTUl03EHa1Vs7iTbdnAHaHa?pid=Api&h=220&P=0"
+    ],
+    "sold": 571,
+    "originalPrice": 330000
+  },
+  {
+    "id": "139",
+    "name": "Ngựa bông handmade",
+    "price": 270000,
+    "image": "https://tse1.mm.bing.net/th/id/OIP.O257J72KooJYpA6MobI4ygHaHa?pid=Api&h=220&P=0",
+    "description": "Ngựa bông được làm thủ công với thiết kế dễ thương. Chất liệu vải nỉ mềm mại, an toàn.",
+    "category": "thú bông",
+    "colors": [
+      "Nâu",
+      "Đen",
+      "Trắng"
+    ],
+    "types": [
+      "Nhỏ (20cm)",
+      "Vừa (30cm)",
+      "Lớn (40cm)"
+    ],
+    "stock": 8,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "ngựa bông",
+      "đồ chơi",
+      "quà tặng"
+    ],
+    "images": [
+      "https://tse4.mm.bing.net/th/id/OIP.OWFUFlvpESSlEHKTB-NioAHaI9?pid=Api&h=220&P=0",
+      "https://tse1.mm.bing.net/th/id/OIP.9jXlxmxp1Xgb_Y-3kxDzmwHaI9?pid=Api&h=220&P=0",
+      "https://tse4.mm.bing.net/th/id/OIP.KtWicnzI9AkV8NtYI0WAQAHaI9?pid=Api&h=220&P=0"
+    ],
+    "sold": 451,
+    "originalPrice": 399000
+  },
+  {
+    "id": "140",
+    "name": "Sư tử bông handmade",
+    "price": 300000,
+    "image": "https://tse4.mm.bing.net/th/id/OIP.PFCIWw5s4foYJWidqCJstAHaJ4?pid=Api&h=220&P=0",
+    "description": "Sư tử bông được làm thủ công từ vải nỉ cao cấp. Thiết kế đáng yêu, phù hợp làm quà tặng.",
+    "category": "thú bông",
+    "colors": [
+      "Vàng",
+      "Cam",
+      "Nâu"
+    ],
+    "types": [
+      "Nhỏ (20cm)",
+      "Vừa (30cm)",
+      "Lớn (40cm)"
+    ],
+    "stock": 7,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "sư tử bông",
+      "đồ chơi",
+      "quà tặng"
+    ],
+    "images": [
+      "https://tse1.mm.bing.net/th/id/OIP.qrUQKtTl56sbh6jPHOuvyAHaHa?pid=Api&h=220&P=0",
+      "https://tse3.mm.bing.net/th/id/OIP.0SEhwmmfWrCzc90k5PmzAAHaHa?pid=Api&h=220&P=0"
+    ],
+    "sold": 58
+  },
+  {
+    "id": "141",
+    "name": "Cá sấu bông handmade",
+    "price": 250000,
+    "image": "https://tse2.mm.bing.net/th/id/OIP.Lwq2c8SxzaVGL8xSBRy-OgHaHa?pid=Api&h=220&P=0",
+    "description": "Cá sấu bông được làm thủ công với thiết kế dễ thương. Chất liệu vải nỉ mềm mại, an toàn.",
+    "category": "thú bông",
+    "colors": [
+      "Xanh",
+      "Xám",
+      "Trắng"
+    ],
+    "types": [
+      "Nhỏ (20cm)",
+      "Vừa (30cm)",
+      "Lớn (40cm)"
+    ],
+    "stock": 11,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "cá sấu bông",
+      "đồ chơi",
+      "quà tặng"
+    ],
+    "images": [
+      "https://tse2.mm.bing.net/th/id/OIP.Lwq2c8SxzaVGL8xSBRy-OgHaHa?pid=Api&h=220&P=0"
+    ],
+    "sold": 146,
+    "originalPrice": 358000
+  },
+  {
+    "id": "142",
+    "name": "Chim cánh cụt bông handmade",
+    "price": 230000,
+    "image": "https://tse4.mm.bing.net/th/id/OIP.mS8zpOI1o2WIxCi5N-76-wHaHa?pid=Api&h=220&P=0",
+    "description": "Chim cánh cụt bông được làm thủ công từ vải nỉ cao cấp. Thiết kế đáng yêu, màu sắc đa dạng.",
+    "category": "thú bông",
+    "colors": [
+      "Đen",
+      "Trắng",
+      "Xanh"
+    ],
+    "types": [
+      "Nhỏ (20cm)",
+      "Vừa (30cm)",
+      "Lớn (40cm)"
+    ],
+    "stock": 10,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "chim cánh cụt",
+      "đồ chơi",
+      "quà tặng"
+    ],
+    "images": [
+      "https://tse4.mm.bing.net/th/id/OIP.EgM1czrCrbew0bqqA4FhYQHaHa?pid=Api&h=220&P=0"
+    ],
+    "sold": 269
+  },
+  {
+    "id": "143",
+    "name": "Túi balo nam handmade",
+    "price": 360000,
+    "image": "https://tse3.mm.bing.net/th/id/OIP.v5inNulwdOEzMBvkVRXpZwHaHZ?pid=Api&h=220&P=0",
+    "description": "Túi balo nam được may thủ công từ vải canvas bền chắc. Thiết kế nam tính, nhiều ngăn tiện lợi.",
+    "category": "túi balo",
+    "colors": [
+      "Đen",
+      "Xám",
+      "Nâu",
+      "Xanh"
+    ],
+    "types": [
+      "Nhỏ (15L)",
+      "Vừa (20L)",
+      "Lớn (30L)"
+    ],
+    "stock": 8,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "balo",
+      "nam",
+      "túi xách"
+    ],
+    "images": [
+      "https://tse4.mm.bing.net/th/id/OIP.TBvXTcrT_Abz8d6jJNCdPwHaF7?pid=Api&h=220&P=0",
+      "https://tse3.mm.bing.net/th/id/OIP.HYpdSxy166byTwyxU6fSrQHaHa?pid=Api&h=220&P=0"
+    ],
+    "sold": 630,
+    "originalPrice": 460000
+  },
+  {
+    "id": "144",
+    "name": "Túi balo nữ handmade",
+    "price": 340000,
+    "image": "https://tse2.mm.bing.net/th/id/OIP.jAH3wWw1Y52JFVUYQEWJYQHaHa?pid=Api&h=220&P=0",
+    "description": "Túi balo nữ được may thủ công với thiết kế đẹp mắt. Nhiều ngăn tiện lợi, phù hợp cho phái nữ.",
+    "category": "túi balo",
+    "colors": [
+      "Hồng",
+      "Xanh",
+      "Đen",
+      "Be"
+    ],
+    "types": [
+      "Nhỏ (15L)",
+      "Vừa (20L)",
+      "Lớn (30L)"
+    ],
+    "stock": 9,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "balo",
+      "nữ",
+      "túi xách"
+    ],
+    "images": [
+      "https://tse3.mm.bing.net/th/id/OIP.CbmrWsej4cVoQa52xbixnAHaHa?pid=Api&h=220&P=0",
+      "https://tse4.mm.bing.net/th/id/OIP.PC-BA2CQk4hXQxDXIaMJhgAAAA?pid=Api&h=220&P=0"
+    ],
+    "sold": 327
+  },
+  {
+    "id": "145",
+    "name": "Túi balo công sở handmade",
+    "price": 370000,
+    "image": "https://tse2.mm.bing.net/th/id/OIP.K_mG-D8Ya5mxGZznvAp9_AHaEw?pid=Api&h=220&P=0",
+    "description": "Túi balo công sở được may thủ công với thiết kế chuyên nghiệp. Nhiều ngăn tiện lợi, phù hợp cho công việc.",
+    "category": "túi balo",
+    "colors": [
+      "Đen",
+      "Xám",
+      "Nâu"
+    ],
+    "types": [
+      "Nhỏ (15L)",
+      "Vừa (20L)",
+      "Lớn (30L)"
+    ],
+    "stock": 7,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "balo",
+      "công sở",
+      "túi xách"
+    ],
+    "images": [
+      "https://tse3.mm.bing.net/th/id/OIP.HYwQLlllHg5a1gn8ngXQFgHaEw?pid=Api&h=220&P=0",
+      "https://tse3.mm.bing.net/th/id/OIP.9fIUzRaq6h4W1JDtZW0wxQHaHa?pid=Api&h=220&P=0"
+    ],
+    "sold": 836
+  },
+  {
+    "id": "146",
+    "name": "Túi balo đeo ngực handmade",
+    "price": 280000,
+    "image": "https://tse2.mm.bing.net/th/id/OIP.ZnbsTWm_NGxEuVvQqmyJtgHaF8?pid=Api&h=220&P=0",
+    "description": "Túi balo đeo ngực được may thủ công với thiết kế nhỏ gọn. Phù hợp cho đi bộ, chạy bộ.",
+    "category": "túi balo",
+    "colors": [
+      "Đen",
+      "Xám",
+      "Xanh",
+      "Đỏ"
+    ],
+    "types": [
+      "Nhỏ (5L)",
+      "Vừa (8L)"
+    ],
+    "stock": 12,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "balo",
+      "đeo ngực",
+      "thể thao"
+    ],
+    "images": [
+      "https://tse2.mm.bing.net/th/id/OIP.NvW5-w4Ddg5SNNzjNDdobwHaHa?pid=Api&h=220&P=0",
+      "https://tse4.mm.bing.net/th/id/OIP.woj470RsnOdI3IQHWFrSAwHaHa?pid=Api&h=220&P=0"
+    ],
+    "sold": 435,
+    "originalPrice": 352000
+  },
+  {
+    "id": "147",
+    "name": "Túi balo chống nước handmade",
+    "price": 420000,
+    "image": "https://tse2.mm.bing.net/th/id/OIP._SH2b0kk_j0iIQEZs-lH9AHaHa?pid=Api&h=220&P=0",
+    "description": "Túi balo chống nước được may thủ công với chất liệu đặc biệt. Thiết kế bền chắc, phù hợp cho mọi thời tiết.",
+    "category": "túi balo",
+    "colors": [
+      "Đen",
+      "Xám",
+      "Xanh",
+      "Cam"
+    ],
+    "types": [
+      "Nhỏ (15L)",
+      "Vừa (20L)",
+      "Lớn (30L)"
+    ],
+    "stock": 5,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "balo",
+      "chống nước",
+      "túi xách"
+    ],
+    "images": [
+      "https://tse2.mm.bing.net/th/id/OIP._SH2b0kk_j0iIQEZs-lH9AHaHa?pid=Api&h=220&P=0"
+    ],
+    "sold": 719
+  },
+  {
+    "id": "148",
+    "name": "Túi balo trẻ em handmade",
+    "price": 260000,
+    "image": "https://tse3.mm.bing.net/th/id/OIP.LQurBl_RK5prPczNbZfMNAHaMt?pid=Api&h=220&P=0",
+    "description": "Túi balo trẻ em được may thủ công với thiết kế đáng yêu. Kích thước phù hợp, an toàn cho trẻ em.",
+    "category": "túi balo",
+    "colors": [
+      "Hồng",
+      "Xanh",
+      "Vàng",
+      "Đỏ"
+    ],
+    "types": [
+      "Nhỏ (10L)",
+      "Vừa (15L)"
+    ],
+    "stock": 14,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "balo",
+      "trẻ em",
+      "túi xách"
+    ],
+    "images": [
+      "https://tse4.mm.bing.net/th/id/OIP.Wv4E_Q6wbytWPbBctuG_cQHaHa?pid=Api&h=220&P=0"
+    ],
+    "sold": 920
+  },
+  {
+    "id": "149",
+    "name": "Quần thổ cẩm handmade",
+    "price": 380000,
+    "image": "https://tse3.mm.bing.net/th/id/OIP.MQH9I1ULaagehlXr4ybXZQHaHa?pid=Api&h=220&P=0",
+    "description": "Quần được may từ vải thổ cẩm với hoa văn truyền thống. Thiết kế đẹp mắt, phù hợp cho các dịp lễ.",
+    "category": "sản phẩm từ thổ cẩm",
+    "colors": [
+      "Đỏ",
+      "Xanh",
+      "Vàng",
+      "Đen"
+    ],
+    "types": [
+      "Size S",
+      "Size M",
+      "Size L",
+      "Size XL"
+    ],
+    "stock": 9,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "quần",
+      "thổ cẩm",
+      "thời trang"
+    ],
+    "images": [
+      "https://tse4.mm.bing.net/th/id/OIP.OX-rLkR1LqbUiel2niQjVwHaHa?pid=Api&h=220&P=0",
+      "https://tse1.mm.bing.net/th/id/OIP.914-JYDZcUCZF69_7ibSJQHaJ4?pid=Api&h=220&P=0"
+    ],
+    "sold": 422
+  },
+  {
+    "id": "150",
+    "name": "Áo sơ mi thổ cẩm handmade",
+    "price": 400000,
+    "image": "https://tse3.mm.bing.net/th/id/OIP.n-Qt7cQmWrsMNpaCGfVUVAHaHa?pid=Api&h=220&P=0",
+    "description": "Áo sơ mi được may từ vải thổ cẩm với hoa văn độc đáo. Thiết kế đẹp mắt, mang đậm bản sắc văn hóa.",
+    "category": "sản phẩm từ thổ cẩm",
+    "colors": [
+      "Đỏ",
+      "Xanh",
+      "Vàng"
+    ],
+    "types": [
+      "Size S",
+      "Size M",
+      "Size L",
+      "Size XL"
+    ],
+    "stock": 8,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "áo sơ mi",
+      "thổ cẩm",
+      "thời trang"
+    ],
+    "images": [
+      "https://tse4.mm.bing.net/th/id/OIP.6LT6ZA9dpXgFreDeVNKwagHaHa?pid=Api&h=220&P=0",
+      "https://tse2.mm.bing.net/th/id/OIP.UmHlzGB5A6493zLzADERwAHaHa?pid=Api&h=220&P=0"
+    ],
+    "sold": 841,
+    "originalPrice": 438000
+  },
+  {
+    "id": "151",
+    "name": "Khăn tay thổ cẩm handmade",
+    "price": 150000,
+    "image": "https://tse4.mm.bing.net/th/id/OIP.rTfgKzzpQwtyqX0hF2zNVgHaLU?pid=Api&h=220&P=0",
+    "description": "Khăn tay được may từ vải thổ cẩm với hoa văn đẹp mắt. Chất liệu mềm mại, phù hợp sử dụng hàng ngày.",
+    "category": "sản phẩm từ thổ cẩm",
+    "colors": [
+      "Đỏ",
+      "Xanh",
+      "Vàng",
+      "Đen"
+    ],
+    "types": [
+      "Nhỏ (30x30cm)",
+      "Vừa (40x40cm)"
+    ],
+    "stock": 16,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "khăn tay",
+      "thổ cẩm",
+      "phụ kiện"
+    ],
+    "images": [
+      "https://tse1.mm.bing.net/th/id/OIP.IVluEy0XReF8ZLZWwqTYIwHaFj?pid=Api&h=220&P=0",
+      "https://tse1.mm.bing.net/th/id/OIP.mGsbpDPtiSlx2FcpQTJ5gwHaFc?pid=Api&h=220&P=0"
+    ],
+    "sold": 683
+  },
+  {
+    "id": "152",
+    "name": "Túi đựng điện thoại thổ cẩm handmade",
+    "price": 180000,
+    "image": "https://tse2.mm.bing.net/th/id/OIP.hGRHOfZ8S7_oPfbPkIztHAHaHa?pid=Api&h=220&P=0",
+    "description": "Túi đựng điện thoại được may từ vải thổ cẩm với hoa văn truyền thống. Thiết kế nhỏ gọn, đẹp mắt.",
+    "category": "sản phẩm từ thổ cẩm",
+    "colors": [
+      "Đỏ",
+      "Xanh",
+      "Vàng",
+      "Đen"
+    ],
+    "types": [
+      "Nhỏ",
+      "Vừa"
+    ],
+    "stock": 13,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "túi",
+      "thổ cẩm",
+      "phụ kiện"
+    ],
+    "images": [
+      "https://tse4.mm.bing.net/th/id/OIP.E13zyiCfqzLHWG-lSuGY9gHaFj?pid=Api&h=220&P=0",
+      "https://tse2.mm.bing.net/th/id/OIP.PMsDOtNayMZYanr0ylHpDQHaFj?pid=Api&h=220&P=0"
+    ],
+    "sold": 525
+  },
+  {
+    "id": "153",
+    "name": "Mũ thổ cẩm handmade",
+    "price": 240000,
+    "image": "https://tse3.mm.bing.net/th/id/OIP.QAhV-SZBuGxjgOPGjyig1QHaHa?pid=Api&h=220&P=0",
+    "description": "Mũ được may từ vải thổ cẩm với hoa văn độc đáo. Thiết kế đẹp mắt, phù hợp cho mọi lứa tuổi.",
+    "category": "sản phẩm từ thổ cẩm",
+    "colors": [
+      "Đỏ",
+      "Xanh",
+      "Vàng"
+    ],
+    "types": [
+      "Size M",
+      "Size L"
+    ],
+    "stock": 10,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "mũ",
+      "thổ cẩm",
+      "phụ kiện"
+    ],
+    "images": [
+      "https://tse1.mm.bing.net/th/id/OIP.Hlk6aWvGFleFFEzEQsQPuQHaHa?pid=Api&h=220&P=0",
+      "https://tse4.mm.bing.net/th/id/OIP.WqTwC-hFU46qzlxr-OQkgAHaGX?pid=Api&h=220&P=0"
+    ],
+    "sold": 960,
+    "originalPrice": 297000
+  },
+  {
+    "id": "154",
+    "name": "Túi đựng giày thổ cẩm handmade",
+    "price": 220000,
+    "image": "https://tse3.mm.bing.net/th/id/OIP.uCE1ebj1shLg0aYyIYxT3wHaJ4?pid=Api&h=220&P=0",
+    "description": "Túi đựng giày được may từ vải thổ cẩm với hoa văn truyền thống. Kích thước vừa phải, đẹp mắt.",
+    "category": "sản phẩm từ thổ cẩm",
+    "colors": [
+      "Đỏ",
+      "Xanh",
+      "Vàng",
+      "Đen"
+    ],
+    "types": [
+      "Nhỏ",
+      "Vừa",
+      "Lớn"
+    ],
+    "stock": 11,
+    "rating": 0,
+    "reviews": 0,
+    "tags": [
+      "handmade",
+      "túi",
+      "thổ cẩm",
+      "phụ kiện"
+    ],
+    "images": [
+      "https://tse4.mm.bing.net/th/id/OIP.GSuC2EeDU_AN_7Alq9fC2QHaFj?pid=Api&h=220&P=0"
+    ],
+    "sold": 298
+  },
+  {
+    "id": "155",
+    "name": "Sản phẩm Handmade giấy Phụ kiện",
+    "price": 126000,
+    "image": "https://tse3.mm.bing.net/th/id/OIP.DK5ROItsqrK4Y-XZ8CYGkAHaHa?pid=Api&h=220&P=0",
+    "description": "Mô tả cho sản phẩm handmade. Được làm thủ công từ giấy cao cấp.",
+    "category": "Phụ kiện",
+    "colors": [
+      "Đen",
+      "Đỏ",
+      "Trắng"
+    ],
+    "types": [
+      "Nhỏ",
+      "Vừa",
+      "Lớn"
+    ],
+    "stock": 21,
+    "rating": 0,
+    "reviews": 0,
+    "sold": 901,
+    "tags": [
+      "handmade",
+      "giấy",
+      "Phụ kiện"
+    ],
+    "images": [
+      "https://tse4.mm.bing.net/th/id/OIP.d3duxdxgz63N1qw43BjzDQHaHa?pid=Api&h=220&P=0"
+    ]
+  }
+]

@@ -2,11 +2,13 @@ import { useState, useEffect, useMemo } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { useCartActions } from './useCartActions';
 import { vouchersAPI } from '../services/api';
+import { useToast } from './useToast'; // Added useToast import
 
 export const useCartPage = () => {
     // Kế thừa các actions cơ bản của cart
     const cartActions = useCartActions();
     const { user } = useAuth();
+    const { addToast } = useToast(); // Initialize useToast
 
     // State cho vouchers
     const [ownedVouchers, setOwnedVouchers] = useState([]);

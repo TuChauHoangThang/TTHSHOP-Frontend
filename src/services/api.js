@@ -16,8 +16,12 @@ const fetchJson = async (endpoint, options = {}) => {
 };
 
 export const productsAPI = {
-    getAll: async () => fetchJson('/products'),
+    getAll: async (query = '') => fetchJson(`/products${query}`),
     getById: async (id) => fetchJson(`/products/${id}`),
+    update: async (id, data) => fetchJson(`/products/${id}`, {
+        method: 'PATCH',
+        body: JSON.stringify(data),
+    }),
     search: async (keyword) => fetchJson(`/products?q=${encodeURIComponent(keyword)}`),
     getByCategory: async (category) => {
         const products = await productsAPI.getAll();
@@ -70,6 +74,7 @@ export const reviewsAPI = {
                 userName: reviewData.userName || 'Khách hàng',
                 rating: parseInt(reviewData.rating),
                 comment: reviewData.comment.trim(),
+                media: reviewData.media || [],
                 createdAt: new Date().toISOString(),
             }),
         });
@@ -323,7 +328,12 @@ export const ordersAPI = {
             if (product.stock < item.quantity) {
                 throw new Error(`Sản phẩm "${product.name}" chỉ còn ${product.stock} sản phẩm`);
             }
-            subtotal += product.price * item.quantity;
+            const basePrice = product.price;
+            const finalPrice = product.types && item.options?.type
+                ? basePrice + (product.types.indexOf(item.options.type) * 30000)
+                : basePrice;
+
+            subtotal += finalPrice * item.quantity;
             stockUpdates.push({
                 id: product.id,
                 stock: product.stock - item.quantity,
@@ -331,7 +341,7 @@ export const ordersAPI = {
             return {
                 productId: item.productId,
                 quantity: item.quantity,
-                price: product.price,
+                price: finalPrice,
                 productName: product.name,
                 productImage: product.image,
                 colors: item.options?.color || null,
@@ -461,3 +471,31 @@ export const vouchersAPI = {
         });
     }
 };
+
+export const notificationsAPI = {
+    getAll: async (userId) => {
+        // Fetch ordered by time desc
+        const res = await fetchJson(`/notifications?userId=${userId}&_sort=time&_order=desc`);
+        return res;
+    },
+    create: async (userId, type, message) => {
+        const newNotif = {
+            userId,
+            type,
+            message,
+            time: new Date().toISOString(),
+            read: false
+        };
+        return fetchJson('/notifications', {
+            method: 'POST',
+            body: JSON.stringify(newNotif)
+        });
+    },
+    markAsRead: async (id) => {
+        return fetchJson(`/notifications/${id}`, {
+            method: 'PATCH',
+            body: JSON.stringify({ read: true })
+        });
+    }
+};
+

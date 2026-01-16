@@ -35,10 +35,9 @@ export const useFavorites = () => {
     }
   };
 
-  // Kiểm tra sản phẩm có trong danh sách yêu thích không
   const isFavorite = (productId) => {
     if (!user) return false;
-    return favorites.includes(parseInt(productId));
+    return favorites.some(id => String(id) === String(productId));
   };
 
   // Toggle yêu thích (thêm/xóa)

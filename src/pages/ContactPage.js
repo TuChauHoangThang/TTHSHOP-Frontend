@@ -1,32 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useContactPage } from '../hooks/useContactPage';
 import { Mail, Phone, MapPin, Clock, Send, Facebook, Instagram, Twitter } from 'lucide-react';
 import '../styles/ContactPage.css';
 
 const ContactPage = () => {
-    const [formData, setFormData] = useState({
-        name: '',
-        email: '',
-        subject: '',
-        message: ''
-    });
-    const [submitted, setSubmitted] = useState(false);
-
-    const handleChange = (e) => {
-        setFormData({
-            ...formData,
-            [e.target.name]: e.target.value
-        });
-    };
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log('Form data:', formData);
-        setSubmitted(true);
-        setTimeout(() => {
-            setSubmitted(false);
-            setFormData({ name: '', email: '', subject: '', message: '' });
-        }, 3000);
-    };
+    const {
+        formData,
+        submitted,
+        handleChange,
+        handleSubmit
+    } = useContactPage();
 
     return (
         <div className="contact-page">

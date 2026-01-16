@@ -1,180 +1,41 @@
-import React, { useState, useEffect, useMemo } from 'react';
-import { useNavigate, useSearchParams } from 'react-router-dom';
-import { useProducts } from '../hooks/useProducts';
-import { useCart } from '../context/CartContext';
-import { useAuth } from '../context/AuthContext';
-import { usePagination } from '../hooks/usePagination';
-import { useFavorites } from '../hooks/useFavorites';
-import { productsAPI } from '../services/api';
+import React from 'react';
+import { useProductsPage } from '../hooks/useProductsPage';
 import { formatPrice } from '../utils/formatPrice';
 import { FontAwesomeIcon, icons } from '../utils/icons';
 import Pagination from '../components/Pagination';
 import '../styles/ProductsPage.css';
-import '../styles/toggle-btn.css';
 
 const ProductsPage = () => {
-  const navigate = useNavigate();
-  const [searchParams, setSearchParams] = useSearchParams();
-  const { products, loading, error, loadProducts, searchProducts } = useProducts();
-  const { addToCart } = useCart();
-  const { user } = useAuth();
-  const { favorites, isFavorite, toggleFavorite } = useFavorites();
-
-  const [searchKeyword, setSearchKeyword] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('');
-  const [sortBy, setSortBy] = useState('default');
-  const [categories, setCategories] = useState([]);
-  const [filteredProducts, setFilteredProducts] = useState([]);
-  const [minPrice, setMinPrice] = useState('');
-  const [maxPrice, setMaxPrice] = useState('');
-  const [isSidebarOpen, setIsSidebarOpen] = useState(window.innerWidth > 768);
-
-  // Động số sản phẩm mỗi trang dựa vào sidebar
-  const itemsPerPage = useMemo(() => isSidebarOpen ? 6 : 8, [isSidebarOpen]);
-
-  // Sử dụng usePagination hook
   const {
+    loading,
+    error,
+    searchKeyword,
+    setSearchKeyword,
+    selectedCategory,
+    sortBy,
+    categories,
+    filteredProducts,
+    minPrice,
+    setMinPrice,
+    maxPrice,
+    setMaxPrice,
+    isSidebarOpen,
+    setIsSidebarOpen,
     currentPage,
     totalPages,
-    paginatedItems: paginatedProducts,
-    handlePageChange
-  } = usePagination(filteredProducts, itemsPerPage, true);
-
-  useEffect(() => {
-    loadCategories();
-  }, []);
-
-  useEffect(() => {
-    // Lấy category từ URL query params và cập nhật state
-    const categoryFromUrl = searchParams.get('category');
-    if (categoryFromUrl) {
-      setSelectedCategory(decodeURIComponent(categoryFromUrl));
-    } else {
-      setSelectedCategory('');
-    }
-
-    // --- THÊM MỚI: Lấy search từ URL và cập nhật vào searchKeyword ---
-    const searchFromUrl = searchParams.get('search');
-    if (searchFromUrl) {
-      setSearchKeyword(decodeURIComponent(searchFromUrl));
-    }
-    // -----------------------------------------------------------
-  }, [searchParams]);
-
-  useEffect(() => {
-    filterAndSortProducts();
-  }, [products, selectedCategory, sortBy, searchKeyword, minPrice, maxPrice]);
-
-  const loadCategories = async () => {
-    try {
-      const cats = await productsAPI.getCategories();
-      setCategories(cats);
-    } catch (err) {
-      console.error('Lỗi tải danh mục:', err);
-    }
-  };
-
-
-  const filterAndSortProducts = async () => {
-    let filtered = [...products];
-
-    // Lọc theo danh mục
-    if (selectedCategory) {
-      filtered = filtered.filter(p => p.category === selectedCategory);
-    }
-
-    // Tìm kiếm
-    if (searchKeyword) {
-      filtered = filtered.filter(p =>
-        p.name.toLowerCase().includes(searchKeyword.toLowerCase()) ||
-        (p.description && p.description.toLowerCase().includes(searchKeyword.toLowerCase())) ||
-        (p.tags && p.tags.some(tag => tag.toLowerCase().includes(searchKeyword.toLowerCase())))
-      );
-    }
-
-    // Lọc theo giá
-    if (minPrice) {
-      const min = parseFloat(minPrice);
-      if (!isNaN(min)) {
-        filtered = filtered.filter(p => p.price >= min);
-      }
-    }
-    if (maxPrice) {
-      const max = parseFloat(maxPrice);
-      if (!isNaN(max)) {
-        filtered = filtered.filter(p => p.price <= max);
-      }
-    }
-
-    // Sắp xếp
-    const sorted = await productsAPI.sort(filtered, sortBy);
-    setFilteredProducts(sorted);
-  };
-
-  const handleClearFilters = () => {
-    setSelectedCategory('');
-    setMinPrice('');
-    setMaxPrice('');
-    setSearchKeyword('');
-    setSearchParams({});
-  };
-
-  const handleSearch = (e) => {
-    e.preventDefault();
-    if (searchKeyword.trim()) {
-      // --- THÊM MỚI: Đồng bộ từ khóa lên URL khi nhấn tìm kiếm tại trang này ---
-      setSearchParams({ search: searchKeyword.trim() });
-      // ---------------------------------------------------------------------
-      searchProducts(searchKeyword);
-    } else {
-      loadProducts();
-      setSearchParams({}); // Thêm: Xóa param trên URL nếu rỗng
-    }
-  };
-
-  const handleCategoryChange = (category) => {
-    setSelectedCategory(category);
-    // Cập nhật URL khi category thay đổi
-    if (category) {
-      setSearchParams({ category: category });
-    } else {
-      setSearchParams({});
-    }
-  };
-
-  const handleSortChange = (e) => {
-    setSortBy(e.target.value);
-  };
-
-  const handleAddToCart = async (productId) => {
-    try {
-      await addToCart(productId, 1);
-      alert('Đã thêm vào giỏ hàng!');
-    } catch (err) {
-      alert(err.message);
-    }
-  };
-
-  const handleToggleFavorite = async (productId) => {
-    if (!user) {
-      const confirmLogin = window.confirm('Vui lòng đăng nhập để thêm sản phẩm vào yêu thích. Bạn có muốn đăng nhập ngay bây giờ?');
-      if (confirmLogin) {
-        navigate('/login');
-      }
-      return;
-    }
-
-    const result = await toggleFavorite(productId);
-    if (result.success) {
-      alert(result.message);
-    } else {
-      alert(result.message);
-    }
-  };
-
-  const handleProductClick = (productId) => {
-    navigate(`/products/${productId}`);
-  };
+    paginatedProducts,
+    handlePageChange,
+    handleClearFilters,
+    handleSearch,
+    handleCategoryChange,
+    handleSortChange,
+    handleAddToCart,
+    handleToggleFavorite,
+    handleProductClick,
+    itemsPerPage,
+    products,
+    isFavorite
+  } = useProductsPage();
 
   if (loading) {
     return (

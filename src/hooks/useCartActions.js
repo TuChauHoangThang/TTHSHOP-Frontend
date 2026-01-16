@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useCart } from '../context/CartContext';
+import { useToast } from './useToast';
 
 // Helper để tạo key duy nhất cho mỗi item trong giỏ (dựa trên ID và options)
 const getItemKey = (productId, options) => {
@@ -13,6 +14,7 @@ export const useCartActions = () => {
         removeFromCart,
         clearCart,
     } = useCart();
+    const { addToast } = useToast();
 
     const [updatingId, setUpdatingId] = useState(null);
     const [selectedItems, setSelectedItems] = useState([]); // Mảng các itemKey
@@ -47,11 +49,13 @@ export const useCartActions = () => {
                     }
                 });
                 setSelectedItems([]);
+                addToast(`Đã xóa ${selectedItems.length} sản phẩm`, 'success');
             }
         } else {
             if (window.confirm('Bạn có chắc chắn muốn xóa toàn bộ giỏ hàng?')) {
                 clearCart();
                 setSelectedItems([]);
+                addToast('Đã xóa toàn bộ giỏ hàng', 'success');
             }
         }
     };
@@ -59,16 +63,17 @@ export const useCartActions = () => {
     // Cập nhật số lượng
     const handleQuantityChange = async (productId, newQuantity, options = {}) => {
         if (newQuantity < 1) {
-            if (window.confirm('Bạn có chắc chắn muốn xóa sản phẩm này khỏi giỏ hàng?')) {
-                removeFromCart(productId, options);
-            }
+            // Tự động xóa khi giảm về 0
+            removeFromCart(productId, options);
+            addToast('Đã xóa sản phẩm khỏi giỏ hàng', 'success');
             return;
         }
         setUpdatingId(getItemKey(productId, options));
         try {
             await updateQuantity(productId, newQuantity, options);
         } catch (error) {
-            alert(error.message);
+            console.error(error);
+            addToast('Lỗi khi cập nhật số lượng', 'error');
         } finally {
             setUpdatingId(null);
         }
@@ -77,7 +82,7 @@ export const useCartActions = () => {
     // Tính toán số liệu
     const subtotal = cartDetails
         .filter(item => selectedItems.includes(getItemKey(item.productId, item.options)))
-        .reduce((sum, item) => sum + (item.product.price * item.quantity), 0);
+        .reduce((sum, item) => sum + (item.product.finalPrice * item.quantity), 0);
 
     const shipping = (subtotal > 500000 || subtotal === 0) ? 0 : 30000;
     const total = subtotal + shipping;
