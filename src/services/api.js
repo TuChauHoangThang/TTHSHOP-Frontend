@@ -1,5 +1,4 @@
-const API_URL =
-    process.env.REACT_APP_API_URL || 'http://localhost:3001';
+const API_URL = '/api';
 
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -474,7 +473,6 @@ export const vouchersAPI = {
 
 export const notificationsAPI = {
     getAll: async (userId) => {
-        // Fetch ordered by time desc
         const res = await fetchJson(`/notifications?userId=${userId}&_sort=time&_order=desc`);
         return res;
     },
