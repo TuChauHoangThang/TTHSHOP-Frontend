@@ -1,13 +1,11 @@
 import { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { vouchersAPI, notificationsAPI } from '../services/api';
-import { useToast } from '../context/ToastContext';
 import { useLocation, useNavigate } from "react-router-dom";
 
 export const useLuckySpin = () => {
     const { user } = useAuth();
     const navigate = useNavigate();
-    const { addToast } = useToast();
     const location = useLocation();
     const [vouchers, setVouchers] = useState([]);
     const [userVouchers, setUserVouchers] = useState([]);
@@ -130,10 +128,7 @@ export const useLuckySpin = () => {
         }
 
         if (hasSpunToday) {
-            try {
-                await notificationsAPI.create(user.id, 'system', 'Bạn đã sử dụng hết lượt quay hôm nay.');
-            } catch (e) { console.error(e); }
-            addToast('Bạn đã hết lượt quay hôm nay. Quay lại mai nhé!', 'info');
+            await notificationsAPI.create(user.id, 'system', 'Bạn đã sử dụng hết lượt quay hôm nay. Vui lòng quay lại vào ngày mai!');
             return;
         }
 
@@ -181,7 +176,6 @@ export const useLuckySpin = () => {
 
                 // THÊM THÔNG BÁO VÀO DB
                 await notificationsAPI.create(user.id, 'promotion', `Chúc mừng! Bạn đã quay trúng voucher giảm ${selectedVoucher.code}`);
-                addToast(`Chúc mừng! Bạn nhận được voucher ${selectedVoucher.code}`, 'success');
 
                 console.log("Đã lưu voucher vào ví người dùng:", newVoucher);
 

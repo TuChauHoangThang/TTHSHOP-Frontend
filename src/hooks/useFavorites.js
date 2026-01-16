@@ -26,7 +26,7 @@ export const useFavorites = () => {
     try {
       setLoading(true);
       const favoriteProducts = await favoritesAPI.getAll(user.id);
-      setFavorites(favoriteProducts.map(p => parseInt(p.id)));
+      setFavorites(favoriteProducts.map(p => p.id));
     } catch (err) {
       console.error('Lỗi tải yêu thích:', err);
       setFavorites([]);
@@ -35,10 +35,9 @@ export const useFavorites = () => {
     }
   };
 
-  // Kiểm tra sản phẩm có trong danh sách yêu thích không
   const isFavorite = (productId) => {
     if (!user) return false;
-    return favorites.includes(parseInt(productId));
+    return favorites.some(id => String(id) === String(productId));
   };
 
   // Toggle yêu thích (thêm/xóa)

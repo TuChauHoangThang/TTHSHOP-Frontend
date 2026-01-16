@@ -5,7 +5,7 @@ import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
 import { usePagination } from './usePagination';
 import { useFavorites } from './useFavorites';
-import { useToast } from '../context/ToastContext';
+import { useToast } from './useToast';
 import { productsAPI, notificationsAPI } from '../services/api';
 
 export const useProductsPage = () => {
@@ -14,8 +14,8 @@ export const useProductsPage = () => {
     const { products, loading, error, loadProducts, searchProducts } = useProducts();
     const { addToCart } = useCart();
     const { user } = useAuth();
-    const { addToast } = useToast();
     const { isFavorite, toggleFavorite } = useFavorites();
+    const { addToast } = useToast();
 
     const [searchKeyword, setSearchKeyword] = useState('');
     const [selectedCategory, setSelectedCategory] = useState('');
@@ -144,6 +144,7 @@ export const useProductsPage = () => {
             addToast('Đã thêm sản phẩm vào giỏ hàng', 'success');
         } catch (err) {
             console.error(err);
+            addToast('Lỗi khi thêm vào giỏ hàng', 'error');
         }
     };
 
@@ -159,9 +160,10 @@ export const useProductsPage = () => {
         const result = await toggleFavorite(productId);
         if (result.success) {
             await notificationsAPI.create(user.id, 'system', result.message);
-            addToast(result.message, result.isFavorite ? 'success' : 'info');
+            addToast(result.message, 'success');
         } else {
             console.error(result.message);
+            addToast(result.message || 'Lỗi khi cập nhật yêu thích', 'error');
         }
     };
 

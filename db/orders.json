@@ -406,5 +406,39 @@
     "createdAt": "2026-01-15T10:14:37.166Z",
     "updatedAt": "2026-01-15T10:14:37.166Z",
     "id": "iYG-Yhb"
+  },
+  {
+    "userId": "C_YbsiQ",
+    "items": [
+      {
+        "productId": 107,
+        "quantity": 1,
+        "price": 162000,
+        "productName": "Búp bê robot handmade",
+        "productImage": "https://tse2.mm.bing.net/th/id/OIP.5_dLGHRLuQ82RDoVH4WkYgHaHb?pid=Api&h=220&P=0",
+        "colors": "Đỏ",
+        "types": "Vừa (25cm)"
+      }
+    ],
+    "totals": {
+      "subtotal": 162000,
+      "shippingFee": 30000,
+      "grandTotal": 192000
+    },
+    "shippingAddress": {
+      "fullName": "Thang",
+      "phone": "0778504450",
+      "email": "abc113@gmail.com",
+      "address": "58 Ich Thanh",
+      "ward": "Truong Thanh",
+      "district": "Quan 9",
+      "city": "Ho Chi Minh",
+      "note": ""
+    },
+    "paymentMethod": "cod",
+    "status": "pending",
+    "createdAt": "2026-01-16T00:21:21.264Z",
+    "updatedAt": "2026-01-16T00:21:21.264Z",
+    "id": "HRCzG4z"
   }
 ]

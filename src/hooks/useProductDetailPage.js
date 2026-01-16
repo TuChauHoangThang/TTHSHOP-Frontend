@@ -2,7 +2,7 @@ import { useState, useEffect, useMemo } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
-import { useToast } from '../context/ToastContext';
+import { useToast } from './useToast';
 import { productsAPI, favoritesAPI, notificationsAPI } from '../services/api';
 import { useReviews } from './useReviews';
 
@@ -112,10 +112,11 @@ export const useProductDetailPage = (id) => {
             setAdding(true);
             await addToCart(product.id, quantity, { color: selectedColor, type: selectedType });
             if (user) await notificationsAPI.create(user.id, 'order', `Đã thêm sản phẩm ${product.name} vào giỏ hàng`);
-            addToast(`Đã thêm ${quantity} sản phẩm vào giỏ hàng`, 'success');
+            addToast(`Đã thêm ${product.name} vào giỏ`, 'success');
             setQuantity(1);
         } catch (err) {
             console.error(err);
+            addToast('Lỗi khi thêm vào giỏ hàng', 'error');
         } finally {
             setAdding(false);
         }
@@ -150,15 +151,16 @@ export const useProductDetailPage = (id) => {
             if (isFavorite) {
                 await favoritesAPI.removeFromFavorites(product.id, user.id);
                 await notificationsAPI.create(user.id, 'system', 'Đã xóa sản phẩm khỏi yêu thích');
-                addToast('Đã xóa sản phẩm khỏi yêu thích', 'info');
+                addToast('Đã xóa khỏi yêu thích', 'success');
             } else {
                 await favoritesAPI.addToFavorites(product.id, user.id);
                 await notificationsAPI.create(user.id, 'system', 'Đã thêm sản phẩm vào yêu thích');
-                addToast('Đã thêm sản phẩm vào yêu thích', 'success');
+                addToast('Đã thêm vào yêu thích', 'success');
             }
             setIsFavorite(!isFavorite);
         } catch (err) {
             console.error(err);
+            addToast('Lỗi khi cập nhật yêu thích', 'error');
         }
     };
 
@@ -196,7 +198,7 @@ export const useProductDetailPage = (id) => {
             setSubmittingReview(true);
             await submitReview(reviewRating, reviewComment, reviewMedia, editingReviewId);
             if (user) await notificationsAPI.create(user.id, 'system', editingReviewId ? 'Đã cập nhật đánh giá' : 'Cảm ơn bạn đã đánh giá sản phẩm');
-            addToast(editingReviewId ? 'Đã cập nhật đánh giá' : 'Gửi đánh giá thành công', 'success');
+            addToast('Gửi đánh giá thành công', 'success');
             setReviewComment('');
             setReviewRating(5);
             setReviewMedia([]);
@@ -204,6 +206,7 @@ export const useProductDetailPage = (id) => {
             setEditingReviewId(null);
         } catch (err) {
             setReviewError(err.message || 'Có lỗi xảy ra khi gửi đánh giá');
+            addToast(err.message || 'Lỗi gửi đánh giá', 'error');
         } finally {
             setSubmittingReview(false);
         }
@@ -228,6 +231,7 @@ export const useProductDetailPage = (id) => {
             setEditingReviewId(null);
         } catch (err) {
             console.error(err);
+            addToast('Lỗi khi xóa đánh giá', 'error');
         }
     };
 

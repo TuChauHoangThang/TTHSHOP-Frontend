@@ -5,9 +5,8 @@ import { formatPrice } from '../utils/formatPrice';
 import { FontAwesomeIcon, icons } from '../utils/icons';
 import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
-import { useToast } from '../context/ToastContext';
+import { useToast } from '../hooks/useToast';
 import Pagination from '../components/Pagination';
-import '../styles/ProductsPage.css';
 
 const BestSellingPage = () => {
     const navigate = useNavigate();
@@ -51,7 +50,7 @@ const BestSellingPage = () => {
 
             if (user) {
                 const favs = await favoritesAPI.getAll(user.id);
-                setFavorites(favs.map(p => parseInt(p.id)));
+                setFavorites(favs.map(p => p.id));
             }
         } catch (error) {
             console.error("Error loading best selling products:", error);
@@ -69,6 +68,7 @@ const BestSellingPage = () => {
             addToast('Đã thêm sản phẩm vào giỏ hàng', 'success');
         } catch (err) {
             console.error(err);
+            addToast('Lỗi khi thêm vào giỏ hàng', 'error');
         }
     };
 
@@ -82,16 +82,17 @@ const BestSellingPage = () => {
             if (isFav) {
                 await favoritesAPI.removeFromFavorites(productId, user.id);
                 await notificationsAPI.create(user.id, 'system', 'Đã xóa sản phẩm khỏi yêu thích');
-                addToast('Đã xóa sản phẩm khỏi yêu thích', 'info');
+                addToast('Đã xóa khỏi yêu thích', 'success');
             } else {
                 await favoritesAPI.addToFavorites(productId, user.id);
                 await notificationsAPI.create(user.id, 'system', 'Đã thêm sản phẩm vào yêu thích');
-                addToast('Đã thêm sản phẩm vào yêu thích', 'success');
+                addToast('Đã thêm vào yêu thích', 'success');
             }
             const newFavs = await favoritesAPI.getAll(user.id);
-            setFavorites(newFavs.map(p => parseInt(p.id)));
+            setFavorites(newFavs.map(p => p.id));
         } catch (err) {
             console.error(err);
+            addToast('Lỗi khi cập nhật yêu thích', 'error');
         }
     };
 
@@ -111,7 +112,7 @@ const BestSellingPage = () => {
                 <>
                     <div className="products-grid">
                         {displayProducts.map(product => {
-                            const isFavorite = favorites.includes(product.id);
+                            const isFavorite = favorites.some(favId => String(favId) === String(product.id));
                             const discountPercent = product.originalPrice > product.price
                                 ? Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)
                                 : 0;

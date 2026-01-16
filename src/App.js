@@ -5,7 +5,7 @@ import { CartProvider } from './context/CartContext';
 import ProtectedAuthRoute from './components/ProtectedAuthRoute';
 import Layout from './components//Layout/Layout';
 import ProtectedRoute from './components/ProtectedRoute';
-import ScrollToTop from './components/ScrollToTop';
+import ScrollToTopOnNavigate from './components/ScrollToTopOnNavigate';
 import BlogPage from './pages/BlogPage';
 import BlogDetailPage from './pages/BlogDetailPage';
 
@@ -22,6 +22,11 @@ import FavoritePage from './pages/FavoritePage';
 import ContactPage from './pages/ContactPage';
 import BestSellingPage from './pages/BestSellingPage';
 import FlashSalePage from './pages/FlashSalePage';
+import AboutPage from './pages/AboutPage';
+import ShippingPolicyPage from './pages/ShippingPolicyPage';
+import ReturnPolicyPage from './pages/ReturnPolicyPage';
+import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
+import TermsPage from './pages/TermsPage';
 
 import './styles/App.css';
 
@@ -30,8 +35,8 @@ import { ToastProvider } from './context/ToastContext';
 function App() {
     return (
         <Router>
-            <AuthProvider>
-                <ToastProvider>
+            <ToastProvider>
+                <AuthProvider>
                     <CartProvider>
                         <Layout>
                             <Routes>
@@ -85,13 +90,18 @@ function App() {
                                         </ProtectedRoute>
                                     }
                                 />
+                                <Route path="/about" element={<AboutPage />} />
+                                <Route path="/shipping-policy" element={<ShippingPolicyPage />} />
+                                <Route path="/return-policy" element={<ReturnPolicyPage />} />
+                                <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+                                <Route path="/terms" element={<TermsPage />} />
                             </Routes>
 
-                            <ScrollToTop />
+                            <ScrollToTopOnNavigate />
                         </Layout>
                     </CartProvider>
-                </ToastProvider>
-            </AuthProvider>
+                </AuthProvider>
+            </ToastProvider>
         </Router>
     );
 }

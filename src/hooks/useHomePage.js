@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useProducts } from './useProducts';
 import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
-import { useToast } from '../context/ToastContext';
+import { useToast } from './useToast';
 import { favoritesAPI, notificationsAPI } from '../services/api';
 
 export const useHomePage = () => {
@@ -46,7 +46,7 @@ export const useHomePage = () => {
         if (user) {
             try {
                 const favoriteProducts = await favoritesAPI.getAll(user.id);
-                setFavorites(favoriteProducts.map(p => parseInt(p.id)));
+                setFavorites(favoriteProducts.map(p => p.id));
             } catch (err) {
                 console.error('Lỗi tải yêu thích:', err);
                 setFavorites([]);
@@ -65,6 +65,7 @@ export const useHomePage = () => {
             addToast('Đã thêm sản phẩm vào giỏ hàng', 'success');
         } catch (err) {
             console.error(err);
+            addToast('Lỗi khi thêm vào giỏ hàng', 'error');
         }
     };
 
@@ -82,15 +83,16 @@ export const useHomePage = () => {
             if (isFavorite) {
                 await favoritesAPI.removeFromFavorites(productId, user.id);
                 await notificationsAPI.create(user.id, 'system', 'Đã xóa sản phẩm khỏi yêu thích');
-                addToast('Đã xóa sản phẩm khỏi yêu thích', 'info');
+                addToast('Đã xóa khỏi yêu thích', 'success');
             } else {
                 await favoritesAPI.addToFavorites(productId, user.id);
                 await notificationsAPI.create(user.id, 'system', 'Đã thêm sản phẩm vào yêu thích');
-                addToast('Đã thêm sản phẩm vào yêu thích', 'success');
+                addToast('Đã thêm vào yêu thích', 'success');
             }
             loadFavorites();
         } catch (err) {
             console.error(err);
+            addToast('Lỗi khi cập nhật yêu thích', 'error');
         }
     };
 

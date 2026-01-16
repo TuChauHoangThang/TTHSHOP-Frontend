@@ -103,18 +103,22 @@ const CartPage = () => {
                     </div>
                     <div className="cart-item-controls">
                       <div className="control-left-group">
-                        <div className="quantity-control">
+                        <div className="cart-quantity-selector">
                           <button
                             className="quantity-btn"
                             onClick={() => handleQuantityChange(item.productId, item.quantity - 1, item.options)}
-                            disabled={item.quantity <= 1 || updatingId === itemKey}
-                          >-</button>
+                            disabled={updatingId === itemKey}
+                          >
+                            <FontAwesomeIcon icon={icons.minus} />
+                          </button>
                           <input type="number" value={item.quantity} readOnly className="quantity-input" />
                           <button
                             className="quantity-btn"
                             onClick={() => handleQuantityChange(item.productId, item.quantity + 1, item.options)}
                             disabled={item.quantity >= item.product.stock || updatingId === itemKey}
-                          >+</button>
+                          >
+                            <FontAwesomeIcon icon={icons.plus} />
+                          </button>
                         </div>
                         <div className="cart-item-total">
                           <span className="item-total-price">{formatPrice((item.product.finalPrice || item.product.price) * item.quantity)}</span>

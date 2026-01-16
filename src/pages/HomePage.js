@@ -136,7 +136,7 @@ const HomePage = () => {
                 ) : (
                     <div className="products-grid">
                         {bestSellingProducts.map(product => {
-                            const isFavorite = favorites.includes(product.id);
+                            const isFavorite = favorites.some(favId => String(favId) === String(product.id));
                             return (
                                 <div key={product.id} className="product-card">
                                     <div
@@ -223,7 +223,7 @@ const HomePage = () => {
                     </div>
                     <div className="products-grid">
                         {discountedProducts.map(product => {
-                            const isFavorite = favorites.includes(product.id);
+                            const isFavorite = favorites.some(favId => String(favId) === String(product.id));
                             const discountPercent = Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100);
 
                             return (

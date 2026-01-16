@@ -93,7 +93,6 @@ const FavoritePage = () => {
                     className="favorite-remove-btn"
                     onClick={(e) => {
                       e.stopPropagation();
-                      e.stopPropagation();
                       handleRemoveFavorite(product.id);
                     }}
                     title="Xóa khỏi yêu thích"

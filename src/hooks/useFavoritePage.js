@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { useCart } from '../context/CartContext';
 import { usePagination } from './usePagination';
-import { useToast } from '../context/ToastContext';
+import { useToast } from './useToast';
 import { favoritesAPI, notificationsAPI } from '../services/api';
 
 export const useFavoritePage = () => {
@@ -40,6 +40,7 @@ export const useFavoritePage = () => {
             setError('');
         } catch (err) {
             setError(err.message || 'Có lỗi xảy ra khi tải danh sách yêu thích');
+            addToast(err.message || 'Lỗi tải danh sách yêu thích', 'error');
         } finally {
             setLoading(false);
         }
@@ -49,10 +50,11 @@ export const useFavoritePage = () => {
         try {
             await favoritesAPI.removeFromFavorites(productId, user.id);
             await notificationsAPI.create(user.id, 'system', 'Đã xóa sản phẩm khỏi yêu thích');
-            addToast('Đã xóa sản phẩm khỏi yêu thích', 'info');
             await loadFavorites();
+            addToast('Đã xóa sản phẩm khỏi yêu thích', 'success');
         } catch (err) {
             console.error(err.message || 'Có lỗi xảy ra khi xóa sản phẩm khỏi yêu thích');
+            addToast(err.message || 'Lỗi khi xóa sản phẩm', 'error');
         }
     };
 
@@ -63,6 +65,7 @@ export const useFavoritePage = () => {
             addToast('Đã thêm sản phẩm vào giỏ hàng', 'success');
         } catch (err) {
             console.error(err.message || 'Có lỗi xảy ra khi thêm vào giỏ hàng');
+            addToast(err.message || 'Lỗi thêm giỏ hàng', 'error');
         }
     };
 
