@@ -14,9 +14,6 @@ const fetchJson = async (endpoint, options = {}) => {
     return res.json();
 };
 
-/* =========================================
-   LOCAL STORAGE HELPERS (PERSISTENCE SYNC)
-   ========================================= */
 const getStorage = (key) => {
     try {
         return JSON.parse(localStorage.getItem(key) || '[]');
@@ -71,7 +68,6 @@ export const productsAPI = {
     },
 };
 
-// --- Reviews API (Hybrid: Server + Local) ---
 export const reviewsAPI = {
     getByProductId: async (productId) => {
         // 1. Get from Server
@@ -593,13 +589,13 @@ export const vouchersAPI = {
 
 export const notificationsAPI = {
     getAll: async (userId) => {
-        // 1. Server
+        // Server
         let serverNotifs = [];
         try {
             serverNotifs = await fetchJson(`/notifications?userId=${userId}&_sort=time&_order=desc`);
         } catch (e) { }
 
-        // 2. Local
+        // Local
         const localNotifs = getStorage('local_notifications').filter(n => String(n.userId) === String(userId));
 
         const all = [...localNotifs, ...serverNotifs];
